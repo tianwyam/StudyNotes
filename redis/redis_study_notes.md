@@ -1,11 +1,11 @@
 
-Redis
+# Redis 学习笔记
 
-1、常用的命令：
+## 1、常用的命令：
 
 
-1、字符串 - string
-（value<=512MB）
+### 1、字符串 - string
+	（value<=512MB）
 
 Set key value  -- 设置key 
 Get key  -- 获取
