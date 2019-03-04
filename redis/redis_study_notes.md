@@ -7,25 +7,31 @@
 ### 1、字符串 - string
 	（value<=512MB）
 
-Set key value  -- 设置key 
-Get key  -- 获取
-Del key  -- 删除
-Type key  -- 判断类型
+~~~
+set key value  -- 设置key 
 
-Incr key  -- 当存储的字符串是整数类型，让键值递增，并返回递增后的值（key不存在，则返回0；不是整型，则报错）
-	Incrby key num  -- 以num递增
+get key  -- 获取
 
-Decr key  -- 递减
-	Decrby key num  -- 以num递减
+del key  -- 删除
 
+type key  -- 判断类型
 
-Append key value  -- 向尾部增加
+incr key  -- 当存储的字符串是整数类型，让键值递增，并返回递增后的值（key不存在，则返回0；不是整型，则报错）
+	incrby key num  -- 以num递增
 
-Strlen key  -- 获取字符串的长度
-
+decr key  -- 递减
+	decrby key num  -- 以num递减
 
 
-2、散列类型 - map
+append key value  -- 向尾部增加
+
+strlen key  -- 获取字符串的长度
+
+~~~
+
+
+### 2、散列类型 - map
+
 
 Hset key field value  -- 赋值
 Hget key field  -- 取值
