@@ -101,16 +101,17 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
     private final Condition notEmpty; //空条件 
     private final Condition notFull; //满条件 
     // 构造函数 初始化锁 及 满/空条件
-public ArrayBlockingQueue(int capacity, boolean fair) {
+	public ArrayBlockingQueue(int capacity, boolean fair) {
         if (capacity <= 0)
             throw new IllegalArgumentException();
         this.items = new Object[capacity];
         lock = new ReentrantLock(fair);
         notEmpty = lock.newCondition();
         notFull =  lock.newCondition();
-}
-// 添加元素
-public void put(E e) throws InterruptedException {
+	}
+
+	// 添加元素
+	public void put(E e) throws InterruptedException {
         checkNotNull(e);
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
@@ -121,16 +122,17 @@ public void put(E e) throws InterruptedException {
         } finally {
             lock.unlock();
         }
-}
-// 插入元素
-private void insert(E x) {
+	}
+
+	// 插入元素
+	private void insert(E x) {
         items[putIndex] = x;
         putIndex = inc(putIndex);
         ++count;
         notEmpty.signal(); // 通知 当前队列非空，唤醒notEmpty.await()
-}
+	}
 
-public E take() throws InterruptedException {
+	public E take() throws InterruptedException {
         final ReentrantLock lock = this.lock;
         lock.lockInterruptibly();
         try {
@@ -140,9 +142,10 @@ public E take() throws InterruptedException {
         } finally {
             lock.unlock();
         }
-}
-// 获取元素
-private E extract() {
+	}
+
+	// 获取元素
+	private E extract() {
         final Object[] items = this.items;
         E x = this.<E>cast(items[takeIndex]);
         items[takeIndex] = null;
@@ -150,7 +153,7 @@ private E extract() {
         --count;
         notFull.signal();// 通知 当前队列未满，唤醒notFull.await()
         return x;
- }
+ 	}
 
 ~~~
 
@@ -306,10 +309,9 @@ private E extract() {
 
 **文件数据传输**
 
-   ~~~
-FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   
-**transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。   **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。 
-   ~~~
+| FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   <br/><br />**transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。  <br /><br /> **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。 |
+| ------------------------------------------------------------ |
+|                                                              |
 
 
 
@@ -340,68 +342,128 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
  
 
-**内存映射文件**
+##### **内存映射文件**
 
  
 
-   通过操作系统的内存映射文件支持，可以比较快速地对大文件进行操作。内存映射文件的**原理**在于把系统内存地址映射到操作的文件上。读取这些内存地址就相当于读取文件的内容，而改变这些内存地址的值就相当于修改文件中的内容。通过内存映射的方式对文件进行操作时，不再需要通过I/O操作来完成，而是直接通过内存地址访问操作来完成，这就大大提高了操作文件的性能，因为I/O操作比访问内存地址要慢得多。       **FileChannel**类的map方法可以把一个文件的全部或部分内容映射到内存中，所得到的是一个ByteBuffer类的子类**MappedByteBuffer**的对象，程序只需要对这个**MappedByteBuffer**类的对象进行操作即可,对其操作会自动同步到文件内容中。可以使用**force**方法进行立即同步到文件中。   
+   通过操作系统的内存映射文件支持，可以比较快速地对大文件进行操作。内存映射文件的**原理**在于把系统内存地址映射到操作的文件上。读取这些内存地址就相当于读取文件的内容，而改变这些内存地址的值就相当于修改文件中的内容。通过内存映射的方式对文件进行操作时，不再需要通过I/O操作来完成，而是直接通过内存地址访问操作来完成，这就大大提高了操作文件的性能，因为I/O操作比访问内存地址要慢得多。       
+
+**FileChannel**类的map方法可以把一个文件的全部或部分内容映射到内存中，所得到的是一个ByteBuffer类的子类**MappedByteBuffer**的对象，程序只需要对这个**MappedByteBuffer**类的对象进行操作即可,对其操作会自动同步到文件内容中。可以使用**force**方法进行立即同步到文件中。   
 
  
 
-**映射模式**
+###### **映射模式**
 
-   **FileChannel.MapMode**这个枚举类型表示：   **READ_ONLY**:只读操作   **READ_WRITE**:可读可写   **PRIVATE**:对MappedByteBuffer所修改不会同步到文件中，而是同步到一个私有的副本中。   
+   **FileChannel.MapMode**这个枚举类型表示：   
+
+- **READ_ONLY**:只读操作   
+- **READ_WRITE**:可读可写   
+- **PRIVATE**:对MappedByteBuffer所修改不会同步到文件中，而是同步到一个私有的副本中。   
+
+ ~~~java
+
+	@Test
+	public void mappedByteBuffer(){
+		// 文件通道
+		try(FileChannel channel = FileChannel.open(Paths.get("F:\\demo\\a.txt"), 
+				StandardOpenOption.CREATE,
+				StandardOpenOption.READ,
+				StandardOpenOption.WRITE);){
+			// 内存映射文件 READ_WRITE：可读写
+			MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_WRITE, 0, channel.size());
+			byte b = buffer.get();
+			buffer.put(7,b);
+			// 立即同步到文件中
+			buffer.force();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+ ~~~
+
+
 
  
 
  
 
-​            @Test        **public** **void** mappedByteBuffer(){            // 文件通道            **try**(FileChannel channel = FileChannel.*open*(Paths.*get*("F:\\demo\\a.txt"),                       StandardOpenOption.**CREATE**,                      StandardOpenOption.**READ**,                      StandardOpenOption.**WRITE**);){                 // 内存映射文件 READ_WRITE：可读写                 MappedByteBuffer buffer = channel.map(FileChannel.MapMode.**READ_WRITE**,    0, channel.size());                 **byte** b = buffer.get();                 buffer.put(7,b);                 // 立即同步到文件中                 buffer.force();            } **catch** (Exception e) {                 e.printStackTrace();            }        }           
+------
+
+
+
+### **NIO.2**
 
  
 
- 
-
- 
-
- 
-
-
-
-
-
-
-**NIO.2**
-
- 
-
-**Path**
+#### **Path**
 
  
 
    **Path**文件路径的抽象。提供了操作路径的很多实用方法   resolve方法：把当前路径当成父目录，把参数当成子目录，解析成一个新目录   resolveSibling方法：跟resolve一样，只是把当前路径的父目录当成解析解析时的父目录   subpath方法：获取当前路径的子路径，参数中的序号表示的是路径中名称元素的序号   startsWith方法：当前路径是否以参数路径开始   endsWith方法：当前路径是否以参数路径结尾   normalize方法：获取到真实位置，去掉一些./,../等冗余路径   
 
+ ~~~java
+
+	@Test
+	public void path(){
+		Path path1 = Paths.get("a","b"); // a\b
+		Path path2 = Paths.get("c","d"); // c\d
+		
+		Path res = path1.resolve(path2); // a\b\c\d
+		Path resv = path1.resolveSibling(path2); // a\c\d
+		
+		Path subpath = path1.subpath(0, 1); // a
+		boolean startsWith = path1.startsWith("a"); // true
+		
+		Path normalize = Paths.get("./a/../a/b/../c/d").normalize(); // a\c\d
+	}
+
+ ~~~
+
+
+
  
 
-​            @Test        **public** **void** path(){            Path path1 = Paths.*get*("a","b"); // a\b            Path path2 = Paths.*get*("c","d"); // c\d                        Path res = path1.resolve(path2); // a\b\c\d            Path resv = path1.resolveSibling(path2); // a\c\d                        Path subpath = path1.subpath(0, 1); // a            **boolean** startsWith = path1.startsWith("a"); // true                        Path normalize = Paths.*get*("./a/../a/b/../c/d").normalize();   // a\c\d        }   
-
- 
-
- 
-
-**Files**
+#### **Files**
 
  
 
    **Files**简化文件操作的工具类。   Files.**createFile**创建文件   Files.**delete**删除文件   Files.**copy**(source,target)复制文件   Files.**move**(source,target)移动   
 
- 
+ ~~~java
+	@Test
+	public void files() throws IOException{
+		// 创建文件
+		Path path = Files.createFile(Paths.get("file/files.txt").toAbsolutePath());
+		// 内容
+		List<String> contents = new ArrayList<>();
+		contents.add("Hello ");
+		contents.add("World");
+		// 写文件
+		Files.write(path, contents, Charset.forName("UTF-8"));
+		Files.size(path);
+		// 获取所有的字节数组
+		byte[] bytes = Files.readAllBytes(path);
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		Files.copy(path, output);
+		// 输出
+		System.out.println(new String(bytes));
+		
+		Path target = Paths.get("file/newfiles.txt");
+		// 权限 文件读写权限
+		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-rw-rw-");
+		// 文件属性集合
+		FileAttribute<Set<PosixFilePermission>> attrs =PosixFilePermissions.asFileAttribute(perms);
+		// 创建 有读写权限的 文件
+		Files.createFile(target,attrs);
+		// 复制 文件的属性一起复制的
+		Files.copy(path, target, StandardCopyOption.COPY_ATTRIBUTES);
+		// 移动
+		Files.move(path, target);
+		// 删除
+		Files.delete(path);
+	}
 
-​        @Test        **public** **void** files() **throws** IOException{            // 创建文件            Path path = Files.*createFile*(Paths.*get*("file/files.txt").toAbsolutePath());            // 内容            List<String> contents = **new** ArrayList<>();            contents.add("Hello   ");            contents.add("World");            // 写文件            Files.*write*(path, contents, Charset.*forName*("UTF-8"));            Files.*size*(path);            // 获取所有的字节数组            **byte**[] bytes = Files.*readAllBytes*(path);            ByteArrayOutputStream output = **new** ByteArrayOutputStream();            Files.*copy*(path, output);            // 输出            System.**out**.println(**new** String(bytes));                        Path target = Paths.*get*("file/newfiles.txt");            // 权限 文件读写权限            Set<PosixFilePermission> perms = PosixFilePermissions.*fromString*("rw-rw-rw-");            // 文件属性集合            FileAttribute<Set<PosixFilePermission>> attrs =   PosixFilePermissions.*asFileAttribute*(perms);            // 创建 有读写权限的 文件            Files.*createFile*(target,attrs);            // 复制 文件的属性一起复制的            Files.*copy*(path, target, StandardCopyOption.**COPY_ATTRIBUTES**);            // 移动            Files.*move*(path, target);            // 删除            Files.*delete*(path);        }   
-
- 
-
- 
+ ~~~
 
 
 
@@ -409,8 +471,7 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
 
 
-
-**异常**
+### **异常**
 
  
 
@@ -434,36 +495,83 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
 
 
-
-**多线程**
-
- 
-
-**volatile**
+### **多线程**
 
  
 
-   **Volatile**用来对共享变量的访问进行同步。上一次写入操作的结果对下一次读取操作是肯定可见的。   在写入volatile变量值后，CPU缓存中的内容会被写回主存中；在读取volatile变量时，CPU缓存中的对应内容会被置为失效状态，重新从主存中读取。   将变量声明为volatile相当于单个变量的读取和写入添加了同步操作。但是volatile在使用时不需要利用锁机制，因此性能要优于synchronized关键词。   Volatile的主要作用是确保对一个变量的修改被正确地传播到其他线程中。常使用volatile变量的一个场景是把作为循环结束的判断条件的变量声明为volatile。   
+#### **volatile**
 
  
 
-**synchronized**
+   **Volatile**用来对共享变量的访问进行同步。上一次写入操作的结果对下一次读取操作是肯定可见的。   
+
+​	在写入volatile变量值后，CPU缓存中的内容会被写回主存中；在读取volatile变量时，CPU缓存中的对应内容会被置为失效状态，重新从主存中读取。   
+
+​	将变量声明为volatile相当于单个变量的读取和写入添加了同步操作。但是volatile在使用时不需要利用锁机制，因此性能要优于synchronized关键词。   
+
+​	Volatile的主要作用是确保对一个变量的修改被正确地传播到其他线程中。
+
+​	常使用volatile变量的一个场景是把作为循环结束的判断条件的变量声明为volatile。   
 
  
 
-   **Synchronized**是基本的线程同步方式之一。Synchronized可以添加到方法或代码块上。主要用来实现**线程之间的互斥**，即同一时刻只有一个线程允许执行特定的代码，来保证多个线程访问共享变量时的正确性。   声明synchronized的方法或代码块在同一时刻只能有一个线程允许访问的。如果当前已经有线程正在访问synchronized方法或代码块，那么其他试图访问该方法或代码块的线程会处于等待状态。这种互斥性使该方法或代码块中的代码逻辑实际上成为了一个原子操作。   所有的java对象都有一个与之关联的**监视器对象**(**monitor**),允许线程在该监视器对象上进行加锁和解锁操作。每个synchronized关键词在使用时都与一个监视器对象相对应。对于声明为synchronized的方法，**静态方法**对应的监视器对象是所在java类对应的Class类的对象所关联的监视器对象，而**实例方法**使用的是当前对象实例所关联的监视器对象。对于synchronized**代码块**，对应的监视器对象是synchronized代码块声明中的对象所关联的监视器对象。   在一个线程允许执行方法或代码块之前，需先获取对应的监视器对象上的锁。在执行完后，该线程所持有的锁会被自动释放。上一次的解锁操作肯定在下一次的成功加锁操作前发生，由于解锁操作是上一次线程在synchronized方法或代码块中执行的最后一个动作，而加锁是在下一次线程执行synchronized方法或代码块的第一个动作，所以上一次线程运行时对共享变量的修改对下一次线程中的动作是肯定可见的。   当锁被释放时，对共享变量的修改会从CPU缓存中直接写回到主存中；当锁被获取时，CPU缓存中的内容会被置为无效状态，从主存中重新读取共享变量的值。当有线程在执行synchronized方法或代码块时，其他线程由于无法获取锁而处于等待状态，不会影响当前线程的运行。   
+#### **synchronized**
 
  
 
-   **public** **class** Jdk7Synchronized {            **private** **int** num = 0;        **private** **static** **int** *value* = 0 ;                // 对象的实例方法 同步时使用的监控器对象是当前对象的实例所关联的监控器对象        **public** **synchronized** **int** addNum(){            **return** num++ ;        }                **public** **int** getAddNum(){            // 代码块 同样使用的是当前对象的实例this所关联的监控器对象            **synchronized** (**this**) {                 **return** num++;            }        }                // 静态方法 监控器对象是 Jdk7Synchronized.class所关联的监控器对象        **public** **synchronized** **static** **int** getValuePlus(){            **return** *value*++;        }   }   
+   **Synchronized**是基本的线程同步方式之一。Synchronized可以添加到方法或代码块上。主要用来实现**线程之间的互斥**，即同一时刻只有一个线程允许执行特定的代码，来保证多个线程访问共享变量时的正确性。   
 
- 
+​	声明synchronized的方法或代码块在同一时刻只能有一个线程允许访问的。如果当前已经有线程正在访问synchronized方法或代码块，那么其他试图访问该方法或代码块的线程会处于等待状态。这种互斥性使该方法或代码块中的代码逻辑实际上成为了一个原子操作。   
+
+​	所有的java对象都有一个与之关联的**监视器对象**(**monitor**),允许线程在该监视器对象上进行加锁和解锁操作。每个synchronized关键词在使用时都与一个监视器对象相对应。对于声明为synchronized的方法，**静态方法**对应的监视器对象是所在java类对应的Class类的对象所关联的监视器对象，而**实例方法**使用的是当前对象实例所关联的监视器对象。对于synchronized**代码块**，对应的监视器对象是synchronized代码块声明中的对象所关联的监视器对象。   
+
+​	在一个线程允许执行方法或代码块之前，需先获取对应的监视器对象上的锁。在执行完后，该线程所持有的锁会被自动释放。上一次的解锁操作肯定在下一次的成功加锁操作前发生，由于解锁操作是上一次线程在synchronized方法或代码块中执行的最后一个动作，而加锁是在下一次线程执行synchronized方法或代码块的第一个动作，所以上一次线程运行时对共享变量的修改对下一次线程中的动作是肯定可见的。   
+
+​	当锁被释放时，对共享变量的修改会从CPU缓存中直接写回到主存中；当锁被获取时，CPU缓存中的内容会被置为无效状态，从主存中重新读取共享变量的值。当有线程在执行synchronized方法或代码块时，其他线程由于无法获取锁而处于等待状态，不会影响当前线程的运行。   
+
+ ~~~java
+public class Jdk7Synchronized {
+
+	private int num = 0;
+	private static int value = 0 ;
+	
+	// 对象的实例方法 同步时使用的监控器对象是当前对象的实例所关联的监控器对象
+	public synchronized int addNum(){
+		return num++ ;
+	}
+	
+	public int getAddNum(){
+		// 代码块 同样使用的是当前对象的实例this所关联的监控器对象
+		synchronized (this) {
+			return num++;
+		}
+	}
+	
+	// 静态方法 监控器对象是 Jdk7Synchronized.class所关联的监控器对象
+	public synchronized static int getValuePlus(){
+		return value++;
+	}
+}
+
+ ~~~
+
+
 
  
 
 关键字**synchronized**和**volatile**进行比较：
 
-   A、  关键字volatile是线程同步的轻量级实现，所以性能会比synchronized要好。   B、  Volatile只能修饰变量，而synchronized可以修饰方法及代码块。   C、  多线程访问volatile不会发生阻塞，而synchronized会发生阻塞。   D、  Volatile能保证数据的可见性，但不能保证原子性；而synchronized可以保证原子性，也可以间接保证可见性，因为它会将私有内存和公有内存中的数据做同步。   E、  Volatile解决的是变量在多线程间的可见性；而synchronized解决的是多个线程间访问资源的同步性。   
+​	A、  关键字volatile是线程同步的轻量级实现，所以性能会比synchronized要好。   
+
+​	B、  Volatile只能修饰变量，而synchronized可以修饰方法及代码块。   
+
+​	C、  多线程访问volatile不会发生阻塞，而synchronized会发生阻塞。   
+
+​	D、  Volatile能保证数据的可见性，但不能保证原子性；
+
+​		而synchronized可以保证原子性，也可以间接保证可见性，因为它会将私有内存和公有内存中的数据做同步。   
+
+​	E、  Volatile解决的是变量在多线程间的可见性；而synchronized解决的是多个线程间访问资源的同步性。   
 
  
 
@@ -477,8 +585,7 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
 
 
-
-**Object类的(wait/notify/notifyAll)**
+#### **Object类的(wait/notify/notifyAll)**
 
  
 
@@ -486,59 +593,110 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
  
 
-**wait**
+##### **wait**
 
  
 
-   **wait**方法是在Object类中定义。作用是使当前线程进入等待状态。   **调用wait方法的含义：**java中的每个对象除了有与之关联的**监控器对象**外，还有一个与之关联的**包含线程的等待集合**。在调用wait方法时，该方法调用的接收者所关联的监视器对象是所使用的监视器对象，同时wait方法所影响的是执行wait方法调用的当前线程。成功调用wait方法的先决条件是当前线程获取到监视器对象的锁。若没有锁，则抛出java.lang.IllegalMonitorStateException异常，wait方法调用失败；若有锁，那么当前线程会被添加到对象所关联的**等待集合**中，并释放其持有的监视器对象上的锁。当前线程被阻塞，无法执行，直到被从对象所关联的等待集合中移除，才可继续执行。   由于wait方法的调用需当前线程持有监视器对象上的锁，因此wait方法的调用需放入synchronized声明的方法或代码块中。当执行wait方法时，当前线程已经进入synchronized声明的互斥块中，已经持有所需的锁。**在synchronized方法或代码块中使用的监视器对象必须是wait方法调用的接收者所关联的监视器对象**。   wait方法的等待状态分为：无超时、有超时。   如果线程处于**有超时**的等待状态，那么线程除了可以被主动唤醒而离开等待状态之外，设定的超时时间过去后也会自动离开等待状态。   
+   **wait**方法是在Object类中定义。作用是使当前线程进入等待状态。   
 
- 
+​	**调用wait方法的含义：**java中的每个对象除了有与之关联的**监控器对象**外，还有一个与之关联的**包含线程的等待集合**。在调用wait方法时，该方法调用的接收者所关联的监视器对象是所使用的监视器对象，同时wait方法所影响的是执行wait方法调用的当前线程。成功调用wait方法的先决条件是当前线程获取到监视器对象的锁。若没有锁，则抛出java.lang.IllegalMonitorStateException异常，wait方法调用失败；若有锁，那么当前线程会被添加到对象所关联的**等待集合**中，并释放其持有的监视器对象上的锁。当前线程被阻塞，无法执行，直到被从对象所关联的等待集合中移除，才可继续执行。   
+
+​	由于wait方法的调用需当前线程持有监视器对象上的锁，因此wait方法的调用需放入synchronized声明的方法或代码块中。当执行wait方法时，当前线程已经进入synchronized声明的互斥块中，已经持有所需的锁。**在synchronized方法或代码块中使用的监视器对象必须是wait方法调用的接收者所关联的监视器对象**。   
+
+​	wait方法的等待状态分为：无超时、有超时。  
+
+​	 如果线程处于**有超时**的等待状态，那么线程除了可以被主动唤醒而离开等待状态之外，设定的超时时间过去后也会自动离开等待状态。   
 
 对应的notify和notifyAll用来通知线程离开等待状态
 
  
 
-**notify/notifyAll**
+##### **notify/notifyAll**
 
  
 
-   对应的notify和notifyAll用来通知线程离开等待状态   调用一个对象的**notify**方法会从该对象关联的**等待集合**中选择一个线程来唤醒。被唤醒的线程可以和其他线程竞争运行的机会。与notify方法相对应的notifyAll方法会唤醒对象关联的等待集合中的所有线程。   Notify方法所唤醒线程的选择由虚拟机实现来决定的，不能保证一个对象所关联的等待集合中的线程按照所期望的顺序被唤醒。很可能一个线程被唤醒后，发现它并不能满足要求，而重新进入等待状态，而真正需要被唤醒的线程却仍处于等待集合中。因此，当等待集合中可能包含多个线程时，一般使用notifyAll方法。不过notifyAll方法会导致线程在没有必要的情况下唤醒，之后又马上进入等待状态，因此会造成一定的性能影响，不过可以保证程序的正确性。   与wait方法相同，notify和notifyAll方法同样需要当前线程拥有方法调用接收者所关联的监视器对象上的锁。当线程被唤醒后，由于在调用wait方法完时，释放了之前所持有的监视器对象上的锁，所以被唤醒的线程需要重新竞争锁来获得继续运行wait方法后的代码的机会。   通常要把wait方法的调用包含在一个循环中，循环条件是线程可以继续执行需要满足的逻辑条件。如果线程继续执行的逻辑条件不满足，那么线程应该再次调用wait方法进入等待状态。   
+   对应的notify和notifyAll用来通知线程离开等待状态   
 
- 
+​	调用一个对象的**notify**方法会从该对象关联的**等待集合**中选择一个线程来唤醒。被唤醒的线程可以和其他线程竞争运行的机会。与notify方法相对应的notifyAll方法会唤醒对象关联的等待集合中的所有线程。   
 
- 
+​	Notify方法所唤醒线程的选择由虚拟机实现来决定的，不能保证一个对象所关联的等待集合中的线程按照所期望的顺序被唤醒。很可能一个线程被唤醒后，发现它并不能满足要求，而重新进入等待状态，而真正需要被唤醒的线程却仍处于等待集合中。因此，当等待集合中可能包含多个线程时，一般使用notifyAll方法。不过notifyAll方法会导致线程在没有必要的情况下唤醒，之后又马上进入等待状态，因此会造成一定的性能影响，不过可以保证程序的正确性。   
 
- 
+​	与wait方法相同，notify和notifyAll方法同样需要当前线程拥有方法调用接收者所关联的监视器对象上的锁。当线程被唤醒后，由于在调用wait方法完时，释放了之前所持有的监视器对象上的锁，所以被唤醒的线程需要重新竞争锁来获得继续运行wait方法后的代码的机会。   
+
+​	通常要把wait方法的调用包含在一个循环中，循环条件是线程可以继续执行需要满足的逻辑条件。如果线程继续执行的逻辑条件不满足，那么线程应该再次调用wait方法进入等待状态。   
 
  
 
 **wait**
 
-​        **public** **int** useWait(**final** Object lock) {            **try** {                 **synchronized** (lock) {                      // 逻辑条件不满足时，进入等待状态                      **while**(num == 2){                          lock.wait();                      }                      // 条件满足时                      **return** ++num;                 }            } **catch** (Exception e) {                 e.printStackTrace();            }            **return** num;        }   
+~~~java
+	public int useWait(final Object lock) {
+		try {
+			synchronized (lock) {
+				// 逻辑条件不满足时，进入等待状态
+				while(num == 2){
+					lock.wait();
+				}
+				// 条件满足时
+				return ++num;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
 
- 
+~~~
 
 **notify/notifyAll**
 
-​            **public** **int** useNotify(**final** Object lock){            **synchronized** (lock) {                 **if** (sub == 96) {                      num++; // 除了要用notify唤醒外，还要修改逻辑参数，不然wait方法又会进入等待状态                      lock.notify(); // 只唤醒一个线程                      // lock.notifyAll();   // 全部唤醒                        System.**out**.println("唤醒了 lock....");                 }                 **return** --sub;            }        }   
+~~~java
+
+	public int useNotify(final Object lock){
+		synchronized (lock) {
+			if (sub == 96) {
+				num++; // 除了要用notify唤醒外，还要修改逻辑参数，不然wait方法又会进入等待状态
+				lock.notify(); // 只唤醒一个线程
+				// lock.notifyAll(); // 全部唤醒	
+			     System.out.println("唤醒了 lock....");
+			}
+			return --sub;
+		}
+	}
+
+~~~
+
+
 
  
 
- 
-
-**Thread**
+#### **Thread**
 
  
 
-**线程状态**
+##### **线程状态**
 
  
 
-   在一个Thread类的对象被创建出来后，它可能处于不同的状态。进行与线程相关的不同操作可能导致Thread类的对象所处的状态有所改变。不同的线程状态由枚举类型**Thread.State**来表示：   1）  **NEW**:线程刚被创建出来   2）  **RUNNABLE**:线程处于可运行的状态   3）  **BLOCKED**:线程在等待一个监视器对象上的锁时的状态   4）  **WAITING**:调用某些方法会使当前线程进入等待状态   5）  **TIMED_WAITING**:类似WAITING,但是增加了指定的超时时间。时间已过，则退出等待   6）  **TERMINATED**:线程的运行已终止   
+   在一个Thread类的对象被创建出来后，它可能处于不同的状态。进行与线程相关的不同操作可能导致Thread类的对象所处的状态有所改变。
+
+不同的线程状态由枚举类型**Thread.State**来表示：   
+
+​	1）  **NEW**:线程刚被创建出来   
+
+​	2）  **RUNNABLE**:线程处于可运行的状态   
+
+​	3）  **BLOCKED**:线程在等待一个监视器对象上的锁时的状态   
+
+​	4）  **WAITING**:调用某些方法会使当前线程进入等待状态   
+
+​	5）  **TIMED_WAITING**:类似WAITING,但是增加了指定的超时时间。时间已过，则退出等待   
+
+​	6）  **TERMINATED**:线程的运行已终止   
 
  
 
-**Join**
+##### **Join**
 
  
 
@@ -546,7 +704,7 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
  
 
-**Sleep**
+##### **Sleep**
 
  
 
@@ -554,7 +712,7 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
  
 
-**yield**
+##### **yield**
 
  
 
@@ -570,28 +728,62 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
 
 
-
-**Lock**
+#### **Lock**
 
  
 
-   java.util.concurrent.locks.Lock   表示的是一个锁，可以通过其中的lock方法获取锁，然后通过unlock释放锁。   **lock**方法获取锁的方式类似于synchronized，如果调用lock方法无法获取到锁，则线程进行等待。   **lockInterruptibly**方法获取锁类似于lock方法，允许当前线程在等待锁的过程中被中断。   **tryLock**方法以非阻塞的方式获取锁，如果在调用tryLock方法时无法获取锁，则返回false，不会阻塞当前线程。   
+   java.util.concurrent.locks.Lock   表示的是一个锁，可以通过其中的lock方法获取锁，然后通过unlock释放锁。   
+
+​	**lock**方法获取锁的方式类似于synchronized，如果调用lock方法无法获取到锁，则线程进行等待。   	
+
+​	**lockInterruptibly**方法获取锁类似于lock方法，允许当前线程在等待锁的过程中被中断。   
+
+​	**tryLock**方法以非阻塞的方式获取锁，如果在调用tryLock方法时无法获取锁，则返回false，不会阻塞当前线程。   
 
  
 
 **注意：**不要将获取锁的过程写在try块里面，因为如果在获取锁(自定义锁的实现)时发生异常，异常抛出的同时，则会导致锁无故释放。
 
-​        @Test        **public** **void** lock(){            Lock lock = **new** ReentrantLock();            // 获取锁            lock.lock(); // 放在try块外面            **try** {            } **finally** {                 // 释放锁                 lock.unlock();            }        }   
+   ~~~java
+	@Test
+	public void lock(){
+		Lock lock = new ReentrantLock();
+		// 获取锁
+		lock.lock(); // 放在try块外面
+		try {
+            
+		} finally {
+			// 释放锁
+			lock.unlock();
+		}
+	}
+   ~~~
+
+
 
  
 
  
 
-**ReentrantLock**
+##### **ReentrantLock**
 
  
 
-   **ReentrantLock**重入锁，就是支持**重进入**的锁，它表示该锁能够支持一个线程对资源的重复加锁。除此之外，该锁还支持获取锁的公平和非公平性选择。       **重进入**是指任意线程在获取到锁后能够再次获取该锁而不会被锁所阻塞。   1）**线程再次获取锁。**锁需要去识别获取锁的线程是否为当前占据锁的线程，如果是，则再次获取成功。   2）**锁的最终释放。**线程重复N次获取了锁，随后在第N次释放该锁后，其他线程能够获取到该锁。锁最终释放要求：锁对于获取   进行计数自增，计数表示当前锁被重复获取的次数，而锁释放时，则计数自减，当计数等于0时，表示锁已经成功释放。       **公平性**与否是针对获取锁而言的，如果一个锁是公平的，那么锁的获取顺序就应该符合请求时间的绝对时间顺序，即FIFO。   实现则是**ReentrantLock(boolean fair)**，fair=true,则表示该锁是公平性的。   **公平性锁**保证了锁的获取按照了FIFO原则，而代价就是进行了大量的线程切换。**非公平性锁**虽然可能造成线程“饥饿”，但极少的线程切换，保证了其更大的吞吐量。   
+   **ReentrantLock**重入锁，就是支持**重进入**的锁，它表示该锁能够支持一个线程对资源的重复加锁。除此之外，该锁还支持获取锁的公平和非公平性选择。       
+
+​	**重进入**是指任意线程在获取到锁后能够再次获取该锁而不会被锁所阻塞。   
+
+​		1）**线程再次获取锁。**锁需要去识别获取锁的线程是否为当前占据锁的线程，如果是，则再次获取成功。   
+
+​		2）**锁的最终释放。**线程重复N次获取了锁，随后在第N次释放该锁后，其他线程能够获取到该锁。锁最终释放要求：锁对于获取   进行计数自增，计数表示当前锁被重复获取的次数，而锁释放时，则计数自减，当计数等于0时，表示锁已经成功释放。       
+
+​	**公平性**与否是针对获取锁而言的，如果一个锁是公平的，那么锁的获取顺序就应该符合请求时间的绝对时间顺序，即FIFO。   
+
+​	实现则是**ReentrantLock(boolean fair)**，fair=true,则表示该锁是公平性的。   
+
+​	**公平性锁**保证了锁的获取按照了FIFO原则，而代价就是进行了大量的线程切换。
+
+​	**非公平性锁**虽然可能造成线程“饥饿”，但极少的线程切换，保证了其更大的吞吐量。   
 
  
 
@@ -599,25 +791,33 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
  
 
-**ReadWriteLock**
+##### **ReadWriteLock**
 
  
 
-   java.util.concurrent.locks.**ReadWriteLock**， **ReadWriteLock**读写锁接口实际上表示的是两个锁   一个是读取操作的**共享锁**，一个是写入操作使用的**排他锁**。其实现**ReentrantReadWriteLock**。   可以通过ReadWriteLock接口的readLock方法和writeLock方法来获取表示对应的锁的Lock接口的实现对象。在没有线程进行写入操作时，进行读取操作的多个线程都可以获取读取锁；而进行写入操作的线程只有获取到写入锁后才能进行写入操作。多个线程可以同时进行读取操作，但是同一时刻只允许一个线程进行写入操作。   
+   java.util.concurrent.locks.**ReadWriteLock**， 
+
+​	**ReadWriteLock**读写锁接口实际上表示的是两个锁   一个是读取操作的**共享锁**，一个是写入操作使用的**排他锁**。其实现**ReentrantReadWriteLock**。   
+
+​	可以通过ReadWriteLock接口的readLock方法和writeLock方法来获取表示对应的锁的Lock接口的实现对象。
+
+​	在没有线程进行写入操作时，进行读取操作的多个线程都可以获取读取锁；而进行写入操作的线程只有获取到写入锁后才能进行写入操作。多个线程可以同时进行读取操作，但是同一时刻只允许一个线程进行写入操作。   
 
  
 
  
 
-**Condition**
+#### **Condition**
 
  
 
-   任意一个java对象，都拥有一组监视器方法(定义在Object上),主要包括wait/notify/notifyAll，这些方法与synchronized同步关键字配合，可以实现等待/通知模式。**Condition**接口也提供了类似Object的监视器方法，与lock配合也可以实现等待/通知模式。   
+   任意一个java对象，都拥有一组监视器方法(定义在Object上),主要包括wait/notify/notifyAll，这些方法与synchronized同步关键字配合，可以实现等待/通知模式。
+
+​	**Condition**接口也提供了类似Object的监视器方法，与lock配合也可以实现等待/通知模式。   
 
  
 
-**Object****和condition的监视器方法比较**
+**Object**和**condition**的监视器方法比较
 
 | **对比项**                                 | **Object**         | **Condition**                                                |
 | ------------------------------------------ | ------------------ | ------------------------------------------------------------ |
@@ -634,7 +834,44 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 
 **注意：在使用condition方法前必须获取锁lock。**
 
-   **public** **class** ConditionUseCase {                **private** Lock lock = **new** ReentrantLock();// 锁        **private** Condition condition = lock.newCondition(); // 获取 condition                // 等待        **public** **void** await(){            lock.lock(); // 获取锁            **try** {                 System.**out**.println("进入等待状态。。。。");                 condition.await(); // 等待                 System.**out**.println("从等待状态中 被唤醒。。。。，则说明获取到了condition相应的锁");            } **catch** (Exception e) {                 e.printStackTrace();            } **finally** {                 lock.unlock();// 释放锁            }        }                // 通知        **public** **void** signal(){                        lock.lock(); // 获取锁            **try** {                 condition.signal(); // 通知condition上等待的线程                 System.**out**.println("唤醒condition等待的线程。。。。");            } **catch** (Exception e) {                 e.printStackTrace();            } **finally** {                 lock.unlock(); // 释放锁            }        }   }   
+   ~~~java
+public class ConditionUseCase {
+     
+	private Lock lock = new ReentrantLock();// 锁
+	private Condition condition = lock.newCondition(); // 获取 condition
+	
+	// 等待
+	public void await(){
+		lock.lock(); // 获取锁
+		try {
+			System.out.println("进入等待状态。。。。");
+			condition.await(); // 等待
+			System.out.println("从等待状态中 被唤醒。。。。，则说明获取到了condition相应的锁");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			lock.unlock();// 释放锁
+		}
+	}
+	
+	// 通知
+	public void signal(){
+		
+		lock.lock(); // 获取锁
+		try {
+			condition.signal(); // 通知condition上等待的线程
+			System.out.println("唤醒condition等待的线程。。。。");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			lock.unlock(); // 释放锁
+		}
+	}
+}
+
+   ~~~
+
+
 
  
 
