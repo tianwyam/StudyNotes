@@ -313,11 +313,13 @@ private E extract() {
 	@Test
 	public void transfer(){
 		// 定义 源文件通道 和 目标文件通道
-		try(FileChannel src = FileChannel.open(Paths.get("F:\\demo\\a.txt"), 
+		try(
+            FileChannel src = FileChannel.open(Paths.get("F:\\demo\\a.txt"), 
 StandardOpenOption.READ);
-				FileChannel dest = FileChannel.open(Paths.get("F:\\demo\\dest.txt"), 
+		   FileChannel dest = FileChannel.open(Paths.get("F:\\demo\\dest.txt"), 
 						StandardOpenOption.CREATE,
-StandardOpenOption.WRITE,StandardOpenOption.APPEND);){
+						StandardOpenOption.WRITE,
+                           StandardOpenOption.APPEND);){
 			// 传输数据到 目标文件通道中
 			src.transferTo(0, src.size(), dest);
 			// 从源文件通道中获取数据 写入文件
