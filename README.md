@@ -306,7 +306,14 @@ private E extract() {
 
 **文件数据传输**
 
-   **FileChannel**类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   **transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。   **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。   
+   ~~~
+FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   
+**transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。   **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。 
+   ~~~
+
+
+
+  
 
  ~~~java
 
@@ -314,8 +321,7 @@ private E extract() {
 	public void transfer(){
 		// 定义 源文件通道 和 目标文件通道
 		try(
-            FileChannel src = FileChannel.open(Paths.get("F:\\demo\\a.txt"), 
-StandardOpenOption.READ);
+            FileChannel src = FileChannel.open(Paths.get("F:\\demo\\a.txt"),StandardOpenOption.READ);
 		   FileChannel dest = FileChannel.open(Paths.get("F:\\demo\\dest.txt"), 
 						StandardOpenOption.CREATE,
 						StandardOpenOption.WRITE,
