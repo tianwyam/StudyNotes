@@ -8,6 +8,12 @@
 
 ### 集合
 
+
+
+![](java\java_collection.jpeg)
+
+
+
 #### **Map**
 
 ##### **HashMap**
@@ -1602,8 +1608,6 @@ private  String remark ;
  
 
    实现主机A和主机B间的信任连接步骤：   1）  主机A上使用命令创建密钥：**ssh –keygen –t rsa**   2）  把主机A的/root/.ssh/id_ras.pub文件内容复制到主机B的/root/.ssh/authorized_keys   3）  此时主机A连接主机B就不需密码了   4）  相同的，把主机B公共密钥复制拷贝到主机A的/root/.ssh/authorized_keys下   5）  此时主机A和主机B间就建立起信任了   
-
- 
 
  
 
