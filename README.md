@@ -161,7 +161,7 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
 
 
-
+------
 
 
 
@@ -309,11 +309,9 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
 **文件数据传输**
 
-| FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   <br/><br />**transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。  <br /><br /> **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。 |
-| ------------------------------------------------------------ |
-|                                                              |
+FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传输数据。   
 
-
+**transferFrom**方法把来自一个实现了**ReadableByteChannel**接口的通道中的数据写入文件通道中。   **transferTo**方法把当前文件通道中的数据传输到一个实现了**WriteableByteChannel**接口的通道中。
 
   
 
@@ -346,7 +344,9 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
  
 
-   通过操作系统的内存映射文件支持，可以比较快速地对大文件进行操作。内存映射文件的**原理**在于把系统内存地址映射到操作的文件上。读取这些内存地址就相当于读取文件的内容，而改变这些内存地址的值就相当于修改文件中的内容。通过内存映射的方式对文件进行操作时，不再需要通过I/O操作来完成，而是直接通过内存地址访问操作来完成，这就大大提高了操作文件的性能，因为I/O操作比访问内存地址要慢得多。       
+   通过操作系统的内存映射文件支持，可以比较快速地对大文件进行操作。
+
+​	内存映射文件的**原理**在于把系统内存地址映射到操作的文件上。读取这些内存地址就相当于读取文件的内容，而改变这些内存地址的值就相当于修改文件中的内容。通过内存映射的方式对文件进行操作时，不再需要通过I/O操作来完成，而是直接通过内存地址访问操作来完成，这就大大提高了操作文件的性能，因为I/O操作比访问内存地址要慢得多。       
 
 **FileChannel**类的map方法可以把一个文件的全部或部分内容映射到内存中，所得到的是一个ByteBuffer类的子类**MappedByteBuffer**的对象，程序只需要对这个**MappedByteBuffer**类的对象进行操作即可,对其操作会自动同步到文件内容中。可以使用**force**方法进行立即同步到文件中。   
 
@@ -399,7 +399,19 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
  
 
-   **Path**文件路径的抽象。提供了操作路径的很多实用方法   resolve方法：把当前路径当成父目录，把参数当成子目录，解析成一个新目录   resolveSibling方法：跟resolve一样，只是把当前路径的父目录当成解析解析时的父目录   subpath方法：获取当前路径的子路径，参数中的序号表示的是路径中名称元素的序号   startsWith方法：当前路径是否以参数路径开始   endsWith方法：当前路径是否以参数路径结尾   normalize方法：获取到真实位置，去掉一些./,../等冗余路径   
+   **Path**文件路径的抽象。提供了操作路径的很多实用方法   
+
+​	resolve方法：把当前路径当成父目录，把参数当成子目录，解析成一个新目录   
+
+​	resolveSibling方法：跟resolve一样，只是把当前路径的父目录当成解析解析时的父目录   
+
+​	subpath方法：获取当前路径的子路径，参数中的序号表示的是路径中名称元素的序号   
+
+​	startsWith方法：当前路径是否以参数路径开始   
+
+​	endsWith方法：当前路径是否以参数路径结尾   
+
+​	normalize方法：获取到真实位置，去掉一些./,../等冗余路径   
 
  ~~~java
 
@@ -427,7 +439,15 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
  
 
-   **Files**简化文件操作的工具类。   Files.**createFile**创建文件   Files.**delete**删除文件   Files.**copy**(source,target)复制文件   Files.**move**(source,target)移动   
+   **Files**简化文件操作的工具类。  
+
+​	 Files.**createFile**创建文件   
+
+​	Files.**delete**删除文件   
+
+​	Files.**copy**(source,target)复制文件   
+
+​	Files.**move**(source,target)移动   
 
  ~~~java
 	@Test
@@ -452,7 +472,7 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 		// 权限 文件读写权限
 		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-rw-rw-");
 		// 文件属性集合
-		FileAttribute<Set<PosixFilePermission>> attrs =PosixFilePermissions.asFileAttribute(perms);
+		FileAttribute<Set<PosixFilePermission>> attrs=PosixFilePermissions.asFileAttribute(perms);
 		// 创建 有读写权限的 文件
 		Files.createFile(target,attrs);
 		// 复制 文件的属性一起复制的
@@ -475,7 +495,13 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
  
 
-   **异常类型：**受检异常、非受检异常。   **非受检异常**指的是RuntimeException和error类及其子类，所有其他的异常类都称为**受检异常**。   两种类型的异常在作用上没有什么区别，唯一的差别就在于使用受检异常时的合法性要在编译时刻由编译器来检查。   **受检异常**它强制要求开发人员在代码中进行显示的声明和捕获，否则会产生编译错误。   
+   **异常类型：**受检异常、非受检异常。   
+
+**非受检异常**指的是RuntimeException和error类及其子类，所有其他的异常类都称为**受检异常**。   
+
+两种类型的异常在作用上没有什么区别，唯一的差别就在于使用受检异常时的合法性要在编译时刻由编译器来检查。   
+
+**受检异常**它强制要求开发人员在代码中进行显示的声明和捕获，否则会产生编译错误。   
 
  
 
@@ -875,31 +901,63 @@ public class ConditionUseCase {
 
  
 
+------
 
 
 
 
 
-
-
-**并发工具类**
-
- 
-
-**CountDownLatch**
+#### **并发工具类**
 
  
 
-   **CountDownLatch**允许一个或多个线程等待其他线程完成操作。可以实现join的功能且比join更加强大。   **CountDownLatch**的构造函数接受一个int类型的等待线程数N，   其中**countDown**方法，可以使N减一，**await**方法会阻塞当前线程，直到N为零。   
+##### **CountDownLatch**
 
  
 
-**CountDownLatch****使用场景(**需等待多个线程完成后，再执行本线程**)**
+   **CountDownLatch**允许一个或多个线程等待其他线程完成操作。可以实现join的功能且比join更加强大。   
 
-​       **public** **class** CountDownLatchUseCase {                **private** **final** **static** **int** **THREAD_COUNT** = 2 ; // 总共的线程数                **public** **static** **void** main(String[] args) **throws** InterruptedException {            // 定义的将要等待的线程个数            **final** CountDownLatch latch = **new** CountDownLatch(**THREAD_COUNT**);                        **new** Thread(**new** Runnable() {                 **public** **void** run() {                      System.**out**.println(Thread.*currentThread*()   + " 完成了 " + System.*currentTimeMillis*());                      latch.countDown(); // 已经完成了的 线程数 减一                 }            },"A").start();                        **new** Thread(**new** Runnable() {                 **public** **void** run() {                      System.**out**.println(Thread.*currentThread*()   + " 完成了 " + System.*currentTimeMillis*());                      latch.countDown(); // 已经完成了的 线程数 减一                 }            },"B").start();                        latch.await(); // 让当前线程等待 阻塞，直到所有 THREAD_COUNT 线程完成后            System.**out**.println(Thread.*currentThread*()+" 所有的线程都完成了");        }   }   
+​	**CountDownLatch**的构造函数接受一个int类型的等待线程数N，   
+
+​	其中**countDown**方法，可以使N减一，**await**方法会阻塞当前线程，直到N为零。   
 
  
 
+**CountDownLatch**使用场景(**需等待多个线程完成后，再执行本线程**)
+
+     ~~~java
+
+public class CountDownLatchUseCase {
+	
+	private final static int THREAD_COUNT = 2 ; // 总共的线程数
+	
+	public static void main(String[] args) throws InterruptedException {
+		// 定义的将要等待的线程个数
+		final CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
+		
+		new Thread(new Runnable() {
+			public void run() {
+				System.out.println(Thread.currentThread() + " 完成了 "+System.currentTimeMillis());
+				latch.countDown(); // 已经完成了的 线程数 减一
+			}
+		},"A").start();
+		
+		new Thread(new Runnable() {
+			public void run() {
+				System.out.println(Thread.currentThread() + " 完成了 " + System.currentTimeMillis());
+				latch.countDown(); // 已经完成了的 线程数 减一
+			}
+		},"B").start();
+		
+		latch.await(); // 让当前线程等待 阻塞，直到所有 THREAD_COUNT 线程完成后
+		System.out.println(Thread.currentThread()+" 所有的线程都完成了");
+	}
+}
+
+     ~~~
+
+
+
  
 
 
@@ -908,8 +966,7 @@ public class ConditionUseCase {
 
 
 
-
-**CyclicBarrier**
+##### **CyclicBarrier**
 
  
 
@@ -919,24 +976,37 @@ public class ConditionUseCase {
 
  
 
+------
 
 
 
 
 
-**JVM**
-
- 
-
-**垃圾回收**
+### **JVM**
 
  
 
-**分代回收方式**
+#### **垃圾回收**
 
  
 
-   **分代回收**是垃圾回收中的一种常见算法。特点是把内存划分成不同的世代，分别对应虚拟机中存活时间不同的对象。对于存活时间不同的对象，可以采用不同的回收策略。       对于包含存活时间较短的对象的内存空间，其中所包含的存活对象较少，可以被回收的区域比较多，而且状态变化比较快，因此对这个世代的内存进行回收的频率比较高，速度较快。而对于存活时间比较长的对象，回收的频率可以比较低。       在HotSpot虚拟机中，把内存划分为3个世代：**年轻**、**年老**、**永久**。大部分对象所需内存的分配都是在年轻代区域进行的。当垃圾回收器运行时，**年轻代**中的很多对象可能已经不再存活，可以直接被回收。而有些对象可能仍然处于存活状态。某些对象可能经过若干个垃圾回收操作后，仍然处于存活状态，对于这些对象，垃圾回收器会把这些对象移动到**年老代**的内存区域。**永久代**中包含的是java虚拟机自身运行所需的对象。       **年轻代**有划分为：一个伊甸园(**eden)**、两个存活区(**survivor** space)。       大部分内存分配都是在伊甸园(**eden**)中进行的，由于伊甸园的内存空间较小，因此某些所需内存较大的对象无法直接在伊甸园中进行分配，而直接在年老代中进行。   两个存活区(**survivor**   space)中总有一个是空白的，在对年轻代进行垃圾回收时，先把伊甸园中的存活对象复制到当前空白的存活区中，接着对另一个非空白的存活区中的存活对象进行处理。如果对象的存活时间较短，那么同样将其复制到空白的存活区中；如果对象的存活时间较长，则复制到年老代区域。在复制到空白的存活区过程中，如果发现该存活区已经满了，那么将其复制到年老代区域。经过这两次复制后，就可以把伊甸园和非空白的存活区中的内容直接全部清空，因为这两个区域中的对象要么不再存活，要么已复制到其他内存区域中。   在完成垃圾回收后，下一次的内存分配可以继续从空白的伊甸园开始进行，而两个存活区的作用也发生了交换。   
+##### **分代回收方式**
+
+ 
+
+   **分代回收**是垃圾回收中的一种常见算法。特点是把内存划分成不同的世代，分别对应虚拟机中存活时间不同的对象。对于存活时间不同的对象，可以采用不同的回收策略。       
+
+​	对于包含存活时间较短的对象的内存空间，其中所包含的存活对象较少，可以被回收的区域比较多，而且状态变化比较快，因此对这个世代的内存进行回收的频率比较高，速度较快。而对于存活时间比较长的对象，回收的频率可以比较低。       
+
+​	在HotSpot虚拟机中，把内存划分为3个世代：**年轻**、**年老**、**永久**。大部分对象所需内存的分配都是在年轻代区域进行的。当垃圾回收器运行时，**年轻代**中的很多对象可能已经不再存活，可以直接被回收。而有些对象可能仍然处于存活状态。某些对象可能经过若干个垃圾回收操作后，仍然处于存活状态，对于这些对象，垃圾回收器会把这些对象移动到**年老代**的内存区域。**永久代**中包含的是java虚拟机自身运行所需的对象。       
+
+​	**年轻代**有划分为：一个伊甸园(**eden)**、两个存活区(**survivor** space)。       
+
+​	大部分内存分配都是在伊甸园(**eden**)中进行的，由于伊甸园的内存空间较小，因此某些所需内存较大的对象无法直接在伊甸园中进行分配，而直接在年老代中进行。   
+
+​	两个存活区(**survivor**   space)中总有一个是空白的，在对年轻代进行垃圾回收时，先把伊甸园中的存活对象复制到当前空白的存活区中，接着对另一个非空白的存活区中的存活对象进行处理。如果对象的存活时间较短，那么同样将其复制到空白的存活区中；如果对象的存活时间较长，则复制到年老代区域。在复制到空白的存活区过程中，如果发现该存活区已经满了，那么将其复制到年老代区域。经过这两次复制后，就可以把伊甸园和非空白的存活区中的内容直接全部清空，因为这两个区域中的对象要么不再存活，要么已复制到其他内存区域中。   
+
+​	在完成垃圾回收后，下一次的内存分配可以继续从空白的伊甸园开始进行，而两个存活区的作用也发生了交换。   
 
  
 
@@ -944,11 +1014,19 @@ public class ConditionUseCase {
 
  
 
-**标记清除压缩算法**
+##### **标记清除压缩算法**
 
  
 
-   **标记清除压缩算法**分为三个步骤：标记(mark)、清除(sweep)、压缩(compact).   第一个步骤的作用是扫描整个内存区域，把当前仍然存活的对象**标记**出来；   第二个步骤的作用则是清理内存区域，**清除**垃圾；   第三个步骤的作用是**压缩**整个内存区域，把存活对象所占的内存都移动到内存区域的起始位置，使内存中可用区域是连续的。   经过压缩后，在年老代和永久代中进行内存分配就变得很容易，只需要从可用区域的开头位置进行分配即可。   
+   **标记清除压缩算法**分为三个步骤：标记(mark)、清除(sweep)、压缩(compact).   
+
+​	第一个步骤的作用是扫描整个内存区域，把当前仍然存活的对象**标记**出来；   
+
+​	第二个步骤的作用则是清理内存区域，**清除**垃圾；   
+
+​	第三个步骤的作用是**压缩**整个内存区域，把存活对象所占的内存都移动到内存区域的起始位置，使内存中可用区域是连续的。   
+
+​	经过压缩后，在年老代和永久代中进行内存分配就变得很容易，只需要从可用区域的开头位置进行分配即可。   
 
  
 
@@ -958,67 +1036,169 @@ public class ConditionUseCase {
 
  
 
+------
 
 
 
 
 
-**Java7新知识**
-
- 
-
-**Switch**
+### **Java7新知识**
 
  
 
-   Java中switch支持char\int\byte\short及它们的封装类类型，还有枚举类型。   Java7中额外新增了String类型，这个新特性是编译器这个层次实现的。而在虚拟机和字节代码层次下，还是只支持使用与整数类型兼容的类型。**虽然开发人员在java源代码中使用的是String类型，但是在编译过程中，是将String类型替换成对应的hashcode，而case里面的值也被替换成常量的哈希值，然后再case语句中仍然要使用String的equals方法来进行字符串的判断。**   
+#### **Switch**
+
+ 
+
+   Java中switch支持char\int\byte\short及它们的封装类类型，还有枚举类型。   
+
+​	Java7中额外新增了String类型，这个新特性是编译器这个层次实现的。而在虚拟机和字节代码层次下，还是只支持使用与整数类型兼容的类型。
+
+​	**虽然开发人员在java源代码中使用的是String类型，但是在编译过程中，是将String类型替换成对应的hashcode，而case里面的值也被替换成常量的哈希值，然后再case语句中仍然要使用String的equals方法来进行字符串的判断。**   
 
  
 
 如: Java源代码
 
-   **public** **static** **void** xx(String key){                      String   sigal = "" ;                      **switch** (key) {                      **case** "大于":                               sigal = "大于   > " ;                               **break**;                      **case** "小于":                               sigal = "小于   > " ;                               **break**;                      **case** "等于":                               sigal = "等于   > " ;                               **break**;                      **default**:                               sigal = "   错误 " ;                               **break**;                      }                      System.**out**.println(sigal);            }   
+   ~~~java
+public static void xx(String key){
+		String sigal = "" ;
+		switch (key) {
+		case "大于":
+			sigal = "大于 > " ;
+			break;
+		case "小于":
+			sigal = "小于 > " ;
+			break;
+		case "等于":
+			sigal = "等于 > " ;
+			break;
+		default:
+			sigal = " 错误 " ;
+			break;
+		}
+		System.out.println(sigal);
+	}
 
- 
+   ~~~
+
+
+
+
 
 编译后
 
-   **public** **static** **void** xx(String key) {           String sigal;           label23: {              sigal = "";              **switch**(key.hashCode()) {              **case** 727623:                 **if**(key.equals("大于")) {                  sigal = "大于 > ";                  **break**   label23;                 }                 **break**;              **case** 750687:                 **if**(key.equals("小于")) {                  sigal = "小于 > ";                  **break**   label23;                 }                 **break**;              **case** 998501:                 **if**(key.equals("等于")) {                  sigal = "等于 > ";                  **break**   label23;                 }              }              sigal = " 错误   ";           }           System.out.println(sigal);      }   
+  ~~~java
+public static void xx(String key) {
+      String sigal;
+      label23: {
+         sigal = "";
+         switch(key.hashCode()) {
+         case 727623:
+            if(key.equals("大于")) {
+               sigal = "大于 > ";
+               break label23;
+            }
+            break;
+         case 750687:
+            if(key.equals("小于")) {
+               sigal = "小于 > ";
+               break label23;
+            }
+            break;
+         case 998501:
+            if(key.equals("等于")) {
+               sigal = "等于 > ";
+               break label23;
+            }
+         }
+         sigal = " 错误 ";
+      }
+      System.out.println(sigal);
+   }
+
+  ~~~
+
+
+
+
+
+#### **TWR**
 
  
 
-**TWR**
+   **TWR:**   try-with-resources，能够被try语句所管理的资源需要满足一个条件，就是其资源java类要实现**AutoCloseable**接口，否则会出现编译错误。
 
- 
-
-   **TWR:**   try-with-resources，能够被try语句所管理的资源需要满足一个条件，就是其资源java类要实现**AutoCloseable**接口，否则会出现编译错误。当需要释放资源的时候，该接口的close方法会被自动调用。   
+当需要释放资源的时候，该接口的close方法会被自动调用。   
 
  
 
 代码
 
-​      **public** **void** twr(){            // 可自动关闭            **try**(FileInputStream in = **new** FileInputStream("e:\\fstab");                      FileOutputStream   out = **new** FileOutputStream("e:\\a");){                 **byte**[] buffer = **new** **byte**[1024];                 **int** len = -1 ;                 **while** ((len = in.read(buffer)) != -1) {                      out.write(buffer, 0, len);                 }            } **catch** (Exception e) {                 e.printStackTrace();            }        }   
+      ~~~java
+	public void twr(){
+		// 可自动关闭
+		try(FileInputStream in = new FileInputStream("e:\\fstab");
+				FileOutputStream out = new FileOutputStream("e:\\a");){
+			byte[] buffer = new byte[1024];
+			int len = -1 ;
+			while ((len = in.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+      ~~~
+
+
+
+ 
+
+#### **Objects**
+
+ 
+
+   在java.util包中新增了一个用来操作对象的工具类java.util.Objects。
+
+**Objects**类中包含的都是静态方法，可进行快速对对象操作。   
+
+​	**compare**方法:两对象比较操作。   
+
+​	**equals**方法:判断两个对象是否相等，若两个都是null，则为true；若一个为空，则为false   
+
+​	**deepEquals**方法:作用于equals相似，若参数是数组，则调用Arrays类的deepEquals进行数组比较   
+
+​	**toString**方法:获取对象字符串形式，若参数为null，则输出null字符串。当传入参数是两个时，如第一个参数为null，则输出第二个参数当作返回值(相当于默认值)   
+
+ 
+
+        ~~~java
+	@Test
+	public void objects(){
+		
+		// 判断两个对象是否相等，如有一个为null，则为false
+		boolean equals = Objects.equals("a", new String("a")); // true
+		boolean equals1 = Objects.equals(null, new String("a")); // false
+		// 数组比较
+		boolean equals2 = Objects.deepEquals(new String[]{"a","b"}, new String[]{"a","b"}); // true
+		// 获取对象字符串形式
+		String str = Objects.toString(null,"参数为空"); // 输出 “参数为空”
+	}
+
+        ~~~
+
+
+
+ 
+
+------
 
  
 
  
 
-**Objects**
-
- 
-
-   在java.util包中新增了一个用来操作对象的工具类java.util.Objects。**Objects**类中包含的都是静态方法，可进行快速对对象操作。   **compare**方法:两对象比较操作。   **equals**方法:判断两个对象是否相等，若两个都是null，则为true；若一个为空，则为false   **deepEquals**方法:作用于equals相似，若参数是数组，则调用Arrays类的deepEquals进行数组比较   **toString**方法:获取对象字符串形式，若参数为null，则输出null字符串。当传入参数是两个时，如第一个参数为null，则输出第二个参数当作返回值(相当于默认值)   
-
- 
-
-​        @Test        **public** **void** objects(){                        // 判断两个对象是否相等，如有一个为null，则为false            **boolean** equals = Objects.*equals*("a", **new** String("a")); // true            **boolean** equals1 = Objects.*equals*(**null**, **new** String("a")); // false            // 数组比较            **boolean** equals2 = Objects.*deepEquals*(**new** String[]{"a","b"}, **new** String[]{"a","b"}); // true            // 获取对象字符串形式            String str = Objects.*toString*(**null**,"参数为空"); // 输出 “参数为空”        }   
-
- 
-
- 
-
- 
-
  
 
  
@@ -1029,43 +1209,106 @@ public class ConditionUseCase {
 
 
 
-
-**框架**
-
- 
-
-**Spring**
+## **框架**
 
  
 
  
 
-**Spring boot**
+### **Spring boot**
 
  
 
-**1、解析JSON数据**
+#### **1、解析JSON数据**
 
  
 
 使用FastJson转JSON格式
 
+ ~~~java
+第一种方法: 在启动类让其继承WebMvcConfigurerAdapter。然后重新实现方法configureMessageConverters。
+
+// 启动类
+@SpringBootApplication
+public class SpringBootApp extends WebMvcConfigurerAdapter{
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+
+        // 1、定义fastJson的转换器
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        // 2、配置fastJson
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+        fastJsonConfig.setSerializerFeatures(
+                SerializerFeature.PrettyFormat // 格式化
+        );
+
+        // 最后添加到总的转换器中
+        converter.setFastJsonConfig(fastJsonConfig);
+        converters.add(converter);
+
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootApp.class, args);
+    }
+}
+
+
+ ~~~
+
+
+
+ ~~~java
+第二种方式: 采用@Bean注解自定义实现
+
+
+@Configuration
+public class CustomFastJsonConfig {
+
+    @Bean
+    public HttpMessageConverters fastJsonHttpMessageConverter(){
+        // FastJson转换器
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+
+        fastJsonConfig.setSerializerFeatures(
+                SerializerFeature.PrettyFormat
+        );
+
+        converter.setFastJsonConfig(fastJsonConfig);
+        return  new HttpMessageConverters(converter);
+    }
+}
+
+
+ ~~~
+
+
+
+*FastJson*中JSONField的用法
+
+~~~java
+
+/**
+ * FastJson中 JSONField
+ *      format 格式转换输出
+ *      serialize = false 表示不输出此字段
+ */
+@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+private Date birth ;
+
+@JSONField(serialize = false)
+private  String remark ;
+
+
+~~~
+
+
+
  
 
-   第一种方法: 在启动类让其继承**WebMvcConfigurerAdapter**。然后重新实现方法**configureMessageConverters**。       // 启动类    @SpringBootApplication    public class SpringBootApp extends WebMvcConfigurerAdapter{            @Override        public void configureMessageConverters(List<HttpMessageConverter<?>>   converters) {            super.configureMessageConverters(converters);                // 1、定义fastJson的转换器            FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();            // 2、配置fastJson            FastJsonConfig fastJsonConfig = new FastJsonConfig();            fastJsonConfig.setSerializerFeatures(                    SerializerFeature.*PrettyFormat* // 格式化            );                // 最后添加到总的转换器中            converter.setFastJsonConfig(fastJsonConfig);            converters.add(converter);            }            public static void main(String[]   args) {            SpringApplication.*run*(SpringBootApp.class, args);        }    }       
-
- 
-
-   第二种方式: 采用**@Bean**注解自定义实现           @Configuration    public class CustomFastJsonConfig {            @Bean        public HttpMessageConverters   fastJsonHttpMessageConverter(){            // FastJson转换器            FastJsonHttpMessageConverter   converter = new FastJsonHttpMessageConverter();            FastJsonConfig fastJsonConfig = new FastJsonConfig();                fastJsonConfig.setSerializerFeatures(                    SerializerFeature.*PrettyFormat*           );                converter.setFastJsonConfig(fastJsonConfig);            return  new HttpMessageConverters(converter);        }    }       
-
- 
-
-*FastJson**中JSONField的用法*
-
-​       */**    \* FastJson**中 JSONField    \*        format 格式转换输出    \*        serialize = false 表示不输出此字段    \*/*   @JSONField(format = "yyyy-MM-dd HH:mm:ss")    private Date birth   ;        @JSONField(serialize   = false)    private  String remark ;       
-
- 
-
  
 
 
@@ -1076,59 +1319,96 @@ public class ConditionUseCase {
 
 
 
+#### **2、热部署devtools**
 
-**2、热部署devtools**
+ ~~~java
+1、首先添加依赖
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+    <scope>true</scope>
+</dependency>
 
- 
+2、添加插件
+<!--构建节点-->
+<build>
+    <plugins>
+        <!--重新打包 热部署插件 -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <!--fork :  如果没有该项配置则devtools不会起作用，即应用不会restart -->
+                <fork>true</fork>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
-   1、首先添加依赖   <dependency>        <groupId>org.springframework.boot</groupId>        <artifactId>spring-boot-devtools</artifactId>        <optional>true</optional>        <scope>true</scope>    </dependency>       2、添加插件   <!--构建节点-->    <build>        <plugins>            <!--重新打包 热部署插件 -->            <plugin>                <groupId>org.springframework.boot</groupId>                <artifactId>spring-boot-maven-plugin</artifactId>                <executions>                    <execution>                        <goals>                            <goal>repackage</goal>                        </goals>                    </execution>                </executions>                <configuration>                    <!--fork :  如果没有该项配置则devtools不会起作用，即应用不会restart -->                    <fork>true</fork>                </configuration>            </plugin>        </plugins>    </build>       3、然后修改类文件、配置文件等，应用都会重启。但是它的重启方式比手工重启效率快很多。其原理是使用的两个ClassLoader加载。一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。   这样在有代码更改的时候，原来的restart ClassLoader被丢弃，重新创建一个新的restart ClassLoader，由于需要加载的类比较少，所以实现了较快的重启。       4、有可能配置了还是无效，则需**配置编译器自动编译**。   
+3、然后修改类文件、配置文件等，应用都会重启。但是它的重启方式比手工重启效率快很多。其原理是使用的两个ClassLoader加载。一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。
+这样在有代码更改的时候，原来的restart ClassLoader被丢弃，重新创建一个新的restart ClassLoader，由于需要加载的类比较少，所以实现了较快的重启。
 
- 
+4、有可能配置了还是无效，则需配置编译器自动编译。
 
- 
-
- 
-
-**3、JPA**
-
- 
-
-   **JPA**全称(java persistence API)，是SUN公司官方提出的**Java持久化规范**。它为Java开发人员提供了一种对象/关系映射工具来管理Java应用程序中的关系数据。   **持久化**即把数据(内存中的数据)保存到可永久保存的存储设备中。   
-
- 
-
- 
+ ~~~
 
 
-
-
-。
-
-**数据库**
-
- 
-
-**序列**
-
- 
-
-   *-- Create sequence*    create sequence MYSQL.SEQ_GUI   start with 1   increment by 1;   
-
- 
-
-下个序列：SEQ_GUI.NEXTVAL
-
-当前序列：SEQ_GUI.CURRVAL
-
-获取序列：select SEQ_GUI.NEXTVAL FROM dual ; *-- oracle*
-
- 
-
-**索引**
 
  
 
  
+
+#### **3、JPA**
+
+ 
+
+   **JPA**全称(java persistence API)，是SUN公司官方提出的**Java持久化规范**。
+
+它为Java开发人员提供了一种对象/关系映射工具来管理Java应用程序中的关系数据。   
+
+**持久化**即把数据(内存中的数据)保存到可永久保存的存储设备中。   
+
+ 
+
+ 
+
+------
+
+
+
+
+## **数据库**
+
+ 
+
+### **序列**
+
+ ~~~sql
+  -- Create sequence   
+  create sequence MYSQL.SEQ_GUI   
+  start with 1   
+  increment by 1; 
+ ~~~
+
+​	下个序列：SEQ_GUI.NEXTVAL
+
+​	当前序列：SEQ_GUI.CURRVAL
+
+​	获取序列：select SEQ_GUI.NEXTVAL FROM dual ; *-- oracle*
+
+ 
+
+
+
+------
 
 
 
@@ -1324,45 +1604,6 @@ public class ConditionUseCase {
    实现主机A和主机B间的信任连接步骤：   1）  主机A上使用命令创建密钥：**ssh –keygen –t rsa**   2）  把主机A的/root/.ssh/id_ras.pub文件内容复制到主机B的/root/.ssh/authorized_keys   3）  此时主机A连接主机B就不需密码了   4）  相同的，把主机B公共密钥复制拷贝到主机A的/root/.ssh/authorized_keys下   5）  此时主机A和主机B间就建立起信任了   
 
  
-
- 
-
- 
-
-**shell**
-
- 
-
- 
-
- 
-
-
-
-
-
-
-
-
-**前端**
-
- 
-
- 
-
-**CSS**
-
- 
-
- 
-
-**JS**
-
- 
-
- 
-
-**JQuery**
 
  
 
