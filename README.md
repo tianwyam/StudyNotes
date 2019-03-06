@@ -931,7 +931,7 @@ public class ConditionUseCase {
 
 **CountDownLatch**使用场景(**需等待多个线程完成后，再执行本线程**)
 
-     ~~~java
+~~~java
 
 public class CountDownLatchUseCase {
 	
@@ -943,7 +943,7 @@ public class CountDownLatchUseCase {
 		
 		new Thread(new Runnable() {
 			public void run() {
-				System.out.println(Thread.currentThread() + " 完成了 "+System.currentTimeMillis());
+				System.out.println(Thread.currentThread() + " 完成了 " + System.currentTimeMillis());
 				latch.countDown(); // 已经完成了的 线程数 减一
 			}
 		},"A").start();
@@ -960,11 +960,9 @@ public class CountDownLatchUseCase {
 	}
 }
 
-     ~~~
+~~~
 
 
-
- 
 
 
 
@@ -1142,20 +1140,20 @@ public static void xx(String key) {
 代码
 
       ~~~java
-	public void twr(){
-		// 可自动关闭
-		try(FileInputStream in = new FileInputStream("e:\\fstab");
-				FileOutputStream out = new FileOutputStream("e:\\a");){
-			byte[] buffer = new byte[1024];
-			int len = -1 ;
-			while ((len = in.read(buffer)) != -1) {
-				out.write(buffer, 0, len);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+    public void twr(){
+    	// 可自动关闭
+    	try(FileInputStream in = new FileInputStream("e:\\fstab");
+    			FileOutputStream out = new FileOutputStream("e:\\a");){
+    		byte[] buffer = new byte[1024];
+    		int len = -1 ;
+    		while ((len = in.read(buffer)) != -1) {
+    			out.write(buffer, 0, len);
+    		}
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
+    
       ~~~
 
 
@@ -1181,18 +1179,18 @@ public static void xx(String key) {
  
 
         ~~~java
-	@Test
-	public void objects(){
-		
-		// 判断两个对象是否相等，如有一个为null，则为false
-		boolean equals = Objects.equals("a", new String("a")); // true
-		boolean equals1 = Objects.equals(null, new String("a")); // false
-		// 数组比较
-		boolean equals2 = Objects.deepEquals(new String[]{"a","b"}, new String[]{"a","b"}); // true
-		// 获取对象字符串形式
-		String str = Objects.toString(null,"参数为空"); // 输出 “参数为空”
-	}
-
+    @Test
+    public void objects(){
+    	
+    	// 判断两个对象是否相等，如有一个为null，则为false
+    	boolean equals = Objects.equals("a", new String("a")); // true
+    	boolean equals1 = Objects.equals(null, new String("a")); // false
+    	// 数组比较
+    	boolean equals2 = Objects.deepEquals(new String[]{"a","b"}, new String[]{"a","b"}); // true
+    	// 获取对象字符串形式
+    	String str = Objects.toString(null,"参数为空"); // 输出 “参数为空”
+    }
+    
         ~~~
 
 
