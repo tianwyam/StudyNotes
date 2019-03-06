@@ -10,7 +10,7 @@
 
 
 
-![](java\java_collection.jpeg)
+[](https://github.com/tianwyam/StudyNotes/blob/master/java/java_collection.jpeg)
 
 
 
