@@ -1357,7 +1357,8 @@ private  String remark ;
     </plugins>
 </build>
 
-3、然后修改类文件、配置文件等，应用都会重启。但是它的重启方式比手工重启效率快很多。其原理是使用的两个ClassLoader加载。一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。
+3、然后修改类文件、配置文件等，应用都会重启。但是它的重启方式比手工重启效率快很多。
+其原理是使用的两个ClassLoader加载。一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。
 这样在有代码更改的时候，原来的restart ClassLoader被丢弃，重新创建一个新的restart ClassLoader，由于需要加载的类比较少，所以实现了较快的重启。
 
 4、有可能配置了还是无效，则需配置编译器自动编译。
