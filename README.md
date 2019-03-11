@@ -1,19 +1,7 @@
 # 学习知识汇总
 
  
-
 ------
-
-# 目录
-
-
-
-[TOC]
-
-
-
-------
-
 
 
 
@@ -235,18 +223,18 @@ JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 代码
 
   ~~~java
-	@Test
-	public void buffer(){
-		
-		ByteBuffer buffer = ByteBuffer.allocate(4);
-		buffer.putInt(12); // int 占用4个字节
+@Test
+public void buffer(){
+
+	ByteBuffer buffer = ByteBuffer.allocate(4);
+	buffer.putInt(12); // int 占用4个字节
 //		buffer.putChar('A'); // 再存放就缓存溢出 BufferOverflowException
-		
-		buffer.flip(); //读取缓冲区时调用
-		
-		int xx = buffer.getInt();
-		System.out.println(xx);
-	}
+
+	buffer.flip(); //读取缓冲区时调用
+
+	int xx = buffer.getInt();
+	System.out.println(xx);
+}
   ~~~
 
 
@@ -474,38 +462,38 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
 ​	Files.**move**(source,target)移动   
 
  ~~~java
-	@Test
-	public void files() throws IOException{
-		// 创建文件
-		Path path = Files.createFile(Paths.get("file/files.txt").toAbsolutePath());
-		// 内容
-		List<String> contents = new ArrayList<>();
-		contents.add("Hello ");
-		contents.add("World");
-		// 写文件
-		Files.write(path, contents, Charset.forName("UTF-8"));
-		Files.size(path);
-		// 获取所有的字节数组
-		byte[] bytes = Files.readAllBytes(path);
-		ByteArrayOutputStream output = new ByteArrayOutputStream();
-		Files.copy(path, output);
-		// 输出
-		System.out.println(new String(bytes));
-		
-		Path target = Paths.get("file/newfiles.txt");
-		// 权限 文件读写权限
-		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-rw-rw-");
-		// 文件属性集合
-		FileAttribute<Set<PosixFilePermission>> attrs=PosixFilePermissions.asFileAttribute(perms);
-		// 创建 有读写权限的 文件
-		Files.createFile(target,attrs);
-		// 复制 文件的属性一起复制的
-		Files.copy(path, target, StandardCopyOption.COPY_ATTRIBUTES);
-		// 移动
-		Files.move(path, target);
-		// 删除
-		Files.delete(path);
-	}
+@Test
+public void files() throws IOException{
+	// 创建文件
+	Path path = Files.createFile(Paths.get("file/files.txt").toAbsolutePath());
+	// 内容
+	List<String> contents = new ArrayList<>();
+	contents.add("Hello ");
+	contents.add("World");
+	// 写文件
+	Files.write(path, contents, Charset.forName("UTF-8"));
+	Files.size(path);
+	// 获取所有的字节数组
+	byte[] bytes = Files.readAllBytes(path);
+	ByteArrayOutputStream output = new ByteArrayOutputStream();
+	Files.copy(path, output);
+	// 输出
+	System.out.println(new String(bytes));
+
+	Path target = Paths.get("file/newfiles.txt");
+	// 权限 文件读写权限
+	Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-rw-rw-");
+	// 文件属性集合
+	FileAttribute<Set<PosixFilePermission>> attrs=PosixFilePermissions.asFileAttribute(perms);
+	// 创建 有读写权限的 文件
+	Files.createFile(target,attrs);
+	// 复制 文件的属性一起复制的
+	Files.copy(path, target, StandardCopyOption.COPY_ATTRIBUTES);
+	// 移动
+	Files.move(path, target);
+	// 删除
+	Files.delete(path);
+}
 
  ~~~
 
@@ -534,8 +522,7 @@ FileChannel类提供了**transferFrom**和**transferTo**方法用了快速地传
  
 
  
-
- 
+------
 
  
 
@@ -680,21 +667,21 @@ public class Jdk7Synchronized {
 **wait**
 
 ~~~java
-	public int useWait(final Object lock) {
-		try {
-			synchronized (lock) {
-				// 逻辑条件不满足时，进入等待状态
-				while(num == 2){
-					lock.wait();
-				}
-				// 条件满足时
-				return ++num;
+public int useWait(final Object lock) {
+	try {
+		synchronized (lock) {
+			// 逻辑条件不满足时，进入等待状态
+			while(num == 2){
+				lock.wait();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			// 条件满足时
+			return ++num;
 		}
-		return num;
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
+	return num;
+}
 
 ~~~
 
@@ -702,17 +689,17 @@ public class Jdk7Synchronized {
 
 ~~~java
 
-	public int useNotify(final Object lock){
-		synchronized (lock) {
-			if (sub == 96) {
-				num++; // 除了要用notify唤醒外，还要修改逻辑参数，不然wait方法又会进入等待状态
-				lock.notify(); // 只唤醒一个线程
-				// lock.notifyAll(); // 全部唤醒	
-			     System.out.println("唤醒了 lock....");
-			}
-			return --sub;
+public int useNotify(final Object lock){
+	synchronized (lock) {
+		if (sub == 96) {
+			num++; // 除了要用notify唤醒外，还要修改逻辑参数，不然wait方法又会进入等待状态
+			lock.notify(); // 只唤醒一个线程
+			// lock.notifyAll(); // 全部唤醒	
+		     System.out.println("唤醒了 lock....");
 		}
+		return --sub;
 	}
+}
 
 ~~~
 
@@ -795,18 +782,18 @@ public class Jdk7Synchronized {
 **注意：**不要将获取锁的过程写在try块里面，因为如果在获取锁(自定义锁的实现)时发生异常，异常抛出的同时，则会导致锁无故释放。
 
    ~~~java
-	@Test
-	public void lock(){
-		Lock lock = new ReentrantLock();
-		// 获取锁
-		lock.lock(); // 放在try块外面
-		try {
-            
-		} finally {
-			// 释放锁
-			lock.unlock();
-		}
+@Test
+public void lock(){
+	Lock lock = new ReentrantLock();
+	// 获取锁
+	lock.lock(); // 放在try块外面
+	try {
+
+	} finally {
+		// 释放锁
+		lock.unlock();
 	}
+}
    ~~~
 
 
