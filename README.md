@@ -17,6 +17,7 @@
 
 ![java collection](https://github.com/tianwyam/StudyNotes/blob/master/java/java_collection.jpeg)
 
+<img src="./java/java_collection.jpeg" title="java_collection" />
 
 
 #### **Map**
