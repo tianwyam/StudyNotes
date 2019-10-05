@@ -15,7 +15,7 @@
 
 
 
-[java集合-java_collection](https://tianwyam.github.io/StudyNotes/java/java_collection.md)
+[java集合-java_collection](java/java_collection.md)
 
 
 
