@@ -4,11 +4,60 @@
 
 ## **Spring boot**
 
+
+
+
+
+
+
  
 
+## 1.快速入门
 
 
-### **1、解析JSON数据**
+
+### 1.设置spring boot的parent
+
+~~~xml
+<parent>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>1.5.2.RELEASE</version>
+</parent>
+~~~
+
+
+
+### 2.添加web支持依赖
+
+~~~xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+~~~
+
+
+
+### 3.添加maven插件
+
+~~~xml
+<plugin>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+
+~~~
+
+
+
+
+
+## 2.常用配置
+
+
+
+### **2.1、解析JSON数据**
 
  
 
@@ -108,10 +157,10 @@ private  String remark ;
 
 
 
-### **2、热部署devtools**
+### **2.2、热部署devtools**
 
 ```xml
-1、首先添加依赖
+<!--> 1、首先添加依赖<-->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-devtools</artifactId>
@@ -119,7 +168,7 @@ private  String remark ;
     <scope>true</scope>
 </dependency>
 
-2、添加插件
+<!-->2、添加插件<-->
 <!--构建节点-->
 <build>
     <plugins>
@@ -142,11 +191,14 @@ private  String remark ;
     </plugins>
 </build>
 
+<!-->
 3、然后修改类文件、配置文件等，应用都会重启。但是它的重启方式比手工重启效率快很多。
-其原理是使用的两个ClassLoader加载。一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。
-这样在有代码更改的时候，原来的restart ClassLoader被丢弃，重新创建一个新的restart ClassLoader，由于需要加载的类比较少，所以实现了较快的重启。
+其原理是使用的两个ClassLoader加载。
+一个ClassLoader加载那些不会改变的类(第三方JAR)，另一个ClassLoader加载会改变的类，称为restart ClassLoader。
+这样在有代码更改的时候，原来的restart ClassLoader被丢弃，重新创建一个新的restart ClassLoader，由于需要加载的类比较少，所以实现了较快的重启。 <-->
 
-4、有可能配置了还是无效，则需配置编译器自动编译。
+<!-->
+4、有可能配置了还是无效，则需配置编译器自动编译。<-->
 
 ```
 
@@ -154,9 +206,26 @@ private  String remark ;
 
  
 
- 
+ ### 2.3、配置根路径及端口
 
-### **3、JPA**
+
+
+Spring Boot项目使用一个全局的配置文件application.properties或者是application.yml，在resources目录下或者类路径下的/config下，一般我们放到resources下
+
+~~~javascript
+server.port=8080
+server.context-path=/demo
+~~~
+
+
+
+
+
+
+
+
+
+## **3.JPA**
 
  
 
