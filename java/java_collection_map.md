@@ -1,6 +1,6 @@
 
 
-### 集合
+## 集合
 
 
 
@@ -8,17 +8,17 @@
 
 
 
-#### **Map**
+### **Map**
 
 
 
-##### **HashMap**
+#### **HashMap**
 
 ​	**HashMap**线程不安全，在多线程环境下，使用HashMap进行put操作会引起死循环，导致CPU利用率接近100%，是因为多线程会导致HashMap的Entry链表形成环形数据结构，一旦形成环形数据结构，Entry的next节点永远不为空，就会产生死循环获取Entry。   
 
 
 
-##### **HashTable**
+#### **HashTable**
 
 ​	**Hashtable**容器使用**synchronized**来保证线程安全，所以在线程竞争激烈的环境下效率非常低下。因为当一个线程访问HashTable的同步方法，其他线程也访问HashTable的同步方法时，会进入阻塞或轮询状态。如线程A访问put进行元素添加时，其他线程不但不能使用put方法，也不能使用get方法获取元素。   
 
@@ -44,7 +44,7 @@
 
 
 
-##### **ConcurrentHashMap**
+#### **ConcurrentHashMap**
 
  
 
@@ -66,7 +66,9 @@
 
 
 
-​	**Segment**的结构和hashmap类似，是一种数组和链表结构。一个Segment里包含一个HashEntry数组，每个HashEntry是一个链表结构的元素，每一个Segment守护着一个HashEntry数组里的元素，当对HashEntry数组的数据进行修改时，首先必须获取它对应的Segment锁。   
+​	**Segment**的结构和hashmap类似，是一种数组和链表结构。
+
+一个Segment里包含一个HashEntry数组，每个HashEntry是一个链表结构的元素，每一个Segment守护着一个HashEntry数组里的元素，当对HashEntry数组的数据进行修改时，首先必须获取它对应的Segment锁。   
 
  
 

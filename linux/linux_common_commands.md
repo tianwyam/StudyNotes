@@ -28,7 +28,7 @@ mkdir –p /home/java/xx
 
 **远程复制**
 
-```
+```shell
 scp 源地址 目的地址 
 	如: scp /home (username)@IP:/home    
 	scp /home 192.168.1.1:/home   

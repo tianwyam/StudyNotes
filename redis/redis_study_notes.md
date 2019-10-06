@@ -8,7 +8,7 @@
 ### 1、字符串 - string
 ​	（value<=512MB）
 
-~~~
+~~~shell
 Set key value  -- 设置key 
 
 Get key  -- 获取
