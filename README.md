@@ -110,6 +110,10 @@
 
 [mysql绿色版安装服务教程](SQL/sql_mysql_green_install.md)
 
+[H2内嵌数据的使用](SQL/sql_h2.md)
+
+
+
 
 
 
