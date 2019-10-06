@@ -108,6 +108,10 @@
 
 [SQL常用使用](SQL/sql.md)
 
+[mysql绿色版安装服务教程](SQL/sql_mysql_green_install.md)
+
+
+
 
 
 ## **Linux**
