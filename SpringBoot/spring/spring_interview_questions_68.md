@@ -105,11 +105,11 @@ XML配置文件。
 ## 24. 解释Spring支持的几种bean的作用域。
 Spring框架支持以下五种bean的作用域：
 
-​	singleton : bean在每个Spring ioc 容器中只有一个实例。
-​	prototype：一个bean的定义可以有多个实例。
-​	request：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。
-​	session：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
-​	global-session：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+1. singleton : bean在每个Spring ioc 容器中只有一个实例。
+2. prototype：一个bean的定义可以有多个实例。
+3. request：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效
+4. session：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+5. global-session：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
 
 缺省的Spring bean 的作用域是Singleton。
 
@@ -127,18 +127,26 @@ Spring根据bean的定义填充所有的属性。
 如果bean实现了 DisposableBean，它将调用destroy()方法。
 
 ## 27. 哪些是重要的bean生命周期方法？ 你能重载它们吗？
-有两个重要的bean 生命周期方法，第一个是setup ， 它是在容器加载bean的时候被调用。第二个方法是 teardown 它是在容器卸载类的时候被调用。
-The bean 标签有两个重要的属性（init-method和destroy-method）。用它们你可以自己定制初始化和注销方法。它们也有相应的注解（@PostConstruct和@PreDestroy）。
+有两个重要的bean 生命周期方法，
+
+第一个是setup ， 它是在容器加载bean的时候被调用。
+
+第二个方法是 teardown 它是在容器卸载类的时候被调用。
+
+The bean 标签有两个重要的属性（init-method和destroy-method）。
+
+用它们你可以自己定制初始化和注销方法。它们也有相应的注解（@PostConstruct和@PreDestroy）。
 
 ## 28. 什么是Spring的内部bean？
 当一个bean仅被用作另一个bean的属性时，它能被声明为一个内部bean，为了定义inner bean，在Spring 的 基于XML的 配置元数据中，可以在 &lt;property/&gt;或 &lt;constructor-arg/&gt; 元素内使用&lt;bean/&gt; 元素，内部bean通常是匿名的，它们的Scope一般是prototype。
 
 ## 29. 在 Spring中如何注入一个java集合？
 Spring提供以下几种集合的配置元素：
-	&lt;list&gt;类型用于注入一列值，允许有相同的值。
-	&lt;set&gt; 类型用于注入一组值，不允许有相同的值。
-	&lt;map&gt; 类型用于注入一组键值对，键和值都可以为任意类型。
-	&lt;props&gt;类型用于注入一组键值对，键和值都只能为String类型。
+
+1. &lt;list&gt;类型用于注入一列值，允许有相同的值。
+2. &lt;set&gt; 类型用于注入一组值，不允许有相同的值。
+3. &lt;map&gt; 类型用于注入一组键值对，键和值都可以为任意类型。
+4. &lt;props&gt;类型用于注入一组键值对，键和值都只能为String类型。
 
 ## 30. 什么是bean装配？
 装配，或bean 装配是指在Spring 容器中把bean组装到一起，前提是容器需要知道bean的依赖关系，如何通过依赖注入来把它们装配到一起。
@@ -148,11 +156,12 @@ Spring 容器能够自动装配相互合作的bean，这意味着容器不需要
 
 ## 32. 解释不同方式的自动装配 。
 有五种自动装配的方式，可以用来指导Spring容器用自动装配方式来进行依赖注入。
-	no：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。
-	byName：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
-	byType:：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
-	constructor：这个方式类似于byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。
-	autodetect：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
+
+- no：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。
+- byName：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
+- byType:：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
+- constructor：这个方式类似于byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。
+- autodetect：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
 
 ## 33.自动装配有哪些局限性 ?
 自动装配的局限性是：
@@ -201,12 +210,13 @@ Spring对数据访问对象（DAO）的支持旨在简化它和数据访问技�
 
 ## 45. Spring支持的ORM
 Spring支持以下ORM：
-	Hibernate
-	iBatis
-	JPA (Java Persistence API)
-	TopLink
-	JDO (Java Data Objects)
-	OJB
+
+- Hibernate
+- iBatis
+- JPA (Java Persistence API)
+- TopLink
+- JDO (Java Data Objects)
+- OJB
 
 ## 46.如何通过HibernateDaoSupport将Spring和Hibernate结合起来？
 用Spring的 SessionFactory 调用 LocalSessionFactory。集成过程分三步：
@@ -245,11 +255,12 @@ AOP核心就是切面，它将多个类的通用行为封装成可重用的模�
 ## 54. 通知
 通知是个在方法执行前或执行后要做的动作，实际上是程序执行时要通过SpringAOP框架触发的代码段。
 Spring切面可以应用五种类型的通知：
-	before：前置通知，在一个方法执行前被调用。
-	after: 在方法执行之后调用的通知，无论方法执行是否成功。
-	after-returning: 仅当方法成功完成后执行的通知。
-	after-throwing: 在方法抛出异常退出时执行的通知。
-	around: 在方法执行之前和之后调用的通知。
+
+- before：前置通知，在一个方法执行前被调用。
+- after: 在方法执行之后调用的通知，无论方法执行是否成功。
+- after-returning: 仅当方法成功完成后执行的通知。
+- after-throwing: 在方法抛出异常退出时执行的通知。	
+- around: 在方法执行之前和之后调用的通知。
 
 ## 55. 切点
 切入点是一个或一组连接点，通知将在这些位置执行。可以通过表达式或匹配的方式指明切入点。
