@@ -12,7 +12,7 @@
 
 
 
-[java集合-java_Map_HashMap & HashTable & ConcurrentHashMap](java/java_collection_map.md)
+[java集合-java_Map_HashMap & HashTable & ConcurrentHashMap](java/collection/java_collection_map.md)
 
 
 
@@ -47,17 +47,17 @@
 
  
 
-[java多线程-java_multi_thread_volatile_synchronized](java/java_multi_thread_volatile_synchronized.md)
+[java多线程-java_multi_thread_volatile_synchronized](java/multithread/java_multi_thread_volatile_synchronized.md)
 
-[java多线程-java_multi_thread_object_wait_notify](java/java_multi_thread_object_wait_notify.md)
+[java多线程-java_multi_thread_object_wait_notify](java/multithread/java_multi_thread_object_wait_notify.md)
 
-[java多线程-java_thread](java/java_multi_thread_thread.md)
+[java多线程-java_thread](java/multithread/java_multi_thread_thread.md)
 
-[java多线程-java_lock_ReentrantLock_ReadWriteLock](java/java_multi_thread_lock.md)
+[java多线程-java_lock_ReentrantLock_ReadWriteLock](java/multithread/java_multi_thread_lock.md)
 
-[Java多线程-java_lock_condition](java/java_multi_thread_lock_condition.md)
+[Java多线程-java_lock_condition](java/multithread/java_multi_thread_lock_condition.md)
 
- [java多线程-Java并发工具- CountDownLatch & CyclicBarrier ](java/java_multi_thread_tools.md)
+ [java多线程-Java并发工具- CountDownLatch & CyclicBarrier ](java/multithread/java_multi_thread_tools.md)
 
 
 
