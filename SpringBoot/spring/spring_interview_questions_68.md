@@ -87,7 +87,7 @@ Setter方法注入：Setter方法注入是容器通过调用无参构造器或�
 Spring Beans
 
 ## 20.什么是Spring beans?
-Spring beans 是那些形成Spring应用的主干的java对象。它们被Spring IOC容器初始化，装配，和管理。这些beans通过容器中配置的元数据创建。比如，以XML文件中<bean/> 的形式定义。
+Spring beans 是那些形成Spring应用的主干的java对象。它们被Spring IOC容器初始化，装配，和管理。这些beans通过容器中配置的元数据创建。比如，以XML文件中&lt;bean/&gt; 的形式定义。
 Spring 框架定义的beans都是单件beans。在bean tag中有个属性”singleton”，如果它被赋为TRUE，bean 就是单件，否则就是一个 prototype bean。默认是TRUE，所以所有在Spring框架中的beans 缺省都是单件。
 
 ## 21. 一个 Spring Bean 定义 包含什么？
@@ -100,15 +100,17 @@ XML配置文件。
 基于java的配置。
 
 ## 23. 你怎样定义类的作用域?
-当定义一个<bean> 在Spring里，我们还能给这个bean声明一个作用域。它可以通过bean 定义中的scope属性来定义。如，当Spring要在需要的时候每次生产一个新的bean实例，bean的scope属性被指定为prototype。另一方面，一个bean每次使用的时候必须返回同一个实例，这个bean的scope 属性 必须设为 singleton。
+当定义一个&lt;bean&gt; 在Spring里，我们还能给这个bean声明一个作用域。它可以通过bean 定义中的scope属性来定义。如，当Spring要在需要的时候每次生产一个新的bean实例，bean的scope属性被指定为prototype。另一方面，一个bean每次使用的时候必须返回同一个实例，这个bean的scope 属性 必须设为 singleton。
 
 ## 24. 解释Spring支持的几种bean的作用域。
 Spring框架支持以下五种bean的作用域：
-singleton : bean在每个Spring ioc 容器中只有一个实例。
-prototype：一个bean的定义可以有多个实例。
-request：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。
-session：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
-global-session：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+
+​	singleton : bean在每个Spring ioc 容器中只有一个实例。
+​	prototype：一个bean的定义可以有多个实例。
+​	request：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。
+​	session：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+​	global-session：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+
 缺省的Spring bean 的作用域是Singleton。
 
 ## 25. Spring框架中的单例bean是线程安全的吗?
@@ -129,32 +131,32 @@ Spring根据bean的定义填充所有的属性。
 The bean 标签有两个重要的属性（init-method和destroy-method）。用它们你可以自己定制初始化和注销方法。它们也有相应的注解（@PostConstruct和@PreDestroy）。
 
 ## 28. 什么是Spring的内部bean？
-当一个bean仅被用作另一个bean的属性时，它能被声明为一个内部bean，为了定义inner bean，在Spring 的 基于XML的 配置元数据中，可以在 <property/>或 <constructor-arg/> 元素内使用<bean/> 元素，内部bean通常是匿名的，它们的Scope一般是prototype。
+当一个bean仅被用作另一个bean的属性时，它能被声明为一个内部bean，为了定义inner bean，在Spring 的 基于XML的 配置元数据中，可以在 &lt;property/&gt;或 &lt;constructor-arg/&gt; 元素内使用&lt;bean/&gt; 元素，内部bean通常是匿名的，它们的Scope一般是prototype。
 
 ## 29. 在 Spring中如何注入一个java集合？
 Spring提供以下几种集合的配置元素：
-<list>类型用于注入一列值，允许有相同的值。
-<set> 类型用于注入一组值，不允许有相同的值。
-<map> 类型用于注入一组键值对，键和值都可以为任意类型。
-<props>类型用于注入一组键值对，键和值都只能为String类型。
+	&lt;list&gt;类型用于注入一列值，允许有相同的值。
+	&lt;set&gt; 类型用于注入一组值，不允许有相同的值。
+	&lt;map&gt; 类型用于注入一组键值对，键和值都可以为任意类型。
+	&lt;props&gt;类型用于注入一组键值对，键和值都只能为String类型。
 
 ## 30. 什么是bean装配？
 装配，或bean 装配是指在Spring 容器中把bean组装到一起，前提是容器需要知道bean的依赖关系，如何通过依赖注入来把它们装配到一起。
 
 ## 31. 什么是bean的自动装配？
-Spring 容器能够自动装配相互合作的bean，这意味着容器不需要<constructor-arg>和<property>配置，能通过Bean工厂自动处理bean之间的协作。
+Spring 容器能够自动装配相互合作的bean，这意味着容器不需要&lt;constructor-arg&gt;和&lt;property&gt;配置，能通过Bean工厂自动处理bean之间的协作。
 
 ## 32. 解释不同方式的自动装配 。
 有五种自动装配的方式，可以用来指导Spring容器用自动装配方式来进行依赖注入。
-no：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。
-byName：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
-byType:：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
-constructor：这个方式类似于byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。
-autodetect：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
+	no：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。
+	byName：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。
+	byType:：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。
+	constructor：这个方式类似于byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。
+	autodetect：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。
 
 ## 33.自动装配有哪些局限性 ?
 自动装配的局限性是：
-重写： 你仍需用 <constructor-arg>和 <property> 配置来定义依赖，意味着总要重写自动装配。
+重写： 你仍需用 &lt;constructor-arg&gt;和 &lt;property&gt; 配置来定义依赖，意味着总要重写自动装配。
 基本数据类型：你不能自动装配简单的属性，如基本数据类型，String字符串，和类。
 模糊特性：自动装配不如显式装配精确，如果有可能，建议使用显式装配。
 
@@ -171,7 +173,7 @@ Spring注解
 开发者通过在相应的类，方法或属性上使用注解的方式，直接组件类中进行配置，而不是使用xml表述bean的装配关系。
 
 ## 37. 怎样开启注解装配？
-注解装配在默认情况下是不开启的，为了使用注解装配，我们必须在Spring配置文件中配置 <context:annotation-config/>元素。
+注解装配在默认情况下是不开启的，为了使用注解装配，我们必须在Spring配置文件中配置 &lt;context:annotation-config/&gt;元素。
 
 ## 38. @Required 注解
 这个注解表明bean的属性必须在配置的时候设置，通过一个bean定义的显式的属性值或通过自动装配，若@Required注解的bean属性未被设置，容器将抛出BeanInitializationException。
@@ -199,12 +201,12 @@ Spring对数据访问对象（DAO）的支持旨在简化它和数据访问技�
 
 ## 45. Spring支持的ORM
 Spring支持以下ORM：
-Hibernate
-iBatis
-JPA (Java Persistence API)
-TopLink
-JDO (Java Data Objects)
-OJB
+	Hibernate
+	iBatis
+	JPA (Java Persistence API)
+	TopLink
+	JDO (Java Data Objects)
+	OJB
 
 ## 46.如何通过HibernateDaoSupport将Spring和Hibernate结合起来？
 用Spring的 SessionFactory 调用 LocalSessionFactory。集成过程分三步：
@@ -243,11 +245,11 @@ AOP核心就是切面，它将多个类的通用行为封装成可重用的模�
 ## 54. 通知
 通知是个在方法执行前或执行后要做的动作，实际上是程序执行时要通过SpringAOP框架触发的代码段。
 Spring切面可以应用五种类型的通知：
-before：前置通知，在一个方法执行前被调用。
-after: 在方法执行之后调用的通知，无论方法执行是否成功。
-after-returning: 仅当方法成功完成后执行的通知。
-after-throwing: 在方法抛出异常退出时执行的通知。
-around: 在方法执行之前和之后调用的通知。
+	before：前置通知，在一个方法执行前被调用。
+	after: 在方法执行之后调用的通知，无论方法执行是否成功。
+	after-returning: 仅当方法成功完成后执行的通知。
+	after-throwing: 在方法抛出异常退出时执行的通知。
+	around: 在方法执行之前和之后调用的通知。
 
 ## 55. 切点
 切入点是一个或一组连接点，通知将在这些位置执行。可以通过表达式或匹配的方式指明切入点。
