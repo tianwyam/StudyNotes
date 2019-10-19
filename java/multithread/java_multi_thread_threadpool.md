@@ -47,12 +47,12 @@ ThreadPoolExecutor(int corePoolSize,
 - keepAliveTime：线程活动保持时间
 - TimeUnit：线程活动保持时间的单位，可选：DAYS、HOURS、MINUTES、SECONDS、MILLISECONDS等
 - workQueue：任务队列，用于保存等待执行的任务的阻塞队列
-- threadFactory：线程工厂，用于创建线程的工程，可以通过线程工厂给每个线程设置具有含义的线程名
+- threadFactory：线程工厂，用于创建线程的工厂，可以通过线程工厂给每个线程设置具有含义的线程名
 - RejectedExecutionHandler：饱和策略(拒绝策略)
 
 
 
-### 3.线程池工作原理
+### 3.线程池的工作原理
 
 
 
@@ -64,7 +64,11 @@ ThreadPoolExecutor(int corePoolSize,
 
    
 
-2. 若：线程池里存活的线程数 < 核心线程数corePoolSize，则线程池会创建一个线程来执行任务。新创建的这个线程会一直存活着，就算空闲时间超过了keepAliveTime，线程也不会被销毁，而是一直阻塞在那里一直等待任务队列的任务来执行。如果调用了线程池的prestartAllCoreThreads方法，则线程池会提前创建并启动所有基本线程。
+2. 若：线程池里存活的线程数 < 核心线程数corePoolSize，则线程池会创建一个线程来执行任务。
+
+   新创建的这个线程会一直存活着，就算空闲时间超过了keepAliveTime，线程也不会被销毁，而是一直阻塞在那里一直等待任务队列的任务来执行。
+
+   如果调用了线程池的prestartAllCoreThreads方法，则线程池会提前创建并启动所有基本线程。
 
    
 
@@ -72,7 +76,9 @@ ThreadPoolExecutor(int corePoolSize,
 
    
 
-4. 若：线程池里存活的线程数 = 核心线程数corePoolSize，并且任务队列workQueue也满了，则线程池就会继续创建新的线程来处理新的任务，直到线程数达到maximumPoolSize，就不会再创建了。这些新创建的线程执行完了当前任务过后，在任务队列里面还有任务的时候也不会销毁，而是去任务队列拿任务出来执行。在当前线程数大于corePoolSize过后，线程执行完当前任务，会有一个判断当前线程是否需要销毁的逻辑：如果能从任务队列中拿到任务，那么继续执行，如果拿任务时阻塞（说明队列中没有任务），那超过keepAliveTime时间就直接返回null，并且销毁当前线程，直到线程池里面的线程数等于corePoolSize之后才不会进行线程销毁。
+4. 若：线程池里存活的线程数 = 核心线程数corePoolSize，并且任务队列workQueue也满了，则线程池就会继续创建新的线程来处理新的任务，直到线程数达到maximumPoolSize，就不会再创建了。
+
+   这些新创建的线程执行完了当前任务过后，在任务队列里面还有任务的时候也不会销毁，而是去任务队列拿任务出来执行。在当前线程数大于corePoolSize过后，线程执行完当前任务，会有一个判断当前线程是否需要销毁的逻辑：如果能从任务队列中拿到任务，那么继续执行，如果拿任务时阻塞（说明队列中没有任务），那超过keepAliveTime时间就直接返回null，并且销毁当前线程，直到线程池里面的线程数等于corePoolSize之后才不会进行线程销毁。
 
    
 
@@ -109,9 +115,9 @@ ThreadPoolExecutor(int corePoolSize,
 RejectedExecutionHandler（饱和策略）：当队列和线程池都满了，说明线程池处于饱和状态，那么必须采取一种策略处理提交的新任务。这个策略默认情况下是AbortPolicy，表示无法处理新任务时抛出异常。以下是JDK1.5提供的四种策略。
 
 - AbortPolicy：直接抛出异常。
-- CallerRunsPolicy：交给线程池调用所在的线程进行处理。
+- CallerRunsPolicy：交给调用线程池所在的线程进行处理。
 - DiscardOldestPolicy：丢弃队列里最老的任务，将当前这个任务继续提交给线程池。
-- DiscardPolicy：不处理，丢弃掉。
+- DiscardPolicy：不处理，直接丢弃掉。
 - 自定义策略，实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。
 
 
@@ -129,6 +135,8 @@ public void execute(Runnable command) ;
 // 执行实现Callable接口的任务，可以有返回值
 public <T> Future<T> submit(Callable<T> task)；
 ~~~
+
+
 
 
 
@@ -157,6 +165,8 @@ public List<Runnable> shutdownNow();
 当所有的任务都已关闭后,才表示线程池关闭成功，这时调用isTerminaed方法会返回true。
 
 至于我们应该调用哪一种方法来关闭线程池，应该由提交到线程池的任务特性决定，通常调用shutdown来关闭线程池，如果任务不一定要执行完，则可以调用shutdownNow
+
+
 
 
 
