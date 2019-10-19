@@ -134,7 +134,7 @@ tail –f –n 1000 xx.log
 
 **chgrp 改变所属组**
 
-```shell
+```bash
 chgrp group test.txt  # 改变文件test.txt的所属组为group   
 ```
 

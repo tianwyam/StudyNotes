@@ -229,8 +229,7 @@ $(function(){
 # 4、setTimeout
 
 ```javascript
-setTimeout("document.getElementById('my').src='include/common.php'; ",3000);//
-
+setTimeout("document.getElementById('my').src='include/common.php'; ",3000);
 ```
 
 

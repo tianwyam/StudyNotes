@@ -13,7 +13,7 @@
 ```sql
 
 -- test 是数据库名
-USE test;
+use test;
 ```
 
 ## 1.2、查看数据库下的表
@@ -21,7 +21,7 @@ USE test;
 
 ```sql
 
-SHOW TABLES;
+show tables;
 ```
 输出显示：当前数据库下的所有表名
 
@@ -33,7 +33,7 @@ SHOW TABLES;
 ```sql
 
 -- user 是表名
-DESC user ;
+desc user ;
 ```
 将显示输出：表字段的描述信息
 
@@ -44,7 +44,7 @@ DESC user ;
 ```sql
 
 -- user 是表名
-SHOW CREATE TABLE user;
+show CREATE TABLE user;
 ```
 将输出显示：创建表时的创建语句
 
@@ -58,7 +58,7 @@ SHOW CREATE TABLE user;
 ```sql
 
 -- user 是原表名，users 是修改后的表名
-ALTER TABLE user RENAME users;
+alter table user RENAME users;
 ```
 
 
@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS user;
 注：删除表可以使用drop table。删除多个表时，表之间用逗号分隔。IF EXISTS用来在删表之前判断表是否存在，可避免报错。
 
 如：
-```
+```sql
 DROP TABLE [IF EXISTS] 表1 [, 表2]...;
 ```
 
@@ -266,7 +266,7 @@ SET d.`deptAddress` = (
   -- Create sequence   
   create sequence MYSQL.SEQ_GUI   
   start with 1   
-  increment by 1; 
+  increment by 1 ;
   
   下个序列：SEQ_GUI.NEXTVAL
   当前序列：SEQ_GUI.CURRVAL
