@@ -264,6 +264,17 @@ tar –xzvf 123.tar.gz 解压
 
  
 
+##### 查找进程
+
+~~~shell
+ps -ef | grep 进程名 | grep -v grep 
+## -v 是排除
+~~~
+
+
+
+
+
 **telnet查询端口是否调通**
 
 ```shell
