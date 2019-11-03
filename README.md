@@ -97,11 +97,11 @@
 
  
 
-[SpringBoot](SpringBoot/springboot.md)
+[SpringBoot](Spring/springboot.md)
 
  [SpringBoot项目启动脚本](linux/linux_commands_springboot_startup.md)
 
- [Spring面试题68](SpringBoot/spring/spring_interview_questions_68.md)
+ [Spring面试题68](Spring/spring/spring_interview_questions_68.md)
 
 
 
