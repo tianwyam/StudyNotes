@@ -1,4 +1,8 @@
-### springboot
+# springboot
+
+
+
+## startup.sh
 
 
 
@@ -78,4 +82,27 @@ case "$1" in
 esac
 
 ~~~
+
+执行
+
+~~~shell
+sh startup.sh start
+~~~
+
+
+
+若是报文件格式异常错误，则需要转格式：
+
+~~~sh
+## 首先编辑脚本文件
+vim startup.sh
+
+## 设置ff=unix 文件格式
+:set ff=unix
+
+## 保存并退出
+:wq
+~~~
+
+
 

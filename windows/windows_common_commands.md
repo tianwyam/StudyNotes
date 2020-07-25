@@ -1,14 +1,13 @@
 
-
-## Windows
-
-
-
-### 1.常用命令
+# Windows
 
 
 
-#### 查找端口
+## 1.常用命令
+
+
+
+### 1.1、查找端口
 
 
 ```powershell
@@ -17,30 +16,11 @@ netstat -ano | findstr 8005
 ```
 
 
-#### 杀死进程
+### 1.2、杀死进程
 ```powershell
 #杀死进程
 taskkill /pid 5164 /f
 ```
-
-#### 查看磁盘大小
-
-
-```powershell
-df -h path
-# path是查看路径，查看当前目录，则直接是 df -h 
-```
-
-#### 查看当前目录每个文件夹的情况
-
-
-```powershell
-du --max-depth=1 -h path
-# 或者
-du -sh path
-```
-
-
 
 
 

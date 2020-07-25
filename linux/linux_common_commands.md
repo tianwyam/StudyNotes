@@ -321,10 +321,51 @@ chkconfig iptables off
 
 
 
+## 1.7、磁盘操作
+
+### df
 
 
 
-## 1.7、建立信任
+查看磁盘大小
+
+
+```powershell
+df -h path
+# path是查看路径，查看当前目录，则直接是 df -h 
+```
+
+
+
+### du
+
+ 
+
+查看当前目录每个文件夹的情况
+
+
+```powershell
+du --max-depth=1 -h path
+# 或者
+du -sh path
+```
+
+
+
+### free
+
+查看服务器内存大小
+
+~~~shell
+free -h
+~~~
+
+
+
+
+
+
+## 1.8、建立信任
 
  
 
