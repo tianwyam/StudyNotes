@@ -1,10 +1,4 @@
-
-
-
-
-
-
-# **一、常用命令**
+# **1、常用命令**
 
  
 
@@ -35,7 +29,6 @@ scp 源地址 目的地址
 
 
 
-​       
 
 ### **rm**
 
@@ -47,13 +40,12 @@ scp 源地址 目的地址
 
 
 
-​       
 
 ## **1.2、文件操作**
 
-​       
 
-**tail**
+
+### **tail**
 
 **动态显示**
 
@@ -65,11 +57,7 @@ tail –f –n 1000 xx.log
 
  
 
-### **文件搜索**
-
- 
-
-**find 查找**
+### **find 查找**
 
 ```shell
  find /etc –name test 在目录etc下按名字test查找              
@@ -91,7 +79,7 @@ tail –f –n 1000 xx.log
 
  
 
-**grep 搜索**
+### **grep 搜索**
 
 ```shell
 # 在文件test.txt中搜索匹配a的关键字  
@@ -118,8 +106,9 @@ grep -A 10 -B 10 --color '错误' error.log
 
  
 
-### **chmod 修改权限**
+### **chmod**
 
+修改权限
 ```shell
  chmod –R 777 /home/java  # 递归赋予权限(及目录下所以文件及文件夹都具有权限)   
 ```
@@ -128,8 +117,9 @@ grep -A 10 -B 10 --color '错误' error.log
 
  
 
-**chown 修改所属者**
+### **chown**
 
+修改所属者
 ```shell
  chown admin test.txt  # 改变文件test.txt的所属者为admin   
 ```
@@ -138,8 +128,9 @@ grep -A 10 -B 10 --color '错误' error.log
 
  
 
-**chgrp 改变所属组**
+### **chgrp**
 
+改变所属组
 ```bash
 chgrp group test.txt  # 改变文件test.txt的所属组为group   
 ```
@@ -150,7 +141,8 @@ chgrp group test.txt  # 改变文件test.txt的所属组为group
 
 ## 1.4、**用户管理**
 
- 
+
+### su
 
 **su 切换用户**
 
@@ -160,7 +152,8 @@ su – admin # 切换到admin用户下
 
 
 
- 
+
+### useradd
 
 **useradd 添加用户**
 
@@ -170,7 +163,8 @@ useradd admin # 新建一个admin用户
 
 
 
-​       
+
+### userdel
 
 **userdel 添加用户**
 
@@ -180,7 +174,7 @@ userdel -r admin # 删除用户的同时删除用户的根目录(/home/admin)
 
 
 
-​       
+### passwd
 
 **passwd 设置密码**
 
@@ -190,15 +184,13 @@ passwd admin  # 为admin用户设置密码
 
 
 
-​       
 
- 
 
 ## **1.5、压缩解压**
 
  
 
-**zip 压缩**
+### **zip 压缩**
 
 ```shell
  zip –r java.zip java   # 将java目录及目录下所以文件压缩成java.zip   
@@ -208,7 +200,7 @@ passwd admin  # 为admin用户设置密码
 
  
 
-**unzip 解压**
+### **unzip 解压**
 
 ```shell
 unzip java.zip –d  ./java      # 将java.zip解压到当前目录下的java文件夹里   
@@ -218,7 +210,7 @@ unzip java.zip –d  ./java      # 将java.zip解压到当前目录下的java文
 
  
 
-**gzip 压缩**
+### **gzip 压缩**
 
 
 
@@ -228,13 +220,10 @@ gzip -c build.sh > build.sh.gz  # 将文件build.sh打包成build.sh.gz
 
 
 
- 
 
 
 
-
-
-**gunzip 解压**
+### **gunzip 解压**
 
 ```shell
 gunzip build.sh.gz  # 解压   
@@ -244,7 +233,7 @@ gunzip build.sh.gz  # 解压
 
  
 
-**tar** 
+### **tar** 
 
 ```shell
 tar - czvf 123.tar.gz 123 打包 
@@ -270,8 +259,9 @@ tar –xzvf 123.tar.gz 解压
 
  
 
-##### 查找进程
+### ps
 
+查找进程
 ~~~shell
 ps -ef | grep 进程名 | grep -v grep 
 ## -v 是排除
@@ -280,6 +270,7 @@ ps -ef | grep 进程名 | grep -v grep
 
 
 
+### telnet
 
 **telnet查询端口是否调通**
 
@@ -289,7 +280,8 @@ telnet IP port
 
 
 
- 
+
+### ping
 
 **ping 测试网络连通性**
 
@@ -299,7 +291,8 @@ ping –c3 ip  c3次数
 
 
 
- 
+
+### ifconfig
 
 **ifconfig 查看/设置网卡信息**
 
@@ -311,9 +304,25 @@ ifconfig eth0 192.168.1.100  # 临时设置eth0的ip地址为192.168.1.100
 
 
 
- 
+### 关闭防火墙
 
- 
+~~~shell
+## 查看防火墙状态
+service iptables status
+
+## 关闭防火墙
+service iptables stop
+
+##添加到开机自启,防止服务器重启后，没有关闭防火墙
+chkconfig iptables off
+~~~
+
+
+
+
+
+
+
 
 ## 1.7、建立信任
 
