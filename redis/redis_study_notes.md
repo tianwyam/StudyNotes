@@ -5,7 +5,7 @@
 ## 1、常用的命令
 
 
-### 1.1、string（字符串）
+### 1.1、string
 
 ​	字符串（value<=512MB）
 
@@ -44,10 +44,12 @@ strlen key
 
 ~~~
 
-​	
 
-### 1.2、map（散列类型）
 
+### 1.2、map
+
+
+散列类型
 ~~~shell
 
 ## 赋值
@@ -87,11 +89,14 @@ hlen key
 
 
 
-### 1.3、list(列表类型)
+### 1.3、list
 
+
+(列表类型)
 ​	可以存储有序的字符串列表（向列表两端添加/删除元素），内部是使用双向链表实现的
 
 ~~~bash
+
 ## -- 列表左边添加
 lpush key value [value ….]  
 
@@ -139,7 +144,9 @@ rpoplpush source dest
 
 
 
-### 1.4、set(集合类型)
+### 1.4、set
+
+(集合类型)
 ​		内容不重复
 
 ~~~bash
@@ -170,8 +177,10 @@ scard key
 
 ~~~
 
-### 1.5、sorted set(有序集合类型)
+### 1.5、sorted set
 
+
+(有序集合类型)
 #### 1.5.1、添加
 
 ~~~bash
@@ -261,16 +270,16 @@ unwatch 来保证下一个事务不受影响
 
 
 3、过期时间
-~~~
-		Redis中使用expire命令来设置一个键的过期时间，到时间后redis自动删除
+~~~bash
 
+## Redis中使用expire命令来设置一个键的过期时间，到时间后redis自动删除
 expire key seconds (单位秒)
+	## 查看键的剩余时间（键已不存在，则返回-2；没有给 键设置失效时间，则返-1）
+	ttl key  
 
-		ttl key  查看键的剩余时间（键已不存在，则返回-2；没有给 键设置失效时间，则返-1）
+	## 取消过期时间（永久性）
+	persist key  
 	
-		persist key  -- 取消过期时间（永久性）
-
-
 ~~~
 
 
@@ -280,24 +289,30 @@ expire key seconds (单位秒)
 
 ## 3、任务队列
 
-~~~
-	使用列表来实现的
-	
-		brpop key timeout  -- 一旦key中有值，则输出
+~~~bash
 
+## 使用列表来实现的
+brpop key timeout  -- 一旦key中有值，则输出
 
-优先队列
-		blpop key [key …..] timeout – 同时检测多个键，一旦其中一个键有值，则会被弹出。
+## 优先队列
+## – 同时检测多个键，一旦其中一个键有值，则会被弹出。
+blpop key [key …..] timeout 
+
 ~~~
 
 
 ## 4、发布/订阅
 
-~~~
-		发布者： publish channel message
-		订阅者： subscribe channel [channel …..]
+~~~bash
+
+## 发布者： 
+publish channel message
+		
+## 订阅者： 
+subscribe channel [channel …..]
 	
-		unsubscribe [channel …..] – 取消订阅(如果没有加频道号，则取消所有)
+## – 取消订阅(如果没有加频道号，则取消所有)
+unsubscribe [channel …..] 
 
 ~~~
 
@@ -310,10 +325,10 @@ expire key seconds (单位秒)
 RDB方式的持久化是通过快照完成的。 当符 合一定的条件时Redis会自动将内存中的所有数据生成一份副本并保存在磁盘上，这个过程即为快照。(dump.rdb)
 
 以下几种条件下会对数据进行快照：
-1、	根据配置规则进行自动快照
-2、	用户执行save或者bgsave命令
-3、	执行flushall命令
-4、	执行复制replication时
+1、根据配置规则进行自动快照
+2、用户执行save或者bgsave命令
+3、执行flushall命令
+4、执行复制replication时
 
 #### 5.1.1、根据配置规则进行自动快照
 
@@ -382,13 +397,14 @@ AOF（append only file）可以将redis执行的每一条写命令追加到硬�
 
 只需要在从数据库的配置文件中加入以下配置：
 ​	slaveof 主数据库地址 主数据库端口
+
 或者
 ​	在启动服务时：
 ​	redis-server --port 6380 --slaveof 127.0.0.1 6379
+
 或者
 ​	在从数据库运行时：
 ​	slaveof 127.0.0.1 6379
-
 ​	可以使用命令：info replication 来查看复制（主从数据库信息）
 ​	从数据库可以使用命令：slaveof no one来断开主从
 
