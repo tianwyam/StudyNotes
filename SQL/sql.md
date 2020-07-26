@@ -75,7 +75,7 @@ DROP TABLE IF EXISTS user;
 
 如：
 ```sql
-DROP TABLE [IF EXISTS] 表1 [, 表2]...;
+DROP TABLE [IF EXISTS] table1 [,table2]... 
 ```
 
 
@@ -93,7 +93,7 @@ DROP TABLE [IF EXISTS] 表1 [, 表2]...;
 /* user 是表名，
 usertype 是要增加的列名，
 类型int，长度 1，非空，默认值为 0 */
-ALTER TABLE  user ADD COLUMN usertype INT(1)  NOT NULL DEFAULT 0;
+ALTER TABLE user ADD COLUMN usertype INT(1) NOT NULL DEFAULT 0
 
 ```
 
@@ -103,7 +103,7 @@ ALTER TABLE  user ADD COLUMN usertype INT(1)  NOT NULL DEFAULT 0;
 ```sql
 
 -- user 是表名，usertype 是要删除的字段名
-ALTER TABLE user DROP COLUMN usertype; 　 
+ALTER TABLE user DROP COLUMN usertype 
 
 ```
 
@@ -119,6 +119,7 @@ ALTER TABLE user DROP COLUMN usertype; 　
 usertype 是字段名，
 修改字段类型为 varchar 长度为 1 */
 ALTER TABLE user MODIFY usertype VARCHAR(1);
+
 ```
 
 
@@ -132,6 +133,7 @@ ALTER TABLE user MODIFY usertype VARCHAR(1);
 usetype 是 old_column_name , 
 isadmin 是 new_column_name,新的列类型是int,长度为 1 */
 ALTER TABLE user CHANGE usetype isadmin INT(1);
+
 ```
 注：修改字段名时一定要重新指定该字段类型
 
@@ -159,7 +161,10 @@ ALTER TABLE user CHANGE usetype isadmin INT(1);
 
 --修改CreateTime 设置默认时间 = CURRENT_TIMESTAMP 当前时间
 
-ALTER TABLE `table_name` MODIFY COLUMN  `CreateTime` DATETIME NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ;
+ALTER TABLE tableName 
+MODIFY COLUMN CreateTime DATETIME NULL 
+DEFAULT CURRENT_TIMESTAMP 
+COMMENT '创建时间' ;
 
 ```
 
@@ -200,7 +205,10 @@ WHERE s.`planId` = d.`planId` AND s.`planId` = 18 ;
 当删除它了时，则只要是以它为外键的都将被删除
 
 ~~~sql
-CONSTRAINT `planIDFK` FOREIGN KEY (`planId`) REFERENCES `studyplan` (`planId`) ON DELETE CASCADE ON UPDATE NO ACTION
+CONSTRAINT `planIDFK` FOREIGN KEY (`planId`) 
+REFERENCES `studyplan` (`planId`) 
+ON DELETE CASCADE 
+ON UPDATE NO ACTION
 ~~~
 
 设置删除级联，更新无操作。
@@ -239,7 +247,7 @@ select
     CASE WHEN pay > 0 
     THEN pay * num 
     ELSE price * num 
-    END as ‘amount’ 
+    END as amount
 from table_name 
 order by amount desc;
 
@@ -263,14 +271,20 @@ SET d.`deptAddress` = (
 # **3、序列**
 
 ```sql
-  -- Create sequence   
+  -- 创建序列   
   create sequence MYSQL.SEQ_GUI   
   start with 1   
   increment by 1 ;
   
-  下个序列：SEQ_GUI.NEXTVAL
-  当前序列：SEQ_GUI.CURRVAL
-  获取序列：select SEQ_GUI.NEXTVAL FROM dual ; -- oracle
+  --下个序列：
+  SEQ_GUI.NEXTVAL
+  
+  --当前序列：
+  SEQ_GUI.CURRVAL
+  
+  --获取序列： -- oracle
+  select SEQ_GUI.NEXTVAL FROM dual ; 
+  
 ```
 
 
