@@ -143,8 +143,8 @@ ALTER TABLE user CHANGE usetype isadmin INT(1);
 
 ## 1.10、关联更新
 
-~~~mysql
-## 当需要更新的值是另一个表关联的值的时候使用
+~~~sql
+-- 当需要更新的值是另一个表关联的值的时候使用
 
 update user_info
 set age = p.age
