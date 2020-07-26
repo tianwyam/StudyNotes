@@ -93,7 +93,8 @@ DROP TABLE [IF EXISTS] table1 [,table2]...
 /* user 是表名，
 usertype 是要增加的列名，
 类型int，长度 1，非空，默认值为 0 */
-ALTER TABLE user ADD COLUMN usertype INT(1) NOT NULL DEFAULT 0
+ALTER TABLE user 
+ADD COLUMN usertype INT(1) NOT NULL DEFAULT 0
 
 ```
 
@@ -140,6 +141,16 @@ ALTER TABLE user CHANGE usetype isadmin INT(1);
 
 
 
+## 1.10、关联更新
+
+~~~mysql
+## 当需要更新的值是另一个表关联的值的时候使用
+
+update user_info
+set age = p.age
+from user_info_param p
+where user_id = p.user_id
+~~~
 
 
 
