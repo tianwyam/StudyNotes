@@ -60,19 +60,27 @@ tail –f –n 1000 xx.log
 ### **find 查找**
 
 ```shell
- find /etc –name test 在目录etc下按名字test查找              
+ 
+ ## 在目录etc下按名字test查找  
+ find /etc –name test             
 
 ​	-iname test 不区分大小写              
 
-​	-size +100M 查找大于100M的文件(+n 大于 –n 小于 n 等于)              
+## 查找大于100M的文件(+n 大于 –n 小于 n 等于)  
+​	-size +100M             
 
-​	-user admin 查找所属用户为admin的文件              
+## 查找所属用户为admin的文件   
+​	-user admin            
 
-​	-cmin -5    查找5分钟内被修改过属性的文件及目录 c   change              
+## 查找5分钟内被修改过属性的文件及目录 c   change         
+​	-cmin -5         
 
-​	-amin -5    查找5分钟内被访问过的文件 a access              
+## 查找5分钟内被访问过的文件 a access    
+​	-amin -5              
 
-​	-mmin -5    查找5分钟内修改内容的文件 m   modify   
+## 查找5分钟内修改内容的文件 m   modify
+​	-mmin -5       
+
 ```
 
 
@@ -110,7 +118,8 @@ grep -A 10 -B 10 --color '错误' error.log
 
 修改权限
 ```shell
- chmod –R 777 /home/java  # 递归赋予权限(及目录下所以文件及文件夹都具有权限)   
+ ## # 递归赋予权限(及目录下所以文件及文件夹都具有权限)   
+ chmod –R 777 /home/java  
 ```
 
 
@@ -121,7 +130,8 @@ grep -A 10 -B 10 --color '错误' error.log
 
 修改所属者
 ```shell
- chown admin test.txt  # 改变文件test.txt的所属者为admin   
+ ## # 改变文件test.txt的所属者为admin   
+ chown admin test.txt  
 ```
 
 
@@ -132,7 +142,8 @@ grep -A 10 -B 10 --color '错误' error.log
 
 改变所属组
 ```bash
-chgrp group test.txt  # 改变文件test.txt的所属组为group   
+## # 改变文件test.txt的所属组为group   
+chgrp group test.txt  
 ```
 
 
@@ -147,7 +158,8 @@ chgrp group test.txt  # 改变文件test.txt的所属组为group
 **su 切换用户**
 
 ```sh
-su – admin # 切换到admin用户下   
+## # 切换到admin用户下   
+su – admin 
 ```
 
 
@@ -158,7 +170,8 @@ su – admin # 切换到admin用户下
 **useradd 添加用户**
 
 ```shell
-useradd admin # 新建一个admin用户   
+## # 新建一个admin用户   
+useradd admin 
 ```
 
 
@@ -169,7 +182,8 @@ useradd admin # 新建一个admin用户
 **userdel 添加用户**
 
 ```shell
-userdel -r admin # 删除用户的同时删除用户的根目录(/home/admin)   
+## # 删除用户的同时删除用户的根目录(/home/admin)   
+userdel -r admin 
 ```
 
 
@@ -179,7 +193,8 @@ userdel -r admin # 删除用户的同时删除用户的根目录(/home/admin)
 **passwd 设置密码**
 
 ```shell
-passwd admin  # 为admin用户设置密码   
+## # 为admin用户设置密码   
+passwd admin  
 ```
 
 
@@ -193,7 +208,8 @@ passwd admin  # 为admin用户设置密码
 ### **zip 压缩**
 
 ```shell
- zip –r java.zip java   # 将java目录及目录下所以文件压缩成java.zip   
+ ## # 将java目录及目录下所以文件压缩成java.zip   
+ zip –r java.zip java   
 ```
 
 
@@ -203,7 +219,8 @@ passwd admin  # 为admin用户设置密码
 ### **unzip 解压**
 
 ```shell
-unzip java.zip –d  ./java      # 将java.zip解压到当前目录下的java文件夹里   
+## # 将java.zip解压到当前目录下的java文件夹里   
+unzip java.zip –d  ./java      
 ```
 
 
@@ -215,7 +232,8 @@ unzip java.zip –d  ./java      # 将java.zip解压到当前目录下的java文
 
 
 ```shell
-gzip -c build.sh > build.sh.gz  # 将文件build.sh打包成build.sh.gz   
+## # 将文件build.sh打包成build.sh.gz   
+gzip -c build.sh > build.sh.gz  
 ```
 
 
@@ -297,9 +315,11 @@ ping –c3 ip  c3次数
 **ifconfig 查看/设置网卡信息**
 
 ```shell
-ifconfig  # 查看网卡信息   
+## # 查看网卡信息
+ifconfig     
 
-ifconfig eth0 192.168.1.100  # 临时设置eth0的ip地址为192.168.1.100   
+## # 临时设置eth0的ip地址为192.168.1.100   
+ifconfig eth0 192.168.1.100  
 ```
 
 
