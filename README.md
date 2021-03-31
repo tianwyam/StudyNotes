@@ -18,7 +18,7 @@
 
 [java基础知识-FTP文件服务器上传下载](java/java_ftp.md)
 
-
+[java基础知识-对集合流操作stream](java/java_stream.md)
 
 
 
