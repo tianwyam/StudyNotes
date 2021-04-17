@@ -235,3 +235,8 @@
 
 
 [maven引入依赖时识别不到本地仓库的jar](error/maven_not_found_local_jar.md)
+
+
+
+[spring security 配置发生错误 Can't configure antMatchers after anyRequest](error/security_not_configure_antMatchers_after_anyRequest.md)
+
