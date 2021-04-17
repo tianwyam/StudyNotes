@@ -54,63 +54,74 @@
 JDK中**ArrayBlockingQueue**采用的是**Condition**来实现的：
 
 ```java
-    final ReentrantLock lock; // 锁
-    private final Condition notEmpty; //空条件 
-    private final Condition notFull; //满条件 
-    // 构造函数 初始化锁 及 满/空条件
-	public ArrayBlockingQueue(int capacity, boolean fair) {
-        if (capacity <= 0)
-            throw new IllegalArgumentException();
-        this.items = new Object[capacity];
-        lock = new ReentrantLock(fair);
-        notEmpty = lock.newCondition();
-        notFull =  lock.newCondition();
-	}
 
-	// 添加元素
-	public void put(E e) throws InterruptedException {
-        checkNotNull(e);
-        final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();
-        try {
-            while (count == items.length)
-                notFull.await(); // 若满，则当前线程等待,满条件进行等待
-            insert(e); // 插入元素，并且通知 不是空的 ,空条件进行释放
-        } finally {
-            lock.unlock();
-        }
-	}
+// 锁
+final ReentrantLock lock; 
+//空条件
+private final Condition notEmpty;  
+//满条件 
+private final Condition notFull; 
 
-	// 插入元素
-	private void insert(E x) {
-        items[putIndex] = x;
-        putIndex = inc(putIndex);
-        ++count;
-        notEmpty.signal(); // 通知 当前队列非空，唤醒notEmpty.await()
-	}
+// 构造函数 初始化锁 及 满/空条件
+public ArrayBlockingQueue(int capacity, boolean fair) {
+    if (capacity <= 0)
+        throw new IllegalArgumentException();
+    this.items = new Object[capacity];
+    lock = new ReentrantLock(fair);
+    notEmpty = lock.newCondition();
+    notFull =  lock.newCondition();
+}
 
-	public E take() throws InterruptedException {
-        final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();
-        try {
-            while (count == 0)
-                notEmpty.await();// 若空，则当前线程等待，空条件进行等待
-            return extract();// 获取元素，同时通知 未满，满条件进行释放
-        } finally {
-            lock.unlock();
-        }
-	}
+// 添加元素
+public void put(E e) throws InterruptedException {
+    checkNotNull(e);
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        while (count == items.length)
+            // 若满，则当前线程等待,满条件进行等待
+            notFull.await(); 
+        // 插入元素，并且通知 不是空的 ,空条件进行释放
+        insert(e); 
+    } finally {
+        lock.unlock();
+    }
+}
 
-	// 获取元素
-	private E extract() {
-        final Object[] items = this.items;
-        E x = this.<E>cast(items[takeIndex]);
-        items[takeIndex] = null;
-        takeIndex = inc(takeIndex);
-        --count;
-        notFull.signal();// 通知 当前队列未满，唤醒notFull.await()
-        return x;
- 	}
+// 插入元素
+private void insert(E x) {
+    items[putIndex] = x;
+    putIndex = inc(putIndex);
+    ++count;
+    // 通知 当前队列非空，唤醒notEmpty.await()
+    notEmpty.signal(); 
+}
+
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        while (count == 0)
+            // 若空，则当前线程等待，空条件进行等待
+            notEmpty.await();
+        // 获取元素，同时通知 未满，满条件进行释放
+        return extract();
+    } finally {
+        lock.unlock();
+    }
+}
+
+// 获取元素
+private E extract() {
+    final Object[] items = this.items;
+    E x = this.<E>cast(items[takeIndex]);
+    items[takeIndex] = null;
+    takeIndex = inc(takeIndex);
+    --count;
+    // 通知 当前队列未满，唤醒notFull.await()
+    notFull.signal();
+    return x;
+}
 
 ```
 
