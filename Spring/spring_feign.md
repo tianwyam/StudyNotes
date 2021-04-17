@@ -2,6 +2,10 @@
 
 
 
+[TOC]
+
+
+
 使用feign，实现请求第三方接口，作为一个 http请求工具.
 
 常在springboot项目中使用feign，作为HTTP请求工具，类似Rest Template，也可以单独作为工具类使用
@@ -11,7 +15,7 @@
 
 
 
-### 在spring boot环境体系下使用
+#### 在spring boot环境体系下使用
 
 
 
