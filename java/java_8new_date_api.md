@@ -12,6 +12,11 @@ Java8对日期时间的处理提供了新的API，在 java.time包下面
 
 新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。
 
+包括：新老日期时间之间的转换
+如：date 和 LocalDateTime、LocalTime、LocalDate、Instant 之间的转换
+
+
+
 
 
 ### API
