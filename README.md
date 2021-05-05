@@ -166,7 +166,7 @@
 
 
 
-
+ [Free marker自动生成Java bean代码](Spring/spring_freemarker_generate.md)
 
 
 
