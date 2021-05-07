@@ -148,11 +148,25 @@
 
 [SpringBoot](Spring/springboot.md)
 
+
+
  [SpringBoot项目启动脚本](linux/linux_commands_springboot_startup.md)
+
+
 
  [Spring面试题68](Spring/spring/spring_interview_questions_68.md)
 
+
+
  [feign在spring、springboot下使用](Spring/spring_feign.md)
+
+
+
+ [spring boot集成freemarker，生成word文件](Spring/spring_freemarker.md)
+
+
+
+ [Free marker自动生成Java bean代码](Spring/spring_freemarker_generate.md)
 
 
 
