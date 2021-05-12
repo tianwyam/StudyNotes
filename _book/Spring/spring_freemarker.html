@@ -1,0 +1,1234 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>spring boot集成freemarker，生成word文件 · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-change_girls/girls.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="spring_freemarker_generate.html" />
+    
+    
+    <link rel="prev" href="spring_feign.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">关于</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java/java_thread_pool.html">
+            
+                <a href="../java/java_thread_pool.html">
+            
+                    
+                    线程池原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../java/java_ftp.html">
+            
+                <a href="../java/java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../java/java_stream.html">
+            
+                <a href="../java/java_stream.html">
+            
+                    
+                    对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../java/collection/java_collection_map.html">
+            
+                <a href="../java/collection/java_collection_map.html">
+            
+                    
+                    Map_HashMap & HashTable & ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../java/java_queue.html">
+            
+                <a href="../java/java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java_io_nio.html">
+            
+                <a href="../java/java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java/java_exception.html">
+            
+                <a href="../java/java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile_synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object_wait_notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../java/multithread/java_multi_thread_thread.html">
+            
+                <a href="../java/multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../java/multithread/java_multi_thread_threadpool.html">
+            
+                <a href="../java/multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../java/multithread/java_multi_thread_lock.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock_ReentrantLock_ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock_condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../java/multithread/java_multi_thread_tools.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch & CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../java/java_jvm.html">
+            
+                <a href="../java/java_jvm.html">
+            
+                    
+                    java虚拟机-Java-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../java/java_java7new.html">
+            
+                <a href="../java/java_java7new.html">
+            
+                    
+                    java7新知识- Switch & TWR & Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../java/java_stream_groupby.html">
+            
+                <a href="../java/java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../java/java_8new_date_api.html">
+            
+                <a href="../java/java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">框架</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="springboot.html">
+            
+                <a href="springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="spring/spring_interview_questions_68.html">
+            
+                <a href="spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="spring_feign.html">
+            
+                <a href="spring_feign.html">
+            
+                    
+                    feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="10.1" data-path="spring_freemarker.html">
+            
+                <a href="spring_freemarker.html">
+            
+                    
+                    spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="spring_freemarker_generate.html">
+            
+                <a href="spring_freemarker_generate.html">
+            
+                    
+                    Free marker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Web</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="20.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="21.1" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="22.1" data-path="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                <a href="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >spring boot集成freemarker，生成word文件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#spring-boot-&#x96C6;&#x6210;-freemarker"><b></b>Spring Boot &#x96C6;&#x6210; Freemarker</a></li><ul><li><span class="title-icon "></span><a href="#1-spring-boot&#x96C6;&#x6210;freemarker"><b></b>1. spring boot&#x96C6;&#x6210;freemarker</a></li><li><span class="title-icon "></span><a href="#2-freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;"><b></b>2. freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;</a></li></ul></ul></ul></div><h2 id="spring-boot-&#x96C6;&#x6210;-freemarker"><a name="spring-boot-&#x96C6;&#x6210;-freemarker" class="anchor-navigation-ex-anchor" href="#spring-boot-&#x96C6;&#x6210;-freemarker"><i class="fa fa-link" aria-hidden="true"></i></a>Spring Boot &#x96C6;&#x6210; Freemarker</h2>
+<p>spring boot &#x96C6;&#x6210; freemarker &#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;</p>
+<p>&#x4F7F;&#x7528;freemarker&#x751F;&#x6210;word&#x6587;&#x4EF6;</p>
+<p>[TOC]</p>
+<h3 id="1-spring-boot&#x96C6;&#x6210;freemarker"><a name="1-spring-boot&#x96C6;&#x6210;freemarker" class="anchor-navigation-ex-anchor" href="#1-spring-boot&#x96C6;&#x6210;freemarker"><i class="fa fa-link" aria-hidden="true"></i></a>1. spring boot&#x96C6;&#x6210;freemarker</h3>
+<h4 id="11-&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;"><a name="11-&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;" class="anchor-navigation-ex-anchor" href="#11-&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1 &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</h4>
+<p>maven&#x9879;&#x76EE; pom.xml</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- spring boot web --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- spring boot &#x96C6;&#x6210; freemarker --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-freemarker<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h4 id="12-&#x914D;&#x7F6E;freemarker"><a name="12-&#x914D;&#x7F6E;freemarker" class="anchor-navigation-ex-anchor" href="#12-&#x914D;&#x7F6E;freemarker"><i class="fa fa-link" aria-hidden="true"></i></a>1.2 &#x914D;&#x7F6E;freemarker</h4>
+<p>application.yml&#x6587;&#x4EF6;</p>
+<pre><code class="lang-yaml">
+<span class="hljs-attr">server:</span>
+<span class="hljs-attr">  port:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">  servlet:</span>
+<span class="hljs-attr">    context-path:</span> /
+
+<span class="hljs-comment">#freemarker&#x7684;&#x914D;&#x7F6E;</span>
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  freemarker:</span>
+<span class="hljs-attr">    cache:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    charset:</span> UTF<span class="hljs-bullet">-8</span>
+<span class="hljs-attr">    content-type:</span> text/html; charset=utf<span class="hljs-bullet">-8</span>
+<span class="hljs-attr">    prefix:</span> /
+<span class="hljs-attr">    suffix:</span> .html
+</code></pre>
+<p>freemarker &#x9ED8;&#x8BA4;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x4E3A; .ftl&#xFF0C;&#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x7684;&#x6A21;&#x677F;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x4E3A;&#xFF1A;resources/templates</p>
+<h4 id="13-&#x63A7;&#x5236;&#x5668;&#x8BBF;&#x95EE;&#x9875;&#x9762;"><a name="13-&#x63A7;&#x5236;&#x5668;&#x8BBF;&#x95EE;&#x9875;&#x9762;" class="anchor-navigation-ex-anchor" href="#13-&#x63A7;&#x5236;&#x5668;&#x8BBF;&#x95EE;&#x9875;&#x9762;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3 &#x63A7;&#x5236;&#x5668;&#x8BBF;&#x95EE;&#x9875;&#x9762;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@Controller</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexController</span> </span>{
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/index&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">index</span><span class="hljs-params">()</span> </span>{
+
+        ModelAndView view = <span class="hljs-keyword">new</span> ModelAndView(<span class="hljs-string">&quot;index&quot;</span>);
+        view.addObject(<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;Tom&quot;</span>);
+        <span class="hljs-keyword">return</span> view ;
+    }
+}
+</code></pre>
+<h4 id="14-&#x9875;&#x9762;"><a name="14-&#x9875;&#x9762;" class="anchor-navigation-ex-anchor" href="#14-&#x9875;&#x9762;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4 &#x9875;&#x9762;</h4>
+<p>index.html</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&#x9996;&#x9875;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    INDEX | templates index
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>hello ${user}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>&#x8DEF;&#x5F84;&#x5728;&#xFF1A;resources/template/index.html</p>
+<h4 id="15-&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;"><a name="15-&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#15-&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5 &#x8BBF;&#x95EE;&#x8BF7;&#x6C42;</h4>
+<pre><code class="lang-http">http://localhost:8080/index
+</code></pre>
+<p>&#x754C;&#x9762;&#x5C55;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="freemarker/controller-index.png" alt="controller-index"></p>
+<h3 id="2-freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;"><a name="2-freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#2-freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2. freemarker&#x5B9E;&#x73B0;&#x751F;&#x6210;word&#x6587;&#x4EF6;</h3>
+<p>freemarker&#x901A;&#x8FC7;&#x6A21;&#x677F;&#x53EF;&#x4EE5;&#x751F;&#x6210;work&#x6587;&#x4EF6;</p>
+<h4 id="21-&#x5236;&#x4F5C;word&#x6A21;&#x677F;"><a name="21-&#x5236;&#x4F5C;word&#x6A21;&#x677F;" class="anchor-navigation-ex-anchor" href="#21-&#x5236;&#x4F5C;word&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x5236;&#x4F5C;word&#x6A21;&#x677F;</h4>
+<p>&#x9996;&#x5148;&#x4F7F;&#x7528;word&#x7F16;&#x8F91;&#x5DE5;&#x5177;(office / WPS)&#xFF0C;&#x65B0;&#x5EFA;word&#x6A21;&#x677F;&#xFF0C;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x5236;&#x5B9A;&#x6A21;&#x677F;&#xFF0C;&#x6A21;&#x62DF;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="freemarker/word-template.png" alt="word-template"></p>
+<p>&#x53D8;&#x91CF;&#x5730;&#x65B9;&#x91C7;&#x7528;freemarker&#x8BED;&#x6CD5; ${} &#x6765;&#x4EE3;&#x66FF;&#xFF0C;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#x9700;&#x8981;&#x8DDF;&#x5177;&#x4F53;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4E00;&#x81F4;</p>
+<h4 id="22-word&#x6A21;&#x677F;&#x8F6C;xml&#x6587;&#x4EF6;"><a name="22-word&#x6A21;&#x677F;&#x8F6C;xml&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#22-word&#x6A21;&#x677F;&#x8F6C;xml&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 word&#x6A21;&#x677F;&#x8F6C;xml&#x6587;&#x4EF6;</h4>
+<p>word&#x6A21;&#x677F;&#x5236;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F7F;&#x7528;word&#x7F16;&#x8F91;&#x5668; &#x53E6;&#x5B58;&#x4E3A; xml&#x6587;&#x4EF6;</p>
+<pre><code>&#x6587;&#x4EF6; -&gt; &#x53E6;&#x5B58;&#x4E3A; -&gt; Word XML &#x6587;&#x6863;(*.xml)
+</code></pre><p>&#x4F7F;&#x7528;&#x7F16;&#x8F91;&#x5668;&#x6253;&#x5F00;xml&#x6587;&#x4EF6;&#xFF0C;&#x67E5;&#x770B; &#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x6B63;&#x786E;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x8F6C;&#x6210;XML&#x6587;&#x4EF6;&#x540E;&#xFF0C;${&#x53D8;&#x91CF;&#x540D;} &#x5206;&#x5F00;&#x4E86;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x624B;&#x52A8;&#x586B;&#x5199;&#x5728;&#x4E00;&#x8D77;</p>
+<p>&#x5982;&#x662F;&#x8FD8;&#x9700;&#x8981;&#x4F7F;&#x7528; freemarker&#x7684;&#x5176;&#x4ED6;&#x590D;&#x6742;&#x7684;&#x6807;&#x7B7E;&#x8BED;&#x6CD5;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5BF9;XML&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x4FEE;&#x6539;</p>
+<p>&#x6BD4;&#x5982;&#xFF1A;&#x672C;&#x6A21;&#x62DF;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x53BB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;XML&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x91C7;&#x7528;freemarker&#x7684; &#x6570;&#x7EC4;&#x904D;&#x5386;&#x8BED;&#x6CD5; &lt;#list&gt;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- 
+&#x9488;&#x5BF9;&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x662F;&#x591A;&#x4E2A;&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539;XML&#x5185;&#x5BB9;&#x6587;&#x4EF6;
+&#x4F7F;&#x7528;freemarker&#x7684;&#x904D;&#x5386;&#x6570;&#x7EC4;&#x7684;&#x8BED;&#x6CD5; &lt;#list &gt;
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">#list</span> <span class="hljs-attr">courses</span> <span class="hljs-attr">as</span> <span class="hljs-attr">c</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">w:tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">w:tblPrEx</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tblBorders</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:top</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span> <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:left</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span>
+                <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:bottom</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span>
+                <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:right</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span>
+                <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:insideH</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span>
+                <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:insideV</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;single&quot;</span> <span class="hljs-attr">w:color</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">w:sz</span>=<span class="hljs-string">&quot;4&quot;</span>
+                <span class="hljs-attr">w:space</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tblBorders</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tblCellMar</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:left</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;108&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:right</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;108&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tblCellMar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">w:tblPrEx</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">w:tc</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tcPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:tcW</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;2129&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tcPr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:pPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:jc</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;center&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;default&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:b</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:bCs</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:pPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;eastAsia&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:b</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:bCs</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span>&#x8BFE;&#x7A0B;&#x540D;&#x79F0;<span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">w:tc</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">w:tc</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tcPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:tcW</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;2130&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tcPr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:pPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;default&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:pPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;eastAsia&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span>${c.courseName}<span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">w:tc</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">w:tc</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tcPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:tcW</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;2131&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tcPr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:pPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:jc</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;center&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;default&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:b</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:bCs</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:pPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;eastAsia&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:b</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:bCs</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span>&#x8003;&#x8BD5;&#x6210;&#x7EE9;<span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">w:tc</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">w:tc</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:tcPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:tcW</span> <span class="hljs-attr">w:w</span>=<span class="hljs-string">&quot;2132&quot;</span> <span class="hljs-attr">w:type</span>=<span class="hljs-string">&quot;dxa&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:tcPr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">w:p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:pPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;default&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:pPr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;eastAsia&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span>${c.courseScore}<span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;default&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">w:r</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:rPr</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:rFonts</span> <span class="hljs-attr">w:hint</span>=<span class="hljs-string">&quot;eastAsia&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:vertAlign</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;baseline&quot;</span> /&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">w:lang</span> <span class="hljs-attr">w:val</span>=<span class="hljs-string">&quot;en-US&quot;</span> <span class="hljs-attr">w:eastAsia</span>=<span class="hljs-string">&quot;zh-CN&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">w:rPr</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">w:t</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">w:t</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">w:r</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">w:p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">w:tc</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">w:tr</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">#list</span>&gt;</span>
+</code></pre>
+<h4 id="23-xml&#x6587;&#x4EF6;&#x8F6C;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;ftl"><a name="23-xml&#x6587;&#x4EF6;&#x8F6C;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;ftl" class="anchor-navigation-ex-anchor" href="#23-xml&#x6587;&#x4EF6;&#x8F6C;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;ftl"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 XML&#x6587;&#x4EF6;&#x8F6C;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;ftl</h4>
+<p>&#x4FEE;&#x6539;&#x5B8C;xml&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x8F6C;&#x6210;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;&#xFF0C;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x540E;&#x7F00;&#x6210;&#x4E3A; .ftl</p>
+<p>&#x5982;&#xFF1A;student.xml --&gt; student.ftl</p>
+<p>&#x653E;&#x5728;&#x5B58;&#x653E;freemarker&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x5939;&#x4E0B; resources/template/ftl</p>
+<p>&#x81F3;&#x6B64;&#xFF0C;freemarker&#x6A21;&#x677F;&#x5DF2;&#x7ECF;&#x5236;&#x4F5C;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x91C7;&#x7528;freemarker&#x6846;&#x67B6;&#x7684;Java API&#x6765;&#x8BFB;&#x53D6;word&#x6A21;&#x677F;&#x751F;&#x6210;word&#x6587;&#x4EF6;</p>
+<h4 id="24-&#x7F16;&#x5199;&#x5DE5;&#x5177;&#x7C7B;"><a name="24-&#x7F16;&#x5199;&#x5DE5;&#x5177;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#24-&#x7F16;&#x5199;&#x5DE5;&#x5177;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x7F16;&#x5199;&#x5DE5;&#x5177;&#x7C7B;</h4>
+<p>&#x5DE5;&#x5177;&#x7C7B;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x5148;&#x83B7;&#x53D6;&#x6A21;&#x677F;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Description</span>: 
+ * &#x83B7;&#x53D6;&#x6A21;&#x677F;
+ * <span class="hljs-doctag">@author</span>: TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;5&#x6708;4&#x65E5; &#x4E0A;&#x5348;9:36:13
+ * <span class="hljs-doctag">@param</span> templateName &#x6A21;&#x677F;&#x540D;&#x79F0;
+ * <span class="hljs-doctag">@return</span>
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Template <span class="hljs-title">getTemplate</span><span class="hljs-params">(String templateName)</span> </span>{
+
+    <span class="hljs-keyword">try</span> {
+        Configuration configuration = <span class="hljs-keyword">new</span> Configuration(Configuration.VERSION_2_3_21);
+        String dir = FreeMarkerUtils.class.getClassLoader().getResource(<span class="hljs-string">&quot;templates/ftl&quot;</span>).getFile();
+        LOG.info(<span class="hljs-string">&quot;&#x6A21;&#x677F;&#x76EE;&#x5F55;&#xFF1A;{}&quot;</span>, dir);
+        configuration.setDirectoryForTemplateLoading(<span class="hljs-keyword">new</span> File(dir));
+        configuration.setDefaultEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
+        configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+
+        <span class="hljs-keyword">return</span> configuration.getTemplate(templateName);
+    } <span class="hljs-keyword">catch</span> (Exception e) {
+        LOG.error(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x6A21;&#x677F;&#x53D1;&#x751F;&#x5F02;&#x5E38;&quot;</span>, e);
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span> ;
+}
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x6839;&#x636E;&#x6A21;&#x677F;&#xFF0C;&#x586B;&#x5145;&#x6570;&#x636E;&#xFF0C;&#x8F93;&#x51FA;word&#x6587;&#x4EF6;</p>
+<pre><code class="lang-java">
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Description</span>: 
+ *  &#x8F93;&#x51FA;word&#x6587;&#x4EF6;
+ * <span class="hljs-doctag">@author</span>: TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;5&#x6708;4&#x65E5; &#x4E0A;&#x5348;9:41:37
+ * <span class="hljs-doctag">@param</span> wordOutputPath word&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x7684;&#x5168;&#x8DEF;&#x5F84;
+ * <span class="hljs-doctag">@param</span> templateName &#x6A21;&#x677F;&#x7684;&#x540D;&#x79F0;
+ * <span class="hljs-doctag">@param</span> data &#x9700;&#x8981;&#x586B;&#x5145;&#x7684;&#x6570;&#x636E;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">outputWord</span><span class="hljs-params">(String wordOutputPath, String templateName, Map&lt;String, Object&gt; data)</span> </span>{
+
+    Template template = getTemplate(templateName);
+    <span class="hljs-keyword">if</span> (template != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">try</span> {
+            template.process(data, <span class="hljs-keyword">new</span> FileWriter(wordOutputPath));
+            LOG.info(<span class="hljs-string">&quot;&#x751F;&#x6210;word&#x6587;&#x4EF6;&#x6210;&#x529F;&quot;</span>);
+        } <span class="hljs-keyword">catch</span> (TemplateException | IOException e) {
+            LOG.error(<span class="hljs-string">&quot;&#x751F;&#x6210;word&#x6587;&#x4EF6;&#x5931;&#x8D25;&quot;</span>, e);
+        }
+    }
+
+}
+</code></pre>
+<h4 id="25-&#x6D4B;&#x8BD5;"><a name="25-&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#25-&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 &#x6D4B;&#x8BD5;</h4>
+<p>&#x6B64;&#x5904;&#x6A21;&#x62DF;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6570;&#x636E;&#x5E93;&#x3001;&#x6587;&#x4EF6;&#x3001;&#x7F51;&#x7EDC;&#x7B49;&#x6570;&#x636E;&#x751F;&#x6210;word&#x6587;&#x4EF6;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+    <span class="hljs-comment">// &#x8BFE;&#x7A0B;</span>
+    List&lt;Courses&gt; courses = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    courses.add(Courses.builder().courseId(<span class="hljs-number">100</span>).courseName(<span class="hljs-string">&quot;&#x8BED;&#x6587;&quot;</span>).courseScore(<span class="hljs-number">87</span>).build());
+    courses.add(Courses.builder().courseId(<span class="hljs-number">110</span>).courseName(<span class="hljs-string">&quot;&#x6570;&#x5B66;&quot;</span>).courseScore(<span class="hljs-number">94</span>).build());
+    courses.add(Courses.builder().courseId(<span class="hljs-number">120</span>).courseName(<span class="hljs-string">&quot;&#x82F1;&#x8BED;&quot;</span>).courseScore(<span class="hljs-number">67</span>).build());
+    courses.add(Courses.builder().courseId(<span class="hljs-number">130</span>).courseName(<span class="hljs-string">&quot;&#x653F;&#x6CBB;&quot;</span>).courseScore(<span class="hljs-number">54</span>).build());
+
+
+    <span class="hljs-comment">// &#x5B66;&#x751F;</span>
+    Student student = Student.builder()
+            .id(<span class="hljs-number">2021050611</span>)
+            .name(<span class="hljs-string">&quot;&#x82B1;&#x65E0;&#x7F3A;&quot;</span>)
+            .age(<span class="hljs-number">25</span>)
+            .sex(<span class="hljs-number">1</span>)
+            .address(<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&#x7701;&#x6210;&#x90FD;&#x5E02;&#x5927;&#x718A;&#x732B;&#x57FA;&#x5730;&#x517B;&#x6B96;&#x5458;&quot;</span>)
+            .height(<span class="hljs-number">175</span>)
+            .courses(courses)
+            .build();
+
+    <span class="hljs-comment">// &#x751F;&#x6210;word&#x6587;&#x4EF6;</span>
+    outputWord(<span class="hljs-string">&quot;E:\\javaWork\\freemarker\\student.docx&quot;</span>, <span class="hljs-string">&quot;student.ftl&quot;</span>, JSON.parseObject(JSON.toJSONString(student)));
+}
+</code></pre>
+<h4 id="26-&#x751F;&#x6210;&#x7684;word&#x6587;&#x4EF6;&#x6548;&#x679C;"><a name="26-&#x751F;&#x6210;&#x7684;word&#x6587;&#x4EF6;&#x6548;&#x679C;" class="anchor-navigation-ex-anchor" href="#26-&#x751F;&#x6210;&#x7684;word&#x6587;&#x4EF6;&#x6548;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6 &#x751F;&#x6210;&#x7684;word&#x6587;&#x4EF6;&#x6548;&#x679C;</h4>
+<p><img src="freemarker/word-output.png" alt="word-template"></p>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x770B;&#x51FA;&#xFF0C;&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x83B7;&#x53D6;&#x5230;</p>
+<p>&#x6027;&#x522B;&#x9700;&#x8981;&#x7FFB;&#x8BD1;&#xFF0C;&#x8FD9;&#x513F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;freemarker&#x7684;&#x4E09;&#x76EE;&#x8FD0;&#x7B97;&#x7B26;&#x6765;&#x8FDB;&#x884C;&#x8F6C;&#x6362;</p>
+<pre><code class="lang-java">${ (sex == <span class="hljs-number">0</span>)?then(<span class="hljs-string">&apos;&#x5973;&apos;</span>, <span class="hljs-string">&apos;&#x7537;&apos;</span>) }
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><img src="freemarker/word-output2.png" alt="word-template"></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-05-07 17:05:30
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="spring_feign.html" class="navigation navigation-prev " aria-label="Previous page: feign在spring、springboot下使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="spring_freemarker_generate.html" class="navigation navigation-next " aria-label="Next page: Free marker自动生成Java bean代码">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"spring boot集成freemarker，生成word文件","level":"10.1","depth":1,"next":{"title":"Free marker自动生成Java bean代码","level":"11.1","depth":1,"path":"Spring/spring_freemarker_generate.md","ref":"Spring/spring_freemarker_generate.md","articles":[]},"previous":{"title":"feign在spring、springboot下使用","level":"9.1","depth":1,"path":"Spring/spring_feign.md","ref":"Spring/spring_feign.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","-font-settings","github","change_girls","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy tianwyam 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"change_girls":{"time":10,"urls":["https://z3.ax1x.com/2021/05/11/gaoiZ9.jpg","https://z3.ax1x.com/2021/05/11/gaouse.jpg"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*"},"file":{"path":"Spring/spring_freemarker.md","mtime":"2021-05-07T09:05:30.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-12T06:56:21.344Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-change_girls/girls.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
