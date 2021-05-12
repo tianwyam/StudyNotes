@@ -1,6 +1,8 @@
 # 目录
 
 
+
+
 ## 关于
 
 
@@ -32,7 +34,6 @@
 
 
 - [多线程]()
-
    - [volatile_synchronized](java/multithread/java_multi_thread_volatile_synchronized.md)
    - [object_wait_notify](java/multithread/java_multi_thread_object_wait_notify.md)
 
@@ -77,17 +78,17 @@
 
 
 
--  [feign在spring、springboot下使用](Spring/spring_feign.md)
+-  [Feign在spring、springboot下使用](Spring/spring_feign.md)
 
 
 
 
--  [spring boot集成freemarker，生成word文件](Spring/spring_freemarker.md)
+-  [Spring boot集成freemarker，生成word文件](Spring/spring_freemarker.md)
 
 
 
 
--  [Free marker自动生成Java bean代码](Spring/spring_freemarker_generate.md)
+-  [Freemarker自动生成Java bean代码](Spring/spring_freemarker_generate.md)
 
 
 
