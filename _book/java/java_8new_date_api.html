@@ -1,0 +1,1137 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>java8-新的日期时间API  · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Spring/springboot.html" />
+    
+    
+    <link rel="prev" href="java_optional.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">关于</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="java_thread_pool.html">
+            
+                <a href="java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="java_ftp.html">
+            
+                <a href="java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="collection.md">
+            
+                <span>
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="collection/java_collection_map.html">
+            
+                <a href="collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="java_queue.html">
+            
+                <a href="java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="java_io_nio.html">
+            
+                <a href="java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="java_exception.html">
+            
+                <a href="java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="multi.md">
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="multithread/java_multi_thread_thread.html">
+            
+                <a href="multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="multithread/java_multi_thread_threadpool.html">
+            
+                <a href="multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="multithread/java_multi_thread_lock.html">
+            
+                <a href="multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="multithread/java_multi_thread_tools.html">
+            
+                <a href="multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="java_jvm.html">
+            
+                <a href="java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="java_java7new.html">
+            
+                <a href="java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="java_stream.html">
+            
+                <a href="java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="java_stream_groupby.html">
+            
+                <a href="java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="java_optional.html">
+            
+                <a href="java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.6" data-path="java_8new_date_api.html">
+            
+                <a href="java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">框架</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Web</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                <a href="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >java8-新的日期时间API </a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#java-8-&#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;api"><b></b>Java 8 &#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;API</a></li><ul><li><span class="title-icon "></span><a href="#api"><b></b>API</a></li><li><span class="title-icon "></span><a href="#&#x7B80;&#x5355;&#x4F7F;&#x7528;"><b></b>&#x7B80;&#x5355;&#x4F7F;&#x7528;</a></li></ul></ul></ul></div><h2 id="java-8-&#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;api"><a name="java-8-&#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;api" class="anchor-navigation-ex-anchor" href="#java-8-&#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;api"><i class="fa fa-link" aria-hidden="true"></i></a>Java 8 &#x65B0;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;API</h2>
+<p>[TOC]</p>
+<p>Java8&#x5BF9;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x7684;&#x5904;&#x7406;&#x63D0;&#x4F9B;&#x4E86;&#x65B0;&#x7684;API&#xFF0C;&#x5728; java.time&#x5305;&#x4E0B;&#x9762;</p>
+<p>&#x65B0;&#x7684;java.time&#x5305;&#x6DB5;&#x76D6;&#x4E86;&#x6240;&#x6709;&#x5904;&#x7406;&#x65E5;&#x671F;&#xFF0C;&#x65F6;&#x95F4;&#xFF0C;&#x65E5;&#x671F;/&#x65F6;&#x95F4;&#xFF0C;&#x65F6;&#x533A;&#xFF0C;&#x65F6;&#x523B;&#xFF08;instants&#xFF09;&#xFF0C;&#x8FC7;&#x7A0B;&#xFF08;during&#xFF09;&#x4E0E;&#x65F6;&#x949F;&#xFF08;clock&#xFF09;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5305;&#x62EC;&#xFF1A;&#x65B0;&#x8001;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;
+&#x5982;&#xFF1A;date &#x548C; LocalDateTime&#x3001;LocalTime&#x3001;LocalDate&#x3001;Instant &#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;</p>
+<h3 id="api"><a name="api" class="anchor-navigation-ex-anchor" href="#api"><i class="fa fa-link" aria-hidden="true"></i></a>API</h3>
+<p>Java 8 &#x5BF9;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;API&#xFF1A;</p>
+<p>Local&#xFF08;&#x672C;&#x5730;&#xFF09;&#xFF0C;&#x7B80;&#x5316;&#x4E86;&#x65E5;&#x671F;&#x5904;&#x7406;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x533A;</p>
+<p>Zoned&#xFF08;&#x65F6;&#x533A;&#xFF09;&#xFF0C;&#x5236;&#x5B9A;&#x65F6;&#x533A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65F6;&#x533A;&#x6709;&#x65E0;</th>
+<th>Local&#xFF08;&#x65E0;&#x65F6;&#x533A;&#xFF09;</th>
+<th>Zoned&#xFF08;&#x65F6;&#x533A;&#xFF09;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x65E5;&#x671F;</td>
+<td>LocalDate</td>
+<td></td>
+</tr>
+<tr>
+<td>&#x65E5;&#x671F;&#x65F6;&#x95F4;</td>
+<td>LocalDateTime</td>
+<td>ZonedDateTime</td>
+</tr>
+<tr>
+<td>&#x65F6;&#x95F4;</td>
+<td>LocalTime</td>
+<td></td>
+</tr>
+<tr>
+<td>&#x65F6;&#x523B;</td>
+<td>Instant</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x7B80;&#x5355;&#x4F7F;&#x7528;"><a name="&#x7B80;&#x5355;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x4F7F;&#x7528;</h3>
+<h4 id="localdatetime"><a name="localdatetime" class="anchor-navigation-ex-anchor" href="#localdatetime"><i class="fa fa-link" aria-hidden="true"></i></a>LocalDateTime</h4>
+<h5 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;"><a name="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6; &#x5F53;&#x524D;&#x7684; &#x65E5;&#x671F;&#x65F6;&#x95F4;</span>
+LocalDateTime time = LocalDateTime.now();
+<span class="hljs-comment">// 2021-04-18T10:16:20.630</span>
+System.out.println(time);
+</code></pre>
+<h5 id="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;"><a name="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;" class="anchor-navigation-ex-anchor" href="#&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</h5>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x65E5;&#x671F;&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x5316;</span>
+DateTimeFormatter format = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);
+<span class="hljs-comment">// 2021-04-18 10:16:20</span>
+System.out.println(time.format(format));
+</code></pre>
+<h5 id="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;"><a name="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5FC5;&#x987B;&#x4FDD;&#x6301;&#x4E00;&#x81F4;</span>
+<span class="hljs-comment">// &#x8F6C; LocalDateTime &#x5FC5;&#x987B;&#x662F; &#x65E5;&#x671F;+&#x65F6;&#x95F4;</span>
+DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy/MM/dd HH:mm&quot;</span>);
+<span class="hljs-comment">// &#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;&#xFF0C;&#x8FDB;&#x884C;&#x8F6C;&#x6362;</span>
+LocalDateTime date = LocalDateTime.parse(<span class="hljs-string">&quot;2020/08/01 10:30&quot;</span>, dateFormat);
+<span class="hljs-comment">// 2020-08-01T10:30</span>
+System.out.println(date);
+</code></pre>
+<h5 id="&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;&#x65F6;&#x95F4;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;&#x65E5;&#x671F;</span>
+LocalDateTime customDateTime = LocalDateTime.of(<span class="hljs-number">2021</span>, <span class="hljs-number">10</span>, <span class="hljs-number">01</span>, <span class="hljs-number">8</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// 2021-10-01T08:00</span>
+System.out.println(customDateTime);
+</code></pre>
+<h5 id="&#x8F6C;localdate"><a name="&#x8F6C;localdate" class="anchor-navigation-ex-anchor" href="#&#x8F6C;localdate"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;LocalDate</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8F6C;LocalDate &#x53EA;&#x6709;&#x65E5;&#x671F;</span>
+LocalDate localDate = time.toLocalDate();
+<span class="hljs-comment">// 2021-04-18</span>
+System.out.println(localDate);
+</code></pre>
+<h5 id="&#x8F6C;localtime"><a name="&#x8F6C;localtime" class="anchor-navigation-ex-anchor" href="#&#x8F6C;localtime"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;LocalTime</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8F6C;LocalTime &#x53EA;&#x6709;&#x65F6;&#x95F4;</span>
+LocalTime localTime = time.toLocalTime();
+<span class="hljs-comment">// 10:37:42.419</span>
+System.out.println(localTime);
+</code></pre>
+<h5 id="&#x8F6C;instant"><a name="&#x8F6C;instant" class="anchor-navigation-ex-anchor" href="#&#x8F6C;instant"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;Instant</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8F6C;Instant</span>
+<span class="hljs-comment">// time: 2021-04-18T10:48:29.919</span>
+Instant instant = time.toInstant(ZoneOffset.UTC);
+<span class="hljs-comment">// 2021-04-18T10:48:29.919Z</span>
+System.out.println(instant);
+
+<span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x65F6;&#x533A; +08:00 = ZoneOffset.UTC</span>
+ZoneOffset offset = OffsetDateTime.now().getOffset();
+<span class="hljs-comment">// +08:00</span>
+System.out.println(offset);
+<span class="hljs-comment">// 2021-04-18T02:48:29.919Z</span>
+System.out.println(time.toInstant(offset));
+</code></pre>
+<h5 id="&#x8F6C;date"><a name="&#x8F6C;date" class="anchor-navigation-ex-anchor" href="#&#x8F6C;date"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;Date</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5148;&#x8F6C;&#x6210; Instant</span>
+ZoneOffset zoneOffset = OffsetDateTime.now().getOffset();
+Instant instant2 = time.toInstant(zoneOffset);
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x6BEB;&#x79D2;&#x503C;</span>
+<span class="hljs-keyword">long</span> milli = instant2.toEpochMilli();
+<span class="hljs-comment">// &#x8F6C;Date</span>
+Date date = <span class="hljs-keyword">new</span> Date(milli);
+<span class="hljs-comment">// Sun Apr 18 11:08:06 CST 2021</span>
+System.out.println(date);
+<span class="hljs-comment">// &#x683C;&#x5F0F;&#x5316; Date &#x8F93;&#x51FA;&#x683C;&#x5F0F;</span>
+SimpleDateFormat simpleDateFormat = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);
+<span class="hljs-comment">// 2021-04-18 11:08:06</span>
+System.out.println(simpleDateFormat.format(date));
+</code></pre>
+<h5 id="date-&#x8F6C;-localdatetime"><a name="date-&#x8F6C;-localdatetime" class="anchor-navigation-ex-anchor" href="#date-&#x8F6C;-localdatetime"><i class="fa fa-link" aria-hidden="true"></i></a>Date &#x8F6C; LocalDateTime</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// Date &#x8F6C; LocalDateTime</span>
+<span class="hljs-comment">// Date &#x5148;&#x8F6C;&#x6210; &#x65F6;&#x95F4;</span>
+Instant instant3 = <span class="hljs-keyword">new</span> Date().toInstant();
+<span class="hljs-comment">// &#x6839;&#x636E;&#x9ED8;&#x8BA4;&#x65F6;&#x533A;&#x8F6C;</span>
+LocalDateTime dateTime = LocalDateTime.ofInstant(instant3, ZoneId.systemDefault());
+<span class="hljs-comment">// 2021-04-18T22:01:56.723</span>
+System.out.println(dateTime);
+</code></pre>
+<h4 id="localdate"><a name="localdate" class="anchor-navigation-ex-anchor" href="#localdate"><i class="fa fa-link" aria-hidden="true"></i></a>LocalDate</h4>
+<p>&#x65E5;&#x671F;</p>
+<h5 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;"><a name="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6; &#x5F53;&#x524D;&#x7684; &#x65E5;&#x671F;&#xFF0C;&#x6CA1;&#x6709;&#x65F6;&#x95F4;</span>
+LocalDate localDate = LocalDate.now();
+<span class="hljs-comment">// 2021-04-18</span>
+System.out.println(localDate);
+</code></pre>
+<h5 id="&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x671F;</span>
+LocalDate customLocalDate = LocalDate.of(<span class="hljs-number">2021</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// 2021-10-01</span>
+System.out.println(customLocalDate);
+</code></pre>
+<h5 id="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_1"><a name="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_1" class="anchor-navigation-ex-anchor" href="#&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x683C;&#x5F0F;</span>
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy&#x5E74;MM&#x6708;dd&#x65E5;&quot;</span>);
+<span class="hljs-comment">// &#x683C;&#x5F0F;&#x5316;</span>
+String format = dateTimeFormatter.format(localDate);
+<span class="hljs-comment">// 2021&#x5E74;04&#x6708;18&#x65E5;</span>
+System.out.println(format);
+</code></pre>
+<h5 id="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65E5;&#x671F;"><a name="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65E5;&#x671F;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65E5;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65E5;&#x671F;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x683C;&#x5F0F; &#x5FC5;&#x987B;&#x4E0E; &#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x4E00;&#x81F4;</span>
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy&#x5E74;M&#x6708;d&#x65E5;&quot;</span>);
+<span class="hljs-comment">// &#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;</span>
+LocalDate parseStrDate = LocalDate.parse(<span class="hljs-string">&quot;2020&#x5E74;7&#x6708;10&#x65E5;&quot;</span>, dateTimeFormatter);
+<span class="hljs-comment">// 2020-07-10</span>
+System.out.println(parseStrDate);
+</code></pre>
+<h5 id="&#x8F6C;localdatetime"><a name="&#x8F6C;localdatetime" class="anchor-navigation-ex-anchor" href="#&#x8F6C;localdatetime"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;LocalDateTime</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8F6C; LocalDateTime</span>
+<span class="hljs-comment">// &#x9700;&#x8981;&#x6DFB;&#x52A0;&#x65F6;&#x95F4; &#x65F6;&#x5206;&#x79D2;</span>
+LocalDateTime localDateTime = localDate.atTime(LocalTime.now());
+<span class="hljs-comment">// 2021-04-18T21:41:16.195</span>
+System.out.println(localDateTime);
+</code></pre>
+<h5 id="&#x8F6C;-instant"><a name="&#x8F6C;-instant" class="anchor-navigation-ex-anchor" href="#&#x8F6C;-instant"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C; instant</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8F6C; Instant</span>
+<span class="hljs-comment">// &#x6839;&#x636E;&#x9ED8;&#x8BA4;&#x65F6;&#x533A; &#x8F6C;&#x65F6;&#x523B;</span>
+Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+</code></pre>
+<h5 id="&#x8F6C;date_1"><a name="&#x8F6C;date_1" class="anchor-navigation-ex-anchor" href="#&#x8F6C;date_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;Date</h5>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x8F6C; Date</span>
+<span class="hljs-comment">// &#x5148;&#x8F6C; LocalDateTime &#x83B7;&#x53D6;&#x65F6;&#x533A;</span>
+<span class="hljs-comment">// &#x5728;&#x8F6C; Instant</span>
+Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+<span class="hljs-comment">// Instant &#x8F6C; Date</span>
+Date date = Date.from(instant);
+<span class="hljs-comment">// &#x6CA1;&#x6709;&#x65F6;&#x5206;&#x79D2;</span>
+<span class="hljs-comment">// Sun Apr 18 00:00:00 CST 2021</span>
+System.out.println(date);
+</code></pre>
+<h5 id="date-&#x8F6C;-localdate"><a name="date-&#x8F6C;-localdate" class="anchor-navigation-ex-anchor" href="#date-&#x8F6C;-localdate"><i class="fa fa-link" aria-hidden="true"></i></a>Date &#x8F6C; LocalDate</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// Date &#x8F6C; LocalDate</span>
+<span class="hljs-comment">// &#x5148;&#x8F6C;&#x6210;&#x65F6;&#x523B;</span>
+Instant instant = <span class="hljs-keyword">new</span> Date().toInstant();
+<span class="hljs-comment">// &#x5728;&#x6839;&#x636E;&#x9ED8;&#x8BA4;&#x65F6;&#x533A; &#x8F6C;&#x6210; LocalDateTime</span>
+LocalDateTime dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+<span class="hljs-comment">// LocalDateTime &#x8F6C; LocalDate</span>
+LocalDate localDate = dateTime.toLocalDate();
+<span class="hljs-comment">// 2021-04-18</span>
+System.out.println(localDate);
+</code></pre>
+<h4 id="localtime"><a name="localtime" class="anchor-navigation-ex-anchor" href="#localtime"><i class="fa fa-link" aria-hidden="true"></i></a>LocalTime</h4>
+<p>&#x65F6;&#x95F4;</p>
+<h5 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;"><a name="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6; &#x5F53;&#x524D;&#x7684; &#x65F6;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x65E5;&#x671F;</span>
+LocalTime localTime = LocalTime.now();
+<span class="hljs-comment">// 22:07:55.425</span>
+System.out.println(localTime);
+</code></pre>
+<h5 id="&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x81EA;&#x5B9A;&#x4E49;&#x65F6;&#x95F4;</span>
+LocalTime customTime = LocalTime.of(<span class="hljs-number">12</span>, <span class="hljs-number">30</span>, <span class="hljs-number">10</span>);
+<span class="hljs-comment">// 12:30:10</span>
+System.out.println(customTime);
+</code></pre>
+<h5 id="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;_1"><a name="&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;_1" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x95F4;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;</span>
+LocalTime parse = LocalTime.parse(<span class="hljs-string">&quot;14&#x70B9;20&#x5206;30&#x79D2;&quot;</span>, DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;HH&#x70B9;mm&#x5206;ss&#x79D2;&quot;</span>));
+<span class="hljs-comment">// 14:20:30</span>
+System.out.println(parse);
+</code></pre>
+<h5 id="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_2"><a name="&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_2" class="anchor-navigation-ex-anchor" href="#&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;</span>
+String format = localTime.format(DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;HH&#x70B9;mm&#x5206;ss&#x79D2;&quot;</span>));
+<span class="hljs-comment">// 22&#x70B9;18&#x5206;58&#x79D2;</span>
+System.out.println(format);
+</code></pre>
+<h5 id="&#x8F6C;-localdatetime"><a name="&#x8F6C;-localdatetime" class="anchor-navigation-ex-anchor" href="#&#x8F6C;-localdatetime"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C; LocalDateTime</h5>
+<pre><code class="lang-java">LocalDateTime localDateTime = localTime.atDate(LocalDate.now());
+<span class="hljs-comment">// 2021-04-18T22:23:51.692</span>
+System.out.println(localDateTime);
+</code></pre>
+<h5 id="&#x8F6C;date_2"><a name="&#x8F6C;date_2" class="anchor-navigation-ex-anchor" href="#&#x8F6C;date_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;Date</h5>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x8F6C; Date</span>
+LocalDateTime dateTime = LocalDateTime.of(LocalDate.now(), localTime);
+Instant instant = dateTime.toInstant(OffsetDateTime.now().getOffset());
+Date date = Date.from(instant);
+<span class="hljs-comment">// Sun Apr 18 22:30:54 CST 2021</span>
+System.out.println(date);
+</code></pre>
+<h5 id="date-&#x8F6C;-localtime"><a name="date-&#x8F6C;-localtime" class="anchor-navigation-ex-anchor" href="#date-&#x8F6C;-localtime"><i class="fa fa-link" aria-hidden="true"></i></a>Date &#x8F6C; LocalTime</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// Date &#x8F6C; LocalTime</span>
+Instant instant2 = <span class="hljs-keyword">new</span> Date().toInstant();
+LocalDateTime localDateTime2 = LocalDateTime.ofInstant(instant2, ZoneId.systemDefault());
+LocalTime localTime2 = localDateTime2.toLocalTime();
+<span class="hljs-comment">// 22:33:26.249</span>
+System.out.println(localTime2);
+</code></pre>
+<h4 id="instant"><a name="instant" class="anchor-navigation-ex-anchor" href="#instant"><i class="fa fa-link" aria-hidden="true"></i></a>Instant</h4>
+<p>&#x65F6;&#x523B; &#x65F6;&#x95F4;&#x6233;</p>
+<h5 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x523B;"><a name="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x523B;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x523B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x523B;</h5>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x523B;</span>
+Instant instant = Instant.now();
+<span class="hljs-comment">// 2021-04-18T14:35:40.372Z</span>
+System.out.println(instant);
+</code></pre>
+<h5 id="&#x8F6C;-localdatetime_1"><a name="&#x8F6C;-localdatetime_1" class="anchor-navigation-ex-anchor" href="#&#x8F6C;-localdatetime_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C; LocalDateTime</h5>
+<pre><code class="lang-java">LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+<span class="hljs-comment">// 2021-04-18T22:37:06.950</span>
+System.out.println(localDateTime);
+</code></pre>
+<h5 id="&#x8F6C;date_3"><a name="&#x8F6C;date_3" class="anchor-navigation-ex-anchor" href="#&#x8F6C;date_3"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;Date</h5>
+<pre><code class="lang-java">Date date = Date.from(instant);
+<span class="hljs-comment">// Sun Apr 18 22:38:27 CST 2021</span>
+System.out.println(date);
+</code></pre>
+<h5 id="date-&#x8F6C;-instant"><a name="date-&#x8F6C;-instant" class="anchor-navigation-ex-anchor" href="#date-&#x8F6C;-instant"><i class="fa fa-link" aria-hidden="true"></i></a>Date &#x8F6C; Instant</h5>
+<pre><code class="lang-java">Instant instant2 = <span class="hljs-keyword">new</span> Date().toInstant();
+<span class="hljs-comment">// 2021-04-18T14:40:01.481Z</span>
+System.out.println(instant2);
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-18 23:17:33
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_optional.html" class="navigation navigation-prev " aria-label="Previous page: java8新语法-Optional ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Spring/springboot.html" class="navigation navigation-next " aria-label="Next page: SpringBoot">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"java8-新的日期时间API ","level":"5.6","depth":1,"next":{"title":"SpringBoot","level":"6.1","depth":1,"path":"Spring/springboot.md","ref":"Spring/springboot.md","articles":[]},"previous":{"title":"java8新语法-Optional ","level":"5.5","depth":1,"path":"java/java_optional.md","ref":"java/java_optional.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","-font-settings","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/java_8new_date_api.md","mtime":"2021-04-18T15:17:33.408Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-14T14:08:41.813Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

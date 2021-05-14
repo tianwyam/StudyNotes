@@ -1,0 +1,1067 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AOP内获取了对请求流操作后报流已经关闭错误的问题 · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="security_not_configure_antMatchers_after_anyRequest.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">关于</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java/java_thread_pool.html">
+            
+                <a href="../java/java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../java/java_ftp.html">
+            
+                <a href="../java/java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../java/collection.md">
+            
+                <span>
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../java/collection/java_collection_map.html">
+            
+                <a href="../java/collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../java/java_queue.html">
+            
+                <a href="../java/java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java_io_nio.html">
+            
+                <a href="../java/java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java/java_exception.html">
+            
+                <a href="../java/java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../java/multi.md">
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../java/multithread/java_multi_thread_thread.html">
+            
+                <a href="../java/multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../java/multithread/java_multi_thread_threadpool.html">
+            
+                <a href="../java/multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../java/multithread/java_multi_thread_lock.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../java/multithread/java_multi_thread_tools.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../java/java_jvm.html">
+            
+                <a href="../java/java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../java/java_java7new.html">
+            
+                <a href="../java/java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../java/java_stream.html">
+            
+                <a href="../java/java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../java/java_stream_groupby.html">
+            
+                <a href="../java/java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../java/java_optional.html">
+            
+                <a href="../java/java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../java/java_8new_date_api.html">
+            
+                <a href="../java/java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">框架</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Web</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="maven_not_found_local_jar.html">
+            
+                <a href="maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="15.3" data-path="AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                <a href="AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AOP内获取了对请求流操作后报流已经关闭错误的问题</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#&#x89E3;&#x51B3;&#x5728;aop&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;"><b></b>&#x89E3;&#x51B3;&#x5728;AOP&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;</a></li></ul></ul></ul></div><h3 id="&#x89E3;&#x51B3;&#x5728;aop&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;"><a name="&#x89E3;&#x51B3;&#x5728;aop&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x5728;aop&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;&#x5728;AOP&#x5185;&#x83B7;&#x53D6;&#x4E86;&#x5BF9;&#x8BF7;&#x6C42;&#x6D41;&#x64CD;&#x4F5C;&#x540E;&#x62A5;&#x6D41;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x9519;&#x8BEF;&#x7684;&#x95EE;&#x9898;</h3>
+<h4 id="&#x95EE;&#x9898;&#x73B0;&#x8C61;"><a name="&#x95EE;&#x9898;&#x73B0;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x73B0;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x95EE;&#x9898;&#x73B0;&#x8C61;</h4>
+<p>&#x73B0;&#x8C61;&#xFF1A;&#x5728;AOP&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x4E86;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x8BF7;&#x6C42;&#x6D41;&#x4F53;&#x5185;&#x5BB9;&#x540E;&#xFF0C;&#x62A5;&#x9519;&#xFF1A;java.io.IOException: Stream closed</p>
+<pre><code class="lang-java">
+java.io.IOException: Stream closed
+    at org.apache.catalina.connector.InputBuffer.read(InputBuffer.java:<span class="hljs-number">359</span>) ~[tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.connector.CoyoteInputStream.read(CoyoteInputStream.java:<span class="hljs-number">132</span>) ~[tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:<span class="hljs-number">284</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:<span class="hljs-number">326</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:<span class="hljs-number">178</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at java.io.InputStreamReader.read(InputStreamReader.java:<span class="hljs-number">184</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at java.io.Reader.read(Reader.java:<span class="hljs-number">140</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:<span class="hljs-number">2537</span>) ~[commons-io-<span class="hljs-number">2.6</span>.jar:<span class="hljs-number">2.6</span>]
+    at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:<span class="hljs-number">2516</span>) ~[commons-io-<span class="hljs-number">2.6</span>.jar:<span class="hljs-number">2.6</span>]
+    at org.apache.commons.io.IOUtils.copy(IOUtils.java:<span class="hljs-number">2493</span>) ~[commons-io-<span class="hljs-number">2.6</span>.jar:<span class="hljs-number">2.6</span>]
+    at org.apache.commons.io.IOUtils.copy(IOUtils.java:<span class="hljs-number">2441</span>) ~[commons-io-<span class="hljs-number">2.6</span>.jar:<span class="hljs-number">2.6</span>]
+    at org.apache.commons.io.IOUtils.toString(IOUtils.java:<span class="hljs-number">1084</span>) ~[commons-io-<span class="hljs-number">2.6</span>.jar:<span class="hljs-number">2.6</span>]
+    at com.openapi.utils.AspectUtils.getRequestParams4body(AspectUtils.java:<span class="hljs-number">166</span>) [classes/:na]
+    at com.openapi.utils.AspectUtils.getRequestParams(AspectUtils.java:<span class="hljs-number">113</span>) [classes/:na]
+    at com.openapi.aop.OpenApiUserAuthAop.openApiVisitRecord(OpenApiUserAuthAop.java:<span class="hljs-number">187</span>) [classes/:na]
+    at com.openapi.aop.OpenApiUserAuthAop.auth(OpenApiUserAuthAop.java:<span class="hljs-number">151</span>) [classes/:na]
+    at com.openapi.aop.OpenApiUserAuthAop.userAuth(OpenApiUserAuthAop.java:<span class="hljs-number">91</span>) [classes/:na]
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="hljs-number">62</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="hljs-number">43</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at java.lang.reflect.Method.invoke(Method.java:<span class="hljs-number">498</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:<span class="hljs-number">644</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:<span class="hljs-number">633</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:<span class="hljs-number">70</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="hljs-number">186</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:<span class="hljs-number">747</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:<span class="hljs-number">95</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:<span class="hljs-number">186</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:<span class="hljs-number">747</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:<span class="hljs-number">689</span>) [spring-aop-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at com.openapi.controller.StatisController$$EnhancerBySpringCGLIB$$<span class="hljs-number">6</span>cebe8eb.statisBySate(&lt;generated&gt;) [classes/:na]
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="hljs-number">62</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="hljs-number">43</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at java.lang.reflect.Method.invoke(Method.java:<span class="hljs-number">498</span>) ~[na:<span class="hljs-number">1.8</span>.0_92]
+    at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:<span class="hljs-number">190</span>) [spring-web-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:<span class="hljs-number">138</span>) [spring-web-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:<span class="hljs-number">106</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:<span class="hljs-number">888</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:<span class="hljs-number">793</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:<span class="hljs-number">87</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:<span class="hljs-number">1040</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:<span class="hljs-number">943</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:<span class="hljs-number">1006</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:<span class="hljs-number">909</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="hljs-number">660</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:<span class="hljs-number">883</span>) [spring-webmvc-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="hljs-number">741</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">231</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:<span class="hljs-number">53</span>) [tomcat-embed-websocket-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">193</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at com.github.xiaoymin.swaggerbootstrapui.filter.SecurityBasicAuthFilter.doFilter(SecurityBasicAuthFilter.java:<span class="hljs-number">81</span>) [swagger-bootstrap-ui-<span class="hljs-number">1.9</span>.6.jar:na]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">193</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at com.github.xiaoymin.swaggerbootstrapui.filter.ProductionSecurityFilter.doFilter(ProductionSecurityFilter.java:<span class="hljs-number">53</span>) [swagger-bootstrap-ui-<span class="hljs-number">1.9</span>.6.jar:na]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">193</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:<span class="hljs-number">123</span>) [druid-<span class="hljs-number">1.1</span>.10.jar:<span class="hljs-number">1.1</span>.10]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">193</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:<span class="hljs-number">201</span>) [spring-web-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:<span class="hljs-number">119</span>) [spring-web-<span class="hljs-number">5.2</span>.3.RELEASE.jar:<span class="hljs-number">5.2</span>.3.RELEASE]
+    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:<span class="hljs-number">193</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:<span class="hljs-number">166</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:<span class="hljs-number">202</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:<span class="hljs-number">96</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:<span class="hljs-number">541</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:<span class="hljs-number">139</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:<span class="hljs-number">92</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:<span class="hljs-number">74</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:<span class="hljs-number">343</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:<span class="hljs-number">367</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:<span class="hljs-number">65</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:<span class="hljs-number">860</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:<span class="hljs-number">1598</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:<span class="hljs-number">49</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:<span class="hljs-number">1142</span>) [na:<span class="hljs-number">1.8</span>.0_92]
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:<span class="hljs-number">617</span>) [na:<span class="hljs-number">1.8</span>.0_92]
+    at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:<span class="hljs-number">61</span>) [tomcat-embed-core-<span class="hljs-number">9.0</span>.30.jar:<span class="hljs-number">9.0</span>.30]
+    at java.lang.Thread.run(Thread.java:<span class="hljs-number">745</span>) [na:<span class="hljs-number">1.8</span>.0_92]
+</code></pre>
+<h4 id="&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a name="&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h4>
+<p>&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#xFF1A;&#x662F;&#x7531;&#x4E8E;request&#x8BF7;&#x6C42;&#x6D41;&#x5185;&#x5BB9;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x6D88;&#x8D39;&#xFF0C;&#x4F7F;&#x7528;&#x540E;&#x4F1A;&#x88AB;&#x5173;&#x95ED;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5BF9;request&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x5305;&#x88C5;&#xFF0C;&#x5BF9;&#x8BF7;&#x6C42;&#x4F53;&#x5185;&#x5BB9;&#x4FDD;&#x5B58;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x76F4;&#x63A5;&#x91CD;&#x65B0;&#x53D6;&#x4FDD;&#x5B58;&#x597D;&#x7684;&#x5185;&#x5BB9;&#x4F53;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x81EA;&#x5B9A;&#x4E49;request&#x8BF7;&#x6C42;&#x5305;&#x88C5;&#x7C7B;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5BF9;request&#x8BF7;&#x6C42;&#x5305;&#x88C5;&#x7C7B;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;4&#x6708;26&#x65E5;
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RequestReaderHttpServletRequestWrapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HttpServletRequestWrapper</span></span>{
+
+    <span class="hljs-comment">// &#x4FDD;&#x5B58;&#x8BF7;&#x6C42;&#x4F53;&#x5185;&#x5BB9;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">byte</span>[] body ;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RequestReaderHttpServletRequestWrapper</span><span class="hljs-params">(HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-keyword">super</span>(request);
+        <span class="hljs-comment">// &#x53D6;&#x8BF7;&#x6C42;&#x4F53;&#x5185;&#x7684; &#x5185;&#x5BB9;</span>
+        body = RequestUtils.getBodyStream(request);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> BufferedReader <span class="hljs-title">getReader</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BufferedReader(<span class="hljs-keyword">new</span> InputStreamReader(getInputStream())) ;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ServletInputStream <span class="hljs-title">getInputStream</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>{
+
+        <span class="hljs-comment">// &#x6BCF;&#x4E00;&#x6B21;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x6D41;&#x65F6;&#x7684;&#x5185;&#x5BB9;&#x90FD;&#x662F;&#x4FDD;&#x5B58;&#x597D;&#x7684;</span>
+        <span class="hljs-keyword">final</span> ByteArrayInputStream bais = <span class="hljs-keyword">new</span> ByteArrayInputStream(body);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ServletInputStream() {
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>{
+                <span class="hljs-keyword">return</span> bais.read();
+            }
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setReadListener</span><span class="hljs-params">(ReadListener readListener)</span> </span>{
+
+            }
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isReady</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+            }
+
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isFinished</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+            }
+        };
+    }
+
+}
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x5B9A;&#x4E49;&#x62E6;&#x622A;&#x5668;&#x62E6;&#x622A;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x5BF9;request&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x5305;&#x88C5;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x81EA;&#x5B9A;&#x4E49;&#x62E6;&#x622A;&#x5668; &#x8FDB;&#x884C;&#x62E6;&#x622A;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;4&#x6708;26&#x65E5;
+ */</span>
+<span class="hljs-meta">@Order</span>(<span class="hljs-number">0</span>)
+<span class="hljs-meta">@WebFilter</span>(urlPatterns=<span class="hljs-string">&quot;/api/v1/openapi/*&quot;</span>, filterName=<span class="hljs-string">&quot;CustomHttpServletRequestFilter&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HttpServletRequestFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger LOG = LoggerFactory.getLogger(HttpServletRequestFilter.class);
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest request, ServletResponse response, FilterChain filterChain)</span>
+            <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
+
+
+        RequestReaderHttpServletRequestWrapper requestWrapper = <span class="hljs-keyword">null</span> ;
+        <span class="hljs-keyword">if</span> (request <span class="hljs-keyword">instanceof</span> HttpServletRequest ) {
+            HttpServletRequest httpServletRequest = (HttpServletRequest)request;
+            <span class="hljs-comment">// &#x5BF9; request&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x5305;&#x88C5; RequestReaderHttpServletRequestWrapper(&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5305;&#x88C5;&#x7C7B;)</span>
+            requestWrapper = <span class="hljs-keyword">new</span> RequestReaderHttpServletRequestWrapper(httpServletRequest);
+        }
+
+        <span class="hljs-keyword">if</span> (requestWrapper == <span class="hljs-keyword">null</span>) {
+            filterChain.doFilter(request, response);
+        }<span class="hljs-keyword">else</span> {
+            filterChain.doFilter(requestWrapper, response);
+        }
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> <span class="hljs-keyword">throws</span> ServletException </span>{
+        LOG.info(<span class="hljs-string">&quot;CustomHttpServletRequestFilter init&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
+        LOG.info(<span class="hljs-string">&quot;CustomHttpServletRequestFilter destroy&quot;</span>);
+    }
+
+}
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-27 21:27:38
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="security_not_configure_antMatchers_after_anyRequest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: spring security 配置发生错误 Can't configure antMatchers after anyRequest">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AOP内获取了对请求流操作后报流已经关闭错误的问题","level":"15.3","depth":1,"previous":{"title":"spring security 配置发生错误 Can't configure antMatchers after anyRequest","level":"15.2","depth":1,"path":"error/security_not_configure_antMatchers_after_anyRequest.md","ref":"error/security_not_configure_antMatchers_after_anyRequest.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","-font-settings","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"error/AOP内获取了对请求流操作后报流已经关闭错误的问题.md","mtime":"2021-04-27T13:27:38.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-14T14:08:41.813Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

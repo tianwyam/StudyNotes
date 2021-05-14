@@ -1,0 +1,1102 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java8对集合流操作stream · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java_stream_groupby.html" />
+    
+    
+    <link rel="prev" href="java_java7new.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">关于</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="java_thread_pool.html">
+            
+                <a href="java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="java_ftp.html">
+            
+                <a href="java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="collection.md">
+            
+                <span>
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="collection/java_collection_map.html">
+            
+                <a href="collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="java_queue.html">
+            
+                <a href="java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="java_io_nio.html">
+            
+                <a href="java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="java_exception.html">
+            
+                <a href="java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="multi.md">
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="multithread/java_multi_thread_thread.html">
+            
+                <a href="multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="multithread/java_multi_thread_threadpool.html">
+            
+                <a href="multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="multithread/java_multi_thread_lock.html">
+            
+                <a href="multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="multithread/java_multi_thread_tools.html">
+            
+                <a href="multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="java_jvm.html">
+            
+                <a href="java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="java_java7new.html">
+            
+                <a href="java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.3" data-path="java_stream.html">
+            
+                <a href="java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="java_stream_groupby.html">
+            
+                <a href="java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="java_optional.html">
+            
+                <a href="java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="java_8new_date_api.html">
+            
+                <a href="java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">框架</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Web</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                <a href="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Java8对集合流操作stream</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#stream"><b></b>Stream</a></li></ul></ul></ul></div><h3 id="stream"><a name="stream" class="anchor-navigation-ex-anchor" href="#stream"><i class="fa fa-link" aria-hidden="true"></i></a>Stream</h3>
+<p>Java8 API&#x65B0;&#x51FA;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x4EE5;&#x4E00;&#x79CD;&#x58F0;&#x660E;&#x5F0F;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;SQL&#xFF0C;&#x66F4;&#x76F4;&#x89C2;&#xFF0C;&#x662F;&#x5BF9;Java&#x96C6;&#x5408;&#x8FD0;&#x7B97;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x8BED;&#x6CD5;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x8BA9;&#x5904;&#x7406;&#x96C6;&#x5408;&#x6570;&#x636E;&#x66F4;&#x9AD8;&#x6548;&#x3001;&#x66F4;&#x7B80;&#x6D01;&#x3001;&#x66F4;&#x76F4;&#x89C2;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x3002;</p>
+<p>Stream &#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x5DE5;&#x5382;&#x6D41;&#x6C34;&#x7EBF;&#x5DE5;&#x4F5C;&#xFF0C;&#x662F;&#x628A;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;&#x770B;&#x4F5C;&#x4E00;&#x79CD;&#x6D41;&#xFF0C;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#x4F20;&#x8F93;&#xFF0C;&#x6BCF;&#x4E2A;&#x73AF;&#x8282;&#x662F;&#x4F9D;&#x6B21;&#x5B8C;&#x6210;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#x5904;&#x7406;&#x540E;&#xFF0C;&#x6700;&#x540E;&#x7531;&#x6700;&#x7EC8;&#x64CD;&#x4F5C;&#x5F97;&#x5230;&#x5904;&#x7406;&#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF1B;&#x4E5F;&#x6709;&#x5E76;&#x884C;&#x6D41;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p>&#x6A21;&#x62DF;&#x6570;&#x636E;&#xFF0C;&#x5B9E;&#x9645;&#x4E2D;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x3001;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x7B49;</p>
+<pre><code class="lang-json">&#x5B66;&#x751F;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF1A;
+Student(sid=<span class="hljs-number">11</span>, name=&#x5F20;&#x4E09;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">23</span>, height=<span class="hljs-number">175</span>)
+Student(sid=<span class="hljs-number">12</span>, name=&#x674E;&#x56DB;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">168</span>)
+Student(sid=<span class="hljs-number">13</span>, name=&#x5B34;&#x653F;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">185</span>)
+Student(sid=<span class="hljs-number">14</span>, name=&#x8346;&#x8F72;, addr=&#x6E56;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">164</span>)
+Student(sid=<span class="hljs-number">15</span>, name=&#x66F9;&#x64CD;, addr=&#x9655;&#x897F;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">194</span>)
+Student(sid=<span class="hljs-number">16</span>, name=&#x76D6;&#x8042;, addr=&#x4E91;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">184</span>)
+Student(sid=<span class="hljs-number">17</span>, name=&#x5218;&#x90A6;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">23</span>, height=<span class="hljs-number">165</span>)
+Student(sid=<span class="hljs-number">18</span>, name=&#x738B;&#x4E94;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">165</span>)
+Student(sid=<span class="hljs-number">19</span>, name=&#x5218;&#x5907;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">50</span>, height=<span class="hljs-number">174</span>)
+</code></pre>
+<h4 id="&#x8FC7;&#x6EE4;-filter"><a name="&#x8FC7;&#x6EE4;-filter" class="anchor-navigation-ex-anchor" href="#&#x8FC7;&#x6EE4;-filter"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FC7;&#x6EE4; filter</h4>
+<p>&#x67E5;&#x8BE2;&#x5927;&#x4E8E;25&#x5C81;&#x7684;&#x5B66;&#x751F;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-string">&quot;&#x67E5;&#x8BE2;&#x5927;&#x4E8E; 25&#x5C81;&#x7684; &#x5B66;&#x751F;&#xFF1A;&quot;</span>);
+List&lt;Student&gt; collect = students.stream()
+        .filter(student-&gt;student.getAge() &gt; <span class="hljs-number">25</span>)
+        .collect(Collectors.toList());
+collect.forEach(System.out::println);
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">Student(sid=<span class="hljs-number">12</span>, name=&#x674E;&#x56DB;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">168</span>)
+Student(sid=<span class="hljs-number">13</span>, name=&#x5B34;&#x653F;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">185</span>)
+Student(sid=<span class="hljs-number">15</span>, name=&#x66F9;&#x64CD;, addr=&#x9655;&#x897F;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">194</span>)
+Student(sid=<span class="hljs-number">18</span>, name=&#x738B;&#x4E94;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">165</span>)
+Student(sid=<span class="hljs-number">19</span>, name=&#x5218;&#x5907;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">50</span>, height=<span class="hljs-number">174</span>)
+</code></pre>
+<h4 id="&#x6392;&#x5E8F;-sorted"><a name="&#x6392;&#x5E8F;-sorted" class="anchor-navigation-ex-anchor" href="#&#x6392;&#x5E8F;-sorted"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6392;&#x5E8F; sorted</h4>
+<p>&#x6309;&#x7167;&#x5E74;&#x9F84;&#x6392;&#x5E8F;(&#x4ECE;&#x5C0F;&#x5230;&#x5927;)&#xFF1A;</p>
+<pre><code class="lang-java">
+System.out.println(<span class="hljs-string">&quot;&#x6309;&#x7167;&#x5E74;&#x9F84;&#x6392;&#x5E8F;(&#x4ECE;&#x5C0F;&#x5230;&#x5927;)&#xFF1A;&quot;</span>);
+List&lt;Student&gt; sortList = students.stream()
+        .sorted( (a,b)-&gt; a.getAge() - b.getAge())
+        .collect(Collectors.toList());
+sortList.forEach(System.out::println);
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">Student(sid=<span class="hljs-number">14</span>, name=&#x8346;&#x8F72;, addr=&#x6E56;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">164</span>)
+Student(sid=<span class="hljs-number">16</span>, name=&#x76D6;&#x8042;, addr=&#x4E91;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">184</span>)
+Student(sid=<span class="hljs-number">11</span>, name=&#x5F20;&#x4E09;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">23</span>, height=<span class="hljs-number">175</span>)
+Student(sid=<span class="hljs-number">17</span>, name=&#x5218;&#x90A6;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">23</span>, height=<span class="hljs-number">165</span>)
+Student(sid=<span class="hljs-number">13</span>, name=&#x5B34;&#x653F;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">185</span>)
+Student(sid=<span class="hljs-number">15</span>, name=&#x66F9;&#x64CD;, addr=&#x9655;&#x897F;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">194</span>)
+Student(sid=<span class="hljs-number">12</span>, name=&#x674E;&#x56DB;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">168</span>)
+Student(sid=<span class="hljs-number">18</span>, name=&#x738B;&#x4E94;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">38</span>, height=<span class="hljs-number">165</span>)
+Student(sid=<span class="hljs-number">19</span>, name=&#x5218;&#x5907;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">50</span>, height=<span class="hljs-number">174</span>)
+</code></pre>
+<h4 id="&#x6C42;&#x6700;&#x5927;-max"><a name="&#x6C42;&#x6700;&#x5927;-max" class="anchor-navigation-ex-anchor" href="#&#x6C42;&#x6700;&#x5927;-max"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6C42;&#x6700;&#x5927; max</h4>
+<p>&#x83B7;&#x53D6;&#x6700;&#x9AD8;&#x7684;&#x5B66;&#x751F;&#xFF1A;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x6700;&#x9AD8;&#x7684;&#x5B66;&#x751F;&#xFF1A;&quot;</span>);
+Student maxHeightStudent = students.stream()
+        .max((a,b)-&gt;a.getHeight() - b.getHeight())
+        .get();
+System.out.println(maxHeightStudent);
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">&#x83B7;&#x53D6;&#x6700;&#x9AD8;&#x7684;&#x5B66;&#x751F;&#xFF1A;
+Student(sid=<span class="hljs-number">15</span>, name=&#x66F9;&#x64CD;, addr=&#x9655;&#x897F;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">194</span>)
+</code></pre>
+<h4 id="&#x6C42;&#x548C;-reduce"><a name="&#x6C42;&#x548C;-reduce" class="anchor-navigation-ex-anchor" href="#&#x6C42;&#x548C;-reduce"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6C42;&#x548C; reduce</h4>
+<p>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x7684;&#x5E74;&#x9F84;&#x548C;</p>
+<pre><code class="lang-java">Integer ageSum = students.stream()
+    .reduce(<span class="hljs-number">0</span>, 
+            (a,b)-&gt; a + b.getAge(), 
+            (a,b)-&gt; a + b);
+System.out.println(<span class="hljs-string">&quot;&#x6240;&#x6709;&#x5B66;&#x751F;&#x7684;&#x5E74;&#x9F84;&#x603B;&#x548C;&#xFF1A;&quot;</span> + ageSum);
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">&#x6240;&#x6709;&#x5B66;&#x751F;&#x7684;&#x5E74;&#x9F84;&#x603B;&#x548C;&#xFF1A;<span class="hljs-number">258</span>
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-java">Integer allStudentAge = students.stream()
+        .map(Student::getAge)
+        .reduce(<span class="hljs-number">0</span>, Integer::sum);
+System.out.println(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x4EBA;&#x5E74;&#x9F84;&#x4E4B;&#x548C;&#xFF1A;&quot;</span> + allStudentAge);
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">&#x83B7;&#x53D6;&#x6240;&#x6709;&#x4EBA;&#x5E74;&#x9F84;&#x4E4B;&#x548C;&#xFF1A;<span class="hljs-number">258</span>
+</code></pre>
+<h4 id="list&#x8F6C;map"><a name="list&#x8F6C;map" class="anchor-navigation-ex-anchor" href="#list&#x8F6C;map"><i class="fa fa-link" aria-hidden="true"></i></a>list&#x8F6C;Map</h4>
+<p>&#x6570;&#x7EC4;&#x96C6;&#x5408;list&#x8F6C;Map</p>
+<pre><code class="lang-java">Map&lt;Integer, String&gt; mapList = students.stream()
+        .collect(
+                Collectors.toMap(Student::getSid, 
+                        Student::getName));
+mapList.forEach((k,v)-&gt;System.out.println(k + <span class="hljs-string">&quot;: &quot;</span> + v));
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json"><span class="hljs-number">16</span>: &#x76D6;&#x8042;
+<span class="hljs-number">17</span>: &#x5218;&#x90A6;
+<span class="hljs-number">18</span>: &#x738B;&#x4E94;
+<span class="hljs-number">19</span>: &#x5218;&#x5907;
+<span class="hljs-number">11</span>: &#x5F20;&#x4E09;
+<span class="hljs-number">12</span>: &#x674E;&#x56DB;
+<span class="hljs-number">13</span>: &#x5B34;&#x653F;
+<span class="hljs-number">14</span>: &#x8346;&#x8F72;
+<span class="hljs-number">15</span>: &#x66F9;&#x64CD;
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#xFF1A;&#x67E5;&#x8BE2;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x7684;&#x5B66;&#x751F;&#xFF0C;&#x6839;&#x636E;&#x5B66;&#x751F;&#x5730;&#x5740;&#x5206;&#x7EC4;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-string">&quot;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x7684;&#x4EBA;&#xFF1A;&quot;</span>);
+Map&lt;String, List&lt;Student&gt;&gt; addrMap = students.stream()
+        .collect(Collectors.groupingBy(Student::getAddr));
+System.out.println(JSON.toJSONString(addrMap, 
+        SerializerFeature.PrettyFormat));
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;&#x9655;&#x897F;&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x9655;&#x897F;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">26</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">194</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x66F9;&#x64CD;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">15</span>
+        }
+    ],
+    <span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">23</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">175</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x5F20;&#x4E09;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">11</span>
+        },
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">38</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">168</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x674E;&#x56DB;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">12</span>
+        },
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">38</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">165</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x738B;&#x4E94;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">18</span>
+        },
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">50</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">174</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x5218;&#x5907;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">19</span>
+        }
+    ],
+    <span class="hljs-string">&quot;&#x6E56;&#x5357;&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x6E56;&#x5357;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">17</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">164</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x8346;&#x8F72;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">14</span>
+        }
+    ],
+    <span class="hljs-string">&quot;&#x4E91;&#x5357;&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x4E91;&#x5357;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">17</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">184</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x76D6;&#x8042;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">16</span>
+        }
+    ],
+    <span class="hljs-string">&quot;&#x5317;&#x4EAC;&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x5317;&#x4EAC;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">26</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">185</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x5B34;&#x653F;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">13</span>
+        },
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x5317;&#x4EAC;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">23</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">165</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x5218;&#x90A6;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">17</span>
+        }
+    ]
+}
+</code></pre>
+<h4 id="&#x5206;&#x7EC4;-groupingby"><a name="&#x5206;&#x7EC4;-groupingby" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7EC4;-groupingby"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7EC4; groupingBy</h4>
+<p>&#x6839;&#x636E; &#x5730;&#x65B9;&#x5206;&#x7EC4;&#xFF0C;&#x6C42;&#x51FA; &#x6BCF;&#x4E2A; &#x5730;&#x65B9;&#x6700;&#x9AD8;&#x7684; &#x8EAB;&#x9AD8;</p>
+<pre><code class="lang-java">Map&lt;String, Optional&lt;Integer&gt;&gt; groupByList = students.stream()
+        .collect(Collectors.groupingBy(Student::getAddr, 
+                Collectors.mapping(Student::getHeight, 
+                Collectors.maxBy((a,b)-&gt;a-b))));
+
+groupByList.forEach((k,v)-&gt;System.out.println(k + <span class="hljs-string">&quot; : &quot;</span> + v.get()));
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">&#x9655;&#x897F; : <span class="hljs-number">194</span>
+&#x56DB;&#x5DDD; : <span class="hljs-number">175</span>
+&#x6E56;&#x5357; : <span class="hljs-number">164</span>
+&#x4E91;&#x5357; : <span class="hljs-number">184</span>
+&#x5317;&#x4EAC; : <span class="hljs-number">185</span>
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<p>&#x6C42;&#x5404;&#x4E2A;&#x5730;&#x65B9;&#x6700;&#x9AD8;&#x7684;&#x4EBA;&#xFF1A;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-string">&quot;&#x6C42;&#x5404;&#x4E2A;&#x5730;&#x65B9;&#x6700;&#x9AD8;&#x7684;&#x4EBA;&#xFF1A;&quot;</span>);
+Map&lt;String, Optional&lt;Student&gt;&gt; groupMaxHeightStudentMap = students.stream()
+        .collect(Collectors.groupingBy(Student::getAddr, 
+        Collectors.mapping(a-&gt;a, 
+                Collectors.maxBy((a,b)-&gt;a.getHeight() - b.getHeight()))));
+
+
+groupMaxHeightStudentMap.forEach((k,v)-&gt;System.out.println(k + <span class="hljs-string">&quot; : &quot;</span> + v.get()));
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">&#x9655;&#x897F; : Student(sid=<span class="hljs-number">15</span>, name=&#x66F9;&#x64CD;, addr=&#x9655;&#x897F;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">194</span>)
+&#x56DB;&#x5DDD; : Student(sid=<span class="hljs-number">11</span>, name=&#x5F20;&#x4E09;, addr=&#x56DB;&#x5DDD;, age=<span class="hljs-number">23</span>, height=<span class="hljs-number">175</span>)
+&#x6E56;&#x5357; : Student(sid=<span class="hljs-number">14</span>, name=&#x8346;&#x8F72;, addr=&#x6E56;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">164</span>)
+&#x4E91;&#x5357; : Student(sid=<span class="hljs-number">16</span>, name=&#x76D6;&#x8042;, addr=&#x4E91;&#x5357;, age=<span class="hljs-number">17</span>, height=<span class="hljs-number">184</span>)
+&#x5317;&#x4EAC; : Student(sid=<span class="hljs-number">13</span>, name=&#x5B34;&#x653F;, addr=&#x5317;&#x4EAC;, age=<span class="hljs-number">26</span>, height=<span class="hljs-number">185</span>)
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-03-31 22:07:01
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_java7new.html" class="navigation navigation-prev " aria-label="Previous page: java7新知识- Switch&TWR&Objects ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java_stream_groupby.html" class="navigation navigation-next " aria-label="Next page: java8新语法-Stream-分组groupingBy操作 ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java8对集合流操作stream","level":"5.3","depth":1,"next":{"title":"java8新语法-Stream-分组groupingBy操作 ","level":"5.4","depth":1,"path":"java/java_stream_groupby.md","ref":"java/java_stream_groupby.md","articles":[]},"previous":{"title":"java7新知识- Switch&TWR&Objects ","level":"5.2","depth":1,"path":"java/java_java7new.md","ref":"java/java_java7new.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","-font-settings","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/java_stream.md","mtime":"2021-03-31T14:07:01.781Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-14T14:08:41.813Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
