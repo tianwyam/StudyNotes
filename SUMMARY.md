@@ -22,9 +22,9 @@
 
 - [FTP文件服务器上传下载](java/java_ftp.md)
 
-- [集合]()
+- [集合](java/collection.md)
    - [Map&HashMap&HashTable&ConcurrentHashMap](java/collection/java_collection_map.md)
-   
+
    - [队列-queue](java/java_queue.md)
 
 
@@ -33,7 +33,7 @@
 - [异常exception](java/java_exception.md)
 
 
-- [多线程]()
+- [多线程](java/multi.md)
    - [volatile&synchronized](java/multithread/java_multi_thread_volatile_synchronized.md)
    - [object/wait/notify](java/multithread/java_multi_thread_object_wait_notify.md)
 
@@ -133,7 +133,7 @@
 
 
 
------
+
 
 
 
@@ -159,15 +159,6 @@
 
 - [maven引入依赖时识别不到本地仓库的jar](error/maven_not_found_local_jar.md)
 
-
-
 - [spring security 配置发生错误 Can't configure antMatchers after anyRequest](error/security_not_configure_antMatchers_after_anyRequest.md)
 
-
-
 - [AOP内获取了对请求流操作后报流已经关闭错误的问题](error/AOP内获取了对请求流操作后报流已经关闭错误的问题.md)
-
-
-
-
-
