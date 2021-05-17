@@ -15,7 +15,6 @@
     "plugins": [
 		"-search",
 		"-sharing",
-		"-font-settings",
 		"github" ,
 		"tbfed-pagefooter",
 		"splitter",
