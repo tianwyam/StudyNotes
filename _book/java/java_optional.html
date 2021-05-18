@@ -1,0 +1,1107 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>java8新语法-Optional  · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java_8new_date_api.html" />
+    
+    
+    <link rel="prev" href="java_stream_groupby.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">关于</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="java_thread_pool.html">
+            
+                <a href="java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="java_ftp.html">
+            
+                <a href="java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="collection.md">
+            
+                <span>
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="collection/java_collection_map.html">
+            
+                <a href="collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="java_queue.html">
+            
+                <a href="java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="java_tree.html">
+            
+                <a href="java_tree.html">
+            
+                    
+                    二叉树遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="java_io_nio.html">
+            
+                <a href="java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="java_exception.html">
+            
+                <a href="java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="java_serialize.html">
+            
+                <a href="java_serialize.html">
+            
+                    
+                    Java序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="multi.md">
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="multithread/java_multi_thread_thread.html">
+            
+                <a href="multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="multithread/java_multi_thread_threadpool.html">
+            
+                <a href="multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="multithread/java_multi_thread_lock.html">
+            
+                <a href="multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="multithread/java_multi_thread_tools.html">
+            
+                <a href="multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="java_jvm.html">
+            
+                <a href="java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="java_java7new.html">
+            
+                <a href="java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="java_stream.html">
+            
+                <a href="java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="java_stream_groupby.html">
+            
+                <a href="java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.5" data-path="java_optional.html">
+            
+                <a href="java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="java_8new_date_api.html">
+            
+                <a href="java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">框架</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Web</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                <a href="../error/AOP内获取了对请求流操作后报流已经关闭错误的问题.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >java8新语法-Optional </a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#optional"><b></b>Optional</a></li><ul><li><span class="title-icon "></span><a href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><b></b>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x5B9E;&#x4F8B;"><b></b>&#x5B9E;&#x4F8B;</a></li></ul></ul></ul></div><h2 id="optional"><a name="optional" class="anchor-navigation-ex-anchor" href="#optional"><i class="fa fa-link" aria-hidden="true"></i></a>Optional</h2>
+<p>[TOC]</p>
+<p>Java 8 &#x65B0;&#x8BED;&#x6CD5;</p>
+<p>&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x627F;&#x8F7D;null&#x7684;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x7A7A;&#x6307;&#x9488;&#x5F02;&#x5E38;&#xFF0C;&#x4F7F;&#x5176;&#x5BF9; &#x5BF9;&#x8C61;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;null&#xFF0C;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#xFF0C;&#x7B80;&#x6D01;&#x3002;</p>
+<p>&#x5BF9;&#x6BD4;&#x800C;&#x8A00;&#xFF0C;optional&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x5927;&#x91CF;&#x7684;if/else&#x5224;&#x7A7A;&#x5904;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x642D;&#x914D;<strong>Lambda</strong>&#x8868;&#x8FBE;&#x5F0F;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x663E;&#x5F97;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x3002;</p>
+<pre><code class="lang-java">java.util.Optional
+</code></pre>
+<h3 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a name="&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x7A7A;&#x6307;&#x9488;&#x5F02;&#x5E38;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">Optional&lt;T&gt; <span class="hljs-title">of</span><span class="hljs-params">(T value)</span></span>;
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;null</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">Optional&lt;T&gt; <span class="hljs-title">ofNullable</span><span class="hljs-params">(T value)</span></span>;
+
+<span class="hljs-comment">// &#x53D6;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x7684;&#x503C;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">get</span><span class="hljs-params">()</span></span>;
+
+<span class="hljs-comment">// &#x5224;&#x65AD;&#x5BB9;&#x5668;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5BF9;&#x8C61;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPresent</span><span class="hljs-params">()</span></span>;
+
+<span class="hljs-comment">// &#x5982;&#x679C;&#x5BB9;&#x5668;&#x4E2D;&#x5B58;&#x5728;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x6267;&#x884C; consumer</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ifPresent</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; consumer)</span></span>;
+
+<span class="hljs-comment">// &#x7B5B;&#x9009; </span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;T&gt; <span class="hljs-title">filter</span><span class="hljs-params">(Predicate&lt;? <span class="hljs-keyword">super</span> T&gt; predicate)</span></span>;
+
+<span class="hljs-comment">// &#x53D6;&#x5BB9;&#x5668;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span>&lt;U&gt; Optional&lt;U&gt; <span class="hljs-title">map</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T, ? extends U&gt; mapper)</span></span>;
+
+<span class="hljs-comment">// &#x5982;&#x679C;&#x5BF9;&#x8C61;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#xFF0C;&#x5BF9;&#x8C61;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; other</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">orElse</span><span class="hljs-params">(T other)</span></span>;
+
+<span class="hljs-comment">// &#x5BF9;&#x8C61;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#xFF1B;&#x5BF9;&#x8C61;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x6267;&#x884C;other&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">orElseGet</span><span class="hljs-params">(Supplier&lt;? extends T&gt; other)</span></span>;
+
+<span class="hljs-comment">// &#x82E5;&#x662F;&#x5BF9;&#x8C61;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+<span class="hljs-keyword">public</span> &lt;X extends Throwable&gt; <span class="hljs-function">T <span class="hljs-title">orElseThrow</span><span class="hljs-params">(Supplier&lt;? extends X&gt; exceptionSupplier)</span> </span>;
+</code></pre>
+<h3 id="&#x5B9E;&#x4F8B;"><a name="&#x5B9E;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x4F8B;</h3>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#xFF0C;&#x505A;&#x6F14;&#x793A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Description</span>: 
+ * &#x6559;&#x5BA4; &#x5B9E;&#x4F53;&#x7C7B;
+ * <span class="hljs-doctag">@author</span>: TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;4&#x6708;14&#x65E5; &#x4E0B;&#x5348;8:43:20
+ */</span>
+<span class="hljs-meta">@Data</span>
+<span class="hljs-meta">@Builder</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassRoom</span> </span>{
+    <span class="hljs-comment">// &#x6559;&#x5BA4;&#x7F16;&#x53F7;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> roomId ;
+    <span class="hljs-comment">// &#x6559;&#x5BA4;&#x540D;&#x79F0;</span>
+    <span class="hljs-keyword">private</span> String roomName;
+    <span class="hljs-comment">// &#x73ED;&#x4E3B;&#x4EFB;</span>
+    <span class="hljs-keyword">private</span> Teacher teacher ;
+    <span class="hljs-comment">// &#x73ED;&#x7EA7;&#x5B66;&#x751F;</span>
+    <span class="hljs-keyword">private</span> List&lt;Student&gt; students ;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> JSON.toJSONString(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">true</span>);
+    }
+
+}
+</code></pre>
+<h4 id="of"><a name="of" class="anchor-navigation-ex-anchor" href="#of"><i class="fa fa-link" aria-hidden="true"></i></a>of</h4>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Optional&#x5B9E;&#x4F8B;&#xFF0C;&#x627F;&#x8F7D;&#x7740;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
+ClassRoom classroom = ClassRoom.builder()
+    .roomId(<span class="hljs-number">100</span>)
+    .roomName(<span class="hljs-string">&quot;&#x9AD8;&#x4E00;&#x4E00;&#x73ED;&quot;</span>)
+    .students(students)
+    .build();
+<span class="hljs-comment">// of &#x521B;&#x5EFA;&#x4E00;&#x4E2A;Optional&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x5BB9;&#x5668;</span>
+System.out.println(Optional.of(classroom));
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-json">Optional[{
+    <span class="hljs-string">&quot;roomId&quot;</span>:<span class="hljs-number">100</span>,
+    <span class="hljs-string">&quot;roomName&quot;</span>:<span class="hljs-string">&quot;&#x9AD8;&#x4E00;&#x4E00;&#x73ED;&quot;</span>,
+    <span class="hljs-string">&quot;students&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">23</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">175</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x5F20;&#x4E09;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">11</span>
+        },
+        {
+            <span class="hljs-string">&quot;addr&quot;</span>:<span class="hljs-string">&quot;&#x56DB;&#x5DDD;&quot;</span>,
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">38</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">168</span>,
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x674E;&#x56DB;&quot;</span>,
+            <span class="hljs-string">&quot;sid&quot;</span>:<span class="hljs-number">12</span>
+        }
+    ]
+}]
+</code></pre>
+<p>&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5B58;&#x653E;null</p>
+<p>&#x5982;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;</span>
+ClassRoom room = <span class="hljs-keyword">null</span> ;
+
+<span class="hljs-comment">// NullPointerException</span>
+Optional&lt;ClassRoom&gt; nullOptional = Optional.of(room);
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-java">Exception in thread <span class="hljs-string">&quot;main&quot;</span> java.lang.NullPointerException
+    at java.util.Objects.requireNonNull(Objects.java:<span class="hljs-number">203</span>)
+    at java.util.Optional.&lt;init&gt;(Optional.java:<span class="hljs-number">96</span>)
+    at java.util.Optional.of(Optional.java:<span class="hljs-number">108</span>)
+    at com.tianya.java.Java8Optional.main(Java8Optional.java:<span class="hljs-number">28</span>)
+</code></pre>
+<h4 id="ofnullable"><a name="ofnullable" class="anchor-navigation-ex-anchor" href="#ofnullable"><i class="fa fa-link" aria-hidden="true"></i></a>ofNullable</h4>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Optional&#x5B9E;&#x4F8B;&#xFF0C;&#x627F;&#x8F7D;&#x7740;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x5B58;&#x653E;null&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;null&#x5BF9;&#x8C61;</span>
+ClassRoom room = <span class="hljs-keyword">null</span> ;
+Optional&lt;ClassRoom&gt; roomOptional = Optional.ofNullable(room);
+<span class="hljs-comment">// Optional.empty</span>
+System.out.println(roomOptional);
+</code></pre>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x4F7F;&#x7528;ofNullable&#x6765;&#x521B;&#x5EFA;Optional&#xFF0C;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0B;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x7A7A;&#x6307;&#x9488;&#x5F02;&#x5E38;</p>
+<h4 id="ispresent"><a name="ispresent" class="anchor-navigation-ex-anchor" href="#ispresent"><i class="fa fa-link" aria-hidden="true"></i></a>isPresent</h4>
+<p>&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x4E3A;null</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;null&#x5BF9;&#x8C61;</span>
+ClassRoom room = <span class="hljs-keyword">null</span> ;
+Optional&lt;ClassRoom&gt; roomOptional = Optional.ofNullable(room);
+<span class="hljs-comment">// roomOptional=null false</span>
+System.out.println(roomOptional.isPresent());
+
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E0D;&#x4E3A;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;</span>
+ClassRoom classroom = ClassRoom.builder()
+    .roomId(<span class="hljs-number">100</span>)
+    .roomName(<span class="hljs-string">&quot;&#x9AD8;&#x4E00;&#x4E00;&#x73ED;&quot;</span>)
+    .students(students)
+    .build();
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;Optional&#x5B9E;&#x4F8B;</span>
+Optional&lt;ClassRoom&gt; classroomOptional = Optional.ofNullable(classroom);
+
+<span class="hljs-comment">// true</span>
+System.out.println(classroomOptional.isPresent());
+</code></pre>
+<h4 id="map"><a name="map" class="anchor-navigation-ex-anchor" href="#map"><i class="fa fa-link" aria-hidden="true"></i></a>map</h4>
+<p>&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x6559;&#x5BA4;&#x540D;&#x79F0;</span>
+<span class="hljs-comment">// &#x82E5;&#x662F;roomName&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8F93;&#x51FA;roomName</span>
+<span class="hljs-comment">// &#x82E5;&#x662F;roomName&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8F93;&#x51FA; &#x201C;&#x6559;&#x5BA4;&#x540D;&#x79F0;&#x201D;</span>
+String roomName = classroomOptional.map(ClassRoom::getRoomName)
+    .orElse(<span class="hljs-string">&quot;&#x6559;&#x5BA4;&#x540D;&#x79F0;&quot;</span>);
+
+<span class="hljs-comment">// &#x9AD8;&#x4E00;&#x4E00;&#x73ED;</span>
+System.out.println(roomName);
+</code></pre>
+<p>&#x82E5;&#x662F;&#x4E0D;&#x4F7F;&#x7528;optional&#xFF0C;&#x5219;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// map -&gt; orElse &#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</span>
+<span class="hljs-keyword">if</span> (classroom != <span class="hljs-keyword">null</span>) {
+    String name = classroom.getRoomName();
+    <span class="hljs-keyword">if</span>(StringUtils.isNotBlank(name)) {
+        System.out.println(name);
+    }<span class="hljs-keyword">else</span> {
+        System.out.println(<span class="hljs-string">&quot;&#x6559;&#x5BA4;&#x540D;&#x79F0;&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x5BF9;&#x6BD4;&#x800C;&#x8A00;&#xFF0C;optional&#x907F;&#x514D;&#x4E86;&#x5927;&#x91CF;&#x7684;if/else&#x5224;&#x65AD;&#xFF0C;&#x5E76;&#x4E14;&#x642D;&#x914D;<strong>Lambda</strong>&#x8868;&#x8FBE;&#x5F0F;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x663E;&#x5F97;&#x66F4;&#x52A0;&#x7B80;&#x6D01;</p>
+<p>&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5148;&#x83B7;&#x53D6;&#x6559;&#x5BA4;&#x91CC;&#x7684;&#x73ED;&#x4E3B;&#x4EFB;</span>
+<span class="hljs-comment">// &#x7136;&#x540E;&#x83B7;&#x53D6;&#x73ED;&#x4E3B;&#x4EFB;&#x7684;&#x540D;&#x5B57;</span>
+<span class="hljs-comment">// &#x82E5;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x73ED;&#x4E3B;&#x4EFB;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x63D0;&#x793A;</span>
+<span class="hljs-comment">// &#x82E5;&#x662F;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x73ED;&#x4E3B;&#x4EFB;&#x59D3;&#x540D;</span>
+String teachName = classroomOptional.map(ClassRoom::getTeacher)
+        .map(Teacher::getTeachName)
+        .orElse(<span class="hljs-string">&quot;&#x6559;&#x5BA4;&#x73ED;&#x4E3B;&#x4EFB;&#x4E0D;&#x5B58;&#x5728;&quot;</span>);
+
+<span class="hljs-comment">// &#x6559;&#x5BA4;&#x73ED;&#x4E3B;&#x4EFB;&#x4E0D;&#x5B58;&#x5728;</span>
+System.out.println(teachName);
+</code></pre>
+<p>&#x4E0D;&#x7528;&#x8FDB;&#x884C;&#x591A;&#x6B21;if/else&#x8FDB;&#x884C;&#x5224;&#x7A7A;&#x5904;&#x7406;</p>
+<pre><code class="lang-java">
+<span class="hljs-keyword">if</span>(classroom != <span class="hljs-keyword">null</span>) {
+    Teacher teacher = classroom.getTeacher();
+    <span class="hljs-keyword">if</span> (teacher != <span class="hljs-keyword">null</span>) {
+        String teachName = teacher.getTeachName();
+        <span class="hljs-keyword">if</span> (StringUtils.isNotBlank(teachName)) {
+            System.out.println(teachName);
+        }<span class="hljs-keyword">else</span> {
+            System.out.println(<span class="hljs-string">&quot;&#x6559;&#x5BA4;&#x73ED;&#x4E3B;&#x4EFB;&#x59D3;&#x540D;&#x4E3A;&#x7A7A;&quot;</span>);
+        }
+    }<span class="hljs-keyword">else</span> {
+        System.out.println(<span class="hljs-string">&quot;&#x6559;&#x5BA4;&#x73ED;&#x4E3B;&#x4EFB;&#x4E0D;&#x5B58;&#x5728;&quot;</span>);
+    }
+}
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-14 22:18:44
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_stream_groupby.html" class="navigation navigation-prev " aria-label="Previous page: java8新语法-Stream-分组groupingBy操作 ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java_8new_date_api.html" class="navigation navigation-next " aria-label="Next page: java8-新的日期时间API ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"java8新语法-Optional ","level":"5.5","depth":1,"next":{"title":"java8-新的日期时间API ","level":"5.6","depth":1,"path":"java/java_8new_date_api.md","ref":"java/java_8new_date_api.md","articles":[]},"previous":{"title":"java8新语法-Stream-分组groupingBy操作 ","level":"5.4","depth":1,"path":"java/java_stream_groupby.md","ref":"java/java_stream_groupby.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/java_optional.md","mtime":"2021-04-14T14:18:44.199Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-18T14:28:20.299Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
