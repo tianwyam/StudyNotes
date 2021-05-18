@@ -18,7 +18,7 @@
 
 
 
-![image-20210518213243248](https://i.loli.net/2021/05/18/VqXzs17iocja6gv.png)
+![二叉树](collection/tree.png)
 
 
 
@@ -74,12 +74,15 @@
 
 
 
-![image-20210518215646998](https://i.loli.net/2021/05/18/jEDqebPIOByM8UG.png)
+![二叉树后序结果](collection/tree2.png)
+
+
+
+第五步：输出后序遍历结果，DEBCA
 
 
 
 
 
+方法就是参考前中后序遍历特性，依次类推，循环查找下去
 
-
-其他依次类推，循环查找下去
