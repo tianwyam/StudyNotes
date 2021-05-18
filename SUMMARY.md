@@ -24,8 +24,8 @@
 
 - [集合](java/collection.md)
    - [Map&HashMap&HashTable&ConcurrentHashMap](java/collection/java_collection_map.md)
-
    - [队列-queue](java/java_queue.md)
+   - [二叉树遍历](java/java_tree.md)
 
 
 - [java输入输出流](java/java_io_nio.md)
