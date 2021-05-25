@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SpringBoot项目启动脚本 · JAVA学习积累</title>
+        <title>XML中特殊符号的转译  · JAVA学习积累</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Spring/spring/spring_interview_questions_68.html" />
+    <link rel="next" href="../Spring/springboot.html" />
     
     
-    <link rel="prev" href="../Spring/spring_security.html" />
+    <link rel="prev" href="../java/java_8new_date_api.html" />
     
 
     </head>
@@ -488,9 +488,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../xml/xml_translation.html">
+        <li class="chapter active" data-level="6.1" data-path="xml_translation.html">
             
-                <a href="../xml/xml_translation.html">
+                <a href="xml_translation.html">
             
                     
                     XML中特殊符号的转译 
@@ -534,9 +534,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.3" data-path="linux_commands_springboot_startup.html">
+        <li class="chapter " data-level="7.3" data-path="../linux/linux_commands_springboot_startup.html">
             
-                <a href="linux_commands_springboot_startup.html">
+                <a href="../linux/linux_commands_springboot_startup.html">
             
                     
                     SpringBoot项目启动脚本
@@ -726,9 +726,9 @@
         
         
     
-        <li class="chapter " data-level="14.1" data-path="linux_common_commands.html">
+        <li class="chapter " data-level="14.1" data-path="../linux/linux_common_commands.html">
             
-                <a href="linux_common_commands.html">
+                <a href="../linux/linux_common_commands.html">
             
                     
                     linux常用命令
@@ -835,7 +835,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SpringBoot项目启动脚本</a>
+        <a href=".." >XML中特殊符号的转译 </a>
     </h1>
 </div>
 
@@ -847,96 +847,16 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#springboot"><b></b>springboot</a></li><ul><li><span class="title-icon "></span><a href="#startupsh"><b></b>startup.sh</a></li></ul></ul></div><h1 id="springboot"><a name="springboot" class="anchor-navigation-ex-anchor" href="#springboot"><i class="fa fa-link" aria-hidden="true"></i></a>springboot</h1>
-<h2 id="startupsh"><a name="startupsh" class="anchor-navigation-ex-anchor" href="#startupsh"><i class="fa fa-link" aria-hidden="true"></i></a>startup.sh</h2>
-<p>&#x4E3A;spring boot&#x9879;&#x76EE;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x542F;&#x52A8;&#x811A;&#x672C;&#xFF1A;startup.sh</p>
-<pre><code class="lang-shell">#!/bin/sh
-
-#&#x5B9A;&#x4E49;&#x7A0B;&#x5E8F;&#x540D; &#x53CA;jar&#x5305;&#x7684;&#x540D;
-PROJECT_NAME=springboot-demo.jar
-
-## &#x7F16;&#x5199;&#x5224;&#x65AD;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x6CD5;
-isExist(){
-    ## &#x9996;&#x5148;&#x67E5;&#x627E;&#x8FDB;&#x7A0B;&#x53F7;
-    pid=`ps -ef | grep ${PROJECT_NAME} | grep -v grep | awk &apos;print $2&apos;`
-    ## &#x5982;&#x679C;&#x8FDB;&#x7A0B;&#x53F7;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;0 &#x5426;&#x5219;&#x8FD4;&#x56DE;1
-    if [ -z &quot;${pid}&quot; ]; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-## &#x7F16;&#x5199;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#x65B9;&#x6CD5;
-start(){
-    ## &#x8C03;&#x7528; &#x5224;&#x65AD;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x6CD5;
-    isExist
-    ## &#x5224;&#x65AD;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x5426;&#x7B49;&#x4E8E;0 &#xFF0C;&#x7B49;&#x4E8E;&#x5219;&#x4E0D;&#x5B58;&#x5728;
-    if [ $? -eq &quot;0&quot; ]; then
-        echo &quot;${PROJECT_NAME} is starting ......&quot;
-        nohup java -Xms512m -Xmx1024m -jar ${PROJECT_NAME} &gt; ./log/startup.log &amp;
-        echo &quot;${PROJECT_NAME} startup success&quot;
-    else
-        echo &quot;${PROJECT_NAME} is running, pid=${pid} &quot;
-    fi
-}
-
-## &#x7F16;&#x5199;&#x505C;&#x6B62;&#x7A0B;&#x5E8F;&#x7684;&#x65B9;&#x6CD5;
-stop(){
-    ## &#x8C03;&#x7528; &#x5224;&#x65AD;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x6B63;&#x5728;&#x8FD0;&#x884C;
-    isExist
-    ## &#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;0&#x4E0D;&#x5B58;&#x5728;
-    if [ $? -eq &quot;0&quot; ]; then
-        echo &quot;${PROJECT_NAME} is not running ......&quot;
-    else
-        echo &quot;${PROJECT_NAME} is running, pid=${pid}, prepare kill it &quot;
-        kill -9 ${pid}
-        echo &quot;${PROJECT_NAME} has been successfully killed ......&quot;
-    fi
-}
-
-
-## &#x7F16;&#x5199;&#x91CD;&#x542F;&#x65B9;&#x6CD5;
-restart(){
-    ## &#x5148;&#x505C;&#x6B62;&#x518D;&#x542F;&#x52A8;
-    stop
-    start
-}
-
-
-## &#x7A0B;&#x5E8F;&#x6700;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x7684;
-## &#x6839;&#x636E;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF0C;&#x5224;&#x65AD;&#x6267;&#x884C;&#x65B9;&#x6CD5;
-case &quot;$1&quot; in
-    &quot;start&quot;)
-        start
-        ;;
-    &quot;stop&quot;)
-        stop
-        ;;
-    &quot;restart&quot;)
-        restart
-        ;;
-    *)
-        echo &quot;please enter the correct commands: &quot;
-        echo &quot;such as : sh startup.sh [ start | stop | restart ]&quot;
-        ;;
-esac
-</code></pre>
-<p>&#x6267;&#x884C;</p>
-<pre><code class="lang-shell">sh startup.sh start
-</code></pre>
-<p>&#x82E5;&#x662F;&#x62A5;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x5F02;&#x5E38;&#x9519;&#x8BEF;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x8F6C;&#x683C;&#x5F0F;&#xFF1A;</p>
-<pre><code class="lang-sh"><span class="hljs-comment">## &#x9996;&#x5148;&#x7F16;&#x8F91;&#x811A;&#x672C;&#x6587;&#x4EF6;</span>
-vim startup.sh
-
-<span class="hljs-comment">## &#x8BBE;&#x7F6E;ff=unix &#x6587;&#x4EF6;&#x683C;&#x5F0F;</span>
-:<span class="hljs-built_in">set</span> ff=unix
-
-<span class="hljs-comment">## &#x4FDD;&#x5B58;&#x5E76;&#x9000;&#x51FA;</span>
-:wq
-</code></pre>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#xml&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;"><b></b>XML&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;</a></li></ul></ul></div><h2 id="xml&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;"><a name="xml&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;" class="anchor-navigation-ex-anchor" href="#xml&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>XML&#x4E2D;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7684;&#x8F6C;&#x8BD1;</h2>
+<p>&#x573A;&#x666F;&#xFF1A;spring.xml&#x3001;mapper.xml</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x4F7F;&#x7528;mybatis&#x9879;&#x76EE;&#x4E2D;&#xFF0C;mapper.xml&#x4E2D;&#x5728;&#x7F16;&#x5199;sql&#x65F6;&#x51FA;&#x73B0; &gt; &lt; &amp; &#x7B49;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x51B2;&#x7A81;&#xFF0C;&#x6240;&#x6709;&#x9700;&#x8981;&#x8F6C;&#x8BD1;</p>
+<p><img src="xml_translation.png" alt="XML&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8F6C;&#x8BD1;&#x8868;"></p>
+<p>&#x6216;&#x8005;&#x4F7F;&#x7528;&#xFF1A;</p>
+<p>&lt;![DATA[</p>
+<p>&#x200B;    // &#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x5199;&#x4EFB;&#x4F55; &gt; &lt; &amp; &#x7B49;&#x7B26;&#x53F7;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;   ]]&gt;</p>
+<p>]]&gt;</p>
 <footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-07-25 16:15:59
+2021-05-24 18:03:04
 </span></footer>
                                 
                                 </section>
@@ -948,12 +868,12 @@ vim startup.sh
 
             
                 
-                <a href="../Spring/spring_security.html" class="navigation navigation-prev " aria-label="Previous page: SpringSecurity">
+                <a href="../java/java_8new_date_api.html" class="navigation navigation-prev " aria-label="Previous page: java8-新的日期时间API ">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../Spring/spring/spring_interview_questions_68.html" class="navigation navigation-next " aria-label="Next page: Spring面试题68">
+                <a href="../Spring/springboot.html" class="navigation navigation-next " aria-label="Next page: SpringBoot">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -964,7 +884,7 @@ vim startup.sh
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SpringBoot项目启动脚本","level":"7.3","depth":1,"next":{"title":"Spring面试题68","level":"8.1","depth":1,"path":"Spring/spring/spring_interview_questions_68.md","ref":"Spring/spring/spring_interview_questions_68.md","articles":[]},"previous":{"title":"SpringSecurity","level":"7.2","depth":1,"path":"Spring/spring_security.md","ref":"Spring/spring_security.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"linux/linux_commands_springboot_startup.md","mtime":"2020-07-25T08:15:59.805Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-25T12:08:13.507Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XML中特殊符号的转译 ","level":"6.1","depth":1,"next":{"title":"SpringBoot","level":"7.1","depth":1,"path":"Spring/springboot.md","ref":"Spring/springboot.md","articles":[]},"previous":{"title":"java8-新的日期时间API ","level":"5.6","depth":1,"path":"java/java_8new_date_api.md","ref":"java/java_8new_date_api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"xml/xml_translation.md","mtime":"2021-05-24T10:03:04.317Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-25T12:08:13.507Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
