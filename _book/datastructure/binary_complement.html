@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>算法题 - 合并排序数组  · JAVA学习积累</title>
+        <title>原码、反码、补码  · JAVA学习积累</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="lowest_score.html" />
+    <link rel="next" href="../algorithm/merge_sorted_array.html" />
     
     
-    <link rel="prev" href="../datastructure/binary_complement.html" />
+    <link rel="prev" href="../xml/xml_translation.html" />
     
 
     </head>
@@ -514,9 +514,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../datastructure/binary_complement.html">
+        <li class="chapter active" data-level="6.2" data-path="binary_complement.html">
             
-                <a href="../datastructure/binary_complement.html">
+                <a href="binary_complement.html">
             
                     
                     原码、反码、补码 
@@ -534,9 +534,9 @@
         
         
     
-        <li class="chapter active" data-level="7.1" data-path="merge_sorted_array.html">
+        <li class="chapter " data-level="7.1" data-path="../algorithm/merge_sorted_array.html">
             
-                <a href="merge_sorted_array.html">
+                <a href="../algorithm/merge_sorted_array.html">
             
                     
                     算法题 - 合并排序数组 
@@ -547,9 +547,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="lowest_score.html">
+        <li class="chapter " data-level="7.2" data-path="../algorithm/lowest_score.html">
             
-                <a href="lowest_score.html">
+                <a href="../algorithm/lowest_score.html">
             
                     
                     算法题 - 最低分数线问题 
@@ -560,9 +560,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.3" data-path="array_sub_list.html">
+        <li class="chapter " data-level="7.3" data-path="../algorithm/array_sub_list.html">
             
-                <a href="array_sub_list.html">
+                <a href="../algorithm/array_sub_list.html">
             
                     
                     算法题 - 求数组的子集合 
@@ -907,7 +907,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >算法题 - 合并排序数组 </a>
+        <a href=".." >原码、反码、补码 </a>
     </h1>
 </div>
 
@@ -919,98 +919,70 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x6CD5;&#x9898;"><b></b>&#x7B97;&#x6CD5;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#&#x65B9;&#x5F0F;&#x4E00;"><b></b>&#x65B9;&#x5F0F;&#x4E00;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x5F0F;&#x4E8C;"><b></b>&#x65B9;&#x5F0F;&#x4E8C;</a></li></ul></ul></ul></div><h2 id="&#x7B97;&#x6CD5;&#x9898;"><a name="&#x7B97;&#x6CD5;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x6CD5;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B97;&#x6CD5;&#x9898;</h2>
-<p><em>&#x8BB0;&#x5F55;&#x9762;&#x8BD5;&#x7B97;&#x6CD5;&#x9898;&#xFF0C;&#x4FBF;&#x4E8E;&#x56DE;&#x987E;</em></p>
-<p><strong>&#x9898;&#x76EE;&#xFF1A;</strong></p>
-<p>&#x200B;    &#x7ED9;&#x5B9A;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6574;&#x6570;&#x6570;&#x7EC4; A &#x548C; B&#xFF0C;&#x5C06; B &#x5408;&#x5E76;&#x5230; A &#x4E2D;&#xFF0C;&#x4F7F;&#x5F97; A &#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x3002;</p>
-<p><strong>&#x8BF4;&#x660E;:</strong> </p>
-<p>&#x200B;    &#x521D;&#x59CB;&#x5316; A &#x548C; B &#x7684;&#x5143;&#x7D20;&#x6570;&#x91CF;&#x5206;&#x522B;&#x4E3A; m &#x548C; n&#x3002; </p>
-<p>&#x200B;    &#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE; A &#x6709;&#x8DB3;&#x591F;&#x7684;&#x7A7A;&#x95F4;&#xFF08;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E; m + n&#xFF09;&#x6765;&#x4FDD;&#x5B58; B &#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002; </p>
-<p><strong>&#x793A;&#x4F8B;:</strong> </p>
-<p>&#x8F93;&#x5165;: </p>
-<p>&#x200B;    A = [1,3,3,4,0,0,0,0],  m = 4 </p>
-<p>&#x200B;    B = [2,5,6], n = 3 </p>
-<p>&#x8F93;&#x51FA;: [1,2,3,3,4,5,6]</p>
-<p><strong>&#x89E3;&#x9898;&#x601D;&#x8DEF;&#xFF1A;</strong></p>
-<p>&#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x5148;&#x628A;&#x6570;&#x7EC4;B&#x653E;&#x5230;A&#x540E;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x5BF9;A&#x505A;&#x6392;&#x5E8F;</p>
-<p>&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x5206;&#x522B;&#x4ECE;AB&#x7684;&#x5C3E;&#x5411;&#x524D;&#x6BD4;&#x8F83;&#x79FB;&#x52A8;</p>
-<h3 id="&#x65B9;&#x5F0F;&#x4E00;"><a name="&#x65B9;&#x5F0F;&#x4E00;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x5F0F;&#x4E00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x5F0F;&#x4E00;</h3>
-<pre><code class="lang-java">
-<span class="hljs-comment">/**
- * <span class="hljs-doctag">@Description</span>: 
- * &#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x5148;&#x628A;&#x6570;&#x7EC4;B&#x653E;&#x5230;A&#x540E;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x5BF9;A&#x505A;&#x6392;&#x5E8F;
- * <span class="hljs-doctag">@author</span>: TianwYam
- * <span class="hljs-doctag">@date</span> 2021&#x5E74;5&#x6708;23&#x65E5; &#x4E0A;&#x5348;10:07:45
- * <span class="hljs-doctag">@param</span> A &#x6574;&#x578B;&#x6570;&#x7EC4;A
- * <span class="hljs-doctag">@param</span> m &#x6570;&#x7EC4;A&#x7684;&#x6709;&#x6548;&#x957F;&#x5EA6;m(&#x5B9E;&#x9645;&#x957F;&#x5EA6; &gt;= m+n )
- * <span class="hljs-doctag">@param</span> B &#x6574;&#x578B;&#x6570;&#x7EC4;B
- * <span class="hljs-doctag">@param</span> n &#x6570;&#x7EC4;B&#x7684;&#x6709;&#x6548;&#x957F;&#x5EA6;n
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">merge1</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] A, <span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span>[] B, <span class="hljs-keyword">int</span> n)</span> </span>{
-
-    <span class="hljs-comment">// 1.&#x628A;&#x6570;&#x7EC4;B&#x653E;&#x5230;A&#x540E;&#x9762;</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = m, j = <span class="hljs-number">0</span>;  i &lt; (m + n); i++, j++) {
-        A[i] = B[j] ;
-    }
-
-    printMsg(<span class="hljs-string">&quot;&#x5408;&#x5E76;&#x540E;&#x7684;&#x6570;&#x7EC4;A&#xFF1A;&quot;</span>);
-    printAry(A);
-
-    <span class="hljs-comment">// 2.&#x5BF9;A&#x8FDB;&#x884C;&#x6392;&#x5E8F;</span>
-    Arrays.sort(A);
-
-}
-</code></pre>
-<h3 id="&#x65B9;&#x5F0F;&#x4E8C;"><a name="&#x65B9;&#x5F0F;&#x4E8C;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x5F0F;&#x4E8C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x5F0F;&#x4E8C;</h3>
-<pre><code class="lang-java">
-<span class="hljs-comment">/**
- * <span class="hljs-doctag">@Description</span>: 
- * &#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x5206;&#x522B;&#x4ECE;AB&#x7684;&#x5C3E;&#x5411;&#x524D;&#x6BD4;&#x8F83;&#x79FB;&#x52A8;
- * <span class="hljs-doctag">@author</span>: TianwYam
- * <span class="hljs-doctag">@date</span> 2021&#x5E74;5&#x6708;23&#x65E5; &#x4E0A;&#x5348;10:36:43
- * <span class="hljs-doctag">@param</span> A &#x6574;&#x578B;&#x6570;&#x7EC4;A
- * <span class="hljs-doctag">@param</span> m &#x6570;&#x7EC4;A&#x7684;&#x6709;&#x6548;&#x957F;&#x5EA6;m(&#x5B9E;&#x9645;&#x957F;&#x5EA6; &gt;= m+n )
- * <span class="hljs-doctag">@param</span> B &#x6574;&#x578B;&#x6570;&#x7EC4;B
- * <span class="hljs-doctag">@param</span> n &#x6570;&#x7EC4;B&#x7684;&#x6709;&#x6548;&#x957F;&#x5EA6;n
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">merge2</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] A, <span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span>[] B, <span class="hljs-keyword">int</span> n)</span> </span>{
-
-    <span class="hljs-comment">// 1.&#x627E;&#x5230;&#x5B58;&#x653E;AB&#x4E2D;&#x6700;&#x5927;&#x6570;&#x7684;&#x4F4D;&#x7F6E;</span>
-    <span class="hljs-comment">// A&#x6570;&#x7EC4;&#x5B58;&#x653E;A+B&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;</span>
-    <span class="hljs-keyword">int</span> p = m + n -<span class="hljs-number">1</span> ;
-
-    <span class="hljs-comment">// A&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;</span>
-    <span class="hljs-keyword">int</span> a = m -<span class="hljs-number">1</span> ;
-    <span class="hljs-comment">// B&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;</span>
-    <span class="hljs-keyword">int</span> b = n -<span class="hljs-number">1</span> ;
-    <span class="hljs-keyword">while</span> (a &gt;= <span class="hljs-number">0</span> &amp;&amp; b &gt;= <span class="hljs-number">0</span>) {
-        <span class="hljs-comment">// 2.&#x5FAA;&#x73AF;&#x5224;&#x65AD;</span>
-        <span class="hljs-comment">// &#x82E5;&#x662F;A&#x6700;&#x5927;&#x7684;&#x6570;&#x5927;&#x4E8E;B&#x6700;&#x5927;&#x7684;&#x6570;&#xFF0C;&#x5219;A&#x6700;&#x5927;&#x6570;&#x79FB;&#x52A8;</span>
-        <span class="hljs-comment">// &#x82E5;&#x662F;B&#x6700;&#x5927;&#x7684;&#x6570;&#x5927;&#x4E8E;A&#x6700;&#x5927;&#x7684;&#x6570;&#xFF0C;&#x5219;B&#x6700;&#x5927;&#x6570;&#x79FB;&#x52A8;</span>
-        <span class="hljs-keyword">if</span> (A[a] &gt; B[b]) {
-            A[p] = A[a];
-            a-- ;
-        } <span class="hljs-keyword">else</span> {
-            A[p] = B[b];
-            b-- ;
-        }
-
-        p--;
-    }
-
-    <span class="hljs-comment">// &#x5F02;&#x5E38;&#x8FB9;&#x754C;&#x5224;&#x65AD;&#xFF0C;&#x8FD8;&#x5B58;&#x5728;B&#x6570;&#x7EC4;&#x8FD8;&#x6CA1;&#x6709;&#x5FAA;&#x73AF;&#x5230;&#x7684;</span>
-    <span class="hljs-keyword">while</span> (b &gt;= <span class="hljs-number">0</span>) {
-        A[p] = B[b];
-        p-- ;
-        b-- ; 
-    }
-
-
-}
-</code></pre>
-<p>&#x65B9;&#x5F0F;&#x4E8C;&#x66F4;&#x52A0;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;"><b></b>&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;"><b></b>&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x539F;&#x7801;"><b></b>&#x539F;&#x7801;</a></li><li><span class="title-icon "></span><a href="#&#x53CD;&#x7801;"><b></b>&#x53CD;&#x7801;</a></li><li><span class="title-icon "></span><a href="#&#x8865;&#x7801;"><b></b>&#x8865;&#x7801;</a></li></ul></ul></ul></div><h2 id="&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;"><a name="&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;</h2>
+<p><br></p>
+<h3 id="&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;"><a name="&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;</h3>
+<p><br></p>
+<p>&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;&#x662F;&#x9488;&#x5BF9;&#x7B26;&#x53F7;&#x51FA;&#x73B0;&#x7684;&#x4E24;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><br></p>
+<p>&#x540C;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x5BF9;&#x7B26;&#x53F7;&#x6570;&#x548C;&#x65E0;&#x7B26;&#x53F7;&#x6570;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x542B;&#x4E49;</p>
+<ol>
+<li>&#x7B26;&#x53F7;&#x6570;&#x5982;&#xFF1A;    char, short ,int, long&#x7B49;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;</li>
+<li>&#x65E0;&#x7B26;&#x53F7;&#x6570;&#x5982;&#xFF1A;unsigned char, unsigned short , unsigned int, unsigned long, &#x6307;&#x9488;&#x7B49;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;</li>
+</ol>
+<p><br></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x6709;&#x7B26;&#x53F7;&#x6570;&#x624D;&#x6709;&#x539F;&#x7801;, &#x53CD;&#x7801;, &#x8865;&#x7801;</p>
+<p><br></p>
+<h3 id="&#x539F;&#x7801;"><a name="&#x539F;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x539F;&#x7801;</h3>
+<p><br></p>
+<p><strong>&#x539F;&#x7801;</strong>&#x5C31;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x52A0;&#x4E0A;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x7684;&#x503C;, &#x5373;&#x7528;<strong>&#x7B2C;&#x4E00;&#x4F4D;&#x8868;&#x793A;&#x7B26;&#x53F7;&#x4F4D;</strong>, &#x5176;&#x4F59;&#x4F4D;&#x8868;&#x793A;&#x503C;. </p>
+<p><br></p>
+<ul>
+<li><p><strong>&#x6B63;&#x6570;</strong>&#xFF1A;&#x7B2C;&#x4E00;&#x4F4D;&#x7B26;&#x53F7;&#x4F4D;&#x662F; 0</p>
+</li>
+<li><p><strong>&#x8D1F;&#x6570;</strong>&#xFF1A;&#x7B2C;&#x4E00;&#x4F4D;&#x7B26;&#x53F7;&#x4F4D;&#x662F; 1</p>
+</li>
+</ul>
+<p><br></p>
+<p>&#x6BD4;&#x5982;&#xFF1A;&#x7528;8&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x6765;&#x8868;&#x793A;&#x6B63;&#x8D1F;1:</p>
+<p> [+1]&#x539F; = 0000 0001</p>
+<p> [-1]&#x539F; = 1000 0001</p>
+<p><br></p>
+<h3 id="&#x53CD;&#x7801;"><a name="&#x53CD;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x53CD;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53CD;&#x7801;</h3>
+<p><br></p>
+<p><strong>&#x53CD;&#x7801;</strong>&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;</p>
+<ul>
+<li><p><strong>&#x6B63;&#x6570;</strong>&#x7684;&#x53CD;&#x7801;&#x5C31;&#x662F;&#x5176;&#x539F;&#x7801;&#x672C;&#x8EAB;</p>
+</li>
+<li><p><strong>&#x8D1F;&#x6570;</strong>&#x7684;&#x53CD;&#x7801;&#x662F;&#x5728;&#x5176;&#x539F;&#x7801;&#x7684;&#x57FA;&#x7840;&#x4E0A;, &#x7B26;&#x53F7;&#x4F4D;&#x4E0D;&#x53D8;&#xFF0C;&#x5176;&#x4F59;&#x5404;&#x4E2A;&#x4F4D;&#x53D6;&#x53CD;.</p>
+</li>
+</ul>
+<p><br></p>
+<p> [+1] = [00000001]&#x539F; = [00000001]&#x53CD;</p>
+<p> [-1] = [10000001]&#x539F; = [11111110]&#x53CD;</p>
+<p><br></p>
+<p> &#x4E00;&#x4E2A;&#x53CD;&#x7801;&#x8868;&#x793A;&#x7684;&#x662F;&#x8D1F;&#x6570;,  &#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x51FA;&#x6765;&#x5B83;&#x7684;&#x6570;&#x503C;. &#x901A;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x539F;&#x7801;&#x518D;&#x8BA1;&#x7B97;</p>
+<p><br></p>
+<h3 id="&#x8865;&#x7801;"><a name="&#x8865;&#x7801;" class="anchor-navigation-ex-anchor" href="#&#x8865;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8865;&#x7801;</h3>
+<p><br><strong>&#x8865;&#x7801;</strong>&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;</p>
+<ul>
+<li><p><strong>&#x6B63;&#x6570;</strong>&#x7684;&#x8865;&#x7801;&#x5C31;&#x662F;&#x5176;&#x539F;&#x7801;&#x672C;&#x8EAB;</p>
+</li>
+<li><p><strong>&#x8D1F;&#x6570;</strong>&#x7684;&#x8865;&#x7801;&#x662F;&#x5728;&#x5176;&#x539F;&#x7801;&#x7684;&#x57FA;&#x7840;&#x4E0A;, &#x7B26;&#x53F7;&#x4F4D;&#x4E0D;&#x53D8;, &#x5176;&#x4F59;&#x5404;&#x4F4D;&#x53D6;&#x53CD;, &#x6700;&#x540E;+1. (&#x5373;&#x5728;&#x53CD;&#x7801;&#x7684;&#x57FA;&#x7840;&#x4E0A;+1)</p>
+</li>
+</ul>
+<p><br></p>
+<p> [+1] = [00000001]&#x539F; = [00000001]&#x53CD; = [00000001]&#x8865;</p>
+<p> [-1] = [10000001]&#x539F; = [11111110]&#x53CD; = [11111111]&#x8865;</p>
+<p><br></p>
+<p> &#x5BF9;&#x4E8E;&#x8D1F;&#x6570;, &#x8865;&#x7801;&#x8868;&#x793A;&#x65B9;&#x5F0F;&#x4E5F;&#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x89C2;&#x770B;&#x51FA;&#x5176;&#x6570;&#x503C;&#x7684;. &#x901A;&#x5E38;&#x4E5F;&#x9700;&#x8981;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x539F;&#x7801;&#xFF0C;&#x518D;&#x8BA1;&#x7B97;&#x5176;&#x6570;&#x503C;.   </p>
+<p><br></p>
+<p>&#x6709;&#x4E2A;&#x7279;&#x6B8A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>[+0] = [00000000]&#x539F; = [00000000]&#x53CD; = [00000000]&#x8865;</p>
+<p>[-0] = [10000000]&#x539F; = [11111111]&#x53CD; = [00000000]&#x8865;</p>
+<p><br></p>
 <footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-06-01 19:30:22
+2021-06-05 15:37:00
 </span></footer>
                                 
                                 </section>
@@ -1022,12 +994,12 @@
 
             
                 
-                <a href="../datastructure/binary_complement.html" class="navigation navigation-prev " aria-label="Previous page: 原码、反码、补码 ">
+                <a href="../xml/xml_translation.html" class="navigation navigation-prev " aria-label="Previous page: XML中特殊符号的转译 ">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="lowest_score.html" class="navigation navigation-next " aria-label="Next page: 算法题 - 最低分数线问题 ">
+                <a href="../algorithm/merge_sorted_array.html" class="navigation navigation-next " aria-label="Next page: 算法题 - 合并排序数组 ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1038,7 +1010,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"算法题 - 合并排序数组 ","level":"7.1","depth":1,"next":{"title":"算法题 - 最低分数线问题 ","level":"7.2","depth":1,"path":"algorithm/lowest_score.md","ref":"algorithm/lowest_score.md","articles":[]},"previous":{"title":"原码、反码、补码 ","level":"6.2","depth":1,"path":"datastructure/binary_complement.md","ref":"datastructure/binary_complement.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"algorithm/merge_sorted_array.md","mtime":"2021-06-01T11:30:22.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-05T07:37:14.765Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"原码、反码、补码 ","level":"6.2","depth":1,"next":{"title":"算法题 - 合并排序数组 ","level":"7.1","depth":1,"path":"algorithm/merge_sorted_array.md","ref":"algorithm/merge_sorted_array.md","articles":[]},"previous":{"title":"XML中特殊符号的转译 ","level":"6.1","depth":1,"path":"xml/xml_translation.md","ref":"xml/xml_translation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"datastructure/binary_complement.md","mtime":"2021-06-05T07:37:00.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-05T07:37:14.765Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
