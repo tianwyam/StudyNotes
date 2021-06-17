@@ -22,8 +22,8 @@
 
 同一个二进制数，对符号数和无符号数具有不同的含义
 
-1. 符号数如：    char, short ,int, long等类型的变量
-2. 无符号数如：unsigned char, unsigned short , unsigned int, unsigned long, 指针等类型的变量
+1. 符号数 如：    char, short ,int, long等类型的变量
+2. 无符号数 如：unsigned char, unsigned short , unsigned int, unsigned long, 指针等类型的变量
 
 <br/>
 
