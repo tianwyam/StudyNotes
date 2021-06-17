@@ -99,6 +99,12 @@
 -  [Spring面试题68](Spring/spring/spring_interview_questions_68.md)
 
 
+
+- [SpringBoot自动装载机制 - 源码分析](Spring/springboot_auto_config.md)
+
+
+
+
 -  [Feign在spring、springboot下使用](Spring/spring_feign.md)
 
 
