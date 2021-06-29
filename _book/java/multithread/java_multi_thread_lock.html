@@ -1,0 +1,1086 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>lock&ReentrantLock&ReadWriteLock · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java_multi_thread_lock_condition.html" />
+    
+    
+    <link rel="prev" href="java_multi_thread_threadpool.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">【前言】</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍ABOUT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第一章】Java基础</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java.html">
+            
+                <a href="../java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java_thread_pool.html">
+            
+                <a href="../java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../java_ftp.html">
+            
+                <a href="../java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../collection.html">
+            
+                <a href="../collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../collection/java_collection_map.html">
+            
+                <a href="../collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../java_queue.html">
+            
+                <a href="../java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../java_tree.html">
+            
+                <a href="../java_tree.html">
+            
+                    
+                    二叉树遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java_io_nio.html">
+            
+                <a href="../java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java_exception.html">
+            
+                <a href="../java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../java_serialize.html">
+            
+                <a href="../java_serialize.html">
+            
+                    
+                    Java序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../Java_annotation.html">
+            
+                <a href="../Java_annotation.html">
+            
+                    
+                    注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../multi.html">
+            
+                <a href="../multi.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="java_multi_thread_volatile_synchronized.html">
+            
+                <a href="java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="java_multi_thread_object_wait_notify.html">
+            
+                <a href="java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="java_multi_thread_thread.html">
+            
+                <a href="java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="java_multi_thread_threadpool.html">
+            
+                <a href="java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.5" data-path="java_multi_thread_lock.html">
+            
+                <a href="java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="java_multi_thread_lock_condition.html">
+            
+                <a href="java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="java_multi_thread_tools.html">
+            
+                <a href="java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../java_jvm.html">
+            
+                <a href="../java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../java_java7new.html">
+            
+                <a href="../java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../java_stream.html">
+            
+                <a href="../java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../java_stream_groupby.html">
+            
+                <a href="../java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../java_optional.html">
+            
+                <a href="../java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../java_8new_date_api.html">
+            
+                <a href="../java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../xml/xml_translation.html">
+            
+                <a href="../../xml/xml_translation.html">
+            
+                    
+                    XML中特殊符号的转译 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../datastructure/binary_complement.html">
+            
+                <a href="../../datastructure/binary_complement.html">
+            
+                    
+                    原码、反码、补码 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../basic/javabean2map.html">
+            
+                <a href="../basic/javabean2map.html">
+            
+                    
+                    Java bean转Map 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第二章】算法积累题</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../../algorithm/merge_sorted_array.html">
+            
+                <a href="../../algorithm/merge_sorted_array.html">
+            
+                    
+                    算法题 - 合并排序数组 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../../algorithm/lowest_score.html">
+            
+                <a href="../../algorithm/lowest_score.html">
+            
+                    
+                    算法题 - 最低分数线问题 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../../algorithm/array_sub_list.html">
+            
+                <a href="../../algorithm/array_sub_list.html">
+            
+                    
+                    算法题 - 求数组的子集合 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第三章】框架</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../../Spring/springboot.html">
+            
+                <a href="../../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../../Spring/spring_security.html">
+            
+                <a href="../../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../../Spring/springboot_auto_config.html">
+            
+                <a href="../../Spring/springboot_auto_config.html">
+            
+                    
+                    SpringBoot自动装载机制 - 源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../../Spring/spring_feign.html">
+            
+                <a href="../../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../../Spring/spring_freemarker.html">
+            
+                <a href="../../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../../Spring/spring_freemarker_generate.html">
+            
+                <a href="../../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第四章】数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../../SQL/sql.html">
+            
+                <a href="../../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../../redis/redis_study_notes.html">
+            
+                <a href="../../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.3" data-path="../../SQL/sql_mysql_green_install.html">
+            
+                <a href="../../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.4" data-path="../../SQL/sql_h2.html">
+            
+                <a href="../../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.5" data-path="../../SQL/cache.html">
+            
+                <a href="../../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第五章】Web</li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../../web/web_js_jquery.html">
+            
+                <a href="../../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第六章】Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../../linux/linux_common_commands.html">
+            
+                <a href="../../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第七章】Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../../windows/windows_common_commands.html">
+            
+                <a href="../../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第八章】错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../../error/maven_not_found_local_jar.html">
+            
+                <a href="../../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="20.1" data-path="../../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="21.1" data-path="../../error/AOP_stream_close_error.html">
+            
+                <a href="../../error/AOP_stream_close_error.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >lock&ReentrantLock&ReadWriteLock</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#lock"><b></b>Lock</a></li><ul><li><span class="title-icon "></span><a href="#reentrantlock"><b></b>ReentrantLock</a></li><li><span class="title-icon "></span><a href="#readwritelock"><b></b>ReadWriteLock</a></li></ul></ul></ul></div><h2 id="lock"><a name="lock" class="anchor-navigation-ex-anchor" href="#lock"><i class="fa fa-link" aria-hidden="true"></i></a><strong>Lock</strong></h2>
+<p>   java.util.concurrent.locks.Lock   &#x8868;&#x793A;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x9501;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;&#x4E2D;&#x7684;lock&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;unlock&#x91CA;&#x653E;&#x9501;&#x3002;   </p>
+<p>&#x200B;    <strong>lock</strong>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;synchronized&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;lock&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x9501;&#xFF0C;&#x5219;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x7B49;&#x5F85;&#x3002;       </p>
+<p>&#x200B;    <strong>lockInterruptibly</strong>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x9501;&#x7C7B;&#x4F3C;&#x4E8E;lock&#x65B9;&#x6CD5;&#xFF0C;&#x5141;&#x8BB8;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5728;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x4E2D;&#x65AD;&#x3002;   </p>
+<p>&#x200B;    <strong>tryLock</strong>&#x65B9;&#x6CD5;&#x4EE5;&#x975E;&#x963B;&#x585E;&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x8C03;&#x7528;tryLock&#x65B9;&#x6CD5;&#x65F6;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;false&#xFF0C;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x3002;   </p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x4E0D;&#x8981;&#x5C06;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x5199;&#x5728;try&#x5757;&#x91CC;&#x9762;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x5728;&#x83B7;&#x53D6;&#x9501;(&#x81EA;&#x5B9A;&#x4E49;&#x9501;&#x7684;&#x5B9E;&#x73B0;)&#x65F6;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x5BFC;&#x81F4;&#x9501;&#x65E0;&#x6545;&#x91CA;&#x653E;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span></span>{
+    Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();
+    <span class="hljs-comment">// &#x83B7;&#x53D6;&#x9501;</span>
+    lock.lock(); <span class="hljs-comment">// &#x653E;&#x5728;try&#x5757;&#x5916;&#x9762;</span>
+    <span class="hljs-keyword">try</span> {
+
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-comment">// &#x91CA;&#x653E;&#x9501;</span>
+        lock.unlock();
+    }
+}
+</code></pre>
+<h3 id="reentrantlock"><a name="reentrantlock" class="anchor-navigation-ex-anchor" href="#reentrantlock"><i class="fa fa-link" aria-hidden="true"></i></a><strong>ReentrantLock</strong></h3>
+<p>   <strong>ReentrantLock</strong>&#x91CD;&#x5165;&#x9501;&#xFF0C;&#x5C31;&#x662F;&#x652F;&#x6301;<strong>&#x91CD;&#x8FDB;&#x5165;</strong>&#x7684;&#x9501;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x8BE5;&#x9501;&#x80FD;&#x591F;&#x652F;&#x6301;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x91CD;&#x590D;&#x52A0;&#x9501;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x8BE5;&#x9501;&#x8FD8;&#x652F;&#x6301;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x516C;&#x5E73;&#x548C;&#x975E;&#x516C;&#x5E73;&#x6027;&#x9009;&#x62E9;&#x3002;       </p>
+<p>&#x200B;    <strong>&#x91CD;&#x8FDB;&#x5165;</strong>&#x662F;&#x6307;&#x4EFB;&#x610F;&#x7EBF;&#x7A0B;&#x5728;&#x83B7;&#x53D6;&#x5230;&#x9501;&#x540E;&#x80FD;&#x591F;&#x518D;&#x6B21;&#x83B7;&#x53D6;&#x8BE5;&#x9501;&#x800C;&#x4E0D;&#x4F1A;&#x88AB;&#x9501;&#x6240;&#x963B;&#x585E;&#x3002;   </p>
+<p>&#x200B;        1&#xFF09;<strong>&#x7EBF;&#x7A0B;&#x518D;&#x6B21;&#x83B7;&#x53D6;&#x9501;&#x3002;</strong>&#x9501;&#x9700;&#x8981;&#x53BB;&#x8BC6;&#x522B;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x4E3A;&#x5F53;&#x524D;&#x5360;&#x636E;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5219;&#x518D;&#x6B21;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x3002;   </p>
+<p>&#x200B;        2&#xFF09;<strong>&#x9501;&#x7684;&#x6700;&#x7EC8;&#x91CA;&#x653E;&#x3002;</strong>&#x7EBF;&#x7A0B;&#x91CD;&#x590D;N&#x6B21;&#x83B7;&#x53D6;&#x4E86;&#x9501;&#xFF0C;&#x968F;&#x540E;&#x5728;&#x7B2C;N&#x6B21;&#x91CA;&#x653E;&#x8BE5;&#x9501;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x8BE5;&#x9501;&#x3002;&#x9501;&#x6700;&#x7EC8;&#x91CA;&#x653E;&#x8981;&#x6C42;&#xFF1A;&#x9501;&#x5BF9;&#x4E8E;&#x83B7;&#x53D6;   &#x8FDB;&#x884C;&#x8BA1;&#x6570;&#x81EA;&#x589E;&#xFF0C;&#x8BA1;&#x6570;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9501;&#x88AB;&#x91CD;&#x590D;&#x83B7;&#x53D6;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x800C;&#x9501;&#x91CA;&#x653E;&#x65F6;&#xFF0C;&#x5219;&#x8BA1;&#x6570;&#x81EA;&#x51CF;&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x7B49;&#x4E8E;0&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x9501;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x91CA;&#x653E;&#x3002;       </p>
+<p>&#x200B;    <strong>&#x516C;&#x5E73;&#x6027;</strong>&#x4E0E;&#x5426;&#x662F;&#x9488;&#x5BF9;&#x83B7;&#x53D6;&#x9501;&#x800C;&#x8A00;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x9501;&#x662F;&#x516C;&#x5E73;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x9501;&#x7684;&#x83B7;&#x53D6;&#x987A;&#x5E8F;&#x5C31;&#x5E94;&#x8BE5;&#x7B26;&#x5408;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;&#x7684;&#x7EDD;&#x5BF9;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#xFF0C;&#x5373;FIFO&#x3002;   </p>
+<p>&#x200B;    &#x5B9E;&#x73B0;&#x5219;&#x662F;<strong>ReentrantLock(boolean fair)</strong>&#xFF0C;fair=true,&#x5219;&#x8868;&#x793A;&#x8BE5;&#x9501;&#x662F;&#x516C;&#x5E73;&#x6027;&#x7684;&#x3002;   </p>
+<p>&#x200B;    <strong>&#x516C;&#x5E73;&#x6027;&#x9501;</strong>&#x4FDD;&#x8BC1;&#x4E86;&#x9501;&#x7684;&#x83B7;&#x53D6;&#x6309;&#x7167;&#x4E86;FIFO&#x539F;&#x5219;&#xFF0C;&#x800C;&#x4EE3;&#x4EF7;&#x5C31;&#x662F;&#x8FDB;&#x884C;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x3002;</p>
+<p>&#x200B;    <strong>&#x975E;&#x516C;&#x5E73;&#x6027;&#x9501;</strong>&#x867D;&#x7136;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7EBF;&#x7A0B;&#x201C;&#x9965;&#x997F;&#x201D;&#xFF0C;&#x4F46;&#x6781;&#x5C11;&#x7684;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x5176;&#x66F4;&#x5927;&#x7684;&#x541E;&#x5410;&#x91CF;&#x3002;   </p>
+<h3 id="readwritelock"><a name="readwritelock" class="anchor-navigation-ex-anchor" href="#readwritelock"><i class="fa fa-link" aria-hidden="true"></i></a><strong>ReadWriteLock</strong></h3>
+<p>   java.util.concurrent.locks.<strong>ReadWriteLock</strong>&#xFF0C; </p>
+<p>&#x200B;    <strong>ReadWriteLock</strong>&#x8BFB;&#x5199;&#x9501;&#x63A5;&#x53E3;&#x5B9E;&#x9645;&#x4E0A;&#x8868;&#x793A;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x9501;   &#x4E00;&#x4E2A;&#x662F;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x7684;<strong>&#x5171;&#x4EAB;&#x9501;</strong>&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x7684;<strong>&#x6392;&#x4ED6;&#x9501;</strong>&#x3002;&#x5176;&#x5B9E;&#x73B0;<strong>ReentrantReadWriteLock</strong>&#x3002;   </p>
+<p>&#x200B;    &#x53EF;&#x4EE5;&#x901A;&#x8FC7;ReadWriteLock&#x63A5;&#x53E3;&#x7684;readLock&#x65B9;&#x6CD5;&#x548C;writeLock&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x8868;&#x793A;&#x5BF9;&#x5E94;&#x7684;&#x9501;&#x7684;Lock&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x200B;    &#x5728;&#x6CA1;&#x6709;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x7684;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x8BFB;&#x53D6;&#x9501;&#xFF1B;&#x800C;&#x8FDB;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x7684;&#x7EBF;&#x7A0B;&#x53EA;&#x6709;&#x83B7;&#x53D6;&#x5230;&#x5199;&#x5165;&#x9501;&#x540E;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x3002;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x3002;   </p>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-05 15:06:58
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java_multi_thread_threadpool.html" class="navigation navigation-prev " aria-label="Previous page: 线程池的工作原理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java_multi_thread_lock_condition.html" class="navigation navigation-next " aria-label="Next page: lock&condition">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"lock&ReentrantLock&ReadWriteLock","level":"4.1.5","depth":2,"next":{"title":"lock&condition","level":"4.1.6","depth":2,"path":"java/multithread/java_multi_thread_lock_condition.md","ref":"java/multithread/java_multi_thread_lock_condition.md","articles":[]},"previous":{"title":"线程池的工作原理","level":"4.1.4","depth":2,"path":"java/multithread/java_multi_thread_threadpool.md","ref":"java/multithread/java_multi_thread_threadpool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/multithread/java_multi_thread_lock.md","mtime":"2019-10-05T07:06:58.267Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-29T07:55:23.156Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
