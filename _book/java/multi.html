@@ -404,6 +404,19 @@
             
         </li>
     
+        <li class="chapter " data-level="4.1.8" data-path="multithread/java_multi_thread_tools2.html">
+            
+                <a href="multithread/java_multi_thread_tools2.html">
+            
+                    
+                    Java同步工具类- CountDownLatch&CyclicBarrier&Semaphore  
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -984,10 +997,11 @@
 <li>condition</li>
 <li>CountDownLatch</li>
 <li>CyclicBarrier</li>
+<li>Semaphore</li>
 <li>......</li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-27 14:09:11
+2021-07-01 14:30:11
 </span></footer>
                                 
                                 </section>
@@ -1015,7 +1029,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"多线程","level":"4.1","depth":1,"next":{"title":"volatile&synchronized","level":"4.1.1","depth":2,"path":"java/multithread/java_multi_thread_volatile_synchronized.md","ref":"java/multithread/java_multi_thread_volatile_synchronized.md","articles":[]},"previous":{"title":"注解","level":"3.4","depth":1,"path":"java/Java_annotation.md","ref":"java/Java_annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/multi.md","mtime":"2021-05-27T06:09:11.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-29T07:55:23.156Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"多线程","level":"4.1","depth":1,"next":{"title":"volatile&synchronized","level":"4.1.1","depth":2,"path":"java/multithread/java_multi_thread_volatile_synchronized.md","ref":"java/multithread/java_multi_thread_volatile_synchronized.md","articles":[]},"previous":{"title":"注解","level":"3.4","depth":1,"path":"java/Java_annotation.md","ref":"java/Java_annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"java/multi.md","mtime":"2021-07-01T06:30:11.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-01T06:38:44.446Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

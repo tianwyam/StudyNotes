@@ -37,16 +37,12 @@
 - [多线程](java/multi.md)
    - [volatile&synchronized](java/multithread/java_multi_thread_volatile_synchronized.md)
    - [object/wait/notify](java/multithread/java_multi_thread_object_wait_notify.md)
-
    - [thread](java/multithread/java_multi_thread_thread.md)
-
    - [线程池的工作原理](java/multithread/java_multi_thread_threadpool.md)
-
    - [lock&ReentrantLock&ReadWriteLock](java/multithread/java_multi_thread_lock.md)
-
    - [lock&condition](java/multithread/java_multi_thread_lock_condition.md)
-
    - [Java并发工具- CountDownLatch&CyclicBarrier ](java/multithread/java_multi_thread_tools.md)
+   - [Java同步工具类- CountDownLatch&CyclicBarrier&Semaphore  ](java/multithread/java_multi_thread_tools2.md)
 
 
 
