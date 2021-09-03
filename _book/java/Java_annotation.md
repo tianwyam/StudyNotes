@@ -2,13 +2,23 @@
 
 
 
+<br>
+
 
 
 ### 使用语法
 
 
 
-采用@符合 和 interface 添加到注解名称前面，跟定义接口类似
+<br>
+
+
+
+采用@符号 和 interface 添加到注解名称前面，跟定义接口类似
+
+
+
+<br>
 
 
 
@@ -24,11 +34,23 @@ public @interface NotAuth {
 
 
 
+<br>
+
+
+
 ### 元注解
 
 
 
+<br>
+
+
+
 描述注解的注解称为元注解
+
+
+
+<br>
 
 
 
@@ -41,12 +63,23 @@ Java内置的元注解有四种：
 
 
 
+<br>
+
+
+
 常用的目标枚举 @Target ：
 
 - ElementType.TYPE 类上
+
 - ElementType.METHOD 方法上
+
 - ElementType.FIELD 属性上
+
 - ElementType.PARAMETER 参数上
+
+  
+
+<br>
 
 
 
@@ -57,6 +90,8 @@ Java内置的元注解有四种：
 - RetentionPolicy.CLASS   字节码阶段，编译成CLASS文件时存在，在VM运行时被抛弃
 
 
+
+<br>
 
 
 
@@ -76,11 +111,23 @@ public @interface NotAuth {
 
 
 
+<br>
+
+
+
 ### 反射API
 
 
 
+<br>
+
+
+
 Class、Method、Field等上面都可以使用API操作注解
+
+
+
+<br>
 
 
 
@@ -89,6 +136,10 @@ java.lang.Class<T>
 java.lang.reflect.Method
 
 java.lang.reflect.Field
+
+
+
+<br>
 
 
 
