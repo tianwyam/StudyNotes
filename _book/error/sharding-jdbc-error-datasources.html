@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>mysql绿色版安装服务教程 · JAVA学习积累</title>
+        <title>sharding-jdbc-4.1.1版本启动数据源报错问题 · JAVA学习积累</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sql_h2.html" />
     
-    
-    <link rel="prev" href="../redis/redis_study_notes.html" />
+    <link rel="prev" href="../tools/github/github_ssh.html" />
     
 
     </head>
@@ -779,9 +777,9 @@
         
         
     
-        <li class="chapter " data-level="16.1" data-path="sql.html">
+        <li class="chapter " data-level="16.1" data-path="../SQL/sql.html">
             
-                <a href="sql.html">
+                <a href="../SQL/sql.html">
             
                     
                     SQL常用使用
@@ -805,9 +803,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="16.3" data-path="sql_mysql_green_install.html">
+        <li class="chapter " data-level="16.3" data-path="../SQL/sql_mysql_green_install.html">
             
-                <a href="sql_mysql_green_install.html">
+                <a href="../SQL/sql_mysql_green_install.html">
             
                     
                     mysql绿色版安装服务教程
@@ -818,9 +816,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.4" data-path="sql_h2.html">
+        <li class="chapter " data-level="16.4" data-path="../SQL/sql_h2.html">
             
-                <a href="sql_h2.html">
+                <a href="../SQL/sql_h2.html">
             
                     
                     H2内嵌数据的使用
@@ -831,9 +829,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.5" data-path="cache.html">
+        <li class="chapter " data-level="16.5" data-path="../SQL/cache.html">
             
-                <a href="cache.html">
+                <a href="../SQL/cache.html">
             
                     
                     缓存
@@ -844,9 +842,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.6" data-path="mysql/mysql_back_rollback.html">
+        <li class="chapter " data-level="16.6" data-path="../SQL/mysql/mysql_back_rollback.html">
             
-                <a href="mysql/mysql_back_rollback.html">
+                <a href="../SQL/mysql/mysql_back_rollback.html">
             
                     
                     MySQL单表备份还原
@@ -924,9 +922,9 @@
         
         
     
-        <li class="chapter " data-level="20.1" data-path="../error/maven_not_found_local_jar.html">
+        <li class="chapter " data-level="20.1" data-path="maven_not_found_local_jar.html">
             
-                <a href="../error/maven_not_found_local_jar.html">
+                <a href="maven_not_found_local_jar.html">
             
                     
                     maven引入依赖时识别不到本地仓库的jar
@@ -944,9 +942,9 @@
         
         
     
-        <li class="chapter " data-level="21.1" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+        <li class="chapter " data-level="21.1" data-path="security_not_configure_antMatchers_after_anyRequest.html">
             
-                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+                <a href="security_not_configure_antMatchers_after_anyRequest.html">
             
                     
                     spring security 配置发生错误 Can't configure antMatchers after anyRequest
@@ -964,9 +962,9 @@
         
         
     
-        <li class="chapter " data-level="22.1" data-path="../error/AOP_stream_close_error.html">
+        <li class="chapter " data-level="22.1" data-path="AOP_stream_close_error.html">
             
-                <a href="../error/AOP_stream_close_error.html">
+                <a href="AOP_stream_close_error.html">
             
                     
                     AOP内获取了对请求流操作后报流已经关闭错误的问题
@@ -1004,9 +1002,9 @@
         
         
     
-        <li class="chapter " data-level="24.1" data-path="../error/sharding-jdbc-error-datasources.html">
+        <li class="chapter active" data-level="24.1" data-path="sharding-jdbc-error-datasources.html">
             
-                <a href="../error/sharding-jdbc-error-datasources.html">
+                <a href="sharding-jdbc-error-datasources.html">
             
                     
                     sharding-jdbc-4.1.1版本启动数据源报错问题
@@ -1047,7 +1045,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >mysql绿色版安装服务教程</a>
+        <a href=".." >sharding-jdbc-4.1.1版本启动数据源报错问题</a>
     </h1>
 </div>
 
@@ -1059,56 +1057,220 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#mysql&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;"><b></b>MySQL&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;</a></li><ul><ul><li><span class="title-icon "></span><a href="#1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><b></b>1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</a></li><li><span class="title-icon "></span><a href="#2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;"><b></b>2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;</a></li></ul></ul><li><span class="title-icon "></span><a href="#&#x9644;&#x4EF6;"><b></b>&#x9644;&#x4EF6;</a></li></ul></div><h1 id="mysql&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;"><a name="mysql&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#mysql&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>MySQL&#x7EFF;&#x8272;&#x7248;&#x514D;&#x5B89;&#x88C5;&#x6559;&#x7A0B;</h1>
-<h3 id="1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a name="1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>1&#x3001;&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h3>
-<p><img src="mysql/path.png" alt="img"></p>
-<h3 id="2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;"><a name="2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>2&#x3001;&#x670D;&#x52A1;&#x914D;&#x7F6E;</h3>
-<h4 id="21&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;"><a name="21&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#21&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;</h4>
-<p>&#x6253;&#x5F00;&#x89E3;&#x538B;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#xFF0C;&#x627E;&#x5230;&#x540E;&#x7F00;&#x540D;&#x4E3A;.ini&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#x66F4;&#x540D;&#x4E3A;my.ini</p>
-<p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF1A;</p>
-<p><img src="mysql/config.png" alt="img"></p>
-<h4 id="22&#x3001;&#x5B89;&#x88C5;&#x670D;&#x52A1;"><a name="22&#x3001;&#x5B89;&#x88C5;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#22&#x3001;&#x5B89;&#x88C5;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2&#x3001;&#x5B89;&#x88C5;&#x670D;&#x52A1;</h4>
-<p>my.ini&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x597D;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5728;cmd&#x4E2D;&#x5B89;&#x88C5;mysqld&#x670D;&#x52A1;&#x4E86;&#xFF0C;&#x5728;cmd&#x4E2D;&#x8FD0;&#x884C;&#x547D;&#x4EE4;</p>
-<p>&#x547D;&#x4EE4;&#xFF1A;</p>
-<pre><code class="lang-shell">mysqld --install MySQL   --defaults-file=&quot;D:\Program Files(x86)\MySql\my.ini&quot;
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sharding-jdbc-411&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;"><b></b>sharding-jdbc-4.1.1&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#&#x73B0;&#x8C61;"><b></b>&#x73B0;&#x8C61;</a></li><li><span class="title-icon "></span><a href="#&#x73AF;&#x5883;&#xFF1A;"><b></b>&#x73AF;&#x5883;&#xFF1A;</a></li><li><span class="title-icon "></span><a href="#&#x62A5;&#x9519;&#x539F;&#x56E0;"><b></b>&#x62A5;&#x9519;&#x539F;&#x56E0;</a></li><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><b></b>&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><b></b>&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></li></ul></ul></div><h1 id="sharding-jdbc-411&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;"><a name="sharding-jdbc-411&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#sharding-jdbc-411&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>sharding-jdbc-4.1.1&#x7248;&#x672C;&#x542F;&#x52A8;&#x6570;&#x636E;&#x6E90;&#x62A5;&#x9519;&#x95EE;&#x9898;</h1>
+<p><br><br></p>
+<h2 id="&#x73B0;&#x8C61;"><a name="&#x73B0;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x73B0;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x73B0;&#x8C61;</strong></h2>
+<p><br></p>
+<p>springboot&#x642D;&#x5EFA;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;&#x65F6;&#x62A5;&#x9519;&#xFF1A;</p>
+<pre><code class="lang-java">
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: &apos;url&apos; attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+    If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+    If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;dataSource&apos; defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]: Invocation of init method failed; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
 </code></pre>
-<p>&#x5176;&#x4E2D;&#x7684;MySQL&#x662F;&#x5B89;&#x88C5;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4EFB;&#x4F55;&#x540D;&#x79F0;&#x3002;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#x4F1A;&#x63D0;&#x793A;&#x4E0B;&#x9762;&#x7684;&#x4FE1;&#x606F;&#xFF1A;Service successfully installed&#xFF0C;&#x5373;&#x8868;&#x793A;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;</p>
-<h4 id="23&#x3001;&#x67E5;&#x770B;&#x670D;&#x52A1;"><a name="23&#x3001;&#x67E5;&#x770B;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#23&#x3001;&#x67E5;&#x770B;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3&#x3001;&#x67E5;&#x770B;&#x670D;&#x52A1;</h4>
-<p><img src="mysql/service.png" alt="img"></p>
-<h1 id="&#x9644;&#x4EF6;"><a name="&#x9644;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x9644;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9644;&#x4EF6;</h1>
-<p>1&#x3001;&#x914D;&#x7F6E;&#x6587;&#x4EF6;my.ini</p>
-<pre><code class="lang-powershell">
-[mysqld]
+<p><br></p>
+<h2 id="&#x73AF;&#x5883;&#xFF1A;"><a name="&#x73AF;&#x5883;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x73AF;&#x5883;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x73AF;&#x5883;&#xFF1A;</strong></h2>
+<p><br></p>
+<p>sharding-jdbc-4.1.1</p>
+<p><br></p>
+<pre><code class="lang-xml">
 
-<span class="hljs-comment"># Remove leading # and set to the amount of RAM for the most important data</span>
-<span class="hljs-comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span>
-<span class="hljs-comment"># innodb_buffer_pool_size = 128M</span>
-
-<span class="hljs-comment"># Remove leading # to turn on a very important data integrity option: logging</span>
-<span class="hljs-comment"># changes to the binary log between backups.</span>
-<span class="hljs-comment"># log_bin</span>
-
-<span class="hljs-comment"># These are commonly set, remove the # and set as required.</span>
-basedir = D:\\ProgramFiles\\APPGreen\\mysql
-datadir = D:\\ProgramFiles\\APPGreen\\mysql\\data
-<span class="hljs-comment"># default-character-set=utf8</span>
-character-set-server=utf8
-port = <span class="hljs-number">3306</span>
-server_id = <span class="hljs-number">10</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>4.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
 
 
-<span class="hljs-comment"># Remove leading # to set options mainly useful for reporting servers.</span>
-<span class="hljs-comment"># The server defaults are faster for transactions and fast SELECTs.</span>
-<span class="hljs-comment"># Adjust sizes as needed, experiment to find the optimal values.</span>
-<span class="hljs-comment"># join_buffer_size = 128M</span>
-<span class="hljs-comment"># sort_buffer_size = 2M</span>
-<span class="hljs-comment"># read_rnd_buffer_size = 2M </span>
-max_allowed_packet = <span class="hljs-number">8</span>M
 
-sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+<span class="hljs-comment">&lt;!-- sharding-jdbc --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${sharding-jdbc-version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sharding-jdbc-spring-namespace<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${sharding-jdbc-version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p><br></p>
+<h2 id="&#x62A5;&#x9519;&#x539F;&#x56E0;"><a name="&#x62A5;&#x9519;&#x539F;&#x56E0;" class="anchor-navigation-ex-anchor" href="#&#x62A5;&#x9519;&#x539F;&#x56E0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62A5;&#x9519;&#x539F;&#x56E0;</h2>
+<p><br></p>
+<p>&#x662F;sharding-jdbc-4.1.1&#x6700;&#x65B0;&#x7248;&#x672C;spring boot&#x914D;&#x7F6E;&#x7C7B;&#x8BC6;&#x522B;&#x6709;&#x70B9;&#x95EE;&#x9898;&#x5BFC;&#x81F4;</p>
+<pre><code class="lang-java">org.apache.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration
+</code></pre>
+<p><br></p>
+<h2 id="&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a name="&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h2>
+<p><br></p>
+<p>&#x628A;&#x7248;&#x672C;&#x6539;&#x4E3A; 4.0.0-RC1</p>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>4.0.0-RC1<span class="hljs-tag">&lt;/<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+</code></pre>
+<p><br></p>
+<h2 id="&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><a name="&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</h2>
+<p><br></p>
+<p>&#x8FD8;&#x662F;&#x4FDD;&#x6301;&#x539F;&#x5148;&#x6700;&#x65B0;&#x7248;&#x672C; 4.1.1</p>
+<p>&#x91CD;&#x65B0;&#x5199;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;&#x5728;&#x81EA;&#x5DF1;&#x5DE5;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x8DDF;sharding-jdbc-4.1.1&#x6700;&#x65B0;&#x7248;&#x672C;spring boot&#x914D;&#x7F6E;&#x7C7B;&#x5185;&#x5BB9;&#x4E00;&#x81F4;</p>
+<pre><code class="lang-java">org.apache.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration
+</code></pre>
+<p><br></p>
+<p>&#x6BD4;&#x5982;&#x5728;&#x81EA;&#x5DF1;&#x9879;&#x76EE;&#x5DE5;&#x7A0B;&#x4E0B;&#xFF0C;&#x91CD;&#x65B0;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;&#x5185;&#x5BB9;&#x8DDF;SpringBootConfiguration&#x7C7B;&#x4E00;&#x81F4;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">
+
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@ComponentScan</span>(<span class="hljs-string">&quot;org.apache.shardingsphere.spring.boot.converter&quot;</span>)
+<span class="hljs-meta">@EnableConfigurationProperties</span>({
+        SpringBootShardingRuleConfigurationProperties.class,
+        SpringBootMasterSlaveRuleConfigurationProperties.class, 
+        SpringBootEncryptRuleConfigurationProperties.class,
+        SpringBootPropertiesConfigurationProperties.class, 
+        SpringBootShadowRuleConfigurationProperties.class})
+<span class="hljs-meta">@ConditionalOnProperty</span>(prefix = <span class="hljs-string">&quot;spring.shardingsphere&quot;</span>, name = <span class="hljs-string">&quot;enabled&quot;</span>, havingValue = <span class="hljs-string">&quot;true&quot;</span>, matchIfMissing = <span class="hljs-keyword">true</span>)
+<span class="hljs-meta">@AutoConfigureBefore</span>(DataSourceAutoConfiguration.class)
+<span class="hljs-meta">@RequiredArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShardingJdbcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">EnvironmentAware</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SpringBootShardingRuleConfigurationProperties shardingRule;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SpringBootMasterSlaveRuleConfigurationProperties masterSlaveRule;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SpringBootEncryptRuleConfigurationProperties encryptRule;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SpringBootShadowRuleConfigurationProperties shadowRule;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SpringBootPropertiesConfigurationProperties props;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, DataSource&gt; dataSourceMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String jndiName = <span class="hljs-string">&quot;jndi-name&quot;</span>;
+
+    <span class="hljs-comment">/**
+     * Get sharding data source bean.
+     *
+     * <span class="hljs-doctag">@return</span> data source bean
+     * <span class="hljs-doctag">@throws</span> SQLException SQL exception
+     */</span>
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(DataSource.class)
+    <span class="hljs-meta">@Conditional</span>(ShardingRuleCondition.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">shardingDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">return</span> ShardingDataSourceFactory.createDataSource(dataSourceMap, <span class="hljs-keyword">new</span> ShardingRuleConfigurationYamlSwapper().swap(shardingRule), props.getProps());
+    }
+
+    <span class="hljs-comment">/**
+     * Get master-slave data source bean.
+     *
+     * <span class="hljs-doctag">@return</span> data source bean
+     * <span class="hljs-doctag">@throws</span> SQLException SQL exception
+     */</span>
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@Conditional</span>(MasterSlaveRuleCondition.class)
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(DataSource.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">masterSlaveDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">return</span> MasterSlaveDataSourceFactory.createDataSource(dataSourceMap, <span class="hljs-keyword">new</span> MasterSlaveRuleConfigurationYamlSwapper().swap(masterSlaveRule), props.getProps());
+    }
+
+    <span class="hljs-comment">/**
+     * Get encrypt data source bean.
+     *
+     * <span class="hljs-doctag">@return</span> data source bean
+     * <span class="hljs-doctag">@throws</span> SQLException SQL exception
+     */</span>
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@Conditional</span>(EncryptRuleCondition.class)
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(DataSource.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">encryptDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">return</span> EncryptDataSourceFactory.createDataSource(dataSourceMap.values().iterator().next(), <span class="hljs-keyword">new</span> EncryptRuleConfigurationYamlSwapper().swap(encryptRule), props.getProps());
+    }
+
+    <span class="hljs-comment">/**
+     * Get shadow data source bean.
+     *
+     * <span class="hljs-doctag">@return</span> data source bean
+     * <span class="hljs-doctag">@throws</span> SQLException SQL exception
+     */</span>
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@Conditional</span>(ShadowRuleCondition.class)
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(DataSource.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">shadowDataSource</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">return</span> ShadowDataSourceFactory.createDataSource(dataSourceMap, <span class="hljs-keyword">new</span> ShadowRuleConfigurationYamlSwapper().swap(shadowRule), props.getProps());
+    }
+
+    <span class="hljs-comment">/**
+     * Create sharding transaction type scanner.
+     *
+     * <span class="hljs-doctag">@return</span> sharding transaction type scanner
+     */</span>
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(ShardingTransactionTypeScanner.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ShardingTransactionTypeScanner <span class="hljs-title">shardingTransactionTypeScanner</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ShardingTransactionTypeScanner();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setEnvironment</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Environment environment)</span> </span>{
+        String prefix = <span class="hljs-string">&quot;spring.shardingsphere.datasource.&quot;</span>;
+        <span class="hljs-keyword">for</span> (String each : getDataSourceNames(environment, prefix)) {
+            <span class="hljs-keyword">try</span> {
+                dataSourceMap.put(each, getDataSource(environment, prefix, each));
+            } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">final</span> ReflectiveOperationException ex) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ShardingSphereException(<span class="hljs-string">&quot;Can&apos;t find datasource type!&quot;</span>, ex);
+            } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">final</span> NamingException namingEx) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ShardingSphereException(<span class="hljs-string">&quot;Can&apos;t find JNDI datasource!&quot;</span>, namingEx);
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;String&gt; <span class="hljs-title">getDataSourceNames</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Environment environment, <span class="hljs-keyword">final</span> String prefix)</span> </span>{
+        StandardEnvironment standardEnv = (StandardEnvironment) environment;
+        standardEnv.setIgnoreUnresolvableNestedPlaceholders(<span class="hljs-keyword">true</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span> == standardEnv.getProperty(prefix + <span class="hljs-string">&quot;name&quot;</span>)
+                ? <span class="hljs-keyword">new</span> InlineExpressionParser(standardEnv.getProperty(prefix + <span class="hljs-string">&quot;names&quot;</span>)).splitAndEvaluate() : Collections.singletonList(standardEnv.getProperty(prefix + <span class="hljs-string">&quot;name&quot;</span>));
+    }
+
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">private</span> DataSource <span class="hljs-title">getDataSource</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Environment environment, <span class="hljs-keyword">final</span> String prefix, <span class="hljs-keyword">final</span> String dataSourceName)</span> <span class="hljs-keyword">throws</span> ReflectiveOperationException, NamingException </span>{
+        Map&lt;String, Object&gt; dataSourceProps = PropertyUtil.handle(environment, prefix + dataSourceName.trim(), Map.class);
+        Preconditions.checkState(!dataSourceProps.isEmpty(), <span class="hljs-string">&quot;Wrong datasource properties!&quot;</span>);
+        <span class="hljs-keyword">if</span> (dataSourceProps.containsKey(jndiName)) {
+            <span class="hljs-keyword">return</span> getJndiDataSource(dataSourceProps.get(jndiName).toString());
+        }
+        DataSource result = DataSourceUtil.getDataSource(dataSourceProps.get(<span class="hljs-string">&quot;type&quot;</span>).toString(), dataSourceProps);
+        DataSourcePropertiesSetterHolder.getDataSourcePropertiesSetterByType(dataSourceProps.get(<span class="hljs-string">&quot;type&quot;</span>).toString()).ifPresent(
+            dataSourcePropertiesSetter -&gt; dataSourcePropertiesSetter.propertiesSet(environment, prefix, dataSourceName, result));
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> DataSource <span class="hljs-title">getJndiDataSource</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String jndiName)</span> <span class="hljs-keyword">throws</span> NamingException </span>{
+        JndiObjectFactoryBean bean = <span class="hljs-keyword">new</span> JndiObjectFactoryBean();
+        bean.setResourceRef(<span class="hljs-keyword">true</span>);
+        bean.setJndiName(jndiName);
+        bean.setProxyInterface(DataSource.class);
+        bean.afterPropertiesSet();
+        <span class="hljs-keyword">return</span> (DataSource) bean.getObject();
+    }
+}
 </code></pre>
 <footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-06 13:14:44
+2021-10-11 20:05:14
 </span></footer>
                                 
                                 </section>
@@ -1120,14 +1282,10 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
             
                 
-                <a href="../redis/redis_study_notes.html" class="navigation navigation-prev " aria-label="Previous page: redis学习笔记">
+                <a href="../tools/github/github_ssh.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Github ssh key 解决提交后push频繁输入用户名和密码">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="sql_h2.html" class="navigation navigation-next " aria-label="Next page: H2内嵌数据的使用">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1136,7 +1294,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"mysql绿色版安装服务教程","level":"16.3","depth":1,"next":{"title":"H2内嵌数据的使用","level":"16.4","depth":1,"path":"SQL/sql_h2.md","ref":"SQL/sql_h2.md","articles":[]},"previous":{"title":"redis学习笔记","level":"16.2","depth":1,"path":"redis/redis_study_notes.md","ref":"redis/redis_study_notes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"SQL/sql_mysql_green_install.md","mtime":"2019-10-06T05:14:44.734Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-11T12:07:28.754Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sharding-jdbc-4.1.1版本启动数据源报错问题","level":"24.1","depth":1,"previous":{"title":"Github ssh key 解决提交后push频繁输入用户名和密码","level":"23.1","depth":1,"path":"tools/github/github_ssh.md","ref":"tools/github/github_ssh.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"error/sharding-jdbc-error-datasources.md","mtime":"2021-10-11T12:05:14.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-11T12:07:28.754Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
