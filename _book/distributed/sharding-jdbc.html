@@ -1,0 +1,1661 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>【分布式】sharding-jdbc实现分库分表 · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../SQL/sql.html" />
+    
+    
+    <link rel="prev" href="../mybatis/mybatis_plus.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">【前言】</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍ABOUT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第一章】Java基础</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java/java_thread_pool.html">
+            
+                <a href="../java/java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../java/java_ftp.html">
+            
+                <a href="../java/java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../java/collection.html">
+            
+                <a href="../java/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../java/collection/java_collection_map.html">
+            
+                <a href="../java/collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../java/java_queue.html">
+            
+                <a href="../java/java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../java/java_tree.html">
+            
+                <a href="../java/java_tree.html">
+            
+                    
+                    二叉树遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java_io_nio.html">
+            
+                <a href="../java/java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java/java_exception.html">
+            
+                <a href="../java/java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../java/java_serialize.html">
+            
+                <a href="../java/java_serialize.html">
+            
+                    
+                    Java序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../java/Java_annotation.html">
+            
+                <a href="../java/Java_annotation.html">
+            
+                    
+                    注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../java/multi.html">
+            
+                <a href="../java/multi.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../java/multithread/java_multi_thread_thread.html">
+            
+                <a href="../java/multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../java/multithread/java_multi_thread_threadpool.html">
+            
+                <a href="../java/multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../java/multithread/java_multi_thread_lock.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../java/multithread/java_multi_thread_tools.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../java/multithread/java_multi_thread_tools2.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools2.html">
+            
+                    
+                    Java同步工具类- CountDownLatch&CyclicBarrier&Semaphore  
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../java/java_jvm.html">
+            
+                <a href="../java/java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../java/java_java7new.html">
+            
+                <a href="../java/java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../java/java_stream.html">
+            
+                <a href="../java/java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../java/java_stream_groupby.html">
+            
+                <a href="../java/java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../java/java_optional.html">
+            
+                <a href="../java/java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../java/java_8new_date_api.html">
+            
+                <a href="../java/java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../xml/xml_translation.html">
+            
+                <a href="../xml/xml_translation.html">
+            
+                    
+                    XML中特殊符号的转译 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../datastructure/binary_complement.html">
+            
+                <a href="../datastructure/binary_complement.html">
+            
+                    
+                    原码、反码、补码 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../java/basic/javabean2map.html">
+            
+                <a href="../java/basic/javabean2map.html">
+            
+                    
+                    Java bean转Map 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第二章】算法积累题</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../algorithm/merge_sorted_array.html">
+            
+                <a href="../algorithm/merge_sorted_array.html">
+            
+                    
+                    算法题 - 合并排序数组 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../algorithm/lowest_score.html">
+            
+                <a href="../algorithm/lowest_score.html">
+            
+                    
+                    算法题 - 最低分数线问题 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../algorithm/array_sub_list.html">
+            
+                <a href="../algorithm/array_sub_list.html">
+            
+                    
+                    算法题 - 求数组的子集合 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第三章】框架</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../Spring/springboot_auto_config.html">
+            
+                <a href="../Spring/springboot_auto_config.html">
+            
+                    
+                    SpringBoot自动装载机制 - 源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="../mybatis/mybatis_metadata.html">
+            
+                <a href="../mybatis/mybatis_metadata.html">
+            
+                    
+                    mybatis中操作元数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="15.2" data-path="../mybatis/mybatis_plus.html">
+            
+                <a href="../mybatis/mybatis_plus.html">
+            
+                    
+                    springboot集成mybatis-plus框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="16.1" data-path="sharding-jdbc.html">
+            
+                <a href="sharding-jdbc.html">
+            
+                    
+                    【分布式】sharding-jdbc实现分库分表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第四章】数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.6" data-path="../SQL/mysql/mysql_back_rollback.html">
+            
+                <a href="../SQL/mysql/mysql_back_rollback.html">
+            
+                    
+                    MySQL单表备份还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第五章】Web</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第六章】Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第七章】Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="20.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第八章】错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="21.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="22.1" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="23.1" data-path="../error/AOP_stream_close_error.html">
+            
+                <a href="../error/AOP_stream_close_error.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="24.1" data-path="../tools/github/github_ssh.html">
+            
+                <a href="../tools/github/github_ssh.html">
+            
+                    
+                    Github ssh key 解决提交后push频繁输入用户名和密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="25.1" data-path="../error/sharding-jdbc-error-datasources.html">
+            
+                <a href="../error/sharding-jdbc-error-datasources.html">
+            
+                    
+                    sharding-jdbc-4.1.1版本启动数据源报错问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >【分布式】sharding-jdbc实现分库分表</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;"><b></b>&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x7B80;&#x4ECB;"><b></b>1. &#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#2-&#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;"><b></b>2. &#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;</a></li><ul><li><span class="title-icon "></span><a href="#21-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test"><b></b>2.1 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test</a></li><li><span class="title-icon "></span><a href="#22-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order"><b></b>2.2 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order</a></li></ul><li><span class="title-icon "></span><a href="#3-&#x642D;&#x5EFA;springbootmybatis-plussharding-jdbcdruid&#x5DE5;&#x7A0B;"><b></b>3. &#x642D;&#x5EFA;springboot+mybatis-plus+sharding-jdbc+druid&#x5DE5;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#31-&#x5F15;&#x5165;maven&#x4F9D;&#x8D56;"><b></b>3.1 &#x5F15;&#x5165;maven&#x4F9D;&#x8D56;</a></li><li><span class="title-icon "></span><a href="#32-&#x5B9E;&#x4F53;&#x7C7B;"><b></b>3.2 &#x5B9E;&#x4F53;&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#33-mapper&#x5C42;mybatis-plus"><b></b>3.3 mapper&#x5C42;(mybatis-plus)</a></li><li><span class="title-icon "></span><a href="#34-&#x542F;&#x52A8;&#x7C7B;"><b></b>3.4 &#x542F;&#x52A8;&#x7C7B;</a></li></ul><li><span class="title-icon "></span><a href="#4-sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><b></b>4. sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;</a></li><ul><li><span class="title-icon "></span><a href="#41-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><b></b>4.1 application.yml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;</a></li><li><span class="title-icon "></span><a href="#42-&#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><b></b>4.2 &#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;</a></li></ul><li><span class="title-icon "></span><a href="#5-sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;"><b></b>5. sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;</a></li><ul><li><span class="title-icon "></span><a href="#51-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;"><b></b>5.1 application.yml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;</a></li><li><span class="title-icon "></span><a href="#52-&#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><b></b>5.2 &#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;</a></li></ul></ul></ul></div><h1 id="&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;"><a name="&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x3010;&#x5206;&#x5E03;&#x5F0F;&#x3011;sharding-jdbc&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;</h1>
+<p><br></p>
+<p>[TOC]</p>
+<h2 id="1-&#x7B80;&#x4ECB;"><a name="1-&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#1-&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7B80;&#x4ECB;</h2>
+<p><br></p>
+<blockquote>
+<p>sharding-jdbc &#x662F;&#x8F7B;&#x91CF;&#x7EA7; Java &#x6846;&#x67B6;&#xFF0C;&#x5728; Java &#x7684; JDBC &#x5C42;&#x63D0;&#x4F9B;&#x7684;&#x989D;&#x5916;&#x670D;&#x52A1;&#x3002; &#x5B83;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x76F4;&#x8FDE;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4EE5; jar &#x5305;&#x5F62;&#x5F0F;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x65E0;&#x9700;&#x989D;&#x5916;&#x90E8;&#x7F72;&#x548C;&#x4F9D;&#x8D56;&#xFF0C;&#x53EF;&#x7406;&#x89E3;&#x4E3A;&#x589E;&#x5F3A;&#x7248;&#x7684; JDBC &#x9A71;&#x52A8;&#xFF0C;&#x5B8C;&#x5168;&#x517C;&#x5BB9; JDBC &#x548C;&#x5404;&#x79CD; ORM &#x6846;&#x67B6;&#x3002;</p>
+<p>&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5B98;&#x7F51;&#xFF1A;<a href="https://shardingsphere.apache.org/index_zh.html" target="_blank">sharding-jdbc&#x5B98;&#x7F51;</a></p>
+</blockquote>
+<p><br></p>
+<p>&#x672C;&#x6587;&#x8BB0;&#x5F55; &#x642D;&#x5EFA; spring boot + mybatis-plus + druid + sharding-jdbc &#x5B9E;&#x73B0;&#x6C34;&#x5E73;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;</p>
+<p><br></p>
+<h2 id="2-&#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;"><a name="2-&#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;" class="anchor-navigation-ex-anchor" href="#2-&#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;</h2>
+<p><br></p>
+<p>&#x6570;&#x636E;&#x5E93;&#x51C6;&#x5907;&#xFF1A;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93; &#x548C; &#x8868;&#xFF0C;&#x4E3A;&#x540E;&#x9762;&#x7684;&#x505A;&#x51C6;&#x5907;</p>
+<p><br></p>
+<p>&#x5B9E;&#x73B0;&#x5355;&#x5E93;&#x5206;&#x8868;&#xFF1A;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93; db1 + &#x4E24;&#x4E2A;&#x76F8;&#x540C;&#x7ED3;&#x6784;&#x7684;&#x8868;1 &#x8868;2</p>
+<p>&#x5B9E;&#x73B0;&#x5206;&#x5E93;&#x5206;&#x8868;&#xFF1A;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93; db1 db2 + &#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x5206;&#x522B;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x76F8;&#x540C;&#x7ED3;&#x6784;&#x7684;&#x8868;1 &#x8868;2</p>
+<p><br></p>
+<h3 id="21-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test"><a name="21-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test" class="anchor-navigation-ex-anchor" href="#21-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;test</h3>
+<p><br></p>
+<p>&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93; test&#x3001;test2 </p>
+<pre><code class="lang-sql"><span class="hljs-comment">-- &#x6570;&#x636E;&#x5E93; test</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-keyword">test</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8 ;
+
+<span class="hljs-comment">-- &#x6570;&#x636E;&#x5E93; test2</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> test2 <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8 ;
+</code></pre>
+<p><br></p>
+<h3 id="22-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order"><a name="22-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order" class="anchor-navigation-ex-anchor" href="#22-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868;order</h3>
+<p><br></p>
+<p>&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x8BA2;&#x5355;&#x8868;&#xFF0C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4FDD;&#x6301;&#x4E00;&#x81F4; t_order_1&#x3001;t_order_2&#xFF0C;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x9700;&#x8981;&#x521B;&#x5EFA;&#xFF0C;&#x4E3A;&#x540E;&#x9762;&#x7684;&#x5206;&#x5E93;&#x5206;&#x8868;&#x505A;&#x51C6;&#x5907;</p>
+<pre><code class="lang-sql"><span class="hljs-comment">-- &#x6307;&#x5B9A;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</span>
+<span class="hljs-keyword">USE</span> <span class="hljs-keyword">test</span>; <span class="hljs-comment">-- USE test2</span>
+
+<span class="hljs-comment">-- &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868; order1</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`t_order_1`</span>;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`t_order_1`</span> (
+  <span class="hljs-string">`order_id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x4E3B;&#x952E;&apos;</span>,
+  <span class="hljs-string">`order_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x540D;&#x79F0;&apos;</span>,
+  <span class="hljs-string">`order_type`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x7C7B;&#x578B;&apos;</span>,
+  <span class="hljs-string">`order_desc`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x8BE6;&#x60C5;&apos;</span>,
+  <span class="hljs-string">`create_user_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x4EBA;&apos;</span>,
+  <span class="hljs-string">`create_user_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x4EBA;&#x59D3;&#x540D;&apos;</span>,
+  <span class="hljs-string">`create_time`</span> <span class="hljs-keyword">timestamp</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`order_id`</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8;
+
+
+<span class="hljs-comment">-- &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x8BA2;&#x5355;&#x8868; order2</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`t_order_2`</span>;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`t_order_2`</span> (
+  <span class="hljs-string">`order_id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x4E3B;&#x952E;&apos;</span>,
+  <span class="hljs-string">`order_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x540D;&#x79F0;&apos;</span>,
+  <span class="hljs-string">`order_type`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x7C7B;&#x578B;&apos;</span>,
+  <span class="hljs-string">`order_desc`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8BA2;&#x5355;&#x8BE6;&#x60C5;&apos;</span>,
+  <span class="hljs-string">`create_user_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x4EBA;&apos;</span>,
+  <span class="hljs-string">`create_user_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x4EBA;&#x59D3;&#x540D;&apos;</span>,
+  <span class="hljs-string">`create_time`</span> <span class="hljs-keyword">timestamp</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`order_id`</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8;
+</code></pre>
+<p><br></p>
+<h2 id="3-&#x642D;&#x5EFA;springbootmybatis-plussharding-jdbcdruid&#x5DE5;&#x7A0B;"><a name="3-&#x642D;&#x5EFA;springbootmybatis-plussharding-jdbcdruid&#x5DE5;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#3-&#x642D;&#x5EFA;springbootmybatis-plussharding-jdbcdruid&#x5DE5;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x642D;&#x5EFA;springboot+mybatis-plus+sharding-jdbc+druid&#x5DE5;&#x7A0B;</h2>
+<p><br></p>
+<h3 id="31-&#x5F15;&#x5165;maven&#x4F9D;&#x8D56;"><a name="31-&#x5F15;&#x5165;maven&#x4F9D;&#x8D56;" class="anchor-navigation-ex-anchor" href="#31-&#x5F15;&#x5165;maven&#x4F9D;&#x8D56;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 &#x5F15;&#x5165;maven&#x4F9D;&#x8D56;</h3>
+<p><br></p>
+<p>springboot+mybatis-plus+sharding-jdbc+druid</p>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- &#x914D;&#x7F6E;sharding-jdbc 4.1.1&#x7248;&#x672C; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>4.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">sharding-jdbc-version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- spring boot&#x4F9D;&#x8D56; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.4.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- mybatis-plus --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- sharding-jdbc springboot&#x7684;&#x4F9D;&#x8D56;&#x5305; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${sharding-jdbc-version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sharding-jdbc-spring-namespace<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${sharding-jdbc-version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+
+    <span class="hljs-comment">&lt;!-- MySql&#x9A71;&#x52A8; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- &#x8FDE;&#x63A5;&#x6C60; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fastjson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.73<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+
+    <span class="hljs-comment">&lt;!-- &#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5DE5;&#x5177; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.javafaker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javafaker<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<p><br></p>
+<h3 id="32-&#x5B9E;&#x4F53;&#x7C7B;"><a name="32-&#x5B9E;&#x4F53;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#32-&#x5B9E;&#x4F53;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 &#x5B9E;&#x4F53;&#x7C7B;</h3>
+<p><br></p>
+<p>@TableName(value = &quot;t_order&quot;) &#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x8868;&#x903B;&#x8F91;&#x8868;&#x540D;(t_order)&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7269;&#x7406;&#x8868;&#x540D;(t_order_1 | t_order_2)</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x8BA2;&#x5355;&#x8868; &#x6A21;&#x578B;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;9&#x65E5;&#x4E0B;&#x5348;9:07:10
+ */</span>
+<span class="hljs-meta">@Data</span>
+<span class="hljs-meta">@Builder</span>
+<span class="hljs-meta">@TableName</span>(value = <span class="hljs-string">&quot;t_order&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> </span>{
+
+    <span class="hljs-comment">// &#x8BA2;&#x5355;ID</span>
+    <span class="hljs-meta">@TableId</span>(<span class="hljs-string">&quot;order_id&quot;</span>)
+    <span class="hljs-keyword">private</span> Long orderId ;
+
+    <span class="hljs-comment">// &#x8BA2;&#x5355;&#x540D;&#x79F0;</span>
+    <span class="hljs-keyword">private</span> String orderName ; 
+
+    <span class="hljs-comment">// &#x8BA2;&#x5355;&#x7C7B;&#x578B;</span>
+    <span class="hljs-keyword">private</span> String orderType ; 
+
+    <span class="hljs-comment">// &#x8BA2;&#x5355;&#x8BE6;&#x60C5;&#x63CF;&#x8FF0;</span>
+    <span class="hljs-keyword">private</span> String orderDesc ; 
+
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4EBA;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> createUserId ;
+
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4EBA;&#x59D3;&#x540D;</span>
+    <span class="hljs-keyword">private</span> String createUserName;
+
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x65F6;&#x95F4;</span>
+    <span class="hljs-comment">// JSON&#x8F93;&#x51FA;&#x683C;&#x5F0F;</span>
+    <span class="hljs-meta">@JSONField</span>(format = <span class="hljs-string">&quot;yyyy&#x5E74;MM&#x6708;dd&#x65E5; HH:mm:ss&quot;</span>)
+    <span class="hljs-keyword">private</span> Date createTime ;
+
+}
+</code></pre>
+<p><br></p>
+<h3 id="33-mapper&#x5C42;mybatis-plus"><a name="33-mapper&#x5C42;mybatis-plus" class="anchor-navigation-ex-anchor" href="#33-mapper&#x5C42;mybatis-plus"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 mapper&#x5C42;(mybatis-plus)</h3>
+<p><br></p>
+<p>mapper&#x5C42;&#x7EE7;&#x627F; BaseMapper &#x5C31;&#x53EF;&#x4EE5;&#x5BF9;&#x8868; t_order &#x8FDB;&#x884C;CRUD&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x5199;XML&#x6587;&#x4EF6;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IOrderMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseMapper</span>&lt;<span class="hljs-title">Order</span>&gt;</span>{
+
+}
+</code></pre>
+<h3 id="34-&#x542F;&#x52A8;&#x7C7B;"><a name="34-&#x542F;&#x52A8;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#34-&#x542F;&#x52A8;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4 &#x542F;&#x52A8;&#x7C7B;</h3>
+<pre><code class="lang-java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@MapperScan</span>(<span class="hljs-string">&quot;com.tianya.springboot.shardingjdbc.mapper&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LearnShardingJdbcApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(LearnShardingJdbcApplication.class, args);
+    }
+
+}
+</code></pre>
+<h2 id="4-sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><a name="4-sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;" class="anchor-navigation-ex-anchor" href="#4-sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>4. sharding-jdbc&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;</h2>
+<p><br></p>
+<p>&#x914D;&#x7F6E; &#x5355;&#x5E93;&#x5206;&#x8868;&#xFF0C;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x6570;&#x636E;&#x5E93; test  &#x53CA; &#x8868; t_order_1&#x3001;t_order_2 &#x6765;&#x5B9E;&#x73B0;</p>
+<p><br></p>
+<p>&#x5206;&#x8868;&#x89C4;&#x5219;&#xFF1A; </p>
+<p>&#x200B;    &#x5F53; &#x8BA2;&#x5355;&#x8868;order_id&#x662F;&#x5947;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728; t_order_2 &#x8868;&#x4E2D;</p>
+<p>&#x200B;    &#x5F53; &#x8BA2;&#x5355;&#x8868;order_id&#x662F;&#x5076;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728; t_order_1 &#x8868;&#x4E2D;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;&#x6570;&#x636E;&#x8868;&#x5E8F;&#x53F7; = ${order_id % 2 + 1}</p>
+<p><br></p>
+<h3 id="41-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><a name="41-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;" class="anchor-navigation-ex-anchor" href="#41-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1 application.yml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5355;&#x5E93;&#x5206;&#x8868;</h3>
+<pre><code class="lang-yaml">
+
+<span class="hljs-comment">#  &#x5355;&#x5E93;&#x5206;&#x8868; &#x914D;&#x7F6E;</span>
+
+
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  shardingsphere:</span>
+<span class="hljs-attr">    datasource:</span>
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0; &#x76F8;&#x5F53;&#x4E8E;&#x7ED9;&#x6570;&#x636E;&#x6E90;&#x53D6;&#x522B;&#x540D;&#xFF08;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x591A;&#x4E2A;&#x5E93;&#xFF0C;&#x4EE5;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF09;</span>
+<span class="hljs-attr">      names:</span> db1
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x5177;&#x4F53;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;</span>
+<span class="hljs-attr">      db1:</span>
+<span class="hljs-attr">        type:</span> com.alibaba.druid.pool.DruidDataSource
+<span class="hljs-attr">        driverClassName:</span> com.mysql.cj.jdbc.Driver
+        <span class="hljs-comment"># &#x914D;&#x7F6E; &#x6570;&#x636E;&#x5E93; test</span>
+<span class="hljs-attr">        url:</span> jdbc:mysql://localhost:<span class="hljs-number">3306</span>/test?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf<span class="hljs-bullet">-8</span>&amp;useSSL=<span class="hljs-literal">true</span>&amp;serverTimezone=UTC
+<span class="hljs-attr">        username:</span> root
+<span class="hljs-attr">        password:</span> mysql
+
+    <span class="hljs-comment"># &#x5206;&#x7247;&#x7B56;&#x7565;</span>
+<span class="hljs-attr">    sharding:</span>
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x8868;&#x7684; &#x5206;&#x7247;&#x7B56;&#x7565;</span>
+<span class="hljs-attr">      tables:</span>
+        <span class="hljs-comment"># &#x914D;&#x7F6E; &#x5177;&#x4F53;&#x7684; &#x903B;&#x8F91;&#x8868;&#x7684; &#x5206;&#x7247;&#x7B56;&#x7565;</span>
+<span class="hljs-attr">        t_order:</span>
+          <span class="hljs-comment"># t_order &#x8BA2;&#x5355;&#x8868;&#x7684; &#x4E3B;&#x952E;&#x89C4;&#x5219;</span>
+<span class="hljs-attr">          keyGenerator:</span>
+            <span class="hljs-comment"># &#x4E3B;&#x952E;&#x5217;</span>
+<span class="hljs-attr">            column:</span> order_id
+            <span class="hljs-comment"># &#x4E3B;&#x952E;&#x751F;&#x6210;&#x89C4;&#x5219; &#xFF08;SNOWFLAKE &#x96EA;&#x82B1;&#x7B97;&#x6CD5; &#x751F;&#x6210;&#x5206;&#x5E03;&#x5F0F;&#x552F;&#x4E00;ID&#xFF09;</span>
+<span class="hljs-attr">            type:</span> SNOWFLAKE
+
+          <span class="hljs-comment"># &#x914D;&#x7F6E; t_order &#x8BA2;&#x5355;&#x8868;&#x7684; &#x5177;&#x4F53;&#x6570;&#x636E;&#x5E93;&#x7269;&#x7406;&#x8868;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB; &#x8868;&#x8FBE;&#x5F0F;</span>
+<span class="hljs-attr">          actualDataNodes:</span> db1.t_order_$-&gt;{<span class="hljs-number">1.</span><span class="hljs-number">.2</span>}
+          <span class="hljs-comment"># &#x8868;&#x7B56;&#x7565;</span>
+<span class="hljs-attr">          tableStrategy:</span>
+<span class="hljs-attr">            inline:</span>
+              <span class="hljs-comment"># &#x5206;&#x7247;&#x5217;</span>
+<span class="hljs-attr">              sharding-column:</span> order_id
+              <span class="hljs-comment"># &#x5206;&#x7247;&#x89C4;&#x5219; &#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x6620;&#x5C04;&#x5230;&#x5177;&#x4F53;&#x7684;&#x7269;&#x7406;&#x8868; &#xFF09;</span>
+<span class="hljs-attr">              algorithm-expression:</span> t_order_$-&gt;{order_id % <span class="hljs-number">2</span> + <span class="hljs-number">1</span>}
+
+    <span class="hljs-comment"># &#x914D;&#x7F6E;&#x662F;&#x5426;&#x6253;&#x5370;SQL</span>
+<span class="hljs-attr">    props:</span>
+      sql.show: <span class="hljs-literal">true</span>
+
+  <span class="hljs-comment"># &#x89E3;&#x51B3;&#x4E00;&#x4E2A;bean&#x6620;&#x5C04;&#x5230;&#x591A;&#x5F20;&#x8868;&#x95EE;&#x9898;</span>
+<span class="hljs-attr">  main:</span>
+<span class="hljs-attr">    allow-bean-definition-overriding:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p><br></p>
+<p>&#x5B9E;&#x9645;&#x6570;&#x636E;&#x5E93;&#x7269;&#x7406;&#x8868;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF1A;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;db1.t<em>order</em>$-&gt;{1..2}&#xFF0C;$&#x662F;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x53D6;&#x503C;&#x6765;&#x6E90;&#x4E8E;&#x540E;&#x9762;&#x7684;{}&#xFF0C;1..2&#x8868;&#x793A;&#x5728;1&#x548C;2&#x4E4B;&#x95F4;&#x9009;&#x62E9;</p>
+<p><br></p>
+<p>&#x5206;&#x7247;&#x89C4;&#x5219; &#x8868;&#x8FBE;&#x5F0F;&#xFF1A;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;t<em>order</em>$-&gt;{order<em>id % 2 + 1}&#xFF0C;&#x5206;&#x7247;&#x8868;&#x5177;&#x4F53;&#x7684;&#x8868;&#x540D; t<em>order</em></em> &#x53D6;&#x51B3;&#x4E8E; {order_id % 2 + 1}</p>
+<p><br></p>
+<h3 id="42-&#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><a name="42-&#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;" class="anchor-navigation-ex-anchor" href="#42-&#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2 &#x6D4B;&#x8BD5;&#x5355;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;</h3>
+<p> <br></p>
+<p>&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x6D4B;&#x8BD5;&#x7C7B;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;9&#x65E5;&#x4E0B;&#x5348;9:10:08
+ */</span>
+<span class="hljs-meta">@SpringBootTest</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderMapperTest</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> IOrderMapper orderMapper ;
+
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@description</span>
+     *    &#x968F;&#x673A;&#x63D2;&#x5165;
+     * <span class="hljs-doctag">@author</span> TianwYam
+     * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;10&#x65E5;&#x4E0B;&#x5348;3:59:37
+     */</span>
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertOrder</span><span class="hljs-params">()</span> </span>{
+
+        Faker faker = <span class="hljs-keyword">new</span> Faker(Locale.SIMPLIFIED_CHINESE);
+
+        <span class="hljs-keyword">long</span> currentTimeMillis = System.currentTimeMillis();
+        Random random = <span class="hljs-keyword">new</span> Random();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; i++) {
+
+            <span class="hljs-keyword">int</span> nextInt = random.nextInt(<span class="hljs-number">500000000</span>);
+            Order order = Order.builder()
+                    .orderName(<span class="hljs-string">&quot;&#x8BA2;&#x5355;&#x5E94;&#x7528;&#x7C7B;&#x578B;&#xFF1A;&quot;</span> + faker.app().name())
+                    .orderType(<span class="hljs-string">&quot;&#x7F51;&#x8D2D;&#x8BA2;&#x5355;&quot;</span>)
+                    .orderDesc(<span class="hljs-string">&quot;&#x4E70;&#x4E86;&#x6B3E;&#x5E94;&#x7528;&#xFF1A;&quot;</span> + faker.app().name() + <span class="hljs-string">&quot; &#x7684;VIP&#x4F1A;&#x5458;&quot;</span>)
+                    .createUserName(faker.name().fullName())
+                    .createUserId(i)
+                    .createTime(<span class="hljs-keyword">new</span> Date(currentTimeMillis + nextInt))
+                    .build();
+            orderMapper.insert(order);
+        }
+
+    }
+
+
+}
+</code></pre>
+<p><br></p>
+<p>&#x968F;&#x673A;&#x63D2;&#x5165; 10&#x6761;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#x8868;&#x6570;&#x636E;&#xFF0C;sharding-jdbc&#x4F1A;&#x6839;&#x636E;&#x8BBE;&#x7F6E;&#x7684;&#x4E3B;&#x952E;&#x751F;&#x6210;&#x89C4;&#x5219;&#xFF08;&#x96EA;&#x82B1;&#x7B97;&#x6CD5;&#xFF09; &#x751F;&#x6210;&#x4E3B;&#x952E; order_id&#xFF0C;&#x7136;&#x540E;sharding-jdbc&#x4F1A;&#x6839;&#x636E;&#x4E3B;&#x952E; order_id &#x5206;&#x7247;&#x89C4;&#x5219;&#xFF08;&#x5947;&#x6570;&#x5076;&#x6570;&#xFF09;&#x5224;&#x65AD;&#x6620;&#x5C04;&#x5230;&#x5177;&#x4F53;&#x6570;&#x636E;&#x5E93;&#x8868;&#x4E2D;&#xFF0C;&#x6267;&#x884C;&#x63D2;&#x5165;&#x64CD;&#x4F5C;</p>
+<p><br></p>
+<p>t_order_1 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;</p>
+<p><img src="img/test-order1.jpg" alt="test- t_order_1 "></p>
+<p><br></p>
+<p>t_order_2 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;</p>
+<p><img src="img/test-order2.jpg" alt="test-order2"></p>
+<p><br></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA; t_order_1 &#x91CC;&#x9762;&#x5B58;&#x653E;&#x7684;&#x662F; order_id &#x4E3A;&#x5076;&#x6570;&#x7684;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#xFF0C;t_order_2 &#x91CC;&#x9762;&#x5B58;&#x653E;&#x7684;&#x662F; order_id &#x4E3A;&#x5947;&#x6570;&#x7684;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#xFF0C;&#x662F;&#x6309;&#x7167;&#x6211;&#x4EEC;&#x914D;&#x7F6E;&#x7684;&#x5206;&#x7247;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x5206;&#x8868;&#x64CD;&#x4F5C;&#x7684;</p>
+<p><br></p>
+<h2 id="5-sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;"><a name="5-sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#5-sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>5. sharding-jdbc&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;&#x64CD;&#x4F5C;</h2>
+<p><br></p>
+<p>&#x5206;&#x5E93;&#xFF0C;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x6570;&#x636E;&#x5E93; test &#x3001;test2 &#xFF08;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x884C;&#xFF09;</p>
+<p>&#x5206;&#x8868;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528; &#x8868; t_order_1&#x3001;t_order_2 &#x6765;&#x5B9E;&#x73B0;&#xFF08;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x5185;&#x53C8;&#x91C7;&#x7528;&#x5206;&#x8868;&#x7B56;&#x7565;&#xFF09;</p>
+<p><br></p>
+<p>&#x5206;&#x5E93;&#x89C4;&#x5219;&#xFF1A;</p>
+<p>&#x200B;    &#x5F53;&#x7528;&#x6237;&#x4E3B;&#x952E; create_user_id&#x4E3A;&#x5947;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728;&#x5E93; test2&#xFF08;db2&#xFF09; &#x91CC;&#x9762;</p>
+<p>&#x200B;    &#x5F53;&#x7528;&#x6237;&#x4E3B;&#x952E; create_user_id&#x4E3A;&#x5076;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728;&#x5E93; test&#xFF08;db1&#xFF09; &#x91CC;&#x9762;</p>
+<p>&#x5206;&#x8868;&#x89C4;&#x5219;&#xFF1A; </p>
+<p>&#x200B;    &#x5F53; &#x8BA2;&#x5355;&#x8868;order_id&#x662F;&#x5947;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728; t_order_2 &#x8868;&#x4E2D;</p>
+<p>&#x200B;    &#x5F53; &#x8BA2;&#x5355;&#x8868;order_id&#x662F;&#x5076;&#x6570;&#xFF0C;&#x5C31;&#x5B58;&#x653E;&#x5728; t_order_1 &#x8868;&#x4E2D;</p>
+<p>&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;</p>
+<p>&#x200B;    &#x6570;&#x636E;&#x5E93;&#x5E8F;&#x53F7; = ${create_user_id % 2 + 1}</p>
+<p>&#x200B;    &#x6570;&#x636E;&#x8868;&#x5E8F;&#x53F7; = ${order_id % 2 + 1}</p>
+<p><br></p>
+<h3 id="51-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;"><a name="51-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;" class="anchor-navigation-ex-anchor" href="#51-applicationyml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1 application.yml&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;&#x5206;&#x5E93;&#x5206;&#x8868;</h3>
+<p><br></p>
+<pre><code class="lang-yaml">
+
+<span class="hljs-comment">#  &#x5206;&#x5E93;&#x5206;&#x8868; &#x914D;&#x7F6E;</span>
+
+
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  shardingsphere:</span>
+<span class="hljs-attr">    datasource:</span>
+
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;</span>
+<span class="hljs-attr">      names:</span> db1,db2
+
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x5177;&#x4F53;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;</span>
+<span class="hljs-attr">      db1:</span>
+<span class="hljs-attr">        type:</span> com.alibaba.druid.pool.DruidDataSource
+<span class="hljs-attr">        driverClassName:</span> com.mysql.cj.jdbc.Driver
+<span class="hljs-attr">        url:</span> jdbc:mysql://localhost:<span class="hljs-number">3306</span>/test?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf<span class="hljs-bullet">-8</span>&amp;useSSL=<span class="hljs-literal">true</span>&amp;serverTimezone=UTC
+<span class="hljs-attr">        username:</span> root
+<span class="hljs-attr">        password:</span> mysql
+<span class="hljs-attr">      db2:</span>
+<span class="hljs-attr">        type:</span> com.alibaba.druid.pool.DruidDataSource
+<span class="hljs-attr">        driverClassName:</span> com.mysql.cj.jdbc.Driver
+<span class="hljs-attr">        url:</span> jdbc:mysql://localhost:<span class="hljs-number">3306</span>/test2?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf<span class="hljs-bullet">-8</span>&amp;useSSL=<span class="hljs-literal">true</span>&amp;serverTimezone=UTC
+<span class="hljs-attr">        username:</span> root
+<span class="hljs-attr">        password:</span> mysql
+<span class="hljs-attr">    sharding:</span>
+<span class="hljs-attr">      tables:</span>
+
+        <span class="hljs-comment"># &#x914D;&#x7F6E;&#x591A;&#x4E2A;&#x903B;&#x8F91;&#x8868;</span>
+<span class="hljs-attr">        t_order:</span>
+
+          <span class="hljs-comment"># &#x914D;&#x7F6E; &#x4E3B;&#x952E; &#x5217;&#x3001;&#x53CA;&#x7C7B;&#x578B;</span>
+<span class="hljs-attr">          keyGenerator:</span>
+<span class="hljs-attr">            column:</span> order_id
+<span class="hljs-attr">            type:</span> SNOWFLAKE
+
+          <span class="hljs-comment"># &#x914D;&#x7F6E; &#x6570;&#x636E;&#x5E93; &#x8868;&#x89C4;&#x5219;</span>
+<span class="hljs-attr">          actualDataNodes:</span> db$-&gt;{<span class="hljs-number">1.</span><span class="hljs-number">.2</span>}.t_order_$-&gt;{<span class="hljs-number">1.</span><span class="hljs-number">.2</span>}
+
+          <span class="hljs-comment"># &#x5206;&#x5E93;&#x7B56;&#x7565;&#xFF08;&#x5177;&#x4F53;&#x67D0;&#x5F20;&#x8868;&#x7684;&#xFF09;</span>
+<span class="hljs-attr">          databaseStrategy:</span>
+<span class="hljs-attr">            inline:</span>
+<span class="hljs-attr">              shardingColumn:</span> create_user_id
+<span class="hljs-attr">              algorithmExpression:</span> db$-&gt;{create_user_id % <span class="hljs-number">2</span> + <span class="hljs-number">1</span>}
+
+          <span class="hljs-comment"># &#x5206;&#x8868;&#x7B56;&#x7565;</span>
+<span class="hljs-attr">          tableStrategy:</span>
+<span class="hljs-attr">            inline:</span>
+<span class="hljs-attr">              sharding-column:</span> order_id
+<span class="hljs-attr">              algorithm-expression:</span> t_order_$-&gt;{order_id % <span class="hljs-number">2</span> + <span class="hljs-number">1</span>}
+
+      <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x7684; &#x5206;&#x5E93;&#x7B56;&#x7565;&#xFF08;&#x9488;&#x5BF9;&#x6240;&#x6709;&#x8868;&#xFF09;</span>
+      <span class="hljs-comment">#defaultDatabaseStrategy:</span>
+      <span class="hljs-comment">#  inline:</span>
+      <span class="hljs-comment">#    shardingColumn: create_user_id</span>
+      <span class="hljs-comment">#    algorithmExpression: db$-&gt;{create_user_id % 2 + 1}</span>
+
+
+      <span class="hljs-comment"># &#x914D;&#x7F6E;&#x9ED8;&#x8BA4;&#x6570;&#x636E;&#x6E90;</span>
+<span class="hljs-attr">      defaultDataSourceName:</span> db1
+
+    <span class="hljs-comment"># &#x914D;&#x7F6E; &#x662F;&#x5426;&#x6253;&#x5370;SQL </span>
+<span class="hljs-attr">    props:</span>
+      sql.show: <span class="hljs-literal">true</span>
+
+
+  <span class="hljs-comment"># &#x89E3;&#x51B3;&#x4E00;&#x4E2A;bean&#x6620;&#x5C04;&#x5230;&#x591A;&#x5F20;&#x8868;&#x95EE;&#x9898;</span>
+<span class="hljs-attr">  main:</span>
+<span class="hljs-attr">    allow-bean-definition-overriding:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p><br></p>
+<h3 id="52-&#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><a name="52-&#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;" class="anchor-navigation-ex-anchor" href="#52-&#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>5.2 &#x6D4B;&#x8BD5;&#x5206;&#x5E93;&#x5206;&#x8868;&#x7ED3;&#x679C;</h3>
+<p><br></p>
+<p>&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x63D2;&#x5165;&#x7684;&#x7528;&#x4F8B;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x968F;&#x673A;&#x63D2;&#x5165;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;10&#x65E5;&#x4E0B;&#x5348;3:59:37
+ */</span>
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertOrder</span><span class="hljs-params">()</span> </span>{
+
+    Faker faker = <span class="hljs-keyword">new</span> Faker(Locale.SIMPLIFIED_CHINESE);
+
+    <span class="hljs-keyword">long</span> currentTimeMillis = System.currentTimeMillis();
+    Random random = <span class="hljs-keyword">new</span> Random();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; i++) {
+
+        <span class="hljs-keyword">int</span> nextInt = random.nextInt(<span class="hljs-number">500000000</span>);
+        Order order = Order.builder()
+                .orderName(<span class="hljs-string">&quot;&#x8BA2;&#x5355;&#x5E94;&#x7528;&#x540D;&#x79F0;&#xFF1A;&quot;</span> + faker.app().name())
+                .orderType(<span class="hljs-string">&quot;&#x7F51;&#x8D2D;&#x8BA2;&#x5355;&quot;</span>)
+                .orderDesc(<span class="hljs-string">&quot;&#x4E70;&#x4E86;&#x6B3E;&#x5E94;&#x7528;&#xFF1A;&quot;</span> + faker.app().name() + <span class="hljs-string">&quot; &#x7684;VIP&#x4F1A;&#x5458;&quot;</span>)
+                .createUserName(faker.name().fullName())
+                .createUserId(i)
+                .createTime(<span class="hljs-keyword">new</span> Date(currentTimeMillis + nextInt))
+                .build();
+        orderMapper.insert(order);
+    }
+
+}
+</code></pre>
+<p><br></p>
+<p>&#x968F;&#x673A;&#x63D2;&#x5165; 10&#x6761;&#x8BA2;&#x5355;&#x4FE1;&#x606F;&#x8868;&#x6570;&#x636E;&#xFF0C;sharding-jdbc&#x5148;&#x4F1A;&#x6839;&#x636E;&#x5206;&#x5E93;&#x89C4;&#x5219;&#xFF08;&#x521B;&#x5EFA;&#x4EBA; create_user_id &#x5947;&#x6570;&#x5076;&#x6570;&#xFF09;&#x786E;&#x5B9A;&#x5177;&#x4F53;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x8BBE;&#x7F6E;&#x7684;&#x5206;&#x8868;&#x89C4;&#x5219;&#x7684;&#x8868;&#x4E3B;&#x952E;&#x751F;&#x6210;&#x89C4;&#x5219;&#xFF08;&#x96EA;&#x82B1;&#x7B97;&#x6CD5;&#xFF09; &#x751F;&#x6210;&#x4E3B;&#x952E; order_id&#xFF0C;&#x7136;&#x540E;sharding-jdbc&#x4F1A;&#x6839;&#x636E;&#x4E3B;&#x952E; order_id &#x5206;&#x7247;&#x89C4;&#x5219;&#xFF08;&#x5947;&#x6570;&#x5076;&#x6570;&#xFF09;&#x5224;&#x65AD;&#x6620;&#x5C04;&#x5230;&#x5177;&#x4F53;&#x6570;&#x636E;&#x8868;&#x4E2D;&#xFF0C;&#x6267;&#x884C;&#x63D2;&#x5165;&#x64CD;&#x4F5C;</p>
+<p><br></p>
+<p>&#x6570;&#x636E;&#x5E93;db1&#xFF08;test&#xFF09;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5076;&#x6570;</p>
+<p>t_order_1 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;&#xFF08;&#x8BA2;&#x5355;ID&#x90FD;&#x662F;&#x5076;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5076;&#x6570;&#xFF09;</p>
+<p><img src="img/db1-order1.jpg" alt="db1-order1"></p>
+<p><br></p>
+<p>t_order_2 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;&#xFF08;&#x8BA2;&#x5355;ID&#x90FD;&#x662F;&#x5947;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5076;&#x6570;&#xFF09;</p>
+<p><img src="img/db1-order2.jpg" alt="db1-order2"></p>
+<p><br></p>
+<p><br></p>
+<p>&#x6570;&#x636E;&#x5E93;db2&#xFF08;test2&#xFF09;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5947;&#x6570;</p>
+<p>t_order_1 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;&#xFF08;&#x8BA2;&#x5355;ID&#x90FD;&#x662F;&#x5076;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5947;&#x6570;&#xFF09;</p>
+<p><img src="img/db2-order1.jpg" alt="db2-order1"></p>
+<p><br></p>
+<p>t_order_2 &#x63D2;&#x5165;&#x6570;&#x636E;&#x60C5;&#x51B5;&#xFF1A;&#xFF08;&#x8BA2;&#x5355;ID&#x90FD;&#x662F;&#x5947;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x7528;&#x6237;ID&#x90FD;&#x662F;&#x5947;&#x6570;&#xFF09;</p>
+<p><img src="img/db2-order2.jpg" alt="db2-order2"></p>
+<p><br></p>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-10-23 14:40:47
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../mybatis/mybatis_plus.html" class="navigation navigation-prev " aria-label="Previous page: springboot集成mybatis-plus框架">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../SQL/sql.html" class="navigation navigation-next " aria-label="Next page: SQL常用使用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"【分布式】sharding-jdbc实现分库分表","level":"16.1","depth":1,"next":{"title":"SQL常用使用","level":"17.1","depth":1,"path":"SQL/sql.md","ref":"SQL/sql.md","articles":[]},"previous":{"title":"springboot集成mybatis-plus框架","level":"15.2","depth":1,"path":"mybatis/mybatis_plus.md","ref":"mybatis/mybatis_plus.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"distributed/sharding-jdbc.md","mtime":"2021-10-23T06:40:47.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-23T06:43:09.312Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

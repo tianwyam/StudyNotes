@@ -117,9 +117,13 @@
 
 - [mybatis中操作元数据](mybatis/mybatis_metadata.md)
 
-
-
 - [springboot集成mybatis-plus框架](mybatis/mybatis_plus.md)
+
+
+
+- [【分布式】sharding-jdbc实现分库分表](distributed/sharding-jdbc.md)
+
+
 
 
 

@@ -1,0 +1,2097 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>springboot集成mybatis-plus框架 · JAVA学习积累</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tianwyam">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../distributed/sharding-jdbc.html" />
+    
+    
+    <link rel="prev" href="mybatis_metadata.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blog.csdn.net/mybook201314" target="_blank" class="custom-link">博客Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">【前言】</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍ABOUT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第一章】Java基础</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    计算机基础-操作系统-进程-计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java/java_thread_pool.html">
+            
+                <a href="../java/java_thread_pool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../java/java_ftp.html">
+            
+                <a href="../java/java_ftp.html">
+            
+                    
+                    FTP文件服务器上传下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../java/collection.html">
+            
+                <a href="../java/collection.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../java/collection/java_collection_map.html">
+            
+                <a href="../java/collection/java_collection_map.html">
+            
+                    
+                    Map&HashMap&HashTable&ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../java/java_queue.html">
+            
+                <a href="../java/java_queue.html">
+            
+                    
+                    队列-queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../java/java_tree.html">
+            
+                <a href="../java/java_tree.html">
+            
+                    
+                    二叉树遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java_io_nio.html">
+            
+                <a href="../java/java_io_nio.html">
+            
+                    
+                    java输入输出流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java/java_exception.html">
+            
+                <a href="../java/java_exception.html">
+            
+                    
+                    异常exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../java/java_serialize.html">
+            
+                <a href="../java/java_serialize.html">
+            
+                    
+                    Java序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../java/Java_annotation.html">
+            
+                <a href="../java/Java_annotation.html">
+            
+                    
+                    注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../java/multi.html">
+            
+                <a href="../java/multi.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                <a href="../java/multithread/java_multi_thread_volatile_synchronized.html">
+            
+                    
+                    volatile&synchronized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                <a href="../java/multithread/java_multi_thread_object_wait_notify.html">
+            
+                    
+                    object/wait/notify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../java/multithread/java_multi_thread_thread.html">
+            
+                <a href="../java/multithread/java_multi_thread_thread.html">
+            
+                    
+                    thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../java/multithread/java_multi_thread_threadpool.html">
+            
+                <a href="../java/multithread/java_multi_thread_threadpool.html">
+            
+                    
+                    线程池的工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../java/multithread/java_multi_thread_lock.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock.html">
+            
+                    
+                    lock&ReentrantLock&ReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                <a href="../java/multithread/java_multi_thread_lock_condition.html">
+            
+                    
+                    lock&condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../java/multithread/java_multi_thread_tools.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools.html">
+            
+                    
+                    Java并发工具- CountDownLatch&CyclicBarrier 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../java/multithread/java_multi_thread_tools2.html">
+            
+                <a href="../java/multithread/java_multi_thread_tools2.html">
+            
+                    
+                    Java同步工具类- CountDownLatch&CyclicBarrier&Semaphore  
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../java/java_jvm.html">
+            
+                <a href="../java/java_jvm.html">
+            
+                    
+                    java虚拟机-JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../java/java_java7new.html">
+            
+                <a href="../java/java_java7new.html">
+            
+                    
+                    java7新知识- Switch&TWR&Objects 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../java/java_stream.html">
+            
+                <a href="../java/java_stream.html">
+            
+                    
+                    Java8对集合流操作stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../java/java_stream_groupby.html">
+            
+                <a href="../java/java_stream_groupby.html">
+            
+                    
+                    java8新语法-Stream-分组groupingBy操作 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../java/java_optional.html">
+            
+                <a href="../java/java_optional.html">
+            
+                    
+                    java8新语法-Optional 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../java/java_8new_date_api.html">
+            
+                <a href="../java/java_8new_date_api.html">
+            
+                    
+                    java8-新的日期时间API 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../xml/xml_translation.html">
+            
+                <a href="../xml/xml_translation.html">
+            
+                    
+                    XML中特殊符号的转译 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../datastructure/binary_complement.html">
+            
+                <a href="../datastructure/binary_complement.html">
+            
+                    
+                    原码、反码、补码 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../java/basic/javabean2map.html">
+            
+                <a href="../java/basic/javabean2map.html">
+            
+                    
+                    Java bean转Map 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第二章】算法积累题</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../algorithm/merge_sorted_array.html">
+            
+                <a href="../algorithm/merge_sorted_array.html">
+            
+                    
+                    算法题 - 合并排序数组 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../algorithm/lowest_score.html">
+            
+                <a href="../algorithm/lowest_score.html">
+            
+                    
+                    算法题 - 最低分数线问题 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../algorithm/array_sub_list.html">
+            
+                <a href="../algorithm/array_sub_list.html">
+            
+                    
+                    算法题 - 求数组的子集合 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第三章】框架</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Spring/springboot.html">
+            
+                <a href="../Spring/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../Spring/spring_security.html">
+            
+                <a href="../Spring/spring_security.html">
+            
+                    
+                    SpringSecurity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../linux/linux_commands_springboot_startup.html">
+            
+                <a href="../linux/linux_commands_springboot_startup.html">
+            
+                    
+                    SpringBoot项目启动脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Spring/spring/spring_interview_questions_68.html">
+            
+                <a href="../Spring/spring/spring_interview_questions_68.html">
+            
+                    
+                    Spring面试题68
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../Spring/springboot_auto_config.html">
+            
+                <a href="../Spring/springboot_auto_config.html">
+            
+                    
+                    SpringBoot自动装载机制 - 源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../Spring/spring_feign.html">
+            
+                <a href="../Spring/spring_feign.html">
+            
+                    
+                    Feign在spring、springboot下使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../Spring/spring_freemarker.html">
+            
+                <a href="../Spring/spring_freemarker.html">
+            
+                    
+                    Spring boot集成freemarker，生成word文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../Spring/spring_freemarker_generate.html">
+            
+                <a href="../Spring/spring_freemarker_generate.html">
+            
+                    
+                    Freemarker自动生成Java bean代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" data-path="mybatis_metadata.html">
+            
+                <a href="mybatis_metadata.html">
+            
+                    
+                    mybatis中操作元数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="15.2" data-path="mybatis_plus.html">
+            
+                <a href="mybatis_plus.html">
+            
+                    
+                    springboot集成mybatis-plus框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="16.1" data-path="../distributed/sharding-jdbc.html">
+            
+                <a href="../distributed/sharding-jdbc.html">
+            
+                    
+                    【分布式】sharding-jdbc实现分库分表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第四章】数据库</li>
+        
+        
+    
+        <li class="chapter " data-level="17.1" data-path="../SQL/sql.html">
+            
+                <a href="../SQL/sql.html">
+            
+                    
+                    SQL常用使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.2" data-path="../redis/redis_study_notes.html">
+            
+                <a href="../redis/redis_study_notes.html">
+            
+                    
+                    redis学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.3" data-path="../SQL/sql_mysql_green_install.html">
+            
+                <a href="../SQL/sql_mysql_green_install.html">
+            
+                    
+                    mysql绿色版安装服务教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.4" data-path="../SQL/sql_h2.html">
+            
+                <a href="../SQL/sql_h2.html">
+            
+                    
+                    H2内嵌数据的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.5" data-path="../SQL/cache.html">
+            
+                <a href="../SQL/cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="17.6" data-path="../SQL/mysql/mysql_back_rollback.html">
+            
+                <a href="../SQL/mysql/mysql_back_rollback.html">
+            
+                    
+                    MySQL单表备份还原
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第五章】Web</li>
+        
+        
+    
+        <li class="chapter " data-level="18.1" data-path="../web/web_js_jquery.html">
+            
+                <a href="../web/web_js_jquery.html">
+            
+                    
+                    web简单积累
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第六章】Linux</li>
+        
+        
+    
+        <li class="chapter " data-level="19.1" data-path="../linux/linux_common_commands.html">
+            
+                <a href="../linux/linux_common_commands.html">
+            
+                    
+                    linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第七章】Windows</li>
+        
+        
+    
+        <li class="chapter " data-level="20.1" data-path="../windows/windows_common_commands.html">
+            
+                <a href="../windows/windows_common_commands.html">
+            
+                    
+                    windows常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">【第八章】错误集</li>
+        
+        
+    
+        <li class="chapter " data-level="21.1" data-path="../error/maven_not_found_local_jar.html">
+            
+                <a href="../error/maven_not_found_local_jar.html">
+            
+                    
+                    maven引入依赖时识别不到本地仓库的jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="22.1" data-path="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                <a href="../error/security_not_configure_antMatchers_after_anyRequest.html">
+            
+                    
+                    spring security 配置发生错误 Can't configure antMatchers after anyRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="23.1" data-path="../error/AOP_stream_close_error.html">
+            
+                <a href="../error/AOP_stream_close_error.html">
+            
+                    
+                    AOP内获取了对请求流操作后报流已经关闭错误的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="24.1" data-path="../tools/github/github_ssh.html">
+            
+                <a href="../tools/github/github_ssh.html">
+            
+                    
+                    Github ssh key 解决提交后push频繁输入用户名和密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="25.1" data-path="../error/sharding-jdbc-error-datasources.html">
+            
+                <a href="../error/sharding-jdbc-error-datasources.html">
+            
+                    
+                    sharding-jdbc-4.1.1版本启动数据源报错问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >springboot集成mybatis-plus框架</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#springboot&#x96C6;&#x6210;mybatis-plus&#x6846;&#x67B6;"><b></b>SpringBoot&#x96C6;&#x6210;Mybatis-Plus&#x6846;&#x67B6;</a></li><ul><li><span class="title-icon "></span><a href="#&#x73AF;&#x5883;"><b></b>&#x73AF;&#x5883;</a></li><li><span class="title-icon "></span><a href="#&#x6570;&#x636E;&#x5E93;&#x8868;"><b></b>&#x6570;&#x636E;&#x5E93;&#x8868;</a></li><li><span class="title-icon "></span><a href="#java&#x5B9E;&#x4F53;&#x7C7B;-userinfo"><b></b>Java&#x5B9E;&#x4F53;&#x7C7B; UserInfo</a></li><li><span class="title-icon "></span><a href="#applicationyml-&#x4E3B;&#x914D;&#x7F6E;"><b></b>application.yml &#x4E3B;&#x914D;&#x7F6E;</a></li><li><span class="title-icon "></span><a href="#&#x7F16;&#x5199;mapper"><b></b>&#x7F16;&#x5199;mapper</a></li><li><span class="title-icon "></span><a href="#&#x4E3B;&#x542F;&#x52A8;&#x7C7B;"><b></b>&#x4E3B;&#x542F;&#x52A8;&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#mapper-crud&#x64CD;&#x4F5C;"><b></b>Mapper CRUD&#x64CD;&#x4F5C;</a></li><ul><li><span class="title-icon "></span><a href="#&#x65B0;&#x589E;"><b></b>&#x65B0;&#x589E;</a></li><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;"><b></b>&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;"><b></b>&#x5206;&#x9875;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x5220;&#x9664;"><b></b>&#x5220;&#x9664;</a></li><li><span class="title-icon "></span><a href="#&#x66F4;&#x65B0;"><b></b>&#x66F4;&#x65B0;</a></li></ul><li><span class="title-icon "></span><a href="#service-crud&#x64CD;&#x4F5C;"><b></b>Service CRUD&#x64CD;&#x4F5C;</a></li></ul></ul></div><h1 id="springboot&#x96C6;&#x6210;mybatis-plus&#x6846;&#x67B6;"><a name="springboot&#x96C6;&#x6210;mybatis-plus&#x6846;&#x67B6;" class="anchor-navigation-ex-anchor" href="#springboot&#x96C6;&#x6210;mybatis-plus&#x6846;&#x67B6;"><i class="fa fa-link" aria-hidden="true"></i></a>SpringBoot&#x96C6;&#x6210;Mybatis-Plus&#x6846;&#x67B6;</h1>
+<p><br></p>
+<p>MyBatis-Plus&#xFF08;&#x7B80;&#x79F0; MP&#xFF09;&#x662F;&#x4E00;&#x4E2A;MyBatis&#x7684;&#x589E;&#x5F3A;&#x5DE5;&#x5177;&#xFF0C;&#x5728; MyBatis &#x7684;&#x57FA;&#x7840;&#x4E0A;&#x53EA;&#x505A;&#x589E;&#x5F3A;&#x4E0D;&#x505A;&#x6539;&#x53D8;&#xFF0C;&#x4E3A;&#x7B80;&#x5316;&#x5F00;&#x53D1;&#x3001;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#x800C;&#x751F;&#x3002;</p>
+<p><br></p>
+<p>&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x8003;MyBatis-Plus&#x5B98;&#x7F51;&#xFF1A;<a href="https://mp.baomidou.com" target="_blank">MyBatis-Plus&#x5B98;&#x7F51;</a></p>
+<p><br></p>
+<p>[TOC]</p>
+<p><br></p>
+<h2 id="&#x73AF;&#x5883;"><a name="&#x73AF;&#x5883;" class="anchor-navigation-ex-anchor" href="#&#x73AF;&#x5883;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x73AF;&#x5883;</h2>
+<p><br></p>
+<ul>
+<li>Java1.8</li>
+<li>maven</li>
+<li>spring boot 2.2.4.RELEASE</li>
+<li>mybatis-plus-boot-starte 3.3.2</li>
+<li>mysql</li>
+</ul>
+<p><br></p>
+<p>maven xml &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- spring boot&#x914D;&#x7F6E;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.4.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+
+
+
+<span class="hljs-comment">&lt;!-- 
+    mybatis-plus&#xFF08;&#x5305;&#x542B;&#x4E86;mybatis&#x7684;&#x5305;&#xFF09;
+    &#x5F15;&#x5165;&#x4E86;&#x6B64;&#x4F9D;&#x8D56;&#x540E;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x5F15;&#x5165;mybatis&#x7684;&#x5176;&#x4ED6;&#x5305;
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- MySql&#x9A71;&#x52A8; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p><br></p>
+<h2 id="&#x6570;&#x636E;&#x5E93;&#x8868;"><a name="&#x6570;&#x636E;&#x5E93;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x5E93;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x5E93;&#x8868;</h2>
+<p><br></p>
+<p>&#x7528;&#x6237;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#x8868;</p>
+<pre><code class="lang-sql">
+<span class="hljs-comment">-- &#x5EFA;&#x8868;&#x8BED;&#x53E5;</span>
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`user_info`</span> (
+  <span class="hljs-string">`user_id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7528;&#x6237;ID&#x4E3B;&#x952E;&apos;</span>,
+  <span class="hljs-string">`user_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7528;&#x6237;&#x59D3;&#x540D;&apos;</span>,
+  <span class="hljs-string">`user_idcard`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8EAB;&#x4EFD;&#x8BC1;&apos;</span>,
+  <span class="hljs-string">`age`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x5E74;&#x9F84;&apos;</span>,
+  <span class="hljs-string">`home_address`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">500</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x5BB6;&#x5EAD;&#x5730;&#x5740;&apos;</span>,
+  <span class="hljs-string">`height`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x8EAB;&#x9AD8;&apos;</span>,
+  <span class="hljs-string">`birth_day`</span> <span class="hljs-built_in">date</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x51FA;&#x751F;&#x65E5;&#x671F;&apos;</span>,
+  <span class="hljs-string">`sex`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x6027;&#x522B;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`user_id`</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8 ;
+</code></pre>
+<p><br></p>
+<h2 id="java&#x5B9E;&#x4F53;&#x7C7B;-userinfo"><a name="java&#x5B9E;&#x4F53;&#x7C7B;-userinfo" class="anchor-navigation-ex-anchor" href="#java&#x5B9E;&#x4F53;&#x7C7B;-userinfo"><i class="fa fa-link" aria-hidden="true"></i></a>Java&#x5B9E;&#x4F53;&#x7C7B; UserInfo</h2>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    &#x7528;&#x6237;&#x57FA;&#x672C;&#x4FE1;&#x606F;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;13&#x65E5;&#x4E0B;&#x5348;4:24:36
+ */</span>
+<span class="hljs-meta">@Data</span>
+<span class="hljs-meta">@Builder</span>
+<span class="hljs-meta">@TableName</span>(<span class="hljs-string">&quot;user_info&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserInfo</span> </span>{
+
+    <span class="hljs-comment">// &#x7528;&#x6237;ID</span>
+    <span class="hljs-comment">// @TableId &#x6807;&#x6CE8;&#x4E3A;&#x8868;&#x4E3B;&#x952E;ID&#xFF0C;&#x82E5;&#x662F;&#x6CA1;&#x6709;&#x6807;&#x6CE8;&#xFF0C;&#x5219; updateById&#x4F1A;&#x62A5;&#x9519;</span>
+    <span class="hljs-meta">@TableId</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> userId ;
+
+    <span class="hljs-comment">// &#x7528;&#x6237;&#x59D3;&#x540D;</span>
+    <span class="hljs-meta">@TableField</span>
+    <span class="hljs-keyword">private</span> String userName ;
+
+    <span class="hljs-comment">// &#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x8BC1;</span>
+    <span class="hljs-keyword">private</span> String userIdcard ;
+
+    <span class="hljs-comment">// &#x5BB6;&#x5EAD;&#x5730;&#x5740;</span>
+    <span class="hljs-keyword">private</span> String homeAddress ;
+
+    <span class="hljs-comment">// &#x5E74;&#x9F84;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age ;
+
+    <span class="hljs-comment">// &#x8EAB;&#x9AD8;CM</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> height ;
+
+    <span class="hljs-comment">// &#x6027;&#x522B;</span>
+    <span class="hljs-keyword">private</span> String sex ;
+
+    <span class="hljs-comment">// &#x51FA;&#x751F;&#x65E5;&#x671F;</span>
+    <span class="hljs-comment">// JSON &#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5316;</span>
+    <span class="hljs-meta">@JSONField</span>(format = <span class="hljs-string">&quot;yyyy&#x5E74;MM&#x6708;dd&#x65E5;&quot;</span>)
+    <span class="hljs-keyword">private</span> Date birthDay ;
+
+}
+</code></pre>
+<p><br></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;@TableId &#x6807;&#x6CE8;&#x4E3A;&#x8868;&#x4E3B;&#x952E;ID&#xFF0C;&#x82E5;&#x662F;&#x6CA1;&#x6709;&#x6807;&#x6CE8;&#xFF0C;&#x5219; updateById&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x5177;&#x4F53;&#x62A5;&#x9519;&#xFF0C;&#x53C2;&#x8003;&#x4E0B;&#x9762;&#x7684;&#xFF1A;CRUD&#x64CD;&#x4F5C;/&#x66F4;&#x65B0;</p>
+<p><br></p>
+<p>&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x82E5;&#x662F;&#x8DDF;&#x6570;&#x636E;&#x5E93;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x6216;&#x8005;&#x6570;&#x636E;&#x5E93;&#x662F;&#x4EE5;&#x4E0B;&#x5212;&#x7EBF;&#x5206;&#x5272;&#xFF0C;Java&#x7C7B;&#x5C5E;&#x6027;&#x662F;&#x4EE5;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x7684;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x6DFB;&#x52A0; @TableField&#xFF0C;mybatis-plus&#x6846;&#x67B6;&#x4F1A;&#x81EA;&#x52A8;&#x5339;&#x914D;</p>
+<p><br></p>
+<p>&#x6570;&#x636E;&#x5E93;&#x5B57;&#x6BB5;&#x503C;,  &#x4E0D;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8BE5;&#x503C;&#x7684;&#x60C5;&#x51B5;:  </p>
+<p>&#x5F53; <code>com.baomidou.mybatisplus.core.MybatisConfiguration.mapUnderscoreToCamelCase</code> &#x4E3A; true &#x65F6;, (mp&#x4E0B;&#x9ED8;&#x8BA4;&#x662F;true,mybatis&#x9ED8;&#x8BA4;&#x662F;false), &#x6570;&#x636E;&#x5E93;&#x5B57;&#x6BB5;&#x503C;.replace(&quot;_&quot;,&quot;&quot;).toUpperCase() == &#x5B9E;&#x4F53;&#x5C5E;&#x6027;&#x540D;.toUpperCase() </p>
+<p>&#x5F53; <code>com.baomidou.mybatisplus.core.MybatisConfiguration.mapUnderscoreToCamelCase</code> &#x4E3A; false &#x65F6;,  &#x6570;&#x636E;&#x5E93;&#x5B57;&#x6BB5;&#x503C;.toUpperCase() == &#x5B9E;&#x4F53;&#x5C5E;&#x6027;&#x540D;.toUpperCase()</p>
+<p><br></p>
+<p>&#x82E5;&#x662F;JavaBean&#x4E2D;&#x67D0;&#x4E9B;&#x5C5E;&#x6027;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x5E93;&#x8868;&#x5B57;&#x6BB5;&#x7684;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0; @TableField(exist = false) &#x6765;&#x907F;&#x514D;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;SQL&#x5B57;&#x6BB5;&#x4E0D;&#x5B58;&#x5728;&#x95EE;&#x9898;</p>
+<p><br></p>
+<h2 id="applicationyml-&#x4E3B;&#x914D;&#x7F6E;"><a name="applicationyml-&#x4E3B;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#applicationyml-&#x4E3B;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>application.yml &#x4E3B;&#x914D;&#x7F6E;</h2>
+<p><br></p>
+<p>&#x914D;&#x7F6E;&#x6570;&#x636E;&#x6E90;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">server:</span>
+<span class="hljs-attr">  port:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">  servlet:</span>
+<span class="hljs-attr">    context-path:</span> /
+
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  datasource:</span>
+<span class="hljs-attr">    url:</span> jdbc:mysql://localhost:<span class="hljs-number">3306</span>/test?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf<span class="hljs-bullet">-8</span>&amp;useSSL=<span class="hljs-literal">true</span>&amp;serverTimezone=UTC
+<span class="hljs-attr">    driver-class-name:</span> com.mysql.cj.jdbc.Driver
+<span class="hljs-attr">    username:</span> root
+<span class="hljs-attr">    password:</span> mysql
+</code></pre>
+<p><br></p>
+<h2 id="&#x7F16;&#x5199;mapper"><a name="&#x7F16;&#x5199;mapper" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x5199;mapper"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x5199;mapper</h2>
+<p><br></p>
+<p>&#x96C6;&#x6210;mybatis-plus mapper&#x63A5;&#x53E3;&#x7EE7;&#x627F; BaseMapper &#x5373;&#x53EF;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x5355;&#x8868;&#x7684;CRUD&#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x7F16;&#x5199;xml&#x6587;&#x4EF6;&#x4E86;&#xFF0C;&#x7C7B;&#x4F3C;JPA&#x6846;&#x67B6;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;</p>
+<pre><code class="lang-java">
+<span class="hljs-meta">@Repository</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IUserInfoMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseMapper</span>&lt;<span class="hljs-title">UserInfo</span>&gt;</span>{
+
+}
+</code></pre>
+<p><br></p>
+<p>BaseMapper &#x5BF9;&#x5355;&#x8868;&#x7684;&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><img src="img/mybatis_plus_basemapper.png" alt="BaseMapper.java"></p>
+<p><br></p>
+<h2 id="&#x4E3B;&#x542F;&#x52A8;&#x7C7B;"><a name="&#x4E3B;&#x542F;&#x52A8;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#&#x4E3B;&#x542F;&#x52A8;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3B;&#x542F;&#x52A8;&#x7C7B;</h2>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@MapperScan</span>(<span class="hljs-string">&quot;com.tianya.springboot.mybatis.plus.mapper&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LearnMybatisPlusApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(LearnMybatisPlusApplication.class, args);
+    }
+
+}
+</code></pre>
+<p><br></p>
+<h2 id="mapper-crud&#x64CD;&#x4F5C;"><a name="mapper-crud&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#mapper-crud&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>Mapper CRUD&#x64CD;&#x4F5C;</h2>
+<p><br></p>
+<p>mapper&#x63A5;&#x53E3; &#x7EE7;&#x627F; BaseMapper &#x63A5;&#x53E3;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;&#x5355;&#x8868;&#x7684; CRUD&#x5FEB;&#x6377;API&#x64CD;&#x4F5C;</p>
+<p><br></p>
+<p>&#x6765;&#x5B9E;&#x9645;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B; mybatis-plus&#x4FBF;&#x6377;&#x4E4B;&#x5904;</p>
+<p>&#x6B64;&#x5904;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x968F;&#x673A;&#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7684;&#x5DE5;&#x5177;jar</p>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- &#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5DE5;&#x5177; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.javafaker<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javafaker<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x968F;&#x673A;&#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#xFF0C;&#x907F;&#x514D;&#x81EA;&#x5DF1;&#x5236;&#x9020;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5934;&#x75DB;</p>
+<p><br></p>
+<h3 id="&#x65B0;&#x589E;"><a name="&#x65B0;&#x589E;" class="anchor-navigation-ex-anchor" href="#&#x65B0;&#x589E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B0;&#x589E;</h3>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x63D2;&#x5165;&#x5BF9;&#x8C61;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insert</span><span class="hljs-params">(T entity)</span></span>;
+</code></pre>
+<p><br></p>
+<p>&#x6D4B;&#x8BD5;&#x65B0;&#x589E;&#x7528;&#x6237;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-java">
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">()</span> </span>{
+
+    Faker faker = <span class="hljs-keyword">new</span> Faker(Locale.SIMPLIFIED_CHINESE);
+
+    <span class="hljs-comment">// &#x6D4B;&#x8BD5; &#x65B0;&#x589E; 10 &#x4E2A;&#x7528;&#x6237;</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+
+        <span class="hljs-comment">// &#x7528;&#x6237;&#x4FE1;&#x606F;</span>
+        UserInfo userInfo = UserInfo.builder()
+                .userName(faker.name().fullName())
+                .userIdcard(faker.idNumber().invalid())
+                .homeAddress(faker.address().fullAddress())
+                .birthDay(faker.date().birthday())
+                .age(faker.number().numberBetween(<span class="hljs-number">1</span>, <span class="hljs-number">120</span>))
+                .height(faker.number().numberBetween(<span class="hljs-number">50</span>, <span class="hljs-number">200</span>))
+                .sex(SEX_MAP.get(faker.number().numberBetween(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)))
+                .build();
+
+        <span class="hljs-comment">// &#x65B0;&#x589E;</span>
+        userInfoMapper.insert(userInfo);
+    }
+
+}
+</code></pre>
+<p><br></p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">75</span>,
+        <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1974&#x5E74;10&#x6708;28&#x65E5;&quot;</span>,
+        <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">94</span>,
+        <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x4F59;&#x5DF7;&quot;</span>,
+        <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x5973;&quot;</span>,
+        <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">11</span>,
+        <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;000-98-3709&quot;</span>,
+        <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x6797;&#x70E8;&#x9716;&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">87</span>,
+        <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1977&#x5E74;09&#x6708;05&#x65E5;&quot;</span>,
+        <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">118</span>,
+        <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;Suite 078 &#x8881;&#x6865;36104&#x53F7;, &#x91D1;&#x534E;, &#x6D59; 723135&quot;</span>,
+        <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x5973;&quot;</span>,
+        <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">27</span>,
+        <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;114-00-3888&quot;</span>,
+        <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x90B9;&#x96E8;&#x6CFD;&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">12</span>,
+        <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1965&#x5E74;09&#x6708;05&#x65E5;&quot;</span>,
+        <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">150</span>,
+        <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;Suite 118 &#x8C22;&#x4E2D;&#x5FC3;0798&#x53F7;, &#x8862;&#x5DDE;, &#x6842; 350938&quot;</span>,
+        <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x7537;&quot;</span>,
+        <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">28</span>,
+        <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;435-25-0000&quot;</span>,
+        <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x8303;&#x91D1;&#x946B;&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">30</span>,
+        <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1996&#x5E74;07&#x6708;04&#x65E5;&quot;</span>,
+        <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">84</span>,
+        <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x960E;&#x4E2D;&#x5FC3;50&#x53F7;, &#x6D77;&#x53E3;, &#x6E58; 888025&quot;</span>,
+        <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x5973;&quot;</span>,
+        <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">29</span>,
+        <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;162-11-0000&quot;</span>,
+        <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x7A0B;&#x70AB;&#x660E;&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">84</span>,
+        <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1972&#x5E74;06&#x6708;14&#x65E5;&quot;</span>,
+        <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">144</span>,
+        <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x5218;&#x8857;3928&#x53F7;, &#x5E73;&#x9876;&#x5C71;, &#x8C6B; 904305&quot;</span>,
+        <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x7537;&quot;</span>,
+        <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">30</span>,
+        <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;638-77-0000&quot;</span>,
+        <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x6C6A;&#x946B;&#x9E4F;&quot;</span>
+    }
+]
+</code></pre>
+<p><br></p>
+<h3 id="&#x67E5;&#x8BE2;"><a name="&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x8BE2;</h3>
+<p><br></p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x6839;&#x636E; entity &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55; &#x5C01;&#x88C5; &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;</span>
+<span class="hljs-function">List&lt;T&gt; <span class="hljs-title">selectList</span><span class="hljs-params">(@Param(Constants.WRAPPER)</span> Wrapper&lt;T&gt; queryWrapper)</span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;</span>
+List&lt;Map&lt;String, Object&gt;&gt; selectMaps(<span class="hljs-meta">@Param</span>(Constants.WRAPPER) Wrapper&lt;T&gt; queryWrapper);
+
+<span class="hljs-comment">// &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6; &#x67E5;&#x8BE2;&#x603B;&#x8BB0;&#x5F55;&#x6570;</span>
+<span class="hljs-function">Integer <span class="hljs-title">selectCount</span><span class="hljs-params">(@Param(Constants.WRAPPER)</span> Wrapper&lt;T&gt; queryWrapper)</span>;
+
+<span class="hljs-comment">// &#x67E5;&#x8BE2;&#x5355;&#x6761;&#x8BB0;&#x5F55;</span>
+<span class="hljs-function">T <span class="hljs-title">selectOne</span><span class="hljs-params">(@Param(Constants.WRAPPER)</span> Wrapper&lt;T&gt; queryWrapper)</span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E;&#x4E3B;&#x952E;ID&#x67E5;&#x8BE2;</span>
+<span class="hljs-function">T <span class="hljs-title">selectById</span><span class="hljs-params">(Serializable id)</span></span>;
+</code></pre>
+<p><br></p>
+<p>&#x67E5;&#x8BE2;&#x6240;&#x6709;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getList</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// &#x67E5;&#x8BE2;&#x6240;&#x6709;</span>
+    List&lt;UserInfo&gt; selectList = userInfoMapper.selectList(<span class="hljs-keyword">null</span>);
+    System.out.println(<span class="hljs-string">&quot;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF1A;&quot;</span>);
+    System.out.println(JSON.toJSONString(selectList, <span class="hljs-keyword">true</span>));
+}
+</code></pre>
+<p><br></p>
+<h3 id="&#x5206;&#x9875;&#x67E5;&#x8BE2;"><a name="&#x5206;&#x9875;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x9875;&#x67E5;&#x8BE2;</h3>
+<p><br></p>
+<p>&#x5206;&#x9875;&#x67E5;&#x8BE2; mapper&#x4E2D; &#x5BF9;&#x5E94;&#x7684; API &#x64CD;&#x4F5C;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x6839;&#x636E; entity &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;&#xFF08;&#x5E76;&#x7FFB;&#x9875;&#xFF09;</span>
+&lt;E extends IPage&lt;T&gt;&gt; <span class="hljs-function">E <span class="hljs-title">selectPage</span><span class="hljs-params">(E page, Wrapper&lt;T&gt; queryWrapper)</span></span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;&#xFF08;&#x5E76;&#x7FFB;&#x9875;&#xFF09;</span>
+&lt;E extends IPage&lt;Map&lt;String, Object&gt;&gt;&gt; <span class="hljs-function">E <span class="hljs-title">selectMapsPage</span><span class="hljs-params">(E page, Wrapper&lt;T&gt; queryWrapper)</span></span>;
+</code></pre>
+<p><br></p>
+<p>&#x4F46;&#x662F;&#x6B64; API&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x642D;&#x914D; mybatis-plus&#x4E2D;&#x7684;&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x624D;&#x6709;&#x6548;&#x679C;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7684; &#x5168;&#x90E8;&#xFF0C;&#x6CA1;&#x6709;&#x5206;&#x9875;&#x9650;&#x5236;</p>
+<p><br></p>
+<h4 id="&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;"><a name="&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;</h4>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>
+ *    Mybatis-Plus&#x603B;&#x914D;&#x7F6E;&#x7C7B; &#x5206;&#x9875;&#x63D2;&#x4EF6;
+ * <span class="hljs-doctag">@author</span> TianwYam
+ * <span class="hljs-doctag">@date</span> 2021&#x5E74;10&#x6708;14&#x65E5;&#x4E0A;&#x5348;11:16:45
+ */</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MybatisPlusConfig</span> </span>{
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> PaginationInterceptor <span class="hljs-title">paginationInterceptor</span><span class="hljs-params">()</span> </span>{
+        PaginationInterceptor paginationInterceptor = <span class="hljs-keyword">new</span> PaginationInterceptor();
+        <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x7684;&#x9875;&#x9762;&#x5927;&#x4E8E;&#x6700;&#x5927;&#x9875;&#x540E;&#x64CD;&#x4F5C;&#xFF0C; true&#x8C03;&#x56DE;&#x5230;&#x9996;&#x9875;&#xFF0C;false &#x7EE7;&#x7EED;&#x8BF7;&#x6C42;  &#x9ED8;&#x8BA4;false</span>
+        <span class="hljs-comment">// paginationInterceptor.setOverflow(false);</span>
+        <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x5355;&#x9875;&#x9650;&#x5236;&#x6570;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4; 500 &#x6761;&#xFF0C;-1 &#x4E0D;&#x53D7;&#x9650;&#x5236;</span>
+        <span class="hljs-comment">// paginationInterceptor.setLimit(500);</span>
+        <span class="hljs-comment">// &#x5F00;&#x542F; count &#x7684; join &#x4F18;&#x5316;,&#x53EA;&#x9488;&#x5BF9;&#x90E8;&#x5206; left join</span>
+        paginationInterceptor.setCountSqlParser(<span class="hljs-keyword">new</span> JsqlParserCountOptimize(<span class="hljs-keyword">true</span>));
+        <span class="hljs-keyword">return</span> paginationInterceptor;
+    }
+
+}
+</code></pre>
+<p><br></p>
+<p>&#x914D;&#x7F6E;&#x5B8C;&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mybatis-plus&#x63D0;&#x4F9B;&#x7684;&#x5206;&#x9875;API&#x8FDB;&#x884C;&#x5206;&#x9875;&#x67E5;&#x8BE2;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;XML&#x6587;&#x4EF6;&#x7F16;&#x5199;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;</p>
+<p><br></p>
+<h4 id="&#x5206;&#x9875;&#x67E5;&#x8BE2;-&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;"><a name="&#x5206;&#x9875;&#x67E5;&#x8BE2;-&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;-&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x9875;&#x67E5;&#x8BE2; &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</h4>
+<p><br></p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getQueryList</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// &#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#xFF08;&#x67E5;&#x8BE2;&#x8EAB;&#x9AD8;&#x5728;1&#x7C73;-2&#x7C73;&#x4E4B;&#x95F4;&#x7684; &#x4EE5;&#x5E74;&#x9F84;&#x5012;&#x5E8F;&#x6392;&#x5E8F;&#xFF0C;&#x67E5;&#x8BE2;&#x7B2C;&#x4E00;&#x9875;3&#x4E2A; TOP3&#xFF09;</span>
+    LambdaQueryWrapper&lt;UserInfo&gt; queryWrapper = Wrappers.lambdaQuery(UserInfo.class)
+            .orderByDesc(UserInfo::getAge)
+            .between(UserInfo::getHeight, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>);
+
+    Page&lt;UserInfo&gt; page = <span class="hljs-keyword">new</span> Page&lt;UserInfo&gt;(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
+    page.setSearchCount(<span class="hljs-keyword">true</span>);
+
+    <span class="hljs-comment">// &#x82E5;&#x662F;&#x6CA1;&#x6709;&#x914D;&#x7F6E; &#x5206;&#x9875;&#x63D2;&#x4EF6;&#xFF0C;&#x5219; selectPage &#x5206;&#x9875;API &#x4E0D;&#x751F;&#x6548;</span>
+    page = userInfoMapper.selectPage(page, queryWrapper);
+
+    System.out.println(<span class="hljs-string">&quot;&#x5206;&#x9875;&#x67E5;&#x8BE2;&#xFF1A;&quot;</span>);
+    System.out.println(<span class="hljs-string">&quot;&#x603B;&#x8BB0;&#x5F55;&#x6570;&#xFF1A;&quot;</span> + page.getTotal());
+    System.out.println(JSON.toJSONString(page, <span class="hljs-keyword">true</span>));
+}
+</code></pre>
+<p><br></p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;current&quot;</span>:<span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;hitCount&quot;</span>:<span class="hljs-literal">false</span>,
+    <span class="hljs-string">&quot;optimizeCountSql&quot;</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;orders&quot;</span>:[],
+    <span class="hljs-string">&quot;pages&quot;</span>:<span class="hljs-number">5</span>,
+    <span class="hljs-string">&quot;records&quot;</span>:[
+        {
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">93</span>,
+            <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1970&#x5E74;07&#x6708;23&#x65E5;&quot;</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">157</span>,
+            <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x6BB5;&#x8DEF;7&#x53F7;, &#x5317;&#x4EAC;, &#x5B81; 451930&quot;</span>,
+            <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x7537;&quot;</span>,
+            <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">25</span>,
+            <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;666-37-8505&quot;</span>,
+            <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x6731;&#x9E64;&#x8F69;&quot;</span>
+        },
+        {
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">84</span>,
+            <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1972&#x5E74;06&#x6708;14&#x65E5;&quot;</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">144</span>,
+            <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x5218;&#x8857;3928&#x53F7;, &#x5E73;&#x9876;&#x5C71;, &#x8C6B; 904305&quot;</span>,
+            <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x7537;&quot;</span>,
+            <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">30</span>,
+            <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;638-77-0000&quot;</span>,
+            <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x6C6A;&#x946B;&#x9E4F;&quot;</span>
+        },
+        {
+            <span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">79</span>,
+            <span class="hljs-string">&quot;birthDay&quot;</span>:<span class="hljs-string">&quot;1984&#x5E74;01&#x6708;17&#x65E5;&quot;</span>,
+            <span class="hljs-string">&quot;height&quot;</span>:<span class="hljs-number">113</span>,
+            <span class="hljs-string">&quot;homeAddress&quot;</span>:<span class="hljs-string">&quot;&#x8D75;&#x8857;&quot;</span>,
+            <span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;&#x7537;&quot;</span>,
+            <span class="hljs-string">&quot;userId&quot;</span>:<span class="hljs-number">14</span>,
+            <span class="hljs-string">&quot;userIdcard&quot;</span>:<span class="hljs-string">&quot;666-95-6869&quot;</span>,
+            <span class="hljs-string">&quot;userName&quot;</span>:<span class="hljs-string">&quot;&#x960E;&#x4FCA;&#x9A70;&quot;</span>
+        }
+    ],
+    <span class="hljs-string">&quot;searchCount&quot;</span>:<span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;size&quot;</span>:<span class="hljs-number">3</span>,
+    <span class="hljs-string">&quot;total&quot;</span>:<span class="hljs-number">14</span>
+}
+</code></pre>
+<h3 id="&#x5220;&#x9664;"><a name="&#x5220;&#x9664;" class="anchor-navigation-ex-anchor" href="#&#x5220;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5220;&#x9664;</h3>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x6839;&#x636E;ID&#x5220;&#x9664;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteById</span><span class="hljs-params">(Serializable id)</span></span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E; columnMap &#x6761;&#x4EF6;&#xFF0C;&#x5220;&#x9664;&#x8BB0;&#x5F55;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteByMap</span><span class="hljs-params">(Map&lt;String, Object&gt; columnMap)</span></span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E; entity &#x6761;&#x4EF6;&#xFF0C;&#x5220;&#x9664;&#x8BB0;&#x5F55;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(Wrapper&lt;T&gt; wrapper)</span></span>;
+
+<span class="hljs-comment">// &#x5220;&#x9664;&#xFF08;&#x6839;&#x636E;ID &#x6279;&#x91CF;&#x5220;&#x9664;&#xFF09;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteBatchIds</span><span class="hljs-params">(Collection&lt;? extends Serializable&gt; idList)</span></span>;
+</code></pre>
+<p><br></p>
+<p>&#x6839;&#x636E;ID&#x5220;&#x9664;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// &#x5220;&#x9664;</span>
+    userInfoMapper.deleteById(<span class="hljs-number">20</span>);
+
+}
+</code></pre>
+<p><br></p>
+<h3 id="&#x66F4;&#x65B0;"><a name="&#x66F4;&#x65B0;" class="anchor-navigation-ex-anchor" href="#&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;</h3>
+<p><br></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">// &#x6839;&#x636E; ID &#x4FEE;&#x6539;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">updateById</span><span class="hljs-params">(@Param(Constants.ENTITY)</span> T entity)</span>;
+
+<span class="hljs-comment">// &#x6839;&#x636E; whereEntity &#x6761;&#x4EF6;&#xFF0C;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">( T entity,  Wrapper&lt;T&gt; updateWrapper)</span></span>;
+</code></pre>
+<p><br></p>
+<p>&#x66F4;&#x52A0;ID&#x8FDB;&#x884C;&#x4FEE;&#x6539;</p>
+<pre><code class="lang-java">
+<span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// &#x67E5;&#x8BE2;&#x5355;&#x4E2A;</span>
+    UserInfo userInfo = userInfoMapper.selectOne(Wrappers.lambdaQuery(UserInfo.class)
+            .eq(UserInfo::getUserId, <span class="hljs-number">27</span>));
+
+    System.out.println(<span class="hljs-string">&quot;&#x4FEE;&#x6539;&#x524D;&#xFF1A;&quot;</span>);
+    System.out.println(JSON.toJSONString(userInfo, <span class="hljs-keyword">true</span>));
+
+    <span class="hljs-comment">// &#x4FEE;&#x6539;&#x503C;</span>
+    userInfo.setAge(<span class="hljs-number">70</span>);
+    userInfo.setSex(SEX_MAP.get(<span class="hljs-number">1</span>));
+    userInfo.setHeight(<span class="hljs-number">178</span>);
+
+    <span class="hljs-comment">// &#x66F4;&#x65B0;</span>
+    userInfoMapper.updateById(userInfo);
+
+    System.out.println(<span class="hljs-string">&quot;&#x4FEE;&#x6539;&#x540E;&#xFF1A;&quot;</span>);
+    System.out.println(JSON.toJSONString(userInfo, <span class="hljs-keyword">true</span>));
+}
+</code></pre>
+<p><br></p>
+<p>&#x82E5;&#x662F;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x5219;&#x8BF4;&#x660E; &#x5B9E;&#x4F53;&#x7C7B;&#x6CA1;&#x6709;&#x6DFB;&#x52A0; &#x8868;ID&#x4E3B;&#x952E;&#x6CE8;&#x89E3;&#xFF1A;@TableId</p>
+<p><br></p>
+<pre><code class="lang-verilog">org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter <span class="hljs-keyword">for</span> property named &apos;null&apos; in &apos;class com.tianya.springboot.mybatis.plus.entity.UserInfo&apos;
+    at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:<span class="hljs-number">92</span>)
+    at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:<span class="hljs-number">440</span>)
+    at com.sun.proxy.$Proxy83.update(Unknown Source)
+    at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:<span class="hljs-number">287</span>)
+    at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:<span class="hljs-number">65</span>)
+    at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:<span class="hljs-number">96</span>)
+    at com.sun.proxy.$Proxy104.updateById(Unknown Source)
+
+    ... <span class="hljs-number">82</span> more
+</code></pre>
+<p><br></p>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-json">## &#x4FEE;&#x6539;&#x524D;&#xFF1A;
+{
+    &quot;age&quot;:67,
+    &quot;birthDay&quot;:&quot;1977&#x5E74;09&#x6708;05&#x65E5;&quot;,
+    &quot;height&quot;:118,
+    &quot;homeAddress&quot;:&quot;Suite 078 &#x8881;&#x6865;36104&#x53F7;, &#x91D1;&#x534E;, &#x6D59; 723135&quot;,
+    &quot;sex&quot;:&quot;&#x5973;&quot;,
+    &quot;userId&quot;:27,
+    &quot;userIdcard&quot;:&quot;114-00-3888&quot;,
+    &quot;userName&quot;:&quot;&#x90B9;&#x96E8;&#x6CFD;&quot;
+}
+
+## &#x4FEE;&#x6539;&#x540E;&#xFF1A;
+{
+    &quot;age&quot;:70,
+    &quot;birthDay&quot;:&quot;1977&#x5E74;09&#x6708;05&#x65E5;&quot;,
+    &quot;height&quot;:178,
+    &quot;homeAddress&quot;:&quot;Suite 078 &#x8881;&#x6865;36104&#x53F7;, &#x91D1;&#x534E;, &#x6D59; 723135&quot;,
+    &quot;sex&quot;:&quot;&#x7537;&quot;,
+    &quot;userId&quot;:27,
+    &quot;userIdcard&quot;:&quot;114-00-3888&quot;,
+    &quot;userName&quot;:&quot;&#x90B9;&#x96E8;&#x6CFD;&quot;
+}
+</code></pre>
+<p><br></p>
+<h2 id="service-crud&#x64CD;&#x4F5C;"><a name="service-crud&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#service-crud&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>Service CRUD&#x64CD;&#x4F5C;</h2>
+<p><br></p>
+<p>mybatis-plus&#x6846;&#x67B6; &#x63D0;&#x4F9B;&#x4E86; &#x9488;&#x5BF9; &#x670D;&#x52A1;&#x5C42;service&#x7684;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x63A5;&#x53E3;&#xFF0C;&#x63D0;&#x4F9B;&#x66F4;&#x52A0;&#x4E30;&#x5BCC;&#x7684; CRUD API &#x64CD;&#x4F5C;</p>
+<pre><code class="lang-java">com.baomidou.mybatisplus.extension.service.IService&lt;T&gt;
+</code></pre>
+<p><br></p>
+<p>&#x53EA;&#x9700;&#x8981; &#x5B9E;&#x73B0; IService &#x5373;&#x53EF;</p>
+<p><br></p>
+<p>&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;API&#xFF1A;</p>
+<pre><code class="lang-java">
+
+    <span class="hljs-comment">/**
+     * &#x9ED8;&#x8BA4;&#x6279;&#x6B21;&#x63D0;&#x4EA4;&#x6570;&#x91CF;
+     */</span>
+    <span class="hljs-keyword">int</span> DEFAULT_BATCH_SIZE = <span class="hljs-number">1000</span>;
+
+    <span class="hljs-comment">/**
+     * &#x63D2;&#x5165;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#xFF08;&#x9009;&#x62E9;&#x5B57;&#x6BB5;&#xFF0C;&#x7B56;&#x7565;&#x63D2;&#x5165;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> entity &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">save</span><span class="hljs-params">(T entity)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().insert(entity));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x63D2;&#x5165;&#xFF08;&#x6279;&#x91CF;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     */</span>
+    <span class="hljs-meta">@Transactional</span>(rollbackFor = Exception.class)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">saveBatch</span><span class="hljs-params">(Collection&lt;T&gt; entityList)</span> </span>{
+        <span class="hljs-keyword">return</span> saveBatch(entityList, DEFAULT_BATCH_SIZE);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x63D2;&#x5165;&#xFF08;&#x6279;&#x91CF;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     * <span class="hljs-doctag">@param</span> batchSize  &#x63D2;&#x5165;&#x6279;&#x6B21;&#x6570;&#x91CF;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">saveBatch</span><span class="hljs-params">(Collection&lt;T&gt; entityList, <span class="hljs-keyword">int</span> batchSize)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6279;&#x91CF;&#x4FEE;&#x6539;&#x63D2;&#x5165;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     */</span>
+    <span class="hljs-meta">@Transactional</span>(rollbackFor = Exception.class)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">saveOrUpdateBatch</span><span class="hljs-params">(Collection&lt;T&gt; entityList)</span> </span>{
+        <span class="hljs-keyword">return</span> saveOrUpdateBatch(entityList, DEFAULT_BATCH_SIZE);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6279;&#x91CF;&#x4FEE;&#x6539;&#x63D2;&#x5165;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     * <span class="hljs-doctag">@param</span> batchSize  &#x6BCF;&#x6B21;&#x7684;&#x6570;&#x91CF;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">saveOrUpdateBatch</span><span class="hljs-params">(Collection&lt;T&gt; entityList, <span class="hljs-keyword">int</span> batchSize)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; ID &#x5220;&#x9664;
+     *
+     * <span class="hljs-doctag">@param</span> id &#x4E3B;&#x952E;ID
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">removeById</span><span class="hljs-params">(Serializable id)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().deleteById(id));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; columnMap &#x6761;&#x4EF6;&#xFF0C;&#x5220;&#x9664;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> columnMap &#x8868;&#x5B57;&#x6BB5; map &#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">removeByMap</span><span class="hljs-params">(Map&lt;String, Object&gt; columnMap)</span> </span>{
+        Assert.notEmpty(columnMap, <span class="hljs-string">&quot;error: columnMap must not be empty&quot;</span>);
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().deleteByMap(columnMap));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; entity &#x6761;&#x4EF6;&#xFF0C;&#x5220;&#x9664;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5305;&#x88C5;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().delete(queryWrapper));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x5220;&#x9664;&#xFF08;&#x6839;&#x636E;ID &#x6279;&#x91CF;&#x5220;&#x9664;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> idList &#x4E3B;&#x952E;ID&#x5217;&#x8868;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">removeByIds</span><span class="hljs-params">(Collection&lt;? extends Serializable&gt; idList)</span> </span>{
+        <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(idList)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().deleteBatchIds(idList));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; ID &#x9009;&#x62E9;&#x4FEE;&#x6539;
+     *
+     * <span class="hljs-doctag">@param</span> entity &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">updateById</span><span class="hljs-params">(T entity)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().updateById(entity));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; UpdateWrapper &#x6761;&#x4EF6;&#xFF0C;&#x66F4;&#x65B0;&#x8BB0;&#x5F55; &#x9700;&#x8981;&#x8BBE;&#x7F6E;sqlset
+     *
+     * <span class="hljs-doctag">@param</span> updateWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">update</span><span class="hljs-params">(Wrapper&lt;T&gt; updateWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> update(<span class="hljs-keyword">null</span>, updateWrapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; whereEntity &#x6761;&#x4EF6;&#xFF0C;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> entity        &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;
+     * <span class="hljs-doctag">@param</span> updateWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">update</span><span class="hljs-params">(T entity, Wrapper&lt;T&gt; updateWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retBool(getBaseMapper().update(entity, updateWrapper));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E;ID &#x6279;&#x91CF;&#x66F4;&#x65B0;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     */</span>
+    <span class="hljs-meta">@Transactional</span>(rollbackFor = Exception.class)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">updateBatchById</span><span class="hljs-params">(Collection&lt;T&gt; entityList)</span> </span>{
+        <span class="hljs-keyword">return</span> updateBatchById(entityList, DEFAULT_BATCH_SIZE);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E;ID &#x6279;&#x91CF;&#x66F4;&#x65B0;
+     *
+     * <span class="hljs-doctag">@param</span> entityList &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x96C6;&#x5408;
+     * <span class="hljs-doctag">@param</span> batchSize  &#x66F4;&#x65B0;&#x6279;&#x6B21;&#x6570;&#x91CF;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">updateBatchById</span><span class="hljs-params">(Collection&lt;T&gt; entityList, <span class="hljs-keyword">int</span> batchSize)</span></span>;
+
+    <span class="hljs-comment">/**
+     * TableId &#x6CE8;&#x89E3;&#x5B58;&#x5728;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;&#xFF0C;&#x5426;&#x63D2;&#x5165;&#x4E00;&#x6761;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> entity &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">saveOrUpdate</span><span class="hljs-params">(T entity)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; ID &#x67E5;&#x8BE2;
+     *
+     * <span class="hljs-doctag">@param</span> id &#x4E3B;&#x952E;ID
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> T <span class="hljs-title">getById</span><span class="hljs-params">(Serializable id)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectById(id);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#xFF08;&#x6839;&#x636E;ID &#x6279;&#x91CF;&#x67E5;&#x8BE2;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> idList &#x4E3B;&#x952E;ID&#x5217;&#x8868;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;T&gt; <span class="hljs-title">listByIds</span><span class="hljs-params">(Collection&lt;? extends Serializable&gt; idList)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectBatchIds(idList);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#xFF08;&#x6839;&#x636E; columnMap &#x6761;&#x4EF6;&#xFF09;
+     *
+     * <span class="hljs-doctag">@param</span> columnMap &#x8868;&#x5B57;&#x6BB5; map &#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;T&gt; <span class="hljs-title">listByMap</span><span class="hljs-params">(Map&lt;String, Object&gt; columnMap)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectByMap(columnMap);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper&#xFF0C;&#x67E5;&#x8BE2;&#x4E00;&#x6761;&#x8BB0;&#x5F55; &lt;br/&gt;
+     * &lt;p&gt;&#x7ED3;&#x679C;&#x96C6;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x591A;&#x4E2A;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x968F;&#x673A;&#x53D6;&#x4E00;&#x6761;&#x52A0;&#x4E0A;&#x9650;&#x5236;&#x6761;&#x4EF6; wrapper.last(&quot;LIMIT 1&quot;)&lt;/p&gt;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> T <span class="hljs-title">getOne</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> getOne(queryWrapper, <span class="hljs-keyword">true</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper&#xFF0C;&#x67E5;&#x8BE2;&#x4E00;&#x6761;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     * <span class="hljs-doctag">@param</span> throwEx      &#x6709;&#x591A;&#x4E2A; result &#x662F;&#x5426;&#x629B;&#x51FA;&#x5F02;&#x5E38;
+     */</span>
+    <span class="hljs-function">T <span class="hljs-title">getOne</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper, <span class="hljs-keyword">boolean</span> throwEx)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper&#xFF0C;&#x67E5;&#x8BE2;&#x4E00;&#x6761;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function">Map&lt;String, Object&gt; <span class="hljs-title">getMap</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper&#xFF0C;&#x67E5;&#x8BE2;&#x4E00;&#x6761;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     * <span class="hljs-doctag">@param</span> mapper       &#x8F6C;&#x6362;&#x51FD;&#x6570;
+     */</span>
+    &lt;V&gt; <span class="hljs-function">V <span class="hljs-title">getObj</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper, Function&lt;? <span class="hljs-keyword">super</span> Object, V&gt; mapper)</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x603B;&#x8BB0;&#x5F55;&#x6570;
+     *
+     * <span class="hljs-doctag">@see</span> Wrappers#emptyWrapper()
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> count(Wrappers.emptyWrapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x603B;&#x8BB0;&#x5F55;&#x6570;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> SqlHelper.retCount(getBaseMapper().selectCount(queryWrapper));
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x5217;&#x8868;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;T&gt; <span class="hljs-title">list</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectList(queryWrapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x6240;&#x6709;
+     *
+     * <span class="hljs-doctag">@see</span> Wrappers#emptyWrapper()
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;T&gt; <span class="hljs-title">list</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> list(Wrappers.emptyWrapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x7FFB;&#x9875;&#x67E5;&#x8BE2;
+     *
+     * <span class="hljs-doctag">@param</span> page         &#x7FFB;&#x9875;&#x5BF9;&#x8C61;
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;E extends IPage&lt;T&gt;&gt; <span class="hljs-function">E <span class="hljs-title">page</span><span class="hljs-params">(E page, Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectPage(page, queryWrapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x65E0;&#x6761;&#x4EF6;&#x7FFB;&#x9875;&#x67E5;&#x8BE2;
+     *
+     * <span class="hljs-doctag">@param</span> page &#x7FFB;&#x9875;&#x5BF9;&#x8C61;
+     * <span class="hljs-doctag">@see</span> Wrappers#emptyWrapper()
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;E extends IPage&lt;T&gt;&gt; <span class="hljs-function">E <span class="hljs-title">page</span><span class="hljs-params">(E page)</span> </span>{
+        <span class="hljs-keyword">return</span> page(page, Wrappers.emptyWrapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x5217;&#x8868;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-keyword">default</span> List&lt;Map&lt;String, Object&gt;&gt; listMaps(Wrapper&lt;T&gt; queryWrapper) {
+        <span class="hljs-keyword">return</span> getBaseMapper().selectMaps(queryWrapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5217;&#x8868;
+     *
+     * <span class="hljs-doctag">@see</span> Wrappers#emptyWrapper()
+     */</span>
+    <span class="hljs-keyword">default</span> List&lt;Map&lt;String, Object&gt;&gt; listMaps() {
+        <span class="hljs-keyword">return</span> listMaps(Wrappers.emptyWrapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;Object&gt; <span class="hljs-title">listObjs</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> listObjs(Function.identity());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> mapper &#x8F6C;&#x6362;&#x51FD;&#x6570;
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;V&gt; <span class="hljs-function">List&lt;V&gt; <span class="hljs-title">listObjs</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> Object, V&gt; mapper)</span> </span>{
+        <span class="hljs-keyword">return</span> listObjs(Wrappers.emptyWrapper(), mapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;Object&gt; <span class="hljs-title">listObjs</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> listObjs(queryWrapper, Function.identity());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6839;&#x636E; Wrapper &#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x5168;&#x90E8;&#x8BB0;&#x5F55;
+     *
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     * <span class="hljs-doctag">@param</span> mapper       &#x8F6C;&#x6362;&#x51FD;&#x6570;
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;V&gt; <span class="hljs-function">List&lt;V&gt; <span class="hljs-title">listObjs</span><span class="hljs-params">(Wrapper&lt;T&gt; queryWrapper, Function&lt;? <span class="hljs-keyword">super</span> Object, V&gt; mapper)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectObjs(queryWrapper).stream().filter(Objects::nonNull).map(mapper).collect(Collectors.toList());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x7FFB;&#x9875;&#x67E5;&#x8BE2;
+     *
+     * <span class="hljs-doctag">@param</span> page         &#x7FFB;&#x9875;&#x5BF9;&#x8C61;
+     * <span class="hljs-doctag">@param</span> queryWrapper &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x64CD;&#x4F5C;&#x7C7B; {<span class="hljs-doctag">@link</span> com.baomidou.mybatisplus.core.conditions.query.QueryWrapper}
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;E extends IPage&lt;Map&lt;String, Object&gt;&gt;&gt; <span class="hljs-function">E <span class="hljs-title">pageMaps</span><span class="hljs-params">(E page, Wrapper&lt;T&gt; queryWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> getBaseMapper().selectMapsPage(page, queryWrapper);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x65E0;&#x6761;&#x4EF6;&#x7FFB;&#x9875;&#x67E5;&#x8BE2;
+     *
+     * <span class="hljs-doctag">@param</span> page &#x7FFB;&#x9875;&#x5BF9;&#x8C61;
+     * <span class="hljs-doctag">@see</span> Wrappers#emptyWrapper()
+     */</span>
+    <span class="hljs-keyword">default</span> &lt;E extends IPage&lt;Map&lt;String, Object&gt;&gt;&gt; <span class="hljs-function">E <span class="hljs-title">pageMaps</span><span class="hljs-params">(E page)</span> </span>{
+        <span class="hljs-keyword">return</span> pageMaps(page, Wrappers.emptyWrapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x83B7;&#x53D6;&#x5BF9;&#x5E94; entity &#x7684; BaseMapper
+     *
+     * <span class="hljs-doctag">@return</span> BaseMapper
+     */</span>
+    <span class="hljs-function">BaseMapper&lt;T&gt; <span class="hljs-title">getBaseMapper</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">/**
+     * &#x4EE5;&#x4E0B;&#x7684;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;:
+     *
+     * &#x4E00;. &#x540D;&#x79F0;&#x4ECB;&#x7ECD;
+     * 1. &#x65B9;&#x6CD5;&#x540D;&#x5E26;&#x6709; query &#x7684;&#x4E3A;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;, &#x65B9;&#x6CD5;&#x540D;&#x5E26;&#x6709; update &#x7684;&#x4E3A;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;
+     * 2. &#x65B9;&#x6CD5;&#x540D;&#x5E26;&#x6709; lambda &#x7684;&#x4E3A;&#x5185;&#x90E8;&#x65B9;&#x6CD5;&#x5165;&#x53C2; column &#x652F;&#x6301;&#x51FD;&#x6570;&#x5F0F;&#x7684;
+     *
+     * &#x4E8C;. &#x652F;&#x6301;&#x4ECB;&#x7ECD;
+     * 1. &#x65B9;&#x6CD5;&#x540D;&#x5E26;&#x6709; query &#x7684;&#x652F;&#x6301;&#x4EE5; {<span class="hljs-doctag">@link</span> ChainQuery} &#x5185;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x7ED3;&#x5C3E;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;
+     * 2. &#x65B9;&#x6CD5;&#x540D;&#x5E26;&#x6709; update &#x7684;&#x652F;&#x6301;&#x4EE5; {<span class="hljs-doctag">@link</span> ChainUpdate} &#x5185;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x4E3A;&#x7ED3;&#x5C3E;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;
+     *
+     * &#x4E09;. &#x4F7F;&#x7528;&#x793A;&#x4F8B;,&#x53EA;&#x7528;&#x4E0D;&#x5E26; lambda &#x7684;&#x65B9;&#x6CD5;&#x5404;&#x5C55;&#x793A;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;,&#x5176;&#x4ED6;&#x7C7B;&#x63A8;
+     * 1. &#x6839;&#x636E;&#x6761;&#x4EF6;&#x83B7;&#x53D6;&#x4E00;&#x6761;&#x6570;&#x636E;: `query().eq(&quot;column&quot;, value).one()`
+     * 2. &#x6839;&#x636E;&#x6761;&#x4EF6;&#x5220;&#x9664;&#x4E00;&#x6761;&#x6570;&#x636E;: `update().eq(&quot;column&quot;, value).remove()`
+     *
+     */</span>
+
+    <span class="hljs-comment">/**
+     * &#x94FE;&#x5F0F;&#x67E5;&#x8BE2; &#x666E;&#x901A;
+     *
+     * <span class="hljs-doctag">@return</span> QueryWrapper &#x7684;&#x5305;&#x88C5;&#x7C7B;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> QueryChainWrapper&lt;T&gt; <span class="hljs-title">query</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> ChainWrappers.queryChain(getBaseMapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x94FE;&#x5F0F;&#x67E5;&#x8BE2; lambda &#x5F0F;
+     * &lt;p&gt;&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x652F;&#x6301; Kotlin &lt;/p&gt;
+     *
+     * <span class="hljs-doctag">@return</span> LambdaQueryWrapper &#x7684;&#x5305;&#x88C5;&#x7C7B;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> LambdaQueryChainWrapper&lt;T&gt; <span class="hljs-title">lambdaQuery</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> ChainWrappers.lambdaQueryChain(getBaseMapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x94FE;&#x5F0F;&#x66F4;&#x6539; &#x666E;&#x901A;
+     *
+     * <span class="hljs-doctag">@return</span> UpdateWrapper &#x7684;&#x5305;&#x88C5;&#x7C7B;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> UpdateChainWrapper&lt;T&gt; <span class="hljs-title">update</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> ChainWrappers.updateChain(getBaseMapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &#x94FE;&#x5F0F;&#x66F4;&#x6539; lambda &#x5F0F;
+     * &lt;p&gt;&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x652F;&#x6301; Kotlin &lt;/p&gt;
+     *
+     * <span class="hljs-doctag">@return</span> LambdaUpdateWrapper &#x7684;&#x5305;&#x88C5;&#x7C7B;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> LambdaUpdateChainWrapper&lt;T&gt; <span class="hljs-title">lambdaUpdate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> ChainWrappers.lambdaUpdateChain(getBaseMapper());
+    }
+
+    <span class="hljs-comment">/**
+     * &lt;p&gt;
+     * &#x6839;&#x636E;updateWrapper&#x5C1D;&#x8BD5;&#x66F4;&#x65B0;&#xFF0C;&#x5426;&#x7EE7;&#x7EED;&#x6267;&#x884C;saveOrUpdate(T)&#x65B9;&#x6CD5;
+     * &#x6B64;&#x6B21;&#x4FEE;&#x6539;&#x4E3B;&#x8981;&#x662F;&#x51CF;&#x5C11;&#x4E86;&#x6B64;&#x9879;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#xFF08;&#x5B58;&#x5728;&#x6027;&#x9A8C;&#x8BC1;&#x4E4B;&#x540E;&#x7684;saveOrUpdate&#x64CD;&#x4F5C;&#xFF09;
+     * &lt;/p&gt;
+     *
+     * <span class="hljs-doctag">@param</span> entity &#x5B9E;&#x4F53;&#x5BF9;&#x8C61;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">saveOrUpdate</span><span class="hljs-params">(T entity, Wrapper&lt;T&gt; updateWrapper)</span> </span>{
+        <span class="hljs-keyword">return</span> update(entity, updateWrapper) || saveOrUpdate(entity);
+    }
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright @copy tianwyam 2021 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-10-14 12:38:35
+</span></footer>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mybatis_metadata.html" class="navigation navigation-prev " aria-label="Previous page: mybatis中操作元数据">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../distributed/sharding-jdbc.html" class="navigation navigation-next " aria-label="Next page: 【分布式】sharding-jdbc实现分库分表">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"springboot集成mybatis-plus框架","level":"15.2","depth":1,"next":{"title":"【分布式】sharding-jdbc实现分库分表","level":"16.1","depth":1,"path":"distributed/sharding-jdbc.md","ref":"distributed/sharding-jdbc.md","articles":[]},"previous":{"title":"mybatis中操作元数据","level":"15.1","depth":1,"path":"mybatis/mybatis_metadata.md","ref":"mybatis/mybatis_metadata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-sharing","github","tbfed-pagefooter","splitter","pageview-count","anchor-navigation-ex","chapter-fold","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @copy tianwyam 2021","modify_label":"最后修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/tianwyam"},"livereload":{},"splitter":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"pageview-count":{},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tianwyam","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"JAVA学习积累","links":{"sidebar":{"博客Blog":"https://blog.csdn.net/mybook201314"}},"gitbook":"*","description":"积累Java学习过程中的知识点，俗话说：好记性不如烂笔头"},"file":{"path":"mybatis/mybatis_plus.md","mtime":"2021-10-14T04:38:35.283Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-23T06:43:09.312Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
