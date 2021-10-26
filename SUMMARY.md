@@ -134,7 +134,14 @@
  
 
 - [SQL常用使用](SQL/sql.md)
+
+
+
 - [redis学习笔记](redis/redis_study_notes.md)
+- [Redis中的队列list实现秒杀活动抢购](redis/redis_list_second_kill.md)
+
+
+
 - [mysql绿色版安装服务教程](SQL/sql_mysql_green_install.md)
 - [H2内嵌数据的使用](SQL/sql_h2.md)
 - [缓存](SQL/cache.md)
