@@ -116,7 +116,7 @@
 
 
 - [mybatis中操作元数据](mybatis/mybatis_metadata.md)
-
+- [mybatis中insert/update/delete标签中执行多条SQL语句](mybatis/mybatis_batch_exec_sql.md)
 - [springboot集成mybatis-plus框架](mybatis/mybatis_plus.md)
 
 
